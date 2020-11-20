@@ -1,0 +1,8 @@
+Dies ist eine txt Datei um einen TestPrush auf der Server zu machen
+
+test1234
+test bal bcscale
+spl_autoload_functions
+
+tsasdsfafasf
+trait_exists
