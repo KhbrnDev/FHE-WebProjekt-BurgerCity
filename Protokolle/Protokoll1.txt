@@ -1,0 +1,58 @@
+Protokoll WebGruppe 20.11.2020
+
+Beginn: 10:00 Uhr
+
+Ende: 11:00
+
+Anwesend: Martin, Daniel, Felix
+
+TOP1: Themenfindung
+
+Aus verschiedenen Vorschlägen fällt die Wahl auf die Shopseite eines Burgerladens. 
+
+TOP2: Austausch zu bisheriger HTML Erfahrung
+
+Bisher keine bis wenig Erfahrung. Bei Visual Studio Code traten Probleme auf bei der Erkennung von HTML/PHP. 
+
+TOP3: Aufbau der Seite
+
+Angebote: 
+	- Burger (fleisch, vegetarisch, vegan), 
+	- Eis, 
+	- Snacks, 
+	- Top-Burger, 
+	- Getränke, 
+	- Menüs (Burger + Sack + Getränk)
+
+Seiten: 
+	- Kontakt (schönes Formular) plus Telefonnummer und Emailadresse, 
+	- Menü (Essenskategorien als Unterseiten), 
+	- Impressum & Datenschutz, 
+	- Aktuelles, 
+	- Warenkorb, 
+	- Login, 
+	- Karriere
+
+Randbedingungen: 
+	- 16€ Mindestbestellwert (teuerstes Menü knapp drunter)
+
+TOP4: Tools
+
+Git-Projekt unter fh-erfurt, wird von Martin erstellt. 
+Als IDE wird VisualStudio Code verwendet. 
+
+TOP5: Namensfindung
+
+Der Shop soll den Arbeitstitel Burgercity bekommen. 
+
+TOP6: Nächster Termin
+
+Freitag, 27.11.2020 nach Ende 8 Uhr Vorlesung. 
+
+
+Aufgaben:
+
+	- @Martin: Git-Projekt erstellen.
+	- @all: Git-Einbindung in VisualStudio testen
+	- @Daniel: Protokoll pushen
+	- @all: mehrere Burgerseiten (4) ansehen und positives+negatives aufschreiben
