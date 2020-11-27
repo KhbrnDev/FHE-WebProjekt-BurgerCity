@@ -1,0 +1,37 @@
+Protokoll WebGruppe 27.11.2020
+
+Beginn: 10:00 Uhr
+
+Ende: 11:15
+
+Anwesend: Martin, Daniel, Felix
+
+TOP1: VisualStudioCode und GitHub Probleme
+
+TOP2: Websiten Beispiele zu Ideenfindung anschauen
+    -GoogleMaps Suchradius ggf. einbinden
+    -Bilder 'Stoptaste' bei Durchlaufenden Bildern
+
+    -https://www.burger-house-seven-saarbruecken.de/ (Gute Warenkorb Navigation)
+    -https://www.burger-liebe-saarbruecken.de/
+    -http://www.dieburgerei.de/
+    -https://burgermafia.eu/
+
+    -https://www.jamysburger.de/   
+    -https://www.burgerbrothers.eu/
+    -https://burger-bulle.de/
+    -https://dulfsburger.de/standorte/karolinenstrasse/
+    -https://www.brooklynburgerbar.de/
+    
+    -https://derkleineflo.de/
+    -https://www.ruffsburger.de/de/
+
+    -->Warenkorb unten rechts als PopUpMenu einbelden
+    -->Nicht zu viele Farben (Schwarz, Weiß und eine akzentfarbe)
+    
+TOP3: Krobes Layout der Website für Mobile und Desktop erzeugt
+
+Aufgaben:
+
+    @Martin: ScetchUp hochladen
+    @all: HTML ScetchUp mit dem Mobile und Desktop erzeugen
