@@ -1,0 +1,80 @@
+:root{
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
+
+@media only screen and (max-width: 750px)
+{
+    .nav-span
+    {
+        display: none;
+    }
+
+    .navbar-nav
+    {
+        margin: auto;
+    }
+
+    a:hover
+    {
+        text-decoration: none;
+    }
+
+    li
+    {
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+    }
+
+}
+
+nav
+{
+    top:0;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    background-color: lightblue;
+    font-size: 2.2rem;
+    display: flex;
+}
+
+li{
+    display: inline;
+    margin: auto;
+}
+
+ul{
+    margin: auto;
+    padding: 1rem;
+}
+body
+{
+    padding-left: 10%;
+    padding-right: 10%;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    margin-top: 6rem;
+}
+
+.werbe-kacheln
+{
+    width: 25%;
+    display: block;
+    border-style: solid;
+    border-color: red;
+    border-width: 0.1rem;
+    padding: 2rem;
+}
+
+a{
+    text-decoration: none;
+    
+    
+}
+
+a:hover{
+    text-decoration: underline;
+}
