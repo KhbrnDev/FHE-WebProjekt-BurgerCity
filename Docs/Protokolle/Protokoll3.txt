@@ -1,0 +1,40 @@
+Protokoll WebGruppe 04.12.2020
+
+Beginn: 12:00 Uhr
+
+Ende: 14:00 Uhr
+
+Anwesend: Martin, Daniel, Felix
+
+TOP1: Auswertung Design-Ideen
+
+TOP2: Erstellung der PowerPoint:
+	Einleitung
+	Vorstellung Teammitglieder
+	Teamarbeit
+	Projektidee	
+	Beispielseiten
+	Layout
+	Nächste Schritte
+	
+
+
+Verteilung Powerpoint:
+
+	Einleitung (Daniel)
+	Vorstellung Teammitglieder (jeder stellt sich selber vor)
+	Teamarbeit (Daniel)
+	Projektidee (Daniel)
+	Beispielseiten (Felix)
+	Layout	(Martin)
+	Nächste Schritte (Daniel)
+
+      
+    
+
+
+Aufgaben:Aufgaben bis zur nächsten Woche:
+	-CSS vertiefen
+	-MVC
+
+   
