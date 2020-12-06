@@ -9,17 +9,24 @@ Anwesend: Martin, Daniel, Felix
 TOP1: Auswertung Design-Ideen
 
 TOP2: Erstellung der PowerPoint:
-	Einleitung
-	Vorstellung Teammitglieder
-	Teamarbeit
-	Projektidee	
+	Projektidee
 	Beispielseiten
-	Layout
-	Nächste Schritte
+	Funktionalitäten
+	Seiten
+	Teamarbeit und nöchste Schritte
+	
 	
 
 
 Verteilung Powerpoint:
+
+Erstellung der PowerPoint:
+	Projektidee (Daniel)
+	Beispielseiten (Felix)
+	Funktionalitäten (Martin)
+	Seiten (Martin)
+	Teamarbeit und nöchste Schritte (Daniel)
+	
 
 	Einleitung (Daniel)
 	Vorstellung Teammitglieder (jeder stellt sich selber vor)
