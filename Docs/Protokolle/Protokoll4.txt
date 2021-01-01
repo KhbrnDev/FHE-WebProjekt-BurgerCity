@@ -1,0 +1,33 @@
+
+Protokoll WebGruppe 01.01.2021
+
+Beginn: 19:00 Uhr
+
+Ende: 14:00 Uhr
+
+Anwesend: Martin, Daniel, Felix
+
+Themen:
+	-Warenkorb erstmal als Cookie speichern
+		-> bei Bestellung dann den Inhalt des Cookies in die Datenbank speichern
+	-Eigene Deadline für den Hauptanteil des Projekts bis 7.2.2021
+	-Datenbank layout bearbeitet
+	
+	
+	
+	
+Aufgaben:
+	@Daniel: -Recherche Barrierefreiheit
+			 -Ordnerstruktur im GitHub anlegen
+	
+	@Martin: -Layout bearbeiten
+    
+	@Felix:	 -Datenbank erstellen
+	
+	@all:
+	
+	
+    
+
+
+
