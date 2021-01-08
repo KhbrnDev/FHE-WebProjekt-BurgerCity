@@ -1,0 +1,105 @@
+
+/* General */
+
+.account-body{
+    margin: auto;
+    width: 80%;
+}
+
+.account-body h2,h1{
+    margin-left: 1rem;
+}
+
+/* H1 + Ausloggen */
+
+/* .h1-ausloggen{
+    display: flex;
+    flex-wrap: nowrap;
+} */
+
+.h1-ausloggen h2{
+    float: right;
+}
+
+/* Account Informationen */
+
+.account-properties{
+
+    border: 1px solid black;
+    margin: 0 1rem;
+
+}
+
+
+.account-form form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-form .account-form-object{
+    flex: auto;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.account-properties label,input{
+    width: 10rem;
+    height: 2rem;
+}
+
+/* Adressen */
+
+
+
+
+.account-adresses{
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 1rem;
+}
+.account-adress-form{
+    flex:auto;
+
+    padding:1rem;
+    border: 1px solid black;
+
+    text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-adress-form-object{
+    flex: auto;
+}
+
+
+/* 
+.account-adresses{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-adress-form{
+    flex:auto;
+    
+    display: flex;
+    flex-wrap: wrap;
+
+    border: 1px solid black;
+    
+    text-align: center;
+
+    width: 20em;
+
+    margin: 1rem;
+}
+
+.street-and-number{
+    flex:auto;
+    padding: auto;
+} */
+
+
+/* Bestellungen */

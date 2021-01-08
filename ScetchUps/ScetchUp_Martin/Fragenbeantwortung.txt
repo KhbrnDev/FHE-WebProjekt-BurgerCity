@@ -1,0 +1,54 @@
+Unterseite sind 2. Navigationsebenen (Angewannte Filter, Angabote, Saisonartikel) (Admin->Unterseite)
+    Sitemap machen
+
+Quellenangaben für Bilder in das Title/alt Tag des Bildes oder in das Impressum
+
+Barrierefreiheit: 
+    bei den meisten Bilder alt und title verwenden
+    tags wie header, table, h1..
+    anzeigbar ohne die Bilder zu laden
+
+Projektstruktur:
+    ordentliche Ordnerstruktur mit guten unterordnern
+
+25.2 Projektabgabe
+26.2 Projektpräsentation
+
+Dokumentation nicht im Design des Online Shops aber mit fliederung
+    und ggf. auch mit unterseiten 
+    -> im Impressum ein Link zur Dokumentation (Statisch)
+    -> alles Aufschreiben was man gemacht hash_init
+    -> Besonderheiten Dokumentieren die wir gemacht haben oder die noch möglich sind
+
+Mobile Navigation als erstes mit CSS OnClick erstellen
+    mit transitions machen
+
+Styleprecompiler sind erlaubt (SCSS, SASS, LESS)
+
+Passwörter sollen am Ende als Hash gespeichert werden
+    -> zum Debuggen ist es sinnvoll erstmal als klartext zu speichern
+
+
+Testnutzer und Testadministrator anlegen und Daten in die ReadMe legen
+    Installatonsanleitung in die ReagMe
+
+mindestens 5 Datenbanktabellen
+
+Pixelbreakpoint unter 450, 950 und über 950
+
+Mehrere CSS Seiten möglich, wie für print hinweise im CSS oder Produktseite
+    mit include in hauptcss einbinden
+
+Header und Footer einbinden
+<?
+include VIEWPATH .'header.php';
+$controller->render();
+include VIEWPATH .'footer.php';
+?>
+
+
+class:hover     gerade fokussiert
+
+class:active   gerade aktive setcookie
+
+class:focus   aktuell ausgewählt

@@ -1,0 +1,136 @@
+
+
+header{
+    padding-bottom: 70px;
+}
+
+.logo{
+    padding-left: 3.5rem;
+    float: left;
+}
+
+nav{
+    background-color: rgb(36, 36, 36);
+
+    border-bottom: 1px solid black;
+    text-align: right;
+    height: 70px;
+    line-height: 70px;
+    font-size: 2.6rem;
+    position: fixed;
+    width: 100%;
+
+}
+
+nav a{
+    position: fixed;
+}
+
+nav a:hover{
+    text-decoration: underline orange;
+    border-radius: 2.5rem;
+
+}
+
+.menu{
+    margin: 0 30px 0 0;
+    z-index: 56;
+}
+
+.menu a{
+    text-decoration: none;
+    color: gray;
+    line-height: 70px;
+    margin: 0 2rem;
+    clear: both;
+    position: relative;
+}
+
+nav span{
+    color: var(--accentblue);;
+
+}
+
+nav > label{
+    margin: 0 40px 0 0;
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+    
+    width: 26px;
+    float: right;
+}
+
+#toggle{
+    display: none;
+}
+
+@media only screen and (max-width: 950px){
+
+    nav label{
+        display: block;
+        cursor: pointer;
+
+    }
+
+    .menu{
+        text-align: center;
+        width: 100%;
+        display: none;
+
+    }
+
+    .menu a{
+        display: block;
+        border-bottom: 1px solid black;
+        margin: 0;
+        
+        background-color: var(--accentblue);
+    }
+
+    #toggle:checked + .menu{
+        display: block;
+    }
+}
+
+/* SubMenu SpeiseKarte */
+
+/* .labelsubNav{
+    display: inline-flex;
+}
+
+.subNav, .inputSubNav{
+    display: none;
+}
+
+#toggleSubMenu:checked + .subNav{
+    display: block;
+    position: relative;
+    top: 100px;
+    left:25px;
+
+} */
+
+/* Footer */
+footer{
+    margin-top: 4rem;
+    position: relative;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: var(--accentblue);
+    display:flex;
+}
+
+footer a{
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    text-align: center;
+    flex:auto;
+}
+
+footer a:hover{
+    
+    text-decoration: underline;
+}

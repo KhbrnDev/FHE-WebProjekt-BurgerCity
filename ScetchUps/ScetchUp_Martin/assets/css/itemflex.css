@@ -1,0 +1,74 @@
+
+.body-content{
+
+    padding-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: auto;
+    align-content: start;
+
+    background-color: rgb(80,80,80);
+}
+
+.square{
+    flex: 0 0 auto;
+    margin: 1.8rem;
+    font-size: 1.6rem;
+    border-style: solid;
+    width: 16rem;
+    height: 23rem;
+
+    border-style: 2px;
+    border-color: black;
+}
+
+.square-picture{
+
+    padding: 0;
+    margin: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(lightgrey, var(--accentblue));
+
+
+    border-bottom: solid 1px black;
+}
+
+
+.square-lower{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+
+
+}
+
+.square-lower-elements{
+    font-size: 1.2rem;
+}
+
+
+.square-lower-elements-description{
+    text-align: center;
+    margin: auto;
+    width: 100%;
+
+}
+
+.addToCard-Button{
+    padding: 0.1rem 0.7rem;
+    /* border-style: solid ; */
+    border-width: 0.0rem;
+    border-radius: 1.0rem;
+    font-size: 1rem;
+    background-color: rgb(98, 196, 294);
+    
+    /* border-color: var(--color-grey); */
+}
+

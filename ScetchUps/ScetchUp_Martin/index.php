@@ -1,71 +1,46 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
+<body>
 <?php
-    include 'pages/foothead/header.php'
-
+    include 'views/headfoot/header1.php'
 ?>
 
+    
+    <div class="body-content">
+        <?php
+            for($Index = 0; $Index < 12; $Index++)
+            {
+            ?>
+                <div class="square">
+                    <img class="square-picture" src="assets/images/burger1.png" alt="">
+                    
+                    <div class="square-lower">
+                        <div class="square-lower-elements square-lower-elements-description">
+                            <p style="margin: 0;">Super Mega Vegan Beff-Bacon Burger</p>
+                        </div>
+                        <div class="square-lower-elemets">
+                            3,99 €
+                        </div>
+                        <div class="square-lower-elemets">
+                            <button class="addToCard-Button">In den<br>Einkaufswagen</button>
+                        </div>
+                    </div>
 
+                </div>
+        <?php  
+            }
+        ?>
 
-
-<body>
-    <div class="main-picture">
-
     </div>
-    <div class="werbe-kacheln">
-        <h3>saftige</h3>
-        <h1>Burger</h1>
-    </div>
-    <div class="werbe-kacheln">
-        <h3 stylle="border">knusprige</h3>
-        <h1>Pommes</h1>
-    </div>
-    <div class="werbe-kacheln">
-        <h3>kühle</h3>
-        <h1>Getränke</h1>
-    </div>
-    </div>
-    <div class="werbe-kacheln">
-        <h3>saftige</h3>
-        <h1>Burger</h1>
-    </div>
-    <div class="werbe-kacheln">
-        <h3 stylle="border">knusprige</h3>
-        <h1>Pommes</h1>
-    </div>
-    <div class="werbe-kacheln">
-        <h3>kühle</h3>
-        <h1>Getränke</h1>
-    </div>
-    </div>
-    <div class="werbe-kacheln">
-        <h3>saftige</h3>
-        <h1>Burger</h1>
-    </div>
-    <div class="werbe-kacheln">
-        <h3 stylle="border">knusprige</h3>
-        <h1>Pommes</h1>
-    </div>
-    <div class="werbe-kacheln">
-        <h3>kühle</h3>
-        <h1>Getränke</h1>
-    </div>
+    
+<?php
+    include'views/headfoot/footer.php';
+?>
 </body>
-
-
-<footer>
-    <div>
-        Made with ☕ by Daniel, Felix und Martin.
-    </div>
-</footer>
-
-
-
 </html>

@@ -1,80 +1,60 @@
+@import "account.css";
+@import "headfoot.css";
+@import "speisekarte.css";
+@import "products.css";
+@import "itemflex.css";
+
+
+
+@media only screen and (max-width: 500px) {
+    :root{
+        font-size: 8.5px;
+
+    }
+    
+  }
+
+  @media only screen and (min-width: 501px) {
+    :root{
+        font-size: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 1050px) {
+    :root{
+        font-size: 15px;
+    }
+    .body-content{
+        padding: 70px 10% 70px 10%;
+        
+    }
+  }
+
+
+/* General */
 :root{
-    font-size: 10px;
+
+    --accentblue: rgb(98,196,294);
     font-family: sans-serif;
 }
 
+html, body{
+    background-color: rgb(80,80,80);
 
-@media only screen and (max-width: 750px)
-{
-    .nav-span
-    {
-        display: none;
-    }
-
-    .navbar-nav
-    {
-        margin: auto;
-    }
-
-    a:hover
-    {
-        text-decoration: none;
-    }
-
-    li
-    {
-        padding-left: 1.6rem;
-        padding-right: 1.6rem;
-    }
-
-}
-
-nav
-{
-    top:0;
-    position: fixed;
     width: 100%;
-    left: 0;
-    background-color: lightblue;
-    font-size: 2.2rem;
-    display: flex;
+    height: 100%;
+    margin:  0;
+    padding: 0;
 }
 
-li{
-    display: inline;
-    margin: auto;
-}
 
-ul{
-    margin: auto;
-    padding: 1rem;
-}
-body
-{
-    padding-left: 10%;
-    padding-right: 10%;
-    align-items: center;
-    flex-wrap: wrap;
-    display: flex;
-    margin-top: 6rem;
-}
 
-.werbe-kacheln
-{
-    width: 25%;
-    display: block;
-    border-style: solid;
-    border-color: red;
-    border-width: 0.1rem;
-    padding: 2rem;
-}
 
-a{
-    text-decoration: none;
-    
-    
-}
+/* Header */
 
-a:hover{
-    text-decoration: underline;
-}
+
+
+
+
+/* Hier der neue Teil für den Body mit den Kacheln */
+
