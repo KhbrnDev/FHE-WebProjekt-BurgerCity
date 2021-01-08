@@ -2,7 +2,7 @@ Protokoll WebGruppe 20.11.2020
 
 Beginn: 15:00 Uhr
 
-Ende: 
+Ende: 16:07 Uhr
 
 Anwesend: Martin, Daniel, Felix
 
@@ -17,5 +17,11 @@ TOP2: Datenbank
 Datenbank wurde von Felix erstellt, einige Änderungen wurden noch vorgenommen und direkt im Diagramm geändert.
 
 
-Aufgaben:
+TOP3: Design-Entwurf
 
+Martin wird Design-Entwurf unter ScetchUps hochladen
+
+Aufgaben:
+@Martin CSS&&HTML 
+@Daniel MVC
+@Felix Models erstellen
