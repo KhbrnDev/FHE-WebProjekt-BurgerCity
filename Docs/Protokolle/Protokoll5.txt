@@ -1,0 +1,20 @@
+Protokoll WebGruppe 20.11.2020
+
+Beginn: 15:00 Uhr
+
+Ende: 
+
+Anwesend: Martin, Daniel, Felix
+
+TOP1: Barrierefreiheit
+
+Skip-Links um Navigation zu skippen werden eingefügt.
+Alternativtexte für alle Bilder (alt-tags und title-tags)
+
+Link mit mehr Infos: https://www.ionos.de/digitalguide/websites/web-entwicklung/barrierefreie-website/
+
+TOP2: Datenbank
+
+
+Aufgaben:
+
