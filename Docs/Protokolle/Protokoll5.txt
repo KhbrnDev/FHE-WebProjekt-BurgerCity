@@ -14,6 +14,7 @@ Alternativtexte für alle Bilder (alt-tags und title-tags)
 Link mit mehr Infos: https://www.ionos.de/digitalguide/websites/web-entwicklung/barrierefreie-website/
 
 TOP2: Datenbank
+Datenbank wurde von Felix erstellt, einige Änderungen wurden noch vorgenommen und direkt im Diagramm geändert.
 
 
 Aufgaben:
