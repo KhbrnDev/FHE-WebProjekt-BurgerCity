@@ -6,7 +6,12 @@ namespace dwp\controller;
 
 class PagesController extends \dwp\core\Controller
 {
+	public function actionStart()
+	{
+		
+	}
 
+	/**
 	public function actionIndex()
 	{
 
@@ -121,5 +126,5 @@ class PagesController extends \dwp\core\Controller
 	{
 		session_destroy();
 		header('Location: index.php?c=pages&a=login');
-	}
+	}*/
 }

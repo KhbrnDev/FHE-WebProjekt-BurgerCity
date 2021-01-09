@@ -19,21 +19,21 @@ session_start();
 
 // check which controller should be loaded
 $controllerName = 'pages'; // default controller if noting is set
-$actionName = 'index'; // default action if nothing is set
+$actionName = 'start'; // default action if nothing is set
 
-// check a controller is given
+// check if a controller is given
 if(isset($_GET['c']))
 {
     $controllerName = $_GET['c'];
 }
 
-// check an action is given
+// check if an action is given
 if(isset($_GET['a']))
 {
     $actionName = $_GET['a'];
 }
 
-// check controller/class and method exists
+// check  if controller/class and method exists
 if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
 {
     // include the controller file
@@ -44,16 +44,15 @@ if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
     $className = '\\dwp\\controller\\'.ucfirst($controllerName).'Controller';
 
     // generate an instace of the controller using the name, stored in $className
-    // it is the same like calling for example: new \dwp\controller\PagesController()
     $controller = new $className($controllerName, $actionName);
 
     // checking the method is available in the controller class
-    // the method looks like: actionIndex()
     $actionMethod = 'action'.ucfirst($actionName);
     if(!method_exists($controller, $actionMethod))
     {
-        // TODO: Handle better errors with an Redirect to an error page
-        die('404 Method you call does not exists');
+        // redirect to error page 404 because not found
+        header('Location: index.php?c=errors&a=error404&error=nomethod');
+        exit(0);
     }
     else
     {
@@ -65,8 +64,9 @@ if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
 }
 else
 {
-    // TODO: Handle better errors with an Redirect to an error page
-    die('404 Controller you call does not exists');
+    // redirect to error page 404 because not found
+    header('Location: index.php?c=errors&a=error404&error=nocontroller');
+    exit(0);
 }
 
 
@@ -78,7 +78,7 @@ else
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles/style.css">
-    <title>Notenspiegel</title>
+    <title>Burger City</title>
 </head>
 <body>
     <?php

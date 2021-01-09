@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @author Kristof Friess <kristof.friess@fh-erfurt.de>
- * @copyright Since 2018 by Kristof Friess
- * @version 1.0.0
- */
-
-
 namespace dwp\core;
 
 class Controller
@@ -49,8 +42,9 @@ class Controller
 		// check the file exists
 		if(!file_exists($viewPath))
 		{
-			// TODO: create and redirect to an error page
-			die('404 The view for your called controller and action are missing');
+			// redirect to error page 404 because not found
+			header('Location: index.php?c=errors&a=error404&error=viewpath');
+			exit(0);
 		}
 
 		// extract the params array to get all needed variables for the view
