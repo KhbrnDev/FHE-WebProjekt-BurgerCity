@@ -13,10 +13,8 @@ class Category extends \dwp\core\Model
         'CategoryId' => [ 'type' => M::TYPE_INTEGER ],
         'createdAt' => [ 'type' => M::TYPE_STRING],
         'updatedAt' => [ 'type' => M::TYPE_STRING],
-        'categoryName' => [ 'type' => M::TYPE_STRING 'max' => 255 ],
-        'description' => [ 'type' => M::TYPE_STRING 'max' => 45 ],
-                
-            ],
-        ],
+        'categoryName' => [ 'type' => M::TYPE_STRING, 'max' => 255 ],
+        'description' => [ 'type' => M::TYPE_STRING, 'max' => 45 ],
+
     ];
 }

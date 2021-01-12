@@ -15,8 +15,6 @@ class CategoryHelper extends \dwp\core\Model
         'updatedAt' => [ 'type' => M::TYPE_STRING],
         'Category_categoryId' => [ 'type' => M::TYPE_INTEGER ],
         'Products_productsId' => [ 'type' => M::TYPE_INTEGER ],
-                
-            ],
-        ],
+
     ];
 }

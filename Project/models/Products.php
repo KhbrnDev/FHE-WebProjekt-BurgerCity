@@ -14,13 +14,10 @@ class Products extends \dwp\core\Model
         'createdAt' => [ 'type' => M::TYPE_STRING],
         'updatedAt' => [ 'type' => M::TYPE_STRING],
         'description' => [ 'type' => M::TYPE_STRING, 'max' => 255],
-        'pictureURL' => [ 'type' => M::TYPE_STRING 'max' => 255],
-        'altText' => [ 'type' => M::TYPE_STRING 'max' => 255],
+        'pictureURL' => [ 'type' => M::TYPE_STRING, 'max' => 255],
+        'altText' => [ 'type' => M::TYPE_STRING, 'max' => 255],
         'favourites' => [ 'type' => M::TYPE_BOOLEAN ],
         'price' => [ 'type' => M::TYPE_FLOAT ],
 
-        
-            ],
-        ],
     ];
 }

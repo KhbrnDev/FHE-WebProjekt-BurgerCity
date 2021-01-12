@@ -15,9 +15,6 @@ class ProductHelper extends \dwp\core\Model
         'updatedAt' => [ 'type' => M::TYPE_STRING],
         'productId' => [ 'type' => M::TYPE_INTEGER ],
         'ingredientsId' => [ 'type' => M::TYPE_INTEGER ],
-        
-        
-            ],
-        ],
+
     ];
 }

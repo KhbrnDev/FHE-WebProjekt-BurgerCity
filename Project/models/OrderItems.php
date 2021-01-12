@@ -16,9 +16,6 @@ class ordersItems extends \dwp\core\Model
         'productId' => [ 'type' => M::TYPE_INTEGER ],
         'quantity' => [ 'type' => M::TYPE_INTEGER ],
         'orderId' => [ 'type' => M::TYPE_INTEGER ],
-        
-        
-            ],
-        ],
+
     ];
 }

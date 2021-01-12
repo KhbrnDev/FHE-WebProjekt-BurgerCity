@@ -15,13 +15,9 @@ class Orders extends \dwp\core\Model
         'updatedAt' => [ 'type' => M::TYPE_STRING],
         'orderDate' => [ 'type' => M::TYPE_DATE ],
         'customerId' => [ 'type' => M::TYPE_INTEGER ],
-        'deliveryAdressId' => [ 'type' => M::TYPE_INTEGER ],
+        'deliveryAddressId' => [ 'type' => M::TYPE_INTEGER ],
         'productId' => [ 'type' => M::TYPE_INTEGER ],
-        'deliveryInformation' => [ 'type' => M::TYPE_STRING 'max' => 255 ],
+        'deliveryInformation' => [ 'type' => M::TYPE_STRING, 'max' => 255 ],
         
-        
-        
-            ],
-        ],
     ];
 }
