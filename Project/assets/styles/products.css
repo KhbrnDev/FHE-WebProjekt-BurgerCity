@@ -1,0 +1,67 @@
+@import "color.css";
+
+
+
+
+/* everything in products Folder */
+.products-content, .productItem-body{
+}
+
+/* products.php */
+.productItem-body h1{
+    text-align: center;
+    font-size: 5rem;
+}
+.product-flex{
+    padding-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: auto;
+    align-content: start;
+
+}
+
+.product-left, .product-right{
+    flex: 0 0 auto;
+    margin: 2rem;
+    font-size: 1.6rem;
+    width: 30rem;
+    
+}
+
+.product-left img{
+    border-radius: 2.5rem;
+}
+
+.product-picture{
+
+    padding: 0;
+    margin: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(lightgrey, var(--accent-primary));
+
+}
+
+.product-preis h3, h5,h2{
+    display: inline-flex;
+}
+
+.product-preis h2{
+    font-size: 3rem;
+}
+
+.product-right form{
+    display: inline-flex;
+}
+
+
+.product-right .addToWarenkorb{
+    background-color: var(--accent-primary);
+    border-radius: 2.5rem;
+    border: none;
+    width: auto;
+}

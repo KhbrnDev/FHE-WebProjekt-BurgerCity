@@ -86,18 +86,29 @@ else
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="<?=STYLESPATH.'styles.css'?>">
+    <link rel="icon" type="image/png" href="<?=IMAGESPATH.'burger1.png'?>">
     <title>Burger City</title>
 </head>
 <body>
     <?php
 
-        include FILESPATH.'header.php';
-
+        include FILESPATH.'header1.php';
+    ?>
+        <!-- Additional div added for Sticky Footer -->
+        <div class="push-content-under-nav"></div>
+    
+        <!-- <div class="content-wrapper"> -->
+    <?php
         // this method will render the view of the called action
         // for this the the file in the views directory will be included
         $controller->render();
+    ?>
+        <!-- </div> -->
+        <div class="push-sticky-footer"></div>
 
+    <?php
+    include FILESPATH.'footer.php';
     ?>
 </body>
 </html>

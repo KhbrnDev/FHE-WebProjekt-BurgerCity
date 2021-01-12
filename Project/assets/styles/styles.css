@@ -1,0 +1,32 @@
+@import "color.css";
+@import "account.css";
+@import "headfoot.css";
+@import "speisekarte.css";
+@import "start.css";
+@import "products.css";
+@import "itemflex.css";
+@import "footerLinks.css";
+
+
+/* General */
+
+
+
+
+html, body{
+    background-color: var(--background-color);
+
+    width: 100%;
+    height: 100%;
+    margin:  0;
+    padding: 0;
+
+}
+/* 
+.push-content-under-nav{
+    height: var(--header-height);
+} */
+
+.push-sticky-footer{
+    height: var(--footer-height);
+}
