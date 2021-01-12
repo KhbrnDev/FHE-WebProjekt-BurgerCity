@@ -1,4 +1,4 @@
-
+@import "footheadstyles.css";
 
 @media only screen and (max-width: 600px) {
     :root{
@@ -75,6 +75,8 @@ html, body{
     width: 100%;
     height: auto;
     background-image: linear-gradient(lightgrey, rgb(98, 196, 294));
+
+    border-bottom: 1px solid black;
 }
 
 hr{

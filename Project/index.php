@@ -92,9 +92,12 @@ else
 <body>
     <?php
 
+        include FILESPATH.'header.php';
+
         // this method will render the view of the called action
         // for this the the file in the views directory will be included
         $controller->render();
+
     ?>
 </body>
 </html>
