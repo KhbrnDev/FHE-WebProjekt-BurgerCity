@@ -1,0 +1,47 @@
+@import "color.css";
+
+/* start.php */
+
+.start-content{
+    min-height: 100%;
+    width: auto;
+    text-align: center;
+}
+
+.favorites-box{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2rem;
+}
+
+.picture-box{
+    width: 50%;
+}
+
+.picture-box img{
+    width: 100%;
+    height: auto;
+}
+
+.description-box{
+    width: 50%;
+}
+
+
+@media only screen and (max-width: 1250px){
+    .start-content{
+    }
+    
+    .favorites-box{
+        flex-wrap: wrap;
+    }
+
+    .picture-box{
+        width: 100%;
+    }
+
+    .description-box{
+        width: 100%;
+    }
+
+}

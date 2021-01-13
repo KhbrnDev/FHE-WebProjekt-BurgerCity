@@ -1,0 +1,16 @@
+:root{
+    /* COLORS */
+    
+    --background-color: rgb(80,80,80);
+    --accent-primary: rgb(98,196,294);
+    --accent-secondary: rgb(255, 166, 0);
+    
+    /* OTHERS */
+    --header-height: 70px;
+    --footer-height: 50px;
+    font-family: sans-serif;
+
+
+    
+    
+}

@@ -1,0 +1,23 @@
+@import "color.css";
+
+/* Contact Form */
+
+.contact-body{
+    text-align: center;
+}
+
+.contact-successfull-send{
+
+}
+
+.contact-form label, input{
+    text-align: left;
+    width: 80%;
+    margin: 1em;
+}
+
+.contact-form label{
+}
+
+/* Administration */
+

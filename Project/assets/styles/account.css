@@ -1,0 +1,211 @@
+@import "color.css";
+
+/* General */
+
+
+
+.account-body{
+    margin: auto;
+    width: 90%;
+}
+
+.account-body h2,h1{
+    margin-left: 1rem;
+}
+
+/* H1 + Ausloggen */
+
+/* .h1-ausloggen{
+    display: flex;
+    flex-wrap: nowrap;
+} */
+
+.h1-ausloggen h2{
+    float: right;
+}
+
+/* Account Informationen */
+
+.account-properties{
+
+    border: 1px solid black;
+    margin: 0 1rem;
+
+}
+
+
+.account-form form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-form .account-form-object{
+    flex: auto;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.account-properties label,input{
+    width: 10rem;
+    height: 2rem;
+}
+
+/* Adressen */
+
+
+
+
+.account-adresses{
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 1rem;
+}
+.account-adress-form{
+    flex:auto;
+
+    padding:1rem;
+    border: 1px solid black;
+
+    text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-adress-form-object{
+    flex: auto;
+}
+
+
+/* 
+.account-adresses{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-adress-form{
+    flex:auto;
+    
+    display: flex;
+    flex-wrap: wrap;
+
+    border: 1px solid black;
+    
+    text-align: center;
+
+    width: 20em;
+
+    margin: 1rem;
+}
+
+.street-and-number{
+    flex:auto;
+    padding: auto;
+} */
+
+
+/* Bestellungen */
+
+
+/* 
+.account-orderlist-body{
+    margin: 0 1rem;
+}
+
+.orderlist-table{
+    width: 100%;
+    
+    text-align:center;
+
+    border-collapse: collapse;
+
+}
+
+.orderlist-thead{
+    
+
+}
+
+.orderlist-tbody{
+}
+
+
+
+
+.orderlist-trow {
+    border-bottom: black 2px solid;
+    margin:1rem;
+}
+
+.orderlist-trow > td{
+    border: 1px solid black; 
+}
+
+.orderlist-products{
+    margin: auto;
+}
+ */
+
+
+ /* Bestellungen 2.0 */
+
+ 
+ .account-orderlist-body{
+    width: 100%;
+
+
+}
+
+.account-orderlist-order{
+   width: 100%;
+   border-bottom: 3px black dotted;
+}
+
+.account-order-box{
+   border: 1px solid lightgreen;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.account-order-subbox{
+    text-align: center;    
+    flex: auto; 
+
+}
+
+/* LogInSignIn.php */
+
+.logsing-body{
+    width: 100%;
+}
+
+.logsign-boxes{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.login-box, .signin-box{
+    width: 50%;
+    flex: auto;
+
+    margin: auto;
+}
+
+.signin-box{
+    
+}
+
+.logsign-boxes input{
+    width: 50%;
+}
+
+.logsign-boxes label{
+    width: 50%;
+    text-align: left;
+}
+
+.ordered-products-table{
+    width: 100%;
+}
