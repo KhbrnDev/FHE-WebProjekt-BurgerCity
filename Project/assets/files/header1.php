@@ -4,7 +4,7 @@
         <label for="toggle">&#9776;</label>
         <input type="checkbox" id="toggle">
         <div class="menu">
-            <a href="#">Speisekarte</a>
+            <a href="" onclick="labelClicked('speisekarte')">Speisekarte</a>
                 <!-- <label class="labelSubNav" for="toggleSubMenu">&#9776;</label>
             <input class="inputSubNav" type="checkbox" id="toggleSubMenu">
                 <div class="subNav">
