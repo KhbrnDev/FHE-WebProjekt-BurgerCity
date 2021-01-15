@@ -1,0 +1,35 @@
+Protokoll WebGruppe 15.01.2021
+
+Beginn: 10:00 Uhr
+
+Ende: 
+
+Anwesend: Martin, Daniel, Felix
+
+Bis Sonntag:
+- Martin: 2, 3
+- Felix: 4 Zutaten (10-15), Produkte (relativ viele. 10 Burger, 5 Getränke, 3 Desserts, ein paar Snacks)...
+- Daniel: 16, (7)
+
+Offene Aufgaben:
+1 in der index.php die models in Schleife einbinden
+2 SignIn, LogIn Daten an Datenbank senden
+3 Formular für Login ergänzen
+4 Test Daten in Datenbank erstellen
+5 TestDaten dynamisch in Pages laden
+6 categorie.php in pages, darüber dynamisch Produkte einer Kategorie aus Datenbank laden, 
+entsprechende Labels bei Speisekarte verlinken
+7 Navigation anpassen um zweite Ebene mit Unterbereich für Speisekarte
+8 Programmierung von Account (Account bearbeiten, Bestellungen, Adressen dynamisch reinladen und so)
+9 Einkaufswagen komplett (mit mehrseitigen Formularen, inklusive Login/Account erstellen)
+10 Startseite Layout und Favoriten dynamisch rein laden (passend zu Favoriten auch Beschreibung anzeigen)
+11 Kontakt Funktionalität hinzufügen und Meldung anzeigen, dass Nachricht erfolgreich gesendet wurde
+12 Impressung mit Link zu Dokumentation, Quellen
+13 Dokumentation schreiben
+14 Komplette Administration mit Admins bearbeiten, Produkte bearbeiten, Zutatenliste
+15 Ordentliche ErrorSeite mit großem Bildchen von leckeren Burgern
+16 Modelfunktionen
+17 Wenn Datenbank steht muss AccountController in den Controllers ergänzt werden (Account in Session speichern)
+18 ggf. Datenbank anpassen
+19 Datenbankdiagramm anpassen 
+
