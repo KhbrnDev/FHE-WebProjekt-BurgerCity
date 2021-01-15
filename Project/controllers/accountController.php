@@ -6,23 +6,28 @@ class AccountController extends \dwp\core\Controller
 {
     public function actionAccount()
 	{
+        if(isset($_POST['logout']))
+        {   
+            echo"tes";
+            $_SESSION['loggedIn'] = false;
+            header("Location: index.php?c=account&a=LogInSignIn");
+        }
 
-
-		if($this->loggedIn())
-		{
-			// TODO: Retrieve account which is logged in
+		// if($this->loggedIn())
+		// {
+		// 	// TODO: Retrieve account which is logged in
 			
-			// TODO: Set the correct name of the current user here
-			$this->setParam('name', 'unkown');
+		// 	// TODO: Set the correct name of the current user here
+		// 	$this->setParam('name', 'unkown');
 
-			// TODO: retrieve and set the marks of the current user
-			$this->setParam('marks', []);
+		// 	// TODO: retrieve and set the marks of the current user
+		// 	$this->setParam('marks', []);
 
-		}
-		else
-		{
-			header('Location: index.php?c=account&a=LogInSignIn');
-		}
+		// }
+		// else
+		// {
+		// 	header('Location: index.php?c=account&a=LogInSignIn');
+		// }
 
     }
     
@@ -33,11 +38,11 @@ class AccountController extends \dwp\core\Controller
 
         // oh my good, we get data
         
-        $_SESSION['loggedIn'] = false; //Test,LÖSCH MICH PLEASE >3
+        //$_SESSION['loggedIn'] = false; //Test,LÖSCH MICH PLEASE <3
 
         if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
         {
-            header("index.php?c=account&a=account");
+            header("Location: index.php?c=account&a=account");
         }
         else
         {
