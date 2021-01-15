@@ -11,9 +11,16 @@ class PagesController extends \dwp\core\Controller
 		
 	}
 
+	public function actionMenue()
+    {
+       
+    }
+
+
 	/**
 	public function actionIndex()
 	{
+
 
 		if($this->loggedIn())
 		{
