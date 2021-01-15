@@ -6,6 +6,11 @@ class AccountController extends \dwp\core\Controller
 {
     public function actionAccount()
 	{
+        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] !== true)
+        {
+            header("Location: index.php?c=account&a=LogInSignIn");
+        }
+
         if(isset($_POST['logout']))
         {   
             echo"tes";
@@ -112,11 +117,11 @@ class AccountController extends \dwp\core\Controller
                 
                 $emailQuote = $GLOBALS['db']->quote($email);
                 $Account = \dwp\model\Account::findOne("´email´ = " . $emailQuote);
-                //Test
+                //Test -> PLEASE DELETE ME <3
                     $Account['email'] = $email;
                     $Account['passwordHash'] = password_hash($password, PASSWORD_DEFAULT);
                 	$Account['accountId'] = 'test';
-                    // ENDE
+                // ENDE
                 if(!empty($email) && !empty($password))
                 {
 
@@ -126,8 +131,9 @@ class AccountController extends \dwp\core\Controller
                         {
                             // EMail und Passwort stimmen
                             $_SESSION['loggedIn'] = true;
-                            $_SESSION['userMail'] = $Account['email'];
-                            $_SESSION['userID'] = $Account['accountId'];
+                            // WILL MAN WISSSEN WER EINGELOGGT IST?
+                            //$_SESSION['userMail'] = $Account['email'];
+                            //$_SESSION['userID'] = $Account['accountId'];
                             header("Location: index.php?c=account&a=account");
                         }
                         else
