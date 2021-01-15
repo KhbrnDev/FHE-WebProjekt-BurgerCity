@@ -28,5 +28,5 @@ html, body{
 } */
 
 .push-sticky-footer{
-    height: var(--footer-height);
+    height: --var(--footer-height);
 }

@@ -178,6 +178,7 @@
 
 .logsing-body{
     width: 100%;
+    
 }
 
 .logsign-boxes{
@@ -198,11 +199,10 @@
 }
 
 .logsign-boxes input{
-    width: 50%;
+    width: 18rem;
 }
 
 .logsign-boxes label{
-    width: 50%;
     text-align: left;
 }
 

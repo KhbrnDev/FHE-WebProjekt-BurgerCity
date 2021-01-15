@@ -28,7 +28,16 @@
 
                     <label for="email">E-Mail</label>
                     <br>
-                    <input type="email" name="loginEmail" id="email" placeholder="meine@email.de">
+                    <input type="email" name="loginEmail" id="email" placeholder="meine@email.de" 
+                        <?php
+                            if(isset($success['email']))
+                            {
+                                ?>
+                                value="<?=$success['email']?>"
+                                <?php
+                            }
+                        ?>
+                        >
                    
                     <br>
                     <label for="password">Passwort</label>

@@ -13,6 +13,7 @@ abstract class Model
     const TYPE_DECIMAL  = 'dec';
     const TYPE_DATE     = 'date';
     const TYPE_JSON     = 'json';
+    const TYPE_BOOLEAN  = 'boolean';
 
     protected $schema = [
     ];
@@ -62,6 +63,11 @@ abstract class Model
     public function __destruct()
     {
         // TODO: Free memory here
+    }
+
+    public function save()
+    {
+        // TODO: choose between insert and update
     }
 
     public function insert()
