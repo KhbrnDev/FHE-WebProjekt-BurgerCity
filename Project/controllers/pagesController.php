@@ -11,7 +11,17 @@ class PagesController extends \dwp\core\Controller
 		
 	}
 
+<<<<<<< Updated upstream
 	/**
+=======
+	public function actionMenue()
+    {
+       
+    }
+
+
+	/*
+>>>>>>> Stashed changes
 	public function actionIndex()
 	{
 
