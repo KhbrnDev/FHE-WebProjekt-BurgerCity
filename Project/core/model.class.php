@@ -30,43 +30,145 @@ abstract class Model
         return null;
     }
 
-    public static function find(/* TODO: Add Arguments */)
+    public static function find($whereStr = '1')
     {
-        // TODO: Implement the find
+        $db = $GLOBALS['db'];
+        $sqlStr = 'SELECT * FROM `'.self::tablename().'` WHERE '.$whereStr.';';
+        $results = [];
+        try
+        {
+            $results = $db->query($sqlStr)->fetchAll();
+            $count = count($results);
+            for ($i=0; $i < $count; ++$i)
+            { 
+                $class = get_called_class();
+                $results[$i] = new $class($results[$i]);
+            }
+        }
+        catch(\PDOException $error)
+        {
+            print_r($error);
+        }
+
+        return $results;
     }
 
-    public static function findOne(/* TODO: Add Arguments */)
+
+    public static function findOne($whereStr = '1')
     {
-        // TODO: Implement the find
-        //       Easy implementation of this method is, calling find() and reduce the array to one item or null
+        $results = self::find($whereStr);
+
+        if(count($results) > 0)
+        {
+            return $results[0];
+        }
+
+        return null;
     }
 
 
     public function __construct($values)
     {
-        // TODO: Write values using the magic methods
+        try
+        {
+            foreach($this->schema as $key => $value)
+            {
+                if(isset($values[$key]))
+                {
+                    $this->$key = $values[$key];
+                }
+                else
+                {
+                    $this->$key = null;
+                }
+            }
+            
+        }
+        catch(\Exception $error)
+        {
+            print_r($error);
+            exit(1);
+        }
     }
 
     public function __set($key, $value)
     {
-        // TODO: Check is the key in the schema?
-        //       If set the new value to the $this->values array
+        //TODO catch exception directly in class.?
+        if(isset($this->schema[$key]))
+        {
+            $this->values[$key] = $value;
+        }
+        else
+        {
+            $className = get_called_class();
+            throw new \Exception(`${key} does not exists in this class ${className}`);
+        }
     }
 
     public function __get($key)
     {
         // TODO: Check is the key in the schema?
         //       If so return the value in values if not exists return default value from schema or null
+        if(isset($this->schema[$key]))
+        {
+            return $this->values[$key];
+        }
+        else
+        {
+            $className = get_called_class();
+            throw new \Exception(`${key} does not exists in this class ${className}`);
+        }
     }
 
     public function __destruct()
     {
         // TODO: Free memory here
+        try
+        {
+            foreach($this->schema as $key => $value)
+            {
+                
+                $this->$key = null;
+                unset(this->$key);
+                
+            }
+            
+        }
+        catch(\Exception $error)
+        {
+            print_r($error);
+            exit(1);
+        }
     }
 
     public function insert()
     {
         // TODO: Implement insert
+        $db = $GLOBALS['db'];
+        $tableName = self::tablename();
+        $sqlStr = "INSERT INTO `${tableName}` (";
+        $valuesStr = "(";
+        foreach($this->schema as $key => $value)
+        {
+            $sqlStr.=$key.',';
+            $valuesStr.=':'.$key.',';
+        }
+
+        $sqlStr = rtrim($sqlStr, ',');
+        $valuesStr = rtrim($valuesStr, ',');
+
+        $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
+
+        try
+        {
+            $stmt=$db->prepare($sqlStr);
+            $stmt->execute($this->values);
+            $this->id = $db->lastInsertId();
+        }
+        catch(\PDOException $e)
+        {
+            print_r($e);
+        }
     }
 
     public function update()
