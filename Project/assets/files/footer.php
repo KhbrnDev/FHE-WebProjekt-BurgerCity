@@ -1,5 +1,5 @@
 <footer>
-    <a href="#">Administration</a>
-    <a href="#">Impressum</a>
-    <a href="#">Kontakt</a>
+    <a href="index.php?c=footercontent&a=administration">Administration</a>
+    <a href="index.php?c=footercontent&a=impressum">Impressum</a>
+    <a href="index.php?c=footercontent&a=contact">Kontakt</a>
 </footer>

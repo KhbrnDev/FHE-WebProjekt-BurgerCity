@@ -11,7 +11,7 @@ class PagesController extends \dwp\core\Controller
 		
 	}
 
-	public function actionSpeisekarte()
+	public function actionMenue()
     {
        
     }
