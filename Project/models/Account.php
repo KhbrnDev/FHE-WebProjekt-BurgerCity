@@ -115,6 +115,7 @@ class Account extends \dwp\core\Model
         }
     }
 
+    // unsed? => rightclick -> peek references
     public static function makeDateForDB(&$date)
     {
         $date = date_create($date);
@@ -122,10 +123,5 @@ class Account extends \dwp\core\Model
 
     }
 
-    // TODO this is not working yet
-    // public static function makeDateForHTML(&$date)
-    // {
-    //     $date = date_create($date);
-    //     $date = date_foramt($date, 'd-m-Y');
-    // }
+    
 }

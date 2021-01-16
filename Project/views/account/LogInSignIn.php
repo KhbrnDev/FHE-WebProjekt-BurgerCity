@@ -1,25 +1,35 @@
-<?php if($success['success'] === true) : ?>
-    <div class="success-message">
-        Vielen Dank, für dein Konto! Sie werden automatisch auf die Login-Seite weitergeleitet.
-        <meta http-equiv="refresh" content="3; URL=index.php?c=account&a=LogInSignIn">
-    </div>
-
-<?php else : ?>
-    <div class="form-wrapper">
-        <?php if(isset($errors) && count($errors) > 0) : ?>
-            <div class="error-message" style="border: 1px dotted red; padding: 15px;">
-                <ul>
-                    <?php foreach($errors as $key => $value) : ?>
-                        <li><?=$value?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; // errors show ?>
 
     <div class="logsing-body">
         
         <!-- <div class="error"> -->
             <!-- Hier PHP fuer ErrorMessage inefuegen -->
+            <?php   if($success['success'] === true)
+                    {
+                        ?>
+                        <div class="logsing-success-message">
+                            Vielen Dank für die Registrierung, Sie können sich jetzt anmelden.
+                        </div>
+                        <?php
+                    }
+                    elseif(isset($errors) && count($errors) > 0)
+                    {
+                        ?>
+
+                        <div class="logsing-error-message">
+                        <ul>
+                        <?php
+                            foreach ($errors as $message) 
+                            {
+                                ?>
+                                <li><?=$message?></li>
+                                <?php
+                            }   
+                        ?>
+                        </ul>
+                        </div>
+                        <?php
+                    }
+            ?>
         <!-- </div> -->
         <div class="logsign-boxes">
             <div class="login-box">
@@ -28,16 +38,15 @@
 
                     <label for="email">E-Mail</label>
                     <br>
-                    <input type="email" name="email" id="email" placeholder="meine@email.de" 
-                        <?php
-                            if(isset($success['email']) && $success['success'] === true)
-                            {
-                                ?>
-                                value="<?=$success['email']?>"
-                                <?php
-                            }
+                    <input type="email" name="email" id="email" placeholder="meine@email.de"
+                        <?php if(isset($preload['logEmail']))
+                        {
+                            ?>
+                            value="<?=$preload['logEmail']?>"
+                            <?php
+                        }
                         ?>
-                        >
+                    >
                    
                     <br>
                     <label for="password">Passwort</label>
@@ -56,27 +65,47 @@
                     
                     <label for="firstname">Vorname</label>
                     <br>
-                    <input type="text" name="firstname" id="firstname" placeholder="Rainer">
+                    <input type="text" name="firstname" id="firstname" placeholder="Rainer"
+                        <?php if(isset($preload['firstname'])): ?>
+                            value="<?=$preload['firstname']?>"
+                        <?php endif; ?>
+                    >
                     <br>
 
                     <label for="lastname">Nachname</label>
                     <br>
-                    <input type="text" name="lastname" id="lastname" placeholder="Zufall">
+                    <input type="text" name="lastname" id="lastname" placeholder="Zufall"
+                        <?php if(isset($preload['lastname'])): ?>
+                            value="<?=$preload['lastname']?>"
+                        <?php endif; ?>
+                    >
                     <br>
 
                     <label for="birthday">Geburtsdatum</label>
                     <br>
-                    <input type="date" name="birthday" id="birthday">
+                    <input type="date" name="birthday" id="birthday" 
+                        <?php if(isset($preload['birthday'])): ?>
+                            value="<?=$preload['birthday']?>"
+                        <?php endif; ?>
+                    >
                     <br>
 
                     <label for="phonenumber">Telefon</label>
                     <br>
-                    <input type="tel" name="phonenumber" id="phonenumber">
+                    <input type="tel" name="phonenumber" id="phonenumber"
+                        <?php if(isset($preload['phoneNumber'])): ?>
+                            value="<?=$preload['phoneNumber']?>"
+                        <?php endif; ?>
+                    >
                     <br>
 
                     <label for="email">E-Mail</label>
                     <br>
-                    <input type="email" name="email" id="email" placeholder="r.zufall@mail.de">
+                    <input type="email" name="email" id="email" placeholder="r.zufall@mail.de"
+                        <?php if(isset($preload['email'])): ?>
+                            value="<?=$preload['email']?>"
+                        <?php endif; ?>
+                    >
                     <br>
 
                     <label for="password">Passwort</label>
@@ -92,5 +121,3 @@
             </div>
         </div>
     </div>
-    </div>
-<?php endif; ?>

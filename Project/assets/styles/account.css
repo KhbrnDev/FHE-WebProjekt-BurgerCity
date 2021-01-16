@@ -178,7 +178,6 @@
 
 .logsing-body{
     width: 100%;
-    
 }
 
 .logsign-boxes{
@@ -194,6 +193,9 @@
     margin: auto;
 }
 
+.login-box{
+
+}
 .signin-box{
     
 }
@@ -208,4 +210,17 @@
 
 .ordered-products-table{
     width: 100%;
+}
+
+.logsing-success-message{
+    margin: 5px 5% 0 5%;
+    padding: 2%;
+    border: 1px solid green;
+}
+
+.logsing-error-message{
+    margin: 5px 5% 0 5%;
+    width: auto;
+    padding: 2%;
+    border: 1px solid red;
 }

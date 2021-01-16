@@ -37,8 +37,10 @@ class AccountController extends \dwp\core\Controller
     
     public function actionLogInSignIn()
     {
+        $preload = [];
         $errors = [];
         $success['success'] = false;
+
 
         // oh my good, we get data
         
@@ -89,38 +91,45 @@ class AccountController extends \dwp\core\Controller
 
                     $newAccount = new \dwp\model\Account($paramsAccount);
                     $newAccount->save($errors);
-                    echo count($errors);
                     if(count($errors) === 0)
                     {
                         //SUCCESS
-                        echo"success";
-                        $success['email'] = $email;
+                        $preload['logEmail'] = $email;
                         $success['success'] = true;
                     }
                     else
                     {
                         // FAILURE
-                        $success['success'] = false;
+                    $success['success'] = false;
+                    $preload['firstname'] = $firstname;
+                    $preload['lastname'] = $lastname;
+                    $preload['birthday'] = $birthday;
+                    $preload['phoneNumber'] = $phonenumber;
+                    $preload['email'] = $email;
                     }
                   
+                }
+                else
+                {
+                    // FAILURE
+                    $success['success'] = false;
+                    $preload['firstname'] = $firstname;
+                    $preload['lastname'] = $lastname;
+                    $preload['birthday'] = $birthday;
+                    $preload['phoneNumber'] = $phonenumber;
+                    $preload['email'] = $email;
+
                 }
             
 
             }
             elseif (isset($_POST['login'])) 
             {
+                // RETRIEVE DATA
                 $email = ($_POST['email']) ? $_POST['email']: null;
                 $password = ($_POST['password']) ? $_POST['password'] : null;
-                
-               
-                
-                //Test -> PLEASE DELETE ME <3
-                    // $Account['email'] = $email;
-                    // $Account['passwordHash'] = password_hash($password, PASSWORD_DEFAULT);
-                	// $Account['accountId'] = 'test';
-                // ENDE
 
-
+                // VALIDATE EMAIL AND PASSWORD
                 if(!empty($email) && !empty($password))
                 {
                     $emailQuote = $GLOBALS['db']->quote($email);
@@ -139,22 +148,26 @@ class AccountController extends \dwp\core\Controller
                         else
                         {
                             $errors [] = 'EMail und Passwort passen nicht zueinander.';
+                            $preload['logEmail'] = $email;
                         }
                     }
                     else
                     {
                         $errors [] = 'EMail und Passwort passen nicht zueinander.';
+                        $preload['logEmail'] = $email;
                     }
                 }
                 else
                 {
                     $errors [] = 'Bitte valide Email und Passwort eingeben.';
+                    $preload['logEmail'] = $email;
                 }
 
             } 
         }
 
             // push to view ;)
+            $this->setParam('preload', $preload);
             $this->setParam('errors', $errors);
             $this->setParam('success', $success);
     }
