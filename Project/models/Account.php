@@ -22,4 +22,81 @@ class Account extends \dwp\core\Model
         'isAdmin' => [ 'type' => M::TYPE_BOOLEAN ],
         
     ];
+
+
+    // METHODS
+
+    public static function validateEmail($email, &$errors = [])
+    {
+        if($email === null)
+        {
+            $errors[] = 'Email fehlt.';
+        }
+
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            $errors[] = 'EMail nicht valide.';
+        }
+    }
+
+    public static function validatePassword($password, &$errors = [])
+    {
+        if($password === null)
+        {
+            $errors[] = 'Kein Passwort angegeben';
+        }
+        
+        if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/", $password))
+        {
+            $errors[] = 'Password enthält nicht mindestens 1 Großbuchstaben, 1 Kleinbuchstaben und 1 Zahl oder hat weniger als 8 Zeichen.';
+        }
+    }
+
+    public static function validatePhoneNumber($phonenumber, &$errors = [])
+    {
+        if($phonenumber === null)
+            {
+                $errors[] = 'Telefonnummer fehlt.';
+            }
+
+            if(!preg_match("/^[0-9]*$/", $phonenumber))
+            {
+                $errors[] = 'Telefonnummer bitte nur mit Zahlen angeben';
+            }
+    }
+
+    public static function validateFirstName($firstname, &$errors = [])
+    {
+        if($firstname === null)
+        {
+            $errors[] = 'Vorname fehlt.';
+        }
+
+        if(strlen($firstname) < 2)
+        {
+            $errors[] = 'Vorname mindestens 2 Zeichen haben.';
+        }
+
+        if(!preg_match("/^[a-zA-Z-' 'ä'ü'ö'ß'Ä'Ü'Ö]*$/", $firstname))
+        {
+            $errors[] = 'Vornamen bitte mit Buchstaben a-z, ä, ü, ö in groß und kleinschreibung sowie ß, - ,  Leerzeichen angeben.';
+        }
+    }
+    public static function validateLastName($lastname, &$errors = [])
+    {
+        if($lastname === null)
+            {
+                $errors[] = 'Nachname fehlt.';
+            }
+
+            if(strlen($lastname) < 2)
+            {
+                $errors[] = 'Nachname mindestens 2 Zeichen haben.';
+            }
+
+            if(!preg_match("/^[a-zA-Z-' 'ä'ü'ö'ß'Ä'Ü'Ö]*$/", $lastname))
+            {
+                $errors[] = 'Ihr Vor- oder Nachname bitte mit Buchstaben a-z, ä, ü, ö in groß und kleinschreibung sowie ß, - ,  Leerzeichen angeben.';
+            }
+    }
 }

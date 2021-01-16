@@ -1,4 +1,4 @@
-<?php if($success === true) : ?>
+<?php if($success['success'] === true) : ?>
     <div class="success-message">
         Vielen Dank, für dein Konto! Sie werden automatisch auf die Login-Seite weitergeleitet.
         <meta http-equiv="refresh" content="5; URL=index.php?c=account&a=LogInSignIn">
@@ -24,16 +24,25 @@
         <div class="logsign-boxes">
             <div class="login-box">
                 <h2>LogIn</h2>
-                <form  action="LogInSignIn.html" method="POST">
+                <form method="POST">
 
                     <label for="email">E-Mail</label>
                     <br>
-                    <input type="email" name="loginEmail" id="email" placeholder="meine@email.de">
+                    <input type="email" name="email" id="email" placeholder="meine@email.de" 
+                        <?php
+                            if(isset($success['email']))
+                            {
+                                ?>
+                                value="<?=$success['email']?>"
+                                <?php
+                            }
+                        ?>
+                        >
                    
                     <br>
                     <label for="password">Passwort</label>
                     <br>
-                    <input type="password" name="loginPassword" id="password" placeholder="Geheimes Passwort">
+                    <input type="password" name="password" id="password" placeholder="Geheimes Passwort">
                     
                     <br>
                     <input type="submit" name="login" value="LogIn">

@@ -1,7 +1,9 @@
 
 <div class="account-body">
     <div class="h1-ausloggen">
-        <h2><a href="#">Ausloggen</a></h2>
+        <h2><form method="post">
+            <input type="submit" name="logout" value="LogIn">
+        </form></h2>
         <h1>Willkommen <br> 'CallPHP GetName'</h1>
     </div>
     <h2>Accountinformationen</h2>

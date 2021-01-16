@@ -13,6 +13,7 @@ abstract class Model
     const TYPE_DECIMAL  = 'dec';
     const TYPE_DATE     = 'date';
     const TYPE_JSON     = 'json';
+    const TYPE_BOOLEAN  = 'boolean';
 
     protected $schema = [
     ];
@@ -139,6 +140,11 @@ abstract class Model
             print_r($error);
             exit(1);
         }
+    }
+
+    public function save()
+    {
+        // TODO: choose between insert and update
     }
 
     public function insert()
