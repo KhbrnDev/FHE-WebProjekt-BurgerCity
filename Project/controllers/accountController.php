@@ -69,7 +69,7 @@ class AccountController extends \dwp\core\Controller
                 \dwp\model\Account::validatePassword($password, $errors);
                 \dwp\model\Account::validateBirthday($birthday, $errors);
                 
-                $paramsAccount;
+            
 
                 // check errors?
                 if(count($errors) === 0)
@@ -112,9 +112,7 @@ class AccountController extends \dwp\core\Controller
                 $email = ($_POST['email']) ? $_POST['email']: null;
                 $password = ($_POST['password']) ? $_POST['password'] : null;
                 
-                $emailQuote = $GLOBALS['db']->quote($email);
-                $Account = \dwp\model\Account::findOne("email = " . $emailQuote);
-                echo $Account['email'];
+               
                 
                 //Test -> PLEASE DELETE ME <3
                     // $Account['email'] = $email;
@@ -123,39 +121,41 @@ class AccountController extends \dwp\core\Controller
                 // ENDE
 
 
-                // if(!empty($email) && !empty($password))
-                // {
+                if(!empty($email) && !empty($password))
+                {
+                    $emailQuote = $GLOBALS['db']->quote($email);
+                    $Account = \dwp\model\Account::findOne("email = " . $emailQuote);
 
-                //     if(isset($Account['email']))
-                //     {
-                //         if(password_verify($password, $Account['passwordHash']))
-                //         {
-                //             // EMail und Passwort stimmen
-                //             $_SESSION['loggedIn'] = true;
-                //             $_SESSION['userMail'] = $Account['email'];
-                //             $_SESSION['userID'] = $Account['accountId'];
-                //             header("Location: index.php?c=account&a=account");
-                //         }
-                //         else
-                //         {
-                //             $errors [] = 'EMail und Passwort passen nicht zueinander.';
-                //         }
-                //     }
-                //     else
-                //     {
-                //         $errors [] = 'EMail und Passwort passen nicht zueinander.';
-                //     }
-                // }
-                // else
-                // {
-                //     $errors [] = 'Bitte valide Email und Passwort eingeben.';
-                // }
+                    if($Account !== null)
+                    {
+                        if(password_verify($password, $Account->passwordHash))
+                        {
+                            // EMail und Passwort stimmen
+                            $_SESSION['loggedIn'] = true;
+                            $_SESSION['userMail'] = $Account->email;
+                            $_SESSION['userID'] = $Account->accountId;
+                            header("Location: index.php?c=account&a=account");
+                        }
+                        else
+                        {
+                            $errors [] = 'EMail und Passwort passen nicht zueinander.';
+                        }
+                    }
+                    else
+                    {
+                        $errors [] = 'EMail und Passwort passen nicht zueinander.';
+                    }
+                }
+                else
+                {
+                    $errors [] = 'Bitte valide Email und Passwort eingeben.';
+                }
 
             } 
+        }
 
             // push to view ;)
             $this->setParam('errors', $errors);
             $this->setParam('success', $success);
-        }
     }
 }
