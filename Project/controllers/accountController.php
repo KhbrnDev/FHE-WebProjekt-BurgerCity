@@ -13,7 +13,6 @@ class AccountController extends \dwp\core\Controller
 
         if(isset($_POST['logout']))
         {   
-            echo"tes";
             $_SESSION['loggedIn'] = false;
             header("Location: index.php?c=account&a=LogInSignIn");
         }
@@ -131,10 +130,8 @@ class AccountController extends \dwp\core\Controller
                         {
                             // EMail und Passwort stimmen
                             $_SESSION['loggedIn'] = true;
-                            // WILL MAN WISSSEN WER EINGELOGGT IST?
-                            //Ja, will man ;)
-                            //$_SESSION['userMail'] = $Account['email'];
-                            //$_SESSION['userID'] = $Account['accountId'];
+                            $_SESSION['userMail'] = $Account['email'];
+                            $_SESSION['userID'] = $Account['accountId'];
                             header("Location: index.php?c=account&a=account");
                         }
                         else
