@@ -16,12 +16,13 @@
                         ?>
 
                         <div class="logsing-error-message">
+                            <h4><?=$errors['title']?></h4>
                         <ul>
                         <?php
-                            foreach ($errors as $message) 
+                            for($Index = 0; $Index < count($errors)-1; $Index++)
                             {
                                 ?>
-                                <li><?=$message?></li>
+                                <li><?=$errors[$Index]?></li>
                                 <?php
                             }   
                         ?>

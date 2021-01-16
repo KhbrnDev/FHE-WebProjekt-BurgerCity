@@ -42,10 +42,6 @@ class AccountController extends \dwp\core\Controller
         $success['success'] = false;
 
 
-        // oh my good, we get data
-        
-        //$_SESSION['loggedIn'] = false; //Test,LÖSCH MICH PLEASE <3
-
         if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
         {
             header("Location: index.php?c=account&a=account");
@@ -101,6 +97,8 @@ class AccountController extends \dwp\core\Controller
                     {
                         // FAILURE
                     $success['success'] = false;
+                    $errors['title'] = 'SignIn Fehlgeschlagen';
+
                     $preload['firstname'] = $firstname;
                     $preload['lastname'] = $lastname;
                     $preload['birthday'] = $birthday;
@@ -113,6 +111,8 @@ class AccountController extends \dwp\core\Controller
                 {
                     // FAILURE
                     $success['success'] = false;
+                    $errors['title'] = 'SignIn Fehlgeschlagen';
+
                     $preload['firstname'] = $firstname;
                     $preload['lastname'] = $lastname;
                     $preload['birthday'] = $birthday;
@@ -147,18 +147,22 @@ class AccountController extends \dwp\core\Controller
                         }
                         else
                         {
+                            
+                            $errors['title'] = 'LogIn Fehlgeschlagen';
                             $errors [] = 'EMail und Passwort passen nicht zueinander.';
                             $preload['logEmail'] = $email;
                         }
                     }
                     else
-                    {
+                    {   
+                        $errors['title'] = 'LogIn Fehlgeschlagen';
                         $errors [] = 'EMail und Passwort passen nicht zueinander.';
                         $preload['logEmail'] = $email;
                     }
                 }
                 else
-                {
+                {   
+                    $errors['title'] = 'LogIn Fehlgeschlagen';
                     $errors [] = 'Bitte valide Email und Passwort eingeben.';
                     $preload['logEmail'] = $email;
                 }

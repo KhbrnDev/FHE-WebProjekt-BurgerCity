@@ -176,6 +176,22 @@
 
 /* LogInSignIn.php */
 
+@media only screen and (min-width: 800){
+
+    .login-box, .signin-box{
+        width: 50%;
+        
+    }
+
+
+}
+
+@media only screen and (max-width: 800){
+    .login-box, .signin-box{
+        width: 90%;
+    }
+}
+
 .logsing-body{
     width: 100%;
 }
@@ -187,7 +203,6 @@
 }
 
 .login-box, .signin-box{
-    width: 50%;
     flex: auto;
 
     margin: auto;
