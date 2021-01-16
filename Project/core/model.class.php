@@ -130,7 +130,7 @@ abstract class Model
             {
                 
                 $this->$key = null;
-                unset(this->$key);
+                unset($key);
                 
             }
             
@@ -145,6 +145,12 @@ abstract class Model
     public function save()
     {
         // TODO: choose between insert and update
+        if(isset($this->schema[$this->values['email']])){
+            $this->update();
+        }
+        else{
+            $this->insert();
+        }
     }
 
     public function insert()

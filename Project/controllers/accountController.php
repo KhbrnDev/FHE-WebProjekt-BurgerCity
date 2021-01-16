@@ -132,6 +132,7 @@ class AccountController extends \dwp\core\Controller
                             // EMail und Passwort stimmen
                             $_SESSION['loggedIn'] = true;
                             // WILL MAN WISSSEN WER EINGELOGGT IST?
+                            //Ja, will man ;)
                             //$_SESSION['userMail'] = $Account['email'];
                             //$_SESSION['userID'] = $Account['accountId'];
                             header("Location: index.php?c=account&a=account");
