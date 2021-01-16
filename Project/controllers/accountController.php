@@ -53,6 +53,7 @@ class AccountController extends \dwp\core\Controller
 
             if(isset($_POST['signin']))
             {
+                // GET ALL INPUT
                 $firstname = ($_POST['firstname']) ? $_POST['firstname']: null;
                 $lastname = ($_POST['lastname']) ? $_POST['lastname']: null;
                 $birthday = ($_POST['birthday']) ? $_POST['birthday']: null;
@@ -66,45 +67,42 @@ class AccountController extends \dwp\core\Controller
                 \dwp\model\Account::validatePhoneNumber($phonenumber, $errors);
                 \dwp\model\Account::validateEmail($email, $errors);
                 \dwp\model\Account::validatePassword($password, $errors);
-
-                // Validate Birthday
-                if($birthday === null)
-                {
+                \dwp\model\Account::validateBirthday($birthday, $errors);
                 
-                    $errors[] = 'Geburtsdatum fehlt.';
-                }
+                $paramsAccount;
 
                 // check errors?
                 if(count($errors) === 0)
                 {
                     $db = $GLOBALS['db']; 
                     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-                    
-                    //$email = $db->quote($email);
-                    $passwordHash = $db->quote($passwordHash);
-                    $firstname = $db->quote($firstname);
-                    $lastname = $db->quote($lastname);
-                    $birthday = $db->quote($birthday);
-                    $phonenumber = $db->quote($phonenumber);
 
                     $paramsAccount = [
-                        'email' => $db->quote($email),
+                        'email' => $email,
                         'passwordHash' => $passwordHash,
                         'firstName' => $firstname,
                         'lastName' => $lastname,
-                        'birthday' => $birthday,
-                        'phoneNumber' => $phonenumber
+                        'bithday' => $birthday,
+                        'phoneNumber' => $phonenumber,
+                        'isAdmin' => 0
                     ];
 
                     $newAccount = new \dwp\model\Account($paramsAccount);
-                    $newAccount->save();
-
-                    // TODO: save to database
-                    if( true ) // fake true because no db connected yet
+                    $newAccount->save($errors);
+                    echo count($errors);
+                    if(count($errors) === 0)
                     {
+                        //SUCCESS
+                        echo"success";
                         $success['email'] = $email;
                         $success['success'] = true;
                     }
+                    else
+                    {
+                        // FAILURE
+                        $success['success'] = false;
+                    }
+                  
                 }
             
 
@@ -115,45 +113,49 @@ class AccountController extends \dwp\core\Controller
                 $password = ($_POST['password']) ? $_POST['password'] : null;
                 
                 $emailQuote = $GLOBALS['db']->quote($email);
-                $Account = \dwp\model\Account::findOne("´email´ = " . $emailQuote);
+                $Account = \dwp\model\Account::findOne("email = " . $emailQuote);
+                echo $Account['email'];
+                
                 //Test -> PLEASE DELETE ME <3
-                    $Account['email'] = $email;
-                    $Account['passwordHash'] = password_hash($password, PASSWORD_DEFAULT);
-                	$Account['accountId'] = 'test';
+                    // $Account['email'] = $email;
+                    // $Account['passwordHash'] = password_hash($password, PASSWORD_DEFAULT);
+                	// $Account['accountId'] = 'test';
                 // ENDE
-                if(!empty($email) && !empty($password))
-                {
 
-                    if(!empty($Account['email']))
-                    {
-                        if(password_verify($password, $Account['passwordHash']))
-                        {
-                            // EMail und Passwort stimmen
-                            $_SESSION['loggedIn'] = true;
-                            $_SESSION['userMail'] = $Account['email'];
-                            $_SESSION['userID'] = $Account['accountId'];
-                            header("Location: index.php?c=account&a=account");
-                        }
-                        else
-                        {
-                            $errors [] = 'EMail und Passwort passen nicht zueinander.';
-                        }
-                    }
-                    else
-                    {
-                        $errors [] = 'EMail und Passwort passen nicht zueinander.';
-                    }
-                }
-                else
-                {
-                    $errors [] = 'Bitte valide Email und Passwort eingeben.';
-                }
+
+                // if(!empty($email) && !empty($password))
+                // {
+
+                //     if(isset($Account['email']))
+                //     {
+                //         if(password_verify($password, $Account['passwordHash']))
+                //         {
+                //             // EMail und Passwort stimmen
+                //             $_SESSION['loggedIn'] = true;
+                //             $_SESSION['userMail'] = $Account['email'];
+                //             $_SESSION['userID'] = $Account['accountId'];
+                //             header("Location: index.php?c=account&a=account");
+                //         }
+                //         else
+                //         {
+                //             $errors [] = 'EMail und Passwort passen nicht zueinander.';
+                //         }
+                //     }
+                //     else
+                //     {
+                //         $errors [] = 'EMail und Passwort passen nicht zueinander.';
+                //     }
+                // }
+                // else
+                // {
+                //     $errors [] = 'Bitte valide Email und Passwort eingeben.';
+                // }
 
             } 
-        }
+
             // push to view ;)
             $this->setParam('errors', $errors);
             $this->setParam('success', $success);
-            //header("index.php?c=account&a=LogInSignIn");
+        }
     }
 }

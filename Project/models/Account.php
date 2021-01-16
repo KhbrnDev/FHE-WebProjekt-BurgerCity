@@ -11,11 +11,11 @@ class Account extends \dwp\core\Model
 
     protected $schema = [
         'accountId' => [ 'type' => M::TYPE_INTEGER ],
-        'createdAt' => [ 'type' => M::TYPE_STRING],
-        'updatedAt' => [ 'type' => M::TYPE_STRING],
+        'create_time' => [ 'type' => M::TYPE_STRING],
+        'update_time' => [ 'type' => M::TYPE_STRING],
         'email' => [ 'type' => M::TYPE_STRING, 'max' => 320 ],
         'passwordHash' => [ 'type' => M::TYPE_STRING, 'max' => 255 ],
-        'birthday' => [ 'type' => M::TYPE_DATE ],
+        'bithday' => [ 'type' => M::TYPE_DATE ],
         'firstName' => [ 'type' => M::TYPE_STRING ],
         'lastName' => [ 'type' => M::TYPE_STRING ],
         'phoneNumber' => [ 'type' => M::TYPE_STRING ],
@@ -25,7 +25,7 @@ class Account extends \dwp\core\Model
 
 
     // METHODS
-
+    // Validation
     public static function validateEmail($email, &$errors = [])
     {
         if($email === null)
@@ -36,6 +36,13 @@ class Account extends \dwp\core\Model
         if(!filter_var($email, FILTER_VALIDATE_EMAIL))
         {
             $errors[] = 'EMail nicht valide.';
+        }
+
+        $existingEmail = parent::find("`email` = " . $GLOBALS['db']->quote($email));
+        
+        if(count($existingEmail) !== 0)
+        {
+            $errors [] = 'Ein Account mit dieser EMail existiert bereits.';
         }
     }
 
@@ -99,4 +106,26 @@ class Account extends \dwp\core\Model
                 $errors[] = 'Ihr Vor- oder Nachname bitte mit Buchstaben a-z, ä, ü, ö in groß und kleinschreibung sowie ß, - ,  Leerzeichen angeben.';
             }
     }
+
+    public static function validateBirthday($birthday, &$errors)
+    {
+        if($birthday === null)
+        {
+            $errors [] = 'Geburtsdatum fehlt.';
+        }
+    }
+
+    public static function makeDateForDB(&$date)
+    {
+        $date = date_create($date);
+        $date = date_format($date, 'Y-m-d');
+
+    }
+
+    // TODO this is not working yet
+    // public static function makeDateForHTML(&$date)
+    // {
+    //     $date = date_create($date);
+    //     $date = date_foramt($date, 'd-m-Y');
+    // }
 }

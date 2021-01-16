@@ -1,7 +1,7 @@
 <?php if($success['success'] === true) : ?>
     <div class="success-message">
         Vielen Dank, für dein Konto! Sie werden automatisch auf die Login-Seite weitergeleitet.
-        <!-- <meta http-equiv="refresh" content="5; URL=index.php?c=account&a=LogInSignIn"> -->
+        <meta http-equiv="refresh" content="3; URL=index.php?c=account&a=LogInSignIn">
     </div>
 
 <?php else : ?>
@@ -30,7 +30,7 @@
                     <br>
                     <input type="email" name="email" id="email" placeholder="meine@email.de" 
                         <?php
-                            if(isset($success['email']))
+                            if(isset($success['email']) && $success['success'] === true)
                             {
                                 ?>
                                 value="<?=$success['email']?>"

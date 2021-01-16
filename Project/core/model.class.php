@@ -15,12 +15,11 @@ abstract class Model
     const TYPE_JSON     = 'json';
     const TYPE_BOOLEAN  = 'boolean';
 
-    protected $schema = [
-    ];
+    protected $schema = [];
 
-    private $values = [
-    ];
+    private $values = [];
 
+    
     public static function tablename()
     {
         $class = get_called_class();
@@ -142,18 +141,18 @@ abstract class Model
         }
     }
 
-    public function save()
+    public function save(&$errors = [])
     {
         // TODO: choose between insert and update
         if(isset($this->schema[$this->values['email']])){
             $this->update();
         }
         else{
-            $this->insert();
+            $this->insert($errors);
         }
     }
 
-    public function insert()
+    public function insert(&$errors = [])
     {
         // TODO: Implement insert
         $db = $GLOBALS['db'];
@@ -175,11 +174,12 @@ abstract class Model
         {
             $stmt=$db->prepare($sqlStr);
             $stmt->execute($this->values);
-            $this->id = $db->lastInsertId();
+            //Diese Zeile schemist Fehler in __set() 
+            //$this->id = $db->lastInsertId();
         }
         catch(\PDOException $e)
         {
-            print_r($e);
+            $errors [] = $e;
         }
     }
 
