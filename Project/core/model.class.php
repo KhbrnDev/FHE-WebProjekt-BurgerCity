@@ -116,8 +116,7 @@ abstract class Model
         }
         else
         {
-            $className = get_called_class();
-            throw new \Exception(`${key} does not exists in this class ${className}`);
+            return null; 
         }
     }
 
@@ -183,13 +182,51 @@ abstract class Model
         }
     }
 
-    public function update()
+    public function update(&$errors)
     {
-        // TODO: Implement update
+        $db = $GLOBALS['db'];
+
+        try
+        {
+            $sql = 'UPDATE ' . self::tablename() . ' SET ';
+
+            foreach ($this->schema as $key => $schemaOptions)
+            {
+                if($this->data[$key] !== null && $key !== 'id' && $key !== 'createdAt' && $key !== 'updatedAt')
+                {
+                    $sql .= $key . ' = ' . $db->quote($this->data[$key]).',';
+                }
+            }
+
+            $sql = trim($sql, ',');
+            $sql .= ' WHERE id = ' . $this->data['id'];
+
+            $statement = $db->prepare($sql);
+            $statement->execute();
+
+            return true;
+        }
+        catch(\PDOException $e)
+        {
+            $errors [] = 'Error updating ' . get_called_class();
+        }
+        return false;
     }
 
-    public function destroy()
+    public function destroy(&$errors = null)
     {
-        // TODO: Implement destroy / delete
+        $db = $GLOBALS['db'];
+
+        try
+        {
+            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE id = ' . $this->id;
+            $db->exec($sql);
+            return true;
+        }
+        catch (\PDDOException $e)
+        {
+            $errors[] = 'Error deleting ' . get_called_class();
+        }
+        return false;
     }
 }
