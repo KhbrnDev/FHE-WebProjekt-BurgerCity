@@ -6,7 +6,7 @@ class AccountController extends \dwp\core\Controller
 {
     public function actionAccount()
 	{
-        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] !== true)
+        if(!$this->loggedIn())
         {
             header("Location: index.php?c=account&a=LogInSignIn");
         }
