@@ -42,21 +42,31 @@ class AccountController extends \dwp\core\Controller
             \dwp\model\Account::validateEmail($email, $errors);
             \dwp\model\Account::validatePhoneNumber($phonenumber, $errors);
 
+            $user = \dwp\model\Account::findOne('accountId = ' . $_SESSION['userID']);
+
+            if (   $firstname === $user->firstName
+                && $lastname === $user->lastName
+                && $birthday === $user->bithday
+                && $email === $user->email
+                && $phonenumber === $user->phoneNumber)
+            {
+                $success['success'] = false;
+                $errors [] = 'Keine Accountänderung';
+            }
+
             // check errors?
             if(count($errors) === 0)
             {
                 $db = $GLOBALS['db']; 
+                
+                $user->firstName = $firstname;
+                $user->lastName = $lastname;
+                $user->email = $email;
+                $user->phoneNumber = $phonenumber;
+                $user->bithday = $birthday;
 
-                $paramsAccount = [
-                    'firstName' => $firstname,
-                    'lastName' => $lastname,
-                    'bithday' => $birthday,
-                    'email' => $email,
-                    'phoneNumber' => $phonenumber
-                ];
+                $user->update($errors);
 
-                $newAccount = new \dwp\model\Account($paramsAccount);
-                $newAccount->update($errors);
                 if(count($errors) === 0)
                 {
                     //SUCCESS
@@ -97,18 +107,21 @@ class AccountController extends \dwp\core\Controller
             // VALIDATE INPUT
             \dwp\model\Account::validatePassword($newPassword, $errors);
 
+            $user = \dwp\model\Account::findOne('accountId = ' . $_SESSION['userID']);
+            if(!password_verify($curentPassword, $user->passwordHash) || $curentPassword !== $newPassword)
+            {
+                $errors [] = 'Aktuelles Passwort ist nicht korrekt oder ist das gleiche wie das neue.';
+            }
+            
+
             // check errors?
             if(count($errors) === 0)
             {
                 $db = $GLOBALS['db'];
                 $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
 
-                $paramsAccount = [
-                    'passwordHash' => $passwordHash
-                ];
-
-                $newAccount = new \dwp\model\Account($paramsAccount);
-                $newAccount->update($errors);
+                $user->passwordHash = $passwordHash;
+                $user->save($errors);
                 if(count($errors) === 0)
                 {
                     //SUCCESS
