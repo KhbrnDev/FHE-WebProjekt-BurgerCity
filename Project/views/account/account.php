@@ -2,7 +2,7 @@
 <div class="account-body">
     <div class="h1-ausloggen">
         <h2><form method="post">
-            <input type="submit" name="logout" value="LogIn">
+            <input type="submit" name="logout" value="Logout">
         </form></h2>
         <h1>Willkommen <br> 'CallPHP GetName'</h1>
     </div>
@@ -52,7 +52,7 @@
     <h2>Adressen</h2>
     <div class="account-adresses">
         <?php
-            for($Index = 0; $Index < 5; $Index++)
+            for($Index = 0; $Index < 1; $Index++)
             {
                 ?>
                     <form class="account-adress-form" action="" method="post">

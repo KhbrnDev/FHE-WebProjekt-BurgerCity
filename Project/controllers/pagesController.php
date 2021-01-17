@@ -11,6 +11,11 @@ class PagesController extends \dwp\core\Controller
 		
 	}
 
+	public function actionBurger()
+	{
+		
+	}
+
 	public function actionMenue()
 	{
 		

@@ -1,0 +1,29 @@
+Protokoll WebGruppe 17.01.2021
+
+Beginn: 16:00 Uhr
+
+Ende: 18 Uhr
+
+Nächstes Treffen: Freitag nach der Vorlesung
+		Montag: 10Uhr
+
+Anwesend: Martin, Daniel, Felix
+
+	
+Folien:
+
+Martin: SoginSignin, Account, Speisekarte  (4,5,6)
+Felix:	(1,2,3)
+Daniel: (7,8,9,10)
+
+Aufgaben:
+	@all:
+		
+	@Daniel
+		7, 11(Kontaktformular mit Bestätigung auf selbem Bildschirm)
+	@Felix
+		- Upload SQL Script mit Insert Checkbox
+		- Categorien in DB anlegen(Burger, Beilage, Getränke, Dessert)
+	@Martin
+		-fix
+		-8 Account Seite funktionieren lassen
