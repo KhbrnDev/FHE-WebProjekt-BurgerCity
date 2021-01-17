@@ -24,6 +24,19 @@ nav{
 
 }
 
+nav.submenu{
+    background-color: rgb(36, 36, 36);
+
+    border-bottom: 1px solid black;
+    text-align: right;
+    height: 70px;
+    line-height: 70px;
+    font-size: 1.3rem;
+    position: fixed;
+    width: 100%;
+
+}
+
 nav a{
     position: fixed;
 }
@@ -38,11 +51,23 @@ nav a:hover{
     margin: 0 30px 0 0;
     z-index: 56;
 }
+.submenu{
+    margin: 0 15px 0 0;
+    z-index: 56;
+}
 
 .menu a{
     text-decoration: none;
     color: gray;
     line-height: 70px;
+    margin: 0 2rem;
+    clear: both;
+    position: relative;
+}
+.submenu a{
+    text-decoration: none;
+    color: gray;
+    line-height: 35px;
     margin: 0 2rem;
     clear: both;
     position: relative;
@@ -82,6 +107,12 @@ nav > label{
 
     }
 
+    .submenu{
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+
     .menu a{
         display: block;
         border-bottom: 1px solid black;
@@ -90,8 +121,19 @@ nav > label{
         background-color: var(--accent-primary);
     }
 
+    .submenu a{
+        display: block;
+        border-top: 1px solid black;
+        margin: 0;
+        background-color: var(--accent-secondary);
+    }
+
     #toggle:checked + .menu{
         display: block;
+    }
+
+    #toggle:checked + .submenu{
+        display: block; 
     }
 }
 

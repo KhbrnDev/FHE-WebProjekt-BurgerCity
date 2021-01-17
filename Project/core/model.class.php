@@ -140,17 +140,6 @@ abstract class Model
         }
     }
 
-    public function save(&$errors = [])
-    {
-        // TODO: choose between insert and update
-        if(isset($this->schema[$this->values['email']])){
-            $this->update();
-        }
-        else{
-            $this->insert($errors);
-        }
-    }
-
     public function insert(&$errors = [])
     {
         // TODO: Implement insert

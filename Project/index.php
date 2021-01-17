@@ -94,6 +94,9 @@ else
     <?php
 
         include FILESPATH.'header1.php';
+        if($controllerName === 'pages' && $actionName == "menue"){
+            include FILESPATH.'submenuemenue.php';
+        }
     ?>
         <!-- Additional div added for Sticky Footer -->
         <div class="push-content-under-nav"></div>
