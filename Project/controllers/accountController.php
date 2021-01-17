@@ -6,6 +6,13 @@ class AccountController extends \dwp\core\Controller
 {
     public function actionAccount()
 	{
+        // INITIALIZE VIEW->PARAMS 
+        $errors = [];
+        $preloadUser = [];
+        $preloadAdress = [];
+        $preloadOrders = [];
+        $success['success'] = false;
+
         if(!$this->loggedIn())
         {
             header("Location: index.php?c=account&a=LogInSignIn");
@@ -17,21 +24,159 @@ class AccountController extends \dwp\core\Controller
             header("Location: index.php?c=account&a=LogInSignIn");
         }
 
-		// if($this->loggedIn())
-		// {
-		// 	// TODO: Retrieve account which is logged in
-			
-		// 	// TODO: Set the correct name of the current user here
-		// 	$this->setParam('name', 'unkown');
+        
 
-		// 	// TODO: retrieve and set the marks of the current user
-		// 	$this->setParam('marks', []);
+        if(isset($_POST['changeAccount']))
+        {
+            // GET DATA
+            $firstname = ($_POST['firstname']) ? $_POST['firstname']: null;
+            $lastname = ($_POST['lastname']) ? $_POST['lastname']: null;
+            $birthday = ($_POST['birthday']) ? $_POST['birthday']: null;
+            $email = ($_POST['email']) ? $_POST['email']: null;
+            $phonenumber = ($_POST['phoneNumber']) ? $_POST['phoneNumber']: null;
 
-		// }
-		// else
-		// {
-		// 	header('Location: index.php?c=account&a=LogInSignIn');
-		// }
+            // VALIDATE INPUT
+            \dwp\model\Account::validateFirstName($firstname, $errors);
+            \dwp\model\Account::validateLastName($lastname, $errors);
+            \dwp\model\Account::validateBirthday($birthday, $errors);
+            \dwp\model\Account::validateEmail($email, $errors);
+            \dwp\model\Account::validatePhoneNumber($phonenumber, $errors);
+
+            // check errors?
+            if(count($errors) === 0)
+            {
+                $db = $GLOBALS['db']; 
+
+                $paramsAccount = [
+                    'firstName' => $firstname,
+                    'lastName' => $lastname,
+                    'bithday' => $birthday,
+                    'email' => $email,
+                    'phoneNumber' => $phonenumber
+                ];
+
+                $newAccount = new \dwp\model\Account($paramsAccount);
+                $newAccount->update($errors);
+                if(count($errors) === 0)
+                {
+                    //SUCCESS
+                    $success['success'] = true;
+                    $success['message'] = 'Accountänderung erfolgreich';
+                }
+                else
+                {
+                    // FAILURE
+                $success['success'] = false;
+                $errors['title'] = 'Accountänderung fehlgeschlagen';
+                }
+              
+            }
+            else
+            {
+                // FAILURE
+                $success['success'] = false;
+                $errors['title'] = 'Accountänderung fehlgeschlagen';
+
+            }
+
+            // why do I exist?
+            if(count($errors) === 0)
+            {
+
+            }
+
+        }
+        elseif (isset($_POST['changePassword'])) 
+        {
+            
+            // GET DATA
+            $curentPassword = ($_POST['currentPassword']) ? $_POST['currentPassword']: null;
+            $newPassword    = ($_POST['newPassword']) ? $_POST['newPassword']: null;
+            
+
+            // VALIDATE INPUT
+            \dwp\model\Account::validatePassword($newPassword, $errors);
+
+            // check errors?
+            if(count($errors) === 0)
+            {
+                $db = $GLOBALS['db'];
+                $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+
+                $paramsAccount = [
+                    'passwordHash' => $passwordHash
+                ];
+
+                $newAccount = new \dwp\model\Account($paramsAccount);
+                $newAccount->update($errors);
+                if(count($errors) === 0)
+                {
+                    //SUCCESS
+                    $success['success'] = true;
+                    $success['message'] = 'Passwortänderung erfolgreich';
+                }
+                else
+                {
+                    // FAILURE
+                $success['success'] = false;
+                $errors['title'] = 'Passwortänderung fehlgeschlagen';
+                }
+              
+            }
+            else
+            {
+                // FAILURE
+                $success['success'] = false;
+                $errors['title'] = 'Passwortänderung fehlgeschlagen';
+
+            }
+
+        }
+        elseif (isset($_POST['saveAdress']))
+        {
+            echo "saveAdress";
+
+        }
+        elseif (isset($_POST['deleteAdress']))
+        {
+            echo "deleteAdress";
+        }
+        elseif (isset($_POST['repeatOrder']))
+        {
+            echo "repeatOrder";
+        }
+        
+
+        // PRELOAD DATA
+        // Preload User->Account
+        $user = \dwp\model\Account::findOne("`accountId` = " . $_SESSION['userID']);
+        $preloadUser['firstname'] = $user->firstName;
+        $preloadUser['lastname'] = $user->lastName;
+        $preloadUser['birthday'] = $user->bithday;
+        $preloadUser['email'] = $user->email;
+        $preloadUser['phoneNumber'] = $user->phoneNumber;
+
+
+        // Preload User->Adress
+        /**
+          Do Stuff here
+          
+         */
+
+
+        // Preload User->Orders
+        /**
+          Do Stuff here
+          
+         */
+
+
+        // PUSH TO VIEW
+        $this->setParam('errors', $errors);
+        $this->setParam('preloadUser', $preloadUser);
+        $this->setParam('preloadAdress', $preloadAdress);
+        $this->setParam('preloadOrders', $preloadOrders);
+        $this->setParam('success', $success);
 
     }
     
@@ -67,6 +212,12 @@ class AccountController extends \dwp\core\Controller
                 \dwp\model\Account::validatePassword($password, $errors);
                 \dwp\model\Account::validateBirthday($birthday, $errors);
                 
+                // check if email already has an account
+                $existingEmail = \dwp\model\Account::find("`email` = " . $GLOBALS['db']->quote($email));
+                if(count($existingEmail) !== 0)
+                {
+                    $errors [] = 'Ein Account mit dieser EMail existiert bereits.';
+                }
             
 
                 // check errors?
@@ -86,12 +237,13 @@ class AccountController extends \dwp\core\Controller
                     ];
 
                     $newAccount = new \dwp\model\Account($paramsAccount);
-                    $newAccount->save($errors);
+                    $newAccount->insert($errors);
                     if(count($errors) === 0)
                     {
                         //SUCCESS
                         $preload['logEmail'] = $email;
                         $success['success'] = true;
+                        $success['message'] = 'Registrierung erfolgreich. Sie können sich jetzt anmelden.';
                     }
                     else
                     {

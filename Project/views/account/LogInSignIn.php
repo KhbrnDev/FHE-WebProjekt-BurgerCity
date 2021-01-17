@@ -7,7 +7,7 @@
                     {
                         ?>
                         <div class="logsing-success-message">
-                            Vielen Dank für die Registrierung, Sie können sich jetzt anmelden.
+                            <?=$success['message']?>
                         </div>
                         <?php
                     }
@@ -17,16 +17,16 @@
 
                         <div class="logsing-error-message">
                             <h4><?=$errors['title']?></h4>
-                        <ul>
-                        <?php
-                            for($Index = 0; $Index < count($errors)-1; $Index++)
-                            {
-                                ?>
-                                <li><?=$errors[$Index]?></li>
+                            <ul>
                                 <?php
-                            }   
-                        ?>
-                        </ul>
+                                    for($Index = 0; $Index < count($errors)-1; $Index++)
+                                    {
+                                        ?>
+                                        <li><?=$errors[$Index]?></li>
+                                        <?php
+                                    }   
+                                ?>
+                            </ul>
                         </div>
                         <?php
                     }

@@ -38,12 +38,7 @@ class Account extends \dwp\core\Model
             $errors[] = 'EMail nicht valide.';
         }
 
-        $existingEmail = parent::find("`email` = " . $GLOBALS['db']->quote($email));
         
-        if(count($existingEmail) !== 0)
-        {
-            $errors [] = 'Ein Account mit dieser EMail existiert bereits.';
-        }
     }
 
     public static function validatePassword($password, &$errors = [])

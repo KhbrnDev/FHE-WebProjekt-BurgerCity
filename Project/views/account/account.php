@@ -4,50 +4,105 @@
         <h2><form method="post">
             <input type="submit" name="logout" value="Logout">
         </form></h2>
-        <h1>Willkommen <br> 'CallPHP GetName'</h1>
+        <h1>Willkommen <br><?=$preloadUser['firstname'] . " " . $preloadUser['lastname']?></h1>
     </div>
+    <!-- <div class="error"> -->
+            <!-- Hier PHP fuer ErrorMessage inefuegen -->
+            <?php   if($success['success'] === true)
+                    {
+                        ?>
+                        <div class="logsing-success-message">
+                            <?=$success['message']?>
+                        </div>
+                        <?php
+                    }
+                    elseif(isset($errors) && count($errors) > 0)
+                    {
+                        ?>
+
+                        <div class="logsing-error-message">
+                            <h4><?=$errors['title']?></h4>
+                        <ul>
+                        <?php
+                            for($Index = 0; $Index < count($errors)-1; $Index++)
+                            {
+                                ?>
+                                <li><?=$errors[$Index]?></li>
+                                <?php
+                            }   
+                        ?>
+                        </ul>
+                        </div>
+                        <?php
+                    }
+            ?>
+    <!-- </div> -->
     <h2>Accountinformationen</h2>
     <div class="account-properties">
         <div class="account-form">
-            <form action="" method="get">
+            <form action="" method="post">
                 <div class="account-form-object">
                     <label for="firstname">Vorname</label>
                     <br>
-                    <input type="text" id="firstname" name="firstname" value="Max">
+                    <input type="text" id="firstname" name="firstname" value="<?=(isset($preloadUser['firstname'])) ? $preloadUser['firstname'] : ""?>" required>
                 </div>
                 
                 <div class="account-form-object">
                     <label for="lastname">Nachname</label>
                     <br>
-                    <input type="text" id="lastname" name="lastname" value="Mustermann">
+                    <input type="text" id="lastname" name="lastname" value="<?=(isset($preloadUser['lastname'])) ? $preloadUser['lastname'] : ""?>" required>
                 </div>
 
                 <div class="account-form-object">
                     <label for="birthday">Geburtsdatum</label>
                     <br>
-                    <input type="date" id="birthday" name="birthday" value="2020-10-09">
+                    <input type="date" id="birthday" name="birthday" value="<?=(isset($preloadUser['birthday'])) ? $preloadUser['birthday'] : ""?>" required>
                 </div>
 
                 <div class="account-form-object">
                     <label for="email">E-Mail</label>
                     <br>
-                    <input type="email" id="email" name="email" value="praesident@fh-erfurt.de">
+                    <input type="email" id="email" name="email" value="<?=(isset($preloadUser['email'])) ? $preloadUser['email'] : ""?>" required>
                 </div>
 
                 <div class="account-form-object">
-                    <label for="number">Telefonnummer</label>
+                    <label for="phoneNumber">Telefonnummer</label>
                     <br>
-                    <input type="number" id="number" name="number" value="03603171819;">
+                    <input type="tel" id="phoneNumber" name="phoneNumber" value="<?=(isset($preloadUser['phoneNumber'])) ? $preloadUser['phoneNumber'] : ""?>" required>
                 </div>
                 <div class="account-form-object">
                     <br>
-                    <input type="submit" name="submit" id="submit" value="Account ändern">
+                    <input type="submit" name="changeAccount" id="submit" value="Account ändern">
                 </div>  
             </form>
         </div>
     </div>
 
-    <!-- style="background-color:red;" -->
+    <h2>Passwort ändern</h2>
+    <div class="account-properties">
+        <div class="account-form">
+        <form method="post">
+
+            <div class="account-form-object">
+                <label for="currentPassword">Aktuelles Passwort</label>
+                <br>
+                <input type="password" id="currentPassword" name="currentPassword" placeholder="G3H31M" required>
+            </div>
+
+            <div class="account-form-object">
+                <label for="newPassword">Neues Passwort</label>
+                <br>
+                <input type="password" id="newPassword" name="newPassword" required>
+            </div>
+            <div class="account-form-object">
+                <br>
+                <input type="submit" name="changePassword" id="submit" value="Account ändern">
+
+            </div> 
+        </form>
+        </div>
+    </div>
+
     
     <h2>Adressen</h2>
     <div class="account-adresses">
@@ -60,41 +115,82 @@
                         <div  class="account-adress-form-object">
                             <label for="street">Strase:</label>
                             <br>
-                            <input type="text" name="street" id="street" value="Altonaerstrasse">
+                            <input type="text" name="street" id="street" value="Altonaerstrasse" required>
                         </div>
 
                         <div class="account-adress-form-object">
                             <label for="number">Hausnummer:</label>
                             <br>
-                            <input type="number" name="number" id="number" value="25">
+                            <input type="number" name="number" id="number" value="25" required>
                         </div>
                         
                         <div class="account-adress-form-object">
                             <label for="zipcode">Postleitzahl:</label>
                             <br>
-                            <input type="zipcode" name="zipcode" id="zipcode" value="55122">
+                            <input type="zipcode" name="zipcode" id="zipcode" value="55122" required>
                         </div>
                         
                         <div class="account-adress-form-object">
                             <label for="city">Stadt:</label>
                             <br>
-                            <input type="city" name="city" id="city" value="Erfurt">
+                            <input type="city" name="city" id="city" value="Erfurt" required>
                         </div>
                         
                         <div class="account-adress-form-object">
                             <br>
-                            <input type="submit" name="delete" value="Adresse löschen">
+                            <input type="submit" name="deleteAdress" value="Adresse löschen">
                         </div>
 
                         <div class="account-adress-form-object">
                             <br>
-                            <input type="submit" name="save" value="Änderung Speichern">
+                            <input type="submit" name="saveAdress" value="Änderung Speichern">
                         </div>
                     </form>
 
                 <?php
             }
         ?>
+        
+        <form class="account-adress-form" action="" method="post">
+            
+            <div class="account-adress-form-object" style="width: 12rem;">
+                <h4>
+                    Neue <br> Adresse <br> anlegen
+                </h4>
+            </div>
+
+            <div  class="account-adress-form-object">
+                <label for="street">Strase:</label>
+                <br>
+                <input type="text" name="street" id="street" placeholder="Musterstrasse" required>
+            </div>
+
+            <div class="account-adress-form-object">
+                <label for="number">Hausnummer:</label>
+                <br>
+                <input type="number" name="number" id="number" placeholder="0" required>
+            </div>
+            
+            <div class="account-adress-form-object">
+                <label for="zipcode">Postleitzahl:</label>
+                <br>
+                <input type="zipcode" name="zipcode" id="zipcode" placeholder="12345" required>
+            </div>
+            
+            <div class="account-adress-form-object">
+                <label for="city">Stadt:</label>
+                <br>
+                <input type="city" name="city" id="city" placeholder="Musterstadt" required>
+            </div>
+
+            <div class="account-adress-form-object">
+                <br>
+                <input type="submit" name="saveAdress" value="Neue Adresse anlegen">
+            </div>
+
+        </form>
+
+
     </div>
     <!-- Für Tabelleneinträge große Kacheln programmieren, 1 pro Reihe anstatt 2 Pro Reihe bei Speisekarte -->
     <!-- <h2>Bestellungen</h2>
@@ -167,7 +263,7 @@
     for($Index = 0; $Index < 5; $Index++)
     {
         ?>
-            <!-- BestellungStart -->
+            <!-- BestellungStart -->,
                 <div class="account-orderlist-body">
                     <div class="account-orderlist-order">
                         Bestellnummer 7017 vom 03.10.2019

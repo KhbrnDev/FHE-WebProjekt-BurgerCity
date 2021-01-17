@@ -13,9 +13,9 @@ Bis Sonntag:
 
 Offene Aufgaben:
 1 in der index.php die models in Schleife einbinden
-2 SignIn, LogIn Daten an Datenbank senden
-3 Formular für Login ergänzen
-4 Test Daten in Datenbank erstellen
+2 SignIn, LogIn Daten an Datenbank senden +
+3 Formular für Login ergänzen		+
+4 Test Daten in Datenbank erstellen	-+
 5 TestDaten dynamisch in Pages laden
 6 categorie.php in pages, darüber dynamisch Produkte einer Kategorie aus Datenbank laden, 
 entsprechende Labels bei Speisekarte verlinken
@@ -28,8 +28,8 @@ entsprechende Labels bei Speisekarte verlinken
 13 Dokumentation schreiben
 14 Komplette Administration mit Admins bearbeiten, Produkte bearbeiten, Zutatenliste
 15 Ordentliche ErrorSeite mit großem Bildchen von leckeren Burgern
-16 Modelfunktionen
-17 Wenn Datenbank steht muss AccountController in den Controllers ergänzt werden (Account in Session speichern)
+16 Modelfunktionen -> Test ausstehend	-+
+17 Wenn Datenbank steht muss AccountController in den Controllers ergänzt werden (Account in Session speichern)+
 18 ggf. Datenbank anpassen
 19 Datenbankdiagramm anpassen 
 
