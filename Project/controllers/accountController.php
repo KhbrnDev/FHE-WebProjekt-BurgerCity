@@ -108,7 +108,7 @@ class AccountController extends \dwp\core\Controller
             \dwp\model\Account::validatePassword($newPassword, $errors);
 
             $user = \dwp\model\Account::findOne('accountId = ' . $_SESSION['userID']);
-            if(!password_verify($curentPassword, $user->passwordHash) || $curentPassword !== $newPassword)
+            if(!password_verify($curentPassword, $user->passwordHash) || $curentPassword === $newPassword)
             {
                 $errors [] = 'Aktuelles Passwort ist nicht korrekt oder ist das gleiche wie das neue.';
             }
