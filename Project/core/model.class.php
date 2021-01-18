@@ -67,6 +67,8 @@ abstract class Model
     }
 
 
+
+
     public function __construct($values)
     {
         try
@@ -140,6 +142,18 @@ abstract class Model
         }
     }
 
+    public function save(&$errors = null)
+    {
+        if($this->values[array_key_first($this->schema)] === null)
+        {
+            $this->insert($errors);
+        }
+        else
+        {
+            $this->update($errors);
+        }
+    }
+
     public function insert(&$errors = [])
     {
         // TODO: Implement insert
@@ -208,7 +222,7 @@ abstract class Model
 
         try
         {
-            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE '.array_key_first($this->schema).' = ' . $this->(array_key_first($this->schema));
+            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE '.array_key_first($this->schema).' = ' . $this->array_key_first($this->schema);
             $db->exec($sql);
             return true;
         }
