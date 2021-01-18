@@ -181,14 +181,14 @@ abstract class Model
 
             foreach ($this->schema as $key => $schemaOptions)
             {
-                if($this->data[$key] !== null && $key !== 'id' && $key !== 'createdAt' && $key !== 'updatedAt')
+                if($this->values[$key] !== null && $key !== array_key_first($this->schema) && $key !== 'createdAt' && $key !== 'updatedAt')
                 {
-                    $sql .= $key . ' = ' . $db->quote($this->data[$key]).',';
+                    $sql .= $key . ' = ' . $db->quote($this->values[$key]).',';
                 }
             }
 
             $sql = trim($sql, ',');
-            $sql .= ' WHERE id = ' . $this->data['id'];
+            $sql .= ' WHERE '.array_key_first($this->schema).' = ' . $this->values[array_key_first($this->schema)];
 
             $statement = $db->prepare($sql);
             $statement->execute();
@@ -208,7 +208,7 @@ abstract class Model
 
         try
         {
-            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE id = ' . $this->id;
+            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE '.array_key_first($this->schema).' = ' . $this->(array_key_first($this->schema));
             $db->exec($sql);
             return true;
         }
