@@ -46,7 +46,7 @@ class AccountController extends \dwp\core\Controller
 
             if (   $firstname === $user->firstName
                 && $lastname === $user->lastName
-                && $birthday === $user->bithday
+                && $birthday === $user->birthday
                 && $email === $user->email
                 && $phonenumber === $user->phoneNumber)
             {
@@ -63,7 +63,7 @@ class AccountController extends \dwp\core\Controller
                 $user->lastName = $lastname;
                 $user->email = $email;
                 $user->phoneNumber = $phonenumber;
-                $user->bithday = $birthday;
+                $user->birthday = $birthday;
 
                 $user->update($errors);
 
@@ -154,10 +154,10 @@ class AccountController extends \dwp\core\Controller
             $city = ($_POST['city']) ? $_POST['city']: null;
 
             // VALIDATE DATA
-            \dwp\model\Address::validateStreet($street, $errors);
-            \dwp\model\Address::validateNumber($number, $errors);
-            \dwp\model\Address::validateZipCode($zipCode, $errors);
-            \dwp\model\Address::validateCity($city, $errors);
+            \dwp\model\Adress::validateStreet($street, $errors);
+            \dwp\model\Adress::validateNumber($number, $errors);
+            \dwp\model\Adress::validateZipCode($zipCode, $errors);
+            \dwp\model\Adress::validateCity($city, $errors);
             
             if (count($errors) === 0)
             {
@@ -170,12 +170,12 @@ class AccountController extends \dwp\core\Controller
                     'number' => $number                    
                 ];
 
-                $adress = \dwp\model\Address::findAdress($adressData);
-
+                $adress = \dwp\model\Adress::findAdress($adressData);
+                
                 if($adress === null)
                 {
                     // create Adress and add to AdressHelper
-                    $adress = new \dwp\model\Address($adressData);
+                    $adress = new \dwp\model\Adress($adressData);
                     $adress->save($errors);
                 
                     if(count($errors) === 0)
@@ -183,12 +183,14 @@ class AccountController extends \dwp\core\Controller
                         // Adress->save was successfull
                         $adressId = $adress->adressId;
                         $adressHelper = \dwp\model\AdressHelper::findOne("'adressId' = " . $adressId . " AND 'accountId' = " . $_SESSION['userID']);
+                        echo "adressID" . $adressId; 
 
                         if($adressHelper === null)
                         {
                             // insert Adresshelper into Database
-                            $adressHelper->addressId = $adressId;
-                            $adressHelper->accountId = $_SESSION['userID'];
+                            $adressHelper = new \dwp\model\AdressHelper(null);
+                            $adressHelper->Adress_adressId = $adressId;
+                            $adressHelper->Account_accountId = $_SESSION['userID'];
                             $adressHelper->save($errors);
 
                             if(count($errors) === 0)
@@ -210,16 +212,29 @@ class AccountController extends \dwp\core\Controller
                 else
                 {
                     // Adress exists, save it to Adresshelper
-                    $adressHelper = new \dwp\model\AdressHelper();
-                    $adressHelper->adressId = $adress->adressId;
-                    $adressHelper->accountId = $_SESSION['userID'];
-                    $adressHelper->save($errors);
+                    $adressHelper = \dwp\model\AdressHelper::findOne("Adress_adressId = " . $adress->adressId . " and Account_accountId = " . $_SESSION['userID']);
+                    echo get_class($adressHelper);
 
-                    if(count($errors) === 0)
+                    if($adressHelper === null)
                     {
-                        $success['success'] = true;
-                        $success['message'] = 'Adresse erfolgreich gespeichert';
+                        $adressHelper = new \dwp\model\AdressHelper(null);
+                        $adressHelper->Adress_adressId = $adress->adressId;
+                        $adressHelper->Account_accountId = $_SESSION['userID'];
+                        $adressHelper->save($errors);
+
+                        if(count($errors) === 0)
+                        {
+                            $success['success'] = true;
+                            $success['message'] = 'Adresse erfolgreich gespeichert';
+                        }
                     }
+                    else
+                    {
+                        $success['success'] = false;
+                        $errors[] = 'Adresse ist bereits gespeichert';
+                    }
+
+                    
                 }
             }
 
@@ -250,7 +265,7 @@ class AccountController extends \dwp\core\Controller
         $user = \dwp\model\Account::findOne("`accountId` = " . $_SESSION['userID']);
         $preloadUser['firstname'] = $user->firstName;
         $preloadUser['lastname'] = $user->lastName;
-        $preloadUser['birthday'] = $user->bithday;
+        $preloadUser['birthday'] = $user->birthday;
         $preloadUser['email'] = $user->email;
         $preloadUser['phoneNumber'] = $user->phoneNumber;
 
@@ -329,7 +344,7 @@ class AccountController extends \dwp\core\Controller
                         'passwordHash' => $passwordHash,
                         'firstName' => $firstname,
                         'lastName' => $lastname,
-                        'bithday' => $birthday,
+                        'birthday' => $birthday,
                         'phoneNumber' => $phonenumber,
                         'isAdmin' => 0
                     ];

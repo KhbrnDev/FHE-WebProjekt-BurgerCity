@@ -49,7 +49,11 @@ abstract class Model
         {
             print_r($error);
         }
-
+        // uncomment for debugging
+        // echo "<pre>";
+        // print_r($results);
+        // echo "</pre>";
+        
         return $results;
     }
 

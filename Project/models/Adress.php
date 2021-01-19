@@ -42,9 +42,9 @@ class Adress extends \dwp\core\Model
 
     public static function findAdress($adressData)
     {
-        return findOne("'street' = " . $adressData['street'] .
-                " AND 'city' = " . $adressData['city'] .
-                " AND 'number' = " . $adressData['number'] .
-                " AND 'zipCode' = " . $adressData['zipCode']);
+        return parent::findOne("street = " . $GLOBALS['db']->quote($adressData['street']) .
+                " AND city = " . $GLOBALS['db']->quote($adressData['city']) .
+                " AND number = " . $GLOBALS['db']->quote($adressData['number']) .
+                " AND zipCode = " . $GLOBALS['db']->quote($adressData['zipCode']));
     }
 }

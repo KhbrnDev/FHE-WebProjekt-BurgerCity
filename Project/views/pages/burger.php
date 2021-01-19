@@ -1,5 +1,5 @@
 
-<div class="products-content">
+<div class="products-body">
 
     <h1>Burger</h1>
     <p>Wir haben so tolle Burger. Jeder Burger wird mit Liebe und 100% natürlichen Zutaten zubereitet.
