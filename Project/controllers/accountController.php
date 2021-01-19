@@ -1,7 +1,7 @@
 <?php
 
 namespace dwp\controller;
-
+use \dwp\model as M;
 class AccountController extends \dwp\core\Controller
 {
     public function actionAccount()
@@ -170,19 +170,64 @@ class AccountController extends \dwp\core\Controller
                     'number' => $number                    
                 ];
 
-                $adress = \dwp\model\Address::findOne("`steet` = " . $street . " AND 
-                                                       `city` = " . $city . " AND 
-                                                       `zipCode` = " . $zipCode . " AND 
-                                                       `number` = " . $number);
+                $adress = \dwp\model\Address::findAdress($adressData);
 
                 if($adress === null)
                 {
-                    echo "foundAdress";
+                    // create Adress and add to AdressHelper
+                    $adress = new \dwp\model\Address($adressData);
+                    $adress->save($errors);
+                
+                    if(count($errors) === 0)
+                    {
+                        // Adress->save was successfull
+                        $adressId = $adress->adressId;
+                        $adressHelper = \dwp\model\AdressHelper::findOne("'adressId' = " . $adressId . " AND 'accountId' = " . $_SESSION['userID']);
+
+                        if($adressHelper === null)
+                        {
+                            // insert Adresshelper into Database
+                            $adressHelper->addressId = $adressId;
+                            $adressHelper->accountId = $_SESSION['userID'];
+                            $adressHelper->save($errors);
+
+                            if(count($errors) === 0)
+                            {
+                                $success['success'] = true;
+                                $success['message'] = 'Adresse erfolgreich gespeichert';
+                            }
+                        }
+                        else
+                        {
+                            // THIS SHOULD NEVER BE REACHED if Adress didnt exist but AddressHelper did!
+                            // Adresshelper already exists
+                            $success['success'] = true;
+                            $success['message'] = 'Adresse erfolgreich gespeichert';
+
+                        }
+                    }
                 }
                 else
                 {
-                    echo "did not find Adress";
+                    // Adress exists, save it to Adresshelper
+                    $adressHelper = new \dwp\model\AdressHelper();
+                    $adressHelper->adressId = $adress->adressId;
+                    $adressHelper->accountId = $_SESSION['userID'];
+                    $adressHelper->save($errors);
+
+                    if(count($errors) === 0)
+                    {
+                        $success['success'] = true;
+                        $success['message'] = 'Adresse erfolgreich gespeichert';
+                    }
                 }
+            }
+
+            // has there been errors?
+            if(count($errors) !== 0)
+            {
+                $success['success'] = false;
+                $errors['title'] = 'Adressspeicherung fehlgeschlagen';
             }
 
         }
