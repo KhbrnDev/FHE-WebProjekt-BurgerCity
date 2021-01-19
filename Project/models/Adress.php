@@ -5,12 +5,12 @@
 namespace dwp\model;
 use \dwp\core\Model as M;
 
-class Address extends \dwp\core\Model
+class Adress extends \dwp\core\Model
 {
-    const TABLENAME = 'Address';
+    const TABLENAME = 'Adress';
 
     protected $schema = [
-        'AddressId' => [ 'type' => M::TYPE_INTEGER ],
+        'adressId' => [ 'type' => M::TYPE_INTEGER ],
         'createdAt' => [ 'type' => M::TYPE_STRING],
         'updatedAt' => [ 'type' => M::TYPE_STRING],
         'zipCode' => [ 'type' => M::TYPE_STRING, 'max' => 12 ],
@@ -40,7 +40,7 @@ class Address extends \dwp\core\Model
 
     }
 
-    public static function findAdress($adressData, &$errors = [])
+    public static function findAdress($adressData)
     {
         return findOne("'street' = " . $adressData['street'] .
                 " AND 'city' = " . $adressData['city'] .

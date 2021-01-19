@@ -11,11 +11,11 @@ class Account extends \dwp\core\Model
 
     protected $schema = [
         'accountId' => [ 'type' => M::TYPE_INTEGER ],
-        'create_time' => [ 'type' => M::TYPE_STRING],
-        'update_time' => [ 'type' => M::TYPE_STRING],
+        'createdAt' => [ 'type' => M::TYPE_STRING],
+        'updatedAt' => [ 'type' => M::TYPE_STRING],
         'email' => [ 'type' => M::TYPE_STRING, 'max' => 320 ],
         'passwordHash' => [ 'type' => M::TYPE_STRING, 'max' => 255 ],
-        'bithday' => [ 'type' => M::TYPE_DATE ],
+        'birthday' => [ 'type' => M::TYPE_DATE ],
         'firstName' => [ 'type' => M::TYPE_STRING ],
         'lastName' => [ 'type' => M::TYPE_STRING ],
         'phoneNumber' => [ 'type' => M::TYPE_STRING ],

@@ -10,7 +10,7 @@ class Category extends \dwp\core\Model
     const TABLENAME = 'Category';
 
     protected $schema = [
-        'CategoryId' => [ 'type' => M::TYPE_INTEGER ],
+        'categoryId' => [ 'type' => M::TYPE_INTEGER ],
         'createdAt' => [ 'type' => M::TYPE_STRING],
         'updatedAt' => [ 'type' => M::TYPE_STRING],
         'categoryName' => [ 'type' => M::TYPE_STRING, 'max' => 255 ],

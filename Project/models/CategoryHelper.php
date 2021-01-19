@@ -10,7 +10,7 @@ class CategoryHelper extends \dwp\core\Model
     const TABLENAME = 'CategoryHelper';
 
     protected $schema = [
-        'CategoryHelperId' => [ 'type' => M::TYPE_INTEGER ],
+        'categoryHelperId' => [ 'type' => M::TYPE_INTEGER ],
         'createdAt' => [ 'type' => M::TYPE_STRING],
         'updatedAt' => [ 'type' => M::TYPE_STRING],
         'Category_categoryId' => [ 'type' => M::TYPE_INTEGER ],

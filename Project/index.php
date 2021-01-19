@@ -13,8 +13,8 @@ require_once COREPATH.'model.class.php';
 
 // TODO: load all created models
 require_once MODELSPATH.'Account.php';
-require_once MODELSPATH.'Address.php';
-require_once MODELSPATH.'AddressHelper.php';
+require_once MODELSPATH.'Adress.php';
+require_once MODELSPATH.'AdressHelper.php';
 require_once MODELSPATH.'Category.php';
 require_once MODELSPATH.'Ingredients.php';
 require_once MODELSPATH.'OrderItems.php';

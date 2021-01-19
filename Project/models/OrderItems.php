@@ -13,9 +13,9 @@ class ordersItems extends \dwp\core\Model
         'ordersItemsId' => [ 'type' => M::TYPE_INTEGER ],
         'createdAt' => [ 'type' => M::TYPE_STRING],
         'updatedAt' => [ 'type' => M::TYPE_STRING],
-        'productId' => [ 'type' => M::TYPE_INTEGER ],
         'quantity' => [ 'type' => M::TYPE_INTEGER ],
-        'orderId' => [ 'type' => M::TYPE_INTEGER ],
+        'Products_productsId' => [ 'type' => M::TYPE_INTEGER ],
+        'Orders_orderId' => [ 'type' => M::TYPE_INTEGER ],
 
     ];
 }

@@ -13,8 +13,8 @@ class AdressHelper extends \dwp\core\Model
         'adressHelperId' => [ 'type' => M::TYPE_INTEGER ],
         'createdAt' => [ 'type' => M::TYPE_STRING],
         'updatedAt' => [ 'type' => M::TYPE_STRING],
-        'addressId' => [ 'type' => M::TYPE_INTEGER ],
         'Account_accountId' => [ 'type' => M::TYPE_INTEGER ],
+        'Adress_adressId' => [ 'type' => M::TYPE_INTEGER ],
 
     ];
 }
