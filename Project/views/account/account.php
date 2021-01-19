@@ -168,13 +168,13 @@
             <div class="account-adress-form-object">
                 <label for="number">Hausnummer:</label>
                 <br>
-                <input type="number" name="number" id="number" placeholder="0" required>
+                <input type="text" name="number" id="number" placeholder="0" required>
             </div>
             
             <div class="account-adress-form-object">
                 <label for="zipCode">Postleitzahl:</label>
                 <br>
-                <input type="number" name="zipCode" id="zipCode" placeholder="12345" required>
+                <input type="text" name="zipCode" id="zipCode" placeholder="12345" required>
             </div>
             
             <div class="account-adress-form-object">

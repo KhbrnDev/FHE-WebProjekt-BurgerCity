@@ -176,8 +176,8 @@ abstract class Model
         {
             $stmt=$db->prepare($sqlStr);
             $stmt->execute($this->values);
-            //Diese Zeile schemist Fehler in __set() 
-            //$this->id = $db->lastInsertId();
+            $id = array_key_first($this->schema);
+            $this->$id = $db->lastInsertId();
         }
         catch(\PDOException $e)
         {
