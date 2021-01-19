@@ -151,7 +151,7 @@
             }
         ?>
         
-        <form class="account-adress-form" action="" method="post">
+        <form class="account-adress-form" method="post">
             
             <div class="account-adress-form-object" style="width: 12rem;">
                 <h4>
@@ -172,15 +172,15 @@
             </div>
             
             <div class="account-adress-form-object">
-                <label for="zipcode">Postleitzahl:</label>
+                <label for="zipCode">Postleitzahl:</label>
                 <br>
-                <input type="zipcode" name="zipcode" id="zipcode" placeholder="12345" required>
+                <input type="number" name="zipCode" id="zipCode" placeholder="12345" required>
             </div>
             
             <div class="account-adress-form-object">
                 <label for="city">Stadt:</label>
                 <br>
-                <input type="city" name="city" id="city" placeholder="Musterstadt" required>
+                <input type="text" name="city" id="city" placeholder="Musterstadt" required>
             </div>
 
             <div class="account-adress-form-object">

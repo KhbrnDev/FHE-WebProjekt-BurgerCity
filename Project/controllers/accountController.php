@@ -96,7 +96,7 @@ class AccountController extends \dwp\core\Controller
             }
 
         }
-        elseif (isset($_POST['changePassword'])) 
+        elseif (isset($_POST['changePassword'])) // DONE
         {
             
             // GET DATA
@@ -147,7 +147,47 @@ class AccountController extends \dwp\core\Controller
         }
         elseif (isset($_POST['saveAdress']))
         {
-            echo "saveAdress";
+            // GET DATA
+            $street = ($_POST['street']) ? $_POST['street']: null;
+            $number = ($_POST['number']) ? $_POST['number']: null;
+            $zipCode = ($_POST['zipCode']) ? $_POST['zipCode']: null;
+            $city = ($_POST['city']) ? $_POST['city']: null;
+
+            // VALIDATE DATA
+            \dwp\model\Address::validateStreet($street, $errors);
+            \dwp\model\Address::validateNumber($number, $errors);
+            \dwp\model\Address::validateZipCode($zipCode, $errors);
+            \dwp\model\Address::validateCity($city, $errors);
+            
+            if (count($errors) === 0)
+            {
+                $db = $GLOBALS['db'];
+                
+                $adressData = [
+                    'street' => $street,
+                    'city' => $city,
+                    'zipCode' => $zipCode,
+                    'number' => $number                    
+                ];
+
+                $adress = \dwp\model\Address::findOne("`steet` = " . $street . " AND 
+                                                       `city` = " . $city . " AND 
+                                                       `zipCode` = " . $zipCode . " AND 
+                                                       `number` = " . $number);
+
+                if($adress === null)
+                {
+                    echo "foundAdress";
+                }
+                else
+                {
+                    echo "did not find Adress";
+                }
+            }
+
+        }
+        elseif (isset($_POST['updateAdress']))
+        {
 
         }
         elseif (isset($_POST['deleteAdress']))
