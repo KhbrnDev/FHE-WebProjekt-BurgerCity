@@ -4,7 +4,14 @@
         <label for="toggle">&#9776;</label>
         <input type="checkbox" id="toggle">
         <div class="menu">
-            <a href="index.php?c=pages&a=menue">Speisekarte</a>
+            <div class="dropdown">
+                <a href="index.php?c=pages&a=menue"><span>Speisekarte</span></a>
+                <div class="dropdown-content">
+                    <a href="">Burger</a>
+                    <a href="">Snacks</a>
+                    <a href="">Getränke</a>
+                </div>
+            </div>
                 <!-- <label class="labelSubNav" for="toggleSubMenu">&#9776;</label>
             <input class="inputSubNav" type="checkbox" id="toggleSubMenu">
                 <div class="subNav">

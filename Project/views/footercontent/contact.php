@@ -1,5 +1,5 @@
-
 <div class="contact-body">
+
     <h1>Kontaktformular</h1>
     <div class="error">
 
@@ -10,24 +10,26 @@
     <div class="contact-form">
         <form action="" method="POST">
             
-            <label for="name">Name</label>
+            <label class="contact-content" for="name">Name</label>
             <br>
-            <input type="text" name="name" id="name" required>
-            <br>
-            
-            <label for="email">EMail</label>
-            <br>
-            <input type="email" name="email" id="email" required>
+            <input class="contact-content" type="text" name="name" id="name" required>
             <br>
             
-            <label for="subject">Betreff</label>
+            <label class="contact-content" for="email">EMail</label>
             <br>
-            <input type="text" name="subject" id="subject" required>
+            <input class="contact-content" type="email" name="email" id="email" required>
+            <br>
+            
+            <label class="contact-content" for="subject">Betreff</label>
+            <br>
+            <input class="contact-content" type="text" name="subject" id="subject" required>
             <br>
 
-            <label for="message">Nachricht</label>
+            <label class="contact-content" for="message">Nachricht</label>
             <br>
-            <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+            <textarea class="contact-content" name="message" id="message" cols=30 rows=20 required></textarea>
+            <br>
+            <input type="submit" name="send" value="absenden">
         </form>
     </div>
 </div>

@@ -10,14 +10,17 @@
 
 }
 
-.contact-form label, input{
+.contact-content{
     text-align: left;
     width: 80%;
+    min-width: 80%;
     margin: 1em;
 }
+
 
 .contact-form label{
 }
 
 /* Administration */
+
 
