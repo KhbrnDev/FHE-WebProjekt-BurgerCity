@@ -223,10 +223,10 @@ abstract class Model
     public function destroy(&$errors = null)
     {
         $db = $GLOBALS['db'];
-
+        
         try
         {
-            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE '.array_key_first($this->schema).' = ' . $this->array_key_first($this->schema);
+            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE '.  array_key_first($this->schema).' = ' . $this->values[array_key_first($this->schema)];
             $db->exec($sql);
             return true;
         }
@@ -235,5 +235,76 @@ abstract class Model
             $errors[] = 'Error deleting ' . get_called_class();
         }
         return false;
+    }
+
+    /**
+     * Variable Validation
+     *      validate -- validates all Variables of a Model by calling validateValue
+     *      validateValue -- validating 1 Value by checking $schemaOptions for compatibility
+     */
+
+    public function validate(&$errors = [])
+    {
+        foreach($this->schema as $key => $schemaOptions)
+        {
+            if(isset($this->values[$key]) && is_array($schemaOptions))
+            {
+                $valueErrors = $this->validateValue($key, $this->values[$key], $schemaOptions);
+
+                if($valueErrors !== true)
+                {
+                    array_push($errors, ...$valueErrors);
+                }
+            }
+        }
+
+        if(count($errors) === 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    protected function validateValue($attribute, &$value, &$schemaOptions)
+    {
+
+        $type = $schemaOptions['type'];
+        $errors = [];
+
+        switch ($type)
+        {
+            case Model::TYPE_INTEGER:
+                break;
+            case Model::TYPE_UINTEGER:
+                break;
+            case Model::TYPE_STRING:
+            {
+                if(isset($schemaOptions['min']) && mb_strlen($value) < $schemaOptions['min'])   
+                {
+                    $errors [] = $attribute.': String needs min. '.$schemaOptions['min'].' chatacters!';
+                }     
+
+                if(isset($schemaOptions['max']) && mb_strlen($value) > $schemaOptions['max'])
+                {
+                    $errors [] = $attribute.': String can have max. '.$schemaOptions['max'].' characters!';
+                }
+                break;
+            }
+            
+            case Model::TYPE_JSON:
+                break;
+            case Model::TYPE_DECIMAL:
+                break;
+            case Model::TYPE_DATE:
+                break;
+            case Model::TYPE_BOOLEAN:
+                break;
+        }
+
+        return count($errors) > 0 ? $errors : true ; 
     }
 }
