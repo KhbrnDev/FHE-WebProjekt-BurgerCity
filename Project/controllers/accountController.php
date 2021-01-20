@@ -13,6 +13,7 @@ class AccountController extends \dwp\core\Controller
         $preloadOrders = [];
         $success['success'] = false;
 
+        // GENERAL PAGEMANAGEMANT
         if(!$this->loggedIn())
         {
             header("Location: index.php?c=account&a=LogInSignIn");
@@ -25,8 +26,8 @@ class AccountController extends \dwp\core\Controller
         }
 
         
-
-        if(isset($_POST['changeAccount']))
+        // CHANGE ACCOUNT RELATED DATA
+        if(isset($_POST['changeAccount'])) // DONE ?
         {
             // GET DATA
             $firstname = ($_POST['firstname']) ? $_POST['firstname']: null;
@@ -145,7 +146,7 @@ class AccountController extends \dwp\core\Controller
             }
 
         }
-        elseif (isset($_POST['saveAdress']))
+        elseif (isset($_POST['saveAdress'])) // DONE ?
         {
             // GET DATA
             $street = ($_POST['street']) ? $_POST['street']: null;
@@ -159,6 +160,30 @@ class AccountController extends \dwp\core\Controller
             \dwp\model\Adress::validateZipCode($zipCode, $errors);
             \dwp\model\Adress::validateCity($city, $errors);
             
+            // updating existing adress
+            if(array_key_exists('adressId', $_POST))
+            {
+                $adressId = ($_POST['adressId']) ? $_POST['adressId'] : null;
+                if($adressId !== null)
+                {
+                    $existingAdress = \dwp\model\AdressHelper::findOne("Account_accountId = " .$_SESSION['userID'] . " and Adress_adressId  = " . $adressId);
+                    if($existingAdress === null)
+                    { 
+                        $success['success'] = false;
+                        $errors [] = 'Es gab einen Fehler beim updaten der Adresse';
+                    }
+            
+                }
+                else
+                {
+                    // sollte durch HTML adressId->required eigentlich nicht vorkommen
+                    // only visible when HTML Files have been altered manually
+                    $success['success'] = false;
+                    $errors [] = 'Es gab einen Fehler beim updaten der Adresse';
+                    $errors [] = 'adressId ist nicht gegeben'; 
+                }
+            }
+
             if (count($errors) === 0)
             {
                 $db = $GLOBALS['db'];
@@ -176,7 +201,15 @@ class AccountController extends \dwp\core\Controller
                 {
                     // create Adress and add to AdressHelper
                     $adress = new \dwp\model\Adress($adressData);
-                    $adress->save($errors);
+                    if($adress->validate($errors))
+                    {
+                        $adress->save($errors);
+                    }
+                    else
+                    {
+                        $success['success'] = false;
+                        $errors [] = 'Adresseingabe ist nicht valide';
+                    }
                 
                     if(count($errors) === 0)
                     {
@@ -213,7 +246,6 @@ class AccountController extends \dwp\core\Controller
                 {
                     // Adress exists, save it to Adresshelper
                     $adressHelper = \dwp\model\AdressHelper::findOne("Adress_adressId = " . $adress->adressId . " and Account_accountId = " . $_SESSION['userID']);
-                    echo get_class($adressHelper);
 
                     if($adressHelper === null)
                     {
@@ -238,6 +270,24 @@ class AccountController extends \dwp\core\Controller
                 }
             }
 
+            // hier alte adressHelper->destroy
+            if(array_key_exists('adressId', $_POST))
+            {
+                $adressId = ($_POST['adressId']) ? $_POST['adressId'] : null;
+                if($adressId !== null)
+                {
+                    $existingAdress = \dwp\model\AdressHelper::findOne("Account_accountId = " .$_SESSION['userID'] . " AND Adress_adressId  = " . $adressId);
+                    if(count($errors) === 0)
+                    {
+                        $existingAdress->destroy($errors);
+                        if(count($errors) !== 0)
+                        {
+                            $success['success'] = true;
+                            $success['message'] = 'Adresse erfolgreich gespeichert\nIhre alte Adresse muss manuell gelöscht werden';
+                        }
+                    }
+                }
+            }
             // has there been errors?
             if(count($errors) !== 0)
             {
@@ -246,13 +296,50 @@ class AccountController extends \dwp\core\Controller
             }
 
         }
-        elseif (isset($_POST['updateAdress']))
+        elseif (isset($_POST['deleteAdress'])) // DONE
         {
+            // GET DATA
+            $adressId = ($_POST['adressId']) ? $_POST['adressId'] : null;
+            $street = ($_POST['street']) ? $_POST['street']: null;
+            $number = ($_POST['number']) ? $_POST['number']: null;
+            $zipCode = ($_POST['zipCode']) ? $_POST['zipCode']: null;
+            $city = ($_POST['city']) ? $_POST['city']: null;
 
-        }
-        elseif (isset($_POST['deleteAdress']))
-        {
-            echo "deleteAdress";
+            
+            if($adressId !== null)
+            {
+                $userAdressHelper = \dwp\model\AdressHelper::findOne("Account_accountId = " . $_SESSION['userID'] . " AND  Adress_adressId = " . $adressId);
+                if($userAdressHelper !== null)
+                {
+                    $userAdressHelper->destroy($errors);
+                    if(count($errors) === 0)
+                    {
+                        $success['success'] = true;
+                        $success['message'] = 'Adresse erfolgreich gelöscht';
+                    }
+    
+                }
+                else
+                {
+                    // this should only be reached if someone tinkered with HTML
+                    $success['success'] = false;
+                    $errors[] = 'Bitte nicht die HTML Dateien ändern ;)';
+                }
+            }
+            else
+            {
+                // $adressId should never be null because HTML->required
+                // this should only be reached if someone tinkered with HTML
+                $success['success'] = false;
+                $errors[] = 'Bitte nicht die HTML Dateien ändern ;)';
+            }
+
+            if(count($errors) !== 0)
+            {
+                $success['success'] = false;
+                $errors['title'] = 'Adresslöschung fehlgeschlagen';
+            }
+            
         }
         elseif (isset($_POST['repeatOrder']))
         {
@@ -269,12 +356,22 @@ class AccountController extends \dwp\core\Controller
         $preloadUser['email'] = $user->email;
         $preloadUser['phoneNumber'] = $user->phoneNumber;
 
-
         // Preload User->Adress
-        /**
-          Do Stuff here
-          
-         */
+        $userAdressHelper = \dwp\model\AdressHelper::find("Account_accountId = " . $_SESSION['userID']);
+        
+        if(count($userAdressHelper) > 0)
+        {   $sqlWhere = '';
+            foreach ($userAdressHelper as$value) 
+            {
+                $sqlWhere .= ' adressId = ' .$value->Adress_adressId . ' OR';
+                // TODO could be displayed in order
+                // \dwp\model\Adress::find ---  "ORDER BY city desc, street desc, number desc"
+                //$preloadAdress [] = \dwp\model\Adress::findOne("adressId = " . $value->Adress_adressId);
+            }
+            $lastSpacePosition = strrpos($sqlWhere, ' ');
+            $sqlWhere = substr($sqlWhere, 0, $lastSpacePosition);
+            $preloadAdress = \dwp\model\Adress::find($sqlWhere . " order by zipCode asc, city asc, street asc, number asc");
+        }
 
 
         // Preload User->Orders

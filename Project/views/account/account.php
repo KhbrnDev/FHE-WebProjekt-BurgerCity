@@ -106,51 +106,58 @@
     
     <h2>Adressen</h2>
     <div class="account-adresses">
-        <?php
-            for($Index = 0; $Index < 1; $Index++)
-            {
-                ?>
-                    <form class="account-adress-form" action="" method="post">
-                        
-                        <div  class="account-adress-form-object">
-                            <label for="street">Strase:</label>
-                            <br>
-                            <input type="text" name="street" id="street" value="Altonaerstrasse" required>
-                        </div>
+        <?php if(count($preloadAdress) > 0 ):?> 
+            <?php
+                for($Index = 0; $Index < count($preloadAdress); $Index++)
+                {
+                    ?>
+                        <form class="account-adress-form" action="" method="post">
+                            
+                            <div  class="account-adress-form-object" style="display: none;">
+                                <label for="adressId">adressId:</label>
+                                <br>
+                                <input type="number" name="adressId" id="adressId" value="<?=$preloadAdress[$Index]->adressId?>" required>
+                            </div>
 
-                        <div class="account-adress-form-object">
-                            <label for="number">Hausnummer:</label>
-                            <br>
-                            <input type="number" name="number" id="number" value="25" required>
-                        </div>
-                        
-                        <div class="account-adress-form-object">
-                            <label for="zipcode">Postleitzahl:</label>
-                            <br>
-                            <input type="zipcode" name="zipcode" id="zipcode" value="55122" required>
-                        </div>
-                        
-                        <div class="account-adress-form-object">
-                            <label for="city">Stadt:</label>
-                            <br>
-                            <input type="city" name="city" id="city" value="Erfurt" required>
-                        </div>
-                        
-                        <div class="account-adress-form-object">
-                            <br>
-                            <input type="submit" name="deleteAdress" value="Adresse löschen">
-                        </div>
+                            <div  class="account-adress-form-object">
+                                <label for="street">Strase:</label>
+                                <br>
+                                <input type="text" name="street" id="street" value="<?=$preloadAdress[$Index]->street?>" required>
+                            </div>
 
-                        <div class="account-adress-form-object">
-                            <br>
-                            <input type="submit" name="saveAdress" value="Änderung Speichern">
-                        </div>
-                    </form>
+                            <div class="account-adress-form-object">
+                                <label for="number">Hausnummer:</label>
+                                <br>
+                                <input type="text" name="number" id="number" value="<?=$preloadAdress[$Index]->number?>" required>
+                            </div>
+                            
+                            <div class="account-adress-form-object">
+                                <label for="city">Stadt:</label>
+                                <br>
+                                <input type="text" name="city" id="city" value="<?=$preloadAdress[$Index]->city?>" required>
+                            </div>
 
-                <?php
-            }
-        ?>
-        
+                            <div class="account-adress-form-object">
+                                <label for="zipcode">Postleitzahl:</label>
+                                <br>
+                                <input type="text" name="zipCode" id="zipcode" value="<?=$preloadAdress[$Index]->zipCode?>" required>
+                            </div>
+                        
+                            <div class="account-adress-form-object">
+                                <br>
+                                <input type="submit" name="deleteAdress" value="Adresse löschen">
+                            </div>
+
+                            <div class="account-adress-form-object">
+                                <br>
+                                <input type="submit" name="saveAdress" value="Änderung Speichern">
+                            </div>
+                        </form>
+
+                    <?php
+                }
+            ?>
+        <?php endif;?>
         <form class="account-adress-form" method="post">
             
             <div class="account-adress-form-object" style="width: 12rem;">
@@ -170,6 +177,12 @@
                 <br>
                 <input type="text" name="number" id="number" placeholder="0" required>
             </div>
+
+            <div class="account-adress-form-object">
+                <label for="city">Stadt:</label>
+                <br>
+                <input type="text" name="city" id="city" placeholder="Musterstadt" required>
+            </div>
             
             <div class="account-adress-form-object">
                 <label for="zipCode">Postleitzahl:</label>
@@ -177,12 +190,6 @@
                 <input type="text" name="zipCode" id="zipCode" placeholder="12345" required>
             </div>
             
-            <div class="account-adress-form-object">
-                <label for="city">Stadt:</label>
-                <br>
-                <input type="text" name="city" id="city" placeholder="Musterstadt" required>
-            </div>
-
             <div class="account-adress-form-object">
                 <br>
                 <input type="submit" name="saveAdress" value="Neue Adresse anlegen">
@@ -263,7 +270,7 @@
     for($Index = 0; $Index < 5; $Index++)
     {
         ?>
-            <!-- BestellungStart -->,
+            <!-- BestellungStart -->
                 <div class="account-orderlist-body">
                     <div class="account-orderlist-order">
                         Bestellnummer 7017 vom 03.10.2019
