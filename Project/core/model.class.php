@@ -160,21 +160,45 @@ abstract class Model
 
     public function insert(&$errors = [])
     {
-        // TODO: Implement insert
-        $db = $GLOBALS['db'];
-        $tableName = self::tablename();
-        $sqlStr = "INSERT INTO `${tableName}` (";
-        $valuesStr = "(";
-        foreach($this->schema as $key => $value)
-        {
-            $sqlStr.=$key.',';
-            $valuesStr.=':'.$key.',';
-        }
+        // // TODO: Implement insert
+         $db = $GLOBALS['db'];
+        // $tableName = self::tablename();
+        // $sqlStr = "INSERT INTO `${tableName}` (";
+        // $valuesStr = "(";
+        // foreach($this->schema as $key => $value)
+        // {
+        //     $sqlStr.=$key.',';
+        //     $valuesStr.=':'.$key.',';
+        // }
 
-        $sqlStr = rtrim($sqlStr, ',');
-        $valuesStr = rtrim($valuesStr, ',');
+        // $sqlStr = rtrim($sqlStr, ',');
+        // $valuesStr = rtrim($valuesStr, ',');
 
-        $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
+        // $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
+
+        $sqlStr = 'INSERT INTO ' . self::tablename() . ' (';
+            $valueString = ' VALUES (';
+            
+            foreach ($this->schema as $key => $schemaOptions)
+            {
+                if($key !== array_key_first($this->schema) && $key !== 'createdAt' && $key !== 'updatedAt')
+                {
+                    $sqlStr .= '`'.$key.'` ,';
+                    
+                    if($this->values[$key] === null)
+                    {
+                        $valueString .= 'NULL,';
+                    }
+                    else
+                    {
+                        $valueString .= $db->quote($this->values[$key]).',';
+                    }
+                }
+            }
+
+            $sqlStr = trim($sqlStr, ',');
+            $valueString = trim($valueString, ',');
+            $sqlStr .= ')'. $valueString .');';
 
         try
         {
