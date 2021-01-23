@@ -12,15 +12,20 @@ require_once COREPATH.'model.class.php';
 
 
 // TODO: load all created models
-require_once MODELSPATH.'Account.php';
-require_once MODELSPATH.'Adress.php';
-require_once MODELSPATH.'AdressHelper.php';
-require_once MODELSPATH.'Category.php';
-require_once MODELSPATH.'Ingredients.php';
-require_once MODELSPATH.'OrderItems.php';
-require_once MODELSPATH.'Orders.php';
-require_once MODELSPATH.'ProductHelper.php';
-require_once MODELSPATH.'Products.php';
+
+foreach(glob(MODELSPATH.'*.php') as $modelclass)
+{
+    require_once $modelclass;
+}
+// require_once MODELSPATH.'Account.php';
+// require_once MODELSPATH.'Adress.php';
+// require_once MODELSPATH.'AdressHelper.php';
+// require_once MODELSPATH.'Category.php';
+// require_once MODELSPATH.'Ingredients.php';
+// require_once MODELSPATH.'OrderItems.php';
+// require_once MODELSPATH.'Orders.php';
+// require_once MODELSPATH.'ProductHelper.php';
+// require_once MODELSPATH.'Products.php';
 
 
 // start session to handle login
