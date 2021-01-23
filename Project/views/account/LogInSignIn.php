@@ -43,7 +43,7 @@
                         <?php if(isset($preload['logEmail']))
                         {
                             ?>
-                            value="<?=$preload['logEmail']?>"
+                            value="<?=htmlspecialchars($preload['logEmail'])?>"
                             <?php
                         }
                         ?>
@@ -68,7 +68,7 @@
                     <br>
                     <input type="text" name="firstname" id="firstname" placeholder="Rainer"
                         <?php if(isset($preload['firstname'])): ?>
-                            value="<?=$preload['firstname']?>"
+                            value="<?=htmlspecialchars($preload['firstname'])?>"
                         <?php endif; ?>
                     >
                     <br>
@@ -77,7 +77,7 @@
                     <br>
                     <input type="text" name="lastname" id="lastname" placeholder="Zufall"
                         <?php if(isset($preload['lastname'])): ?>
-                            value="<?=$preload['lastname']?>"
+                            value="<?=htmlspecialchars($preload['lastname'])?>"
                         <?php endif; ?>
                     >
                     <br>
@@ -86,7 +86,7 @@
                     <br>
                     <input type="date" name="birthday" id="birthday" 
                         <?php if(isset($preload['birthday'])): ?>
-                            value="<?=$preload['birthday']?>"
+                            value="<?=htmlspecialchars($preload['birthday'])?>"
                         <?php endif; ?>
                     >
                     <br>
@@ -95,7 +95,7 @@
                     <br>
                     <input type="tel" name="phonenumber" id="phonenumber"
                         <?php if(isset($preload['phoneNumber'])): ?>
-                            value="<?=$preload['phoneNumber']?>"
+                            value="<?=htmlspecialchars($preload['phoneNumber'])?>"
                         <?php endif; ?>
                     >
                     <br>
@@ -104,7 +104,7 @@
                     <br>
                     <input type="email" name="email" id="email" placeholder="r.zufall@mail.de"
                         <?php if(isset($preload['email'])): ?>
-                            value="<?=$preload['email']?>"
+                            value="<?=htmlspecialchars($preload['email'])?>"
                         <?php endif; ?>
                     >
                     <br>

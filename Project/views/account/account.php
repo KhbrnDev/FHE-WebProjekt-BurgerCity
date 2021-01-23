@@ -44,31 +44,31 @@
                 <div class="account-form-object">
                     <label for="firstname">Vorname</label>
                     <br>
-                    <input type="text" id="firstname" name="firstname" value="<?=(isset($preloadUser['firstname'])) ? $preloadUser['firstname'] : ""?>" required>
+                    <input type="text" id="firstname" name="firstname" value="<?=(isset($preloadUser['firstname'])) ? htmlspecialchars($preloadUser['firstname']) : ""?>" required>
                 </div>
                 
                 <div class="account-form-object">
                     <label for="lastname">Nachname</label>
                     <br>
-                    <input type="text" id="lastname" name="lastname" value="<?=(isset($preloadUser['lastname'])) ? $preloadUser['lastname'] : ""?>" required>
+                    <input type="text" id="lastname" name="lastname" value="<?=(isset($preloadUser['lastname'])) ? htmlspecialchars($preloadUser['lastname']) : ""?>" required>
                 </div>
 
                 <div class="account-form-object">
                     <label for="birthday">Geburtsdatum</label>
                     <br>
-                    <input type="date" id="birthday" name="birthday" value="<?=(isset($preloadUser['birthday'])) ? $preloadUser['birthday'] : ""?>" required>
+                    <input type="date" id="birthday" name="birthday" value="<?=(isset($preloadUser['birthday'])) ? htmlspecialchars($preloadUser['birthday']) : ""?>" required>
                 </div>
 
                 <div class="account-form-object">
                     <label for="email">E-Mail</label>
                     <br>
-                    <input type="email" id="email" name="email" value="<?=(isset($preloadUser['email'])) ? $preloadUser['email'] : ""?>" required>
+                    <input type="email" id="email" name="email" value="<?=(isset($preloadUser['email'])) ? htmlspecialchars($preloadUser['email']) : ""?>" required>
                 </div>
 
                 <div class="account-form-object">
                     <label for="phoneNumber">Telefonnummer</label>
                     <br>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" value="<?=(isset($preloadUser['phoneNumber'])) ? $preloadUser['phoneNumber'] : ""?>" required>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" value="<?=(isset($preloadUser['phoneNumber'])) ? htmlspecialchars($preloadUser['phoneNumber']) : ""?>" required>
                 </div>
                 <div class="account-form-object">
                     <br>
@@ -122,25 +122,25 @@
                             <div  class="account-adress-form-object">
                                 <label for="street">Strase:</label>
                                 <br>
-                                <input type="text" name="street" id="street" value="<?=$preloadAdress[$Index]->street?>" required>
+                                <input type="text" name="street" id="street" value="<?=htmlspecialchars($preloadAdress[$Index]->street)?>" required>
                             </div>
 
                             <div class="account-adress-form-object">
                                 <label for="number">Hausnummer:</label>
                                 <br>
-                                <input type="text" name="number" id="number" value="<?=$preloadAdress[$Index]->number?>" required>
+                                <input type="text" name="number" id="number" value="<?=htmlspecialchars($preloadAdress[$Index]->number)?>" required>
                             </div>
                             
                             <div class="account-adress-form-object">
                                 <label for="city">Stadt:</label>
                                 <br>
-                                <input type="text" name="city" id="city" value="<?=$preloadAdress[$Index]->city?>" required>
+                                <input type="text" name="city" id="city" value="<?=htmlspecialchars($preloadAdress[$Index]->city)?>" required>
                             </div>
 
                             <div class="account-adress-form-object">
                                 <label for="zipcode">Postleitzahl:</label>
                                 <br>
-                                <input type="text" name="zipCode" id="zipcode" value="<?=$preloadAdress[$Index]->zipCode?>" required>
+                                <input type="text" name="zipCode" id="zipcode" value="<?=htmlspecialchars($preloadAdress[$Index]->zipCode)?>" required>
                             </div>
                         
                             <div class="account-adress-form-object">
