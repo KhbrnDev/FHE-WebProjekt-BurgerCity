@@ -25,6 +25,10 @@ class AccountController extends \dwp\core\Controller
             header("Location: index.php?c=account&a=LogInSignIn");
         }
 
+        if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true)
+        {   
+            header("Location: index.php?c=footercontent&a=administration");
+        }
         
         // CHANGE ACCOUNT RELATED DATA
         if(isset($_POST['changeAccount'])) // DONE ?
@@ -396,13 +400,20 @@ class AccountController extends \dwp\core\Controller
         $errors = [];
         $success['success'] = false;
 
-
         if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
         {
-            header("Location: index.php?c=account&a=account");
+            if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] !== true)
+            {
+                header("Location: index.php?c=account&a=account");
+            }
+            elseif(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true)
+            {
+                header("Location: index.php?c=footercontent&a=administration");
+            }
         }
         else
         {
+            
  
             if(isset($_POST['signin']))
             {
@@ -496,7 +507,7 @@ class AccountController extends \dwp\core\Controller
                 {
                     $emailQuote = $GLOBALS['db']->quote($email);
                     $Account = \dwp\model\Account::findOne("email = " . $emailQuote);
-
+                    
                     if($Account !== null)
                     {
                         if(password_verify($password, $Account->passwordHash))
@@ -505,7 +516,17 @@ class AccountController extends \dwp\core\Controller
                             $_SESSION['loggedIn'] = true;
                             $_SESSION['userMail'] = $Account->email;
                             $_SESSION['userID'] = $Account->accountId;
-                            header("Location: index.php?c=account&a=account");
+                            
+                            if($Account->isAdmin == 1)
+                            {
+                                $_SESSION['isAdmin'] = true;
+                                header("Location: index.php?c=footercontent&a=administration");
+                            }
+                            else
+                            {
+                                $_SESSION['isAdmin'] = false;
+                                header("Location: index.php?c=account&a=account");
+                            }
                         }
                         else
                         {

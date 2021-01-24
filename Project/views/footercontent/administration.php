@@ -6,6 +6,7 @@
     </h3>
 
     <div class="administration-admins">
+        <form method="post"><input type="submit" name="logout" value="Logout"></form>
         <h2>Administratoren bearbeiten</h2>
                 <!-- Adminstrator bearbeiten
                 Administrator löschen

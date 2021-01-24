@@ -8,6 +8,40 @@ class footercontentController extends \dwp\core\Controller
 	{
         //TODO check if admin is logged in and has right to access administration
         // else do... nothing? Error page?
+
+
+        // INITIALIZE VIEW->PARAMS 
+        $errors = [];
+        $preload = [];
+        $success['success'] = false;
+
+        // GENERAL PAGEMANAGEMANT
+        if(!$this->loggedIn())
+        {
+            header("Location: index.php?c=account&a=LogInSignIn");
+        }
+
+        if(isset($_POST['logout']))
+        {   
+            $_SESSION['loggedIn'] = false;
+            header("Location: index.php?c=account&a=LogInSignIn");
+        }
+
+        if(isset($_SESSION['isAdmin']))
+        {   
+            if($_SESSION['isAdmin'] !== true)
+            {
+                header("Location: index.php?c=account&a=LogInSignin");
+            }
+        }
+
+        // DO STUFF HERe
+
+
+
+
+        // PRELOAD DATA
+
     }
 
     public function actionContact()
