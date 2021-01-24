@@ -1,7 +1,7 @@
-#DynWebProg-BurgerCity
+# DynWebProg-BurgerCity
 Projekt für Grundlagen und Dynamische Webprogrammierung
 
-##Instatllationsanleitung
+## Instatllationsanleitung
 - Xampp installieren
 - SQL-Script in Projekt->src->Database in phpmyadmin einbinden
 - php shorttags aktivieren
