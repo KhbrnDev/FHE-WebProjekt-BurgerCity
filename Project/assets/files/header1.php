@@ -5,7 +5,7 @@
         <input type="checkbox" id="toggle">
         <div class="menu">
             <div class="dropdown">
-                <a href="index.php?c=pages&a=menue"><span>Speisekarte</span></a>
+                <a href="index.php?c=pages&a=menue"><span>Speisekarte <span style="font-size:20px;">▼</span></span></a>
                 <div class="dropdown-content">
                     <a href="">Burger</a>
                     <a href="">Snacks</a>
@@ -17,7 +17,7 @@
                 <div class="subNav">
                     <a href="">ChickenWings</a>
                 </div> -->
-            <a href="index.php?c=account&a=account">Account</a>
+            <a class="nav-shit-account" href="index.php?c=account&a=account">Account</a>
             <a href="#"><span>Einkaufswagen</span></a>
         </div>
     </nav>
