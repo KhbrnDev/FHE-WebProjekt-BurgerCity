@@ -1,0 +1,18 @@
+Protokoll 26.01.2021
+
+Beginn: 19:00 Uhr
+
+Ende:20:00 Uhr
+
+
+Nächstes Treffen:
+
+
+Anwesend: Martin, Daniel, Felix
+
+
+
+
+-Absprache CSS
+-Erstellung error.php
+-Änderungen an der Datenbank
