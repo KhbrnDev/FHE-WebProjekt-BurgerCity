@@ -1,7 +1,10 @@
 <div class="error-body">
         
-        <div class="error-message">
-            <h1>Error 404: <?=$errorMessage?></h1>
+        <div class="error-field">
+            <h1>Error 404: </h1>
+            <div class="error-message">
+                <p> <?=$errorMessage?> </p>
+            </div>
             <p>Hier geht es zu leckeren Burgern: </p>
             <div class="to-main">
                

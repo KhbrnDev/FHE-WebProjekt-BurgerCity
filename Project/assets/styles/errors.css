@@ -1,13 +1,42 @@
 @import "color.css";
 
 .error-body{
-    background-color: var(--background-color);
+    background-color:var(--background-color) ;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+
+.error-field{
+    text-align: center;
+    width: 50%;
+    height: fit-content;
+    background-color:white ;
+    flex: 0 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error-field h1{
+    padding-top: 40px;
     
 }
 
 .error-message{
+    background-color: rgb(36,36,36) ;
     text-align: center;
+    height: fit-content;
+    flex: 0 0 auto; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: lightgrey;
 }
+
+.error-message p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 
 .to-main{
     flex: 0 0 auto;
@@ -15,17 +44,21 @@
     margin-right: auto;
     font-size: 1.6rem;
     width: 16rem;
-    height: 23rem;
+    height: auto;
 
     border-style: 2px;
     border-color: black;
-    
+    padding-bottom: 40px;
 }
 
 .link-picture{
     padding: 0;
     margin: 0;
     top: 0;
-    width: 100%;
+    width: 14rem;
     height: auto;
+}
+
+.to-main:hover img{
+    width: 15rem;
 }
