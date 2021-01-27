@@ -26,22 +26,3 @@
 .description-box{
     width: 50%;
 }
-
-
-@media only screen and (max-width: 1250px){
-    .start-content{
-    }
-    
-    .favorites-box{
-        flex-wrap: wrap;
-    }
-
-    .picture-box{
-        width: 100%;
-    }
-
-    .description-box{
-        width: 100%;
-    }
-
-}

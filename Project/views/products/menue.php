@@ -4,7 +4,6 @@
     <h1>Speisekarte</h1>
     <p>Unsere Produkte sind Biologisch und Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellat provident dolorum sequi, ea veniam accusantium ratione, veritatis sint doloremque deserunt in corrupti magni eos distinctio id dolorem exercitationem recusandae.</p>
     
-    
     <h2>Burger</h2>
     <span>
         <p>Unsere Burger sind... Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cupiditate quidem suscipit cum delectus dolorum illo totam rem exercitationem accusantium ut laudantium ipsa dolore, facere accusamus consequuntur odit commodi expedita.</p>

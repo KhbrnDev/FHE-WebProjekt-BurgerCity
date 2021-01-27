@@ -1,12 +1,11 @@
 @import "color.css";
 @import "account.css";
 @import "headfoot.css";
-@import "speisekarte.css";
-@import "start.css";
 @import "products.css";
-@import "itemflex.css";
-@import "footerLinks.css";
-@import "error.css";
+@import "errors.css";
+@import "footercontent.css";
+@import "pages.css";
+@import "print.css";
 
 
 /* General */
