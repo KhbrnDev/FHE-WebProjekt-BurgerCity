@@ -1,0 +1,19 @@
+.error-message{
+    display: flex;
+    text-align: center;
+    width: 16rem;
+    height: 23rem;
+    max-width: 80%;
+    font-size: 1.0rem;
+    background-color: chocolate;
+}
+
+.to-main{
+    max-width: 10px;
+}
+
+.link-picture{
+    width: 10%;
+    height: auto;
+    z-index: 5;
+}
