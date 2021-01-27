@@ -1,19 +1,31 @@
+@import "color.css";
+
+.error-body{
+    background-color: var(--background-color);
+    
+}
+
 .error-message{
-    display: flex;
     text-align: center;
-    width: 16rem;
-    height: 23rem;
-    max-width: 80%;
-    font-size: 1.0rem;
-    background-color: chocolate;
 }
 
 .to-main{
-    max-width: 10px;
+    flex: 0 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.6rem;
+    width: 16rem;
+    height: 23rem;
+
+    border-style: 2px;
+    border-color: black;
+    
 }
 
 .link-picture{
-    width: 10%;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    width: 100%;
     height: auto;
-    z-index: 5;
 }

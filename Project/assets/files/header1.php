@@ -9,16 +9,16 @@
         <input type="checkbox" id="toggle">
         <div class="menu">
             <div class="dropdown">
-                <a href="index.php?c=pages&a=menue">Speisekarte</a>
+                <a href="index.php?c=products&a=menue">Speisekarte</a>
                 <div class="dropdown-content">
-                    <a href="">Burger</a>
-                    <a href="">Snacks</a>
-                    <a href="">Getränke</a>
-                    <a href="#">Desserts</a>
+                    <a href="index.php?c=products&a=product">Burger</a>
+                    <a href="index.php?c=products&a=product">Snacks</a>
+                    <a href="index.php?c=products&a=product">Getränke</a>
+                    <a href="index.php?c=products&a=product">Desserts</a>
                 </div>
             </div>
             <a class="nav-shit-account" href="index.php?c=account&a=account">Account</a>
-            <a href="#"><span>Einkaufswagen</span></a>
+            <a href="index.php?c=pages&a=cart"><span>Einkaufswagen</span></a>
         </div>
     </nav>
 </header>
