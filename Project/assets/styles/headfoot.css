@@ -60,7 +60,7 @@ nav span{
     padding: 0;
     position: fixed;
     right: 3px;
-    opacity: 1;
+    opacity: 0;
     z-index: 1;
     display: none;
 }
@@ -192,6 +192,12 @@ nav span{
         padding-top: 0;
     }
 
+/*Footer*/
+
+    #administration{
+        display: none;
+    }
+
 }
 
 
@@ -233,3 +239,6 @@ footer a:hover{
     
     text-decoration: underline;
 }
+
+
+
