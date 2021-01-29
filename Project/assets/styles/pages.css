@@ -8,6 +8,8 @@
     text-align: center;
 }
 
+
+/* Flexboxen für Speisekarte und Category?? */
 .favorites-box{
     display: flex;
     flex-wrap: wrap;
@@ -98,3 +100,113 @@
     /* border-color: var(--color-grey); */
 }
 
+
+/* 
+* cart.php
+*
+*
+*
+ */
+@media only screen and (max-width: 800px){
+    
+    .cart-body{
+        width: 100%;
+        background-color: white;
+
+    }
+
+    .cart-body h1{
+        margin: 0;
+        padding: 0.2em 0.5rem;
+    }
+
+    .total-number-of-products{
+        padding: 0 0.5rem;
+        display: inline;
+
+    }
+
+    .sum-of-total-products{
+        color: red;
+        display: inline;
+
+    }
+
+    .goToCartReview{
+        width: calc(100vw - 1rem);
+        background-color: var(--accent-secondary);
+        color: white;
+        margin: 0 0.5rem;
+        border: none;
+        border-radius: 5px;
+
+    }
+
+    .cart-product-box{
+        margin: 0.5rem 0.5rem;
+        background-color: var(--background-color);
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .cart-product-picture{
+        width: 45%;
+        margin: 0 2% 0 2%;
+        max-width: 45%;
+        max-height: 95%;
+        height: auto;
+        flex: auto;
+    }
+
+    .cart-product-box-right{
+        flex: auto;
+        margin: 0 2% 0 2%;
+        width: 45%;
+    }
+
+    .cart-product-box h4{
+        padding: 3% 0 0 0;
+        margin: 0;
+
+    }
+
+    .cart-item-id{
+        display: none;
+
+    }
+
+    .totalProductPrice{
+
+    }
+
+    .singleProductPrice{
+        font-size: calc(1rem - 2px);
+    }
+    .label-numberOfItem{
+        display: block;
+        display: inline;
+    }
+
+    
+    .input-numberOfItem{
+        width: 45.3%;
+        height: 2rem;
+        border-radius: 5px;
+        border: none;
+        display: inline;
+    }
+
+    .cart-product-box input[type=submit]{
+        width: 45.3%;
+        margin: 2% 2% 2% 2%;
+        border: none;
+        border-radius: 5px;
+        display: inline;
+        flex: none;
+    }
+
+
+
+
+}
