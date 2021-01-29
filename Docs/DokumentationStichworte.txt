@@ -1,0 +1,5 @@
+Dokumentation Stichworte:
+	-in der navbar kann man mit 'Wurstfingern' im Mobile design den button drücken
+	- im Einkaufswagen wir bestellt ohne zu bezahlen (Barzahlung bei entgegennahme der Bestellung), man könnte in einer weiteren ausbaustufe eine Zahlung mittels PayPay/ Karte... einfügen
+	- im Checkout könnte die Zahlungsabwicklung genauer Simuliert werden, dies ist allerdings nicht Kern des PRojekts
+	- 

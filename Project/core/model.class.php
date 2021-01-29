@@ -148,13 +148,17 @@ abstract class Model
 
     public function save(&$errors = null)
     {
-        if($this->values[array_key_first($this->schema)] === null)
+        if($this->validate($errors))
         {
-            $this->insert($errors);
-        }
-        else
-        {
-            $this->update($errors);
+
+            if($this->values[array_key_first($this->schema)] === null)
+            {
+                $this->insert($errors);
+            }
+            else
+            {
+                $this->update($errors);
+            }
         }
     }
 

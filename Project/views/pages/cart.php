@@ -7,6 +7,8 @@
             <input class ="goToCartReview" type="submit" name="goToCartReview" id="goToCardReview" value="Zur Kasse gehen">
         </form>
     </div>
+
+    
     <div class="cart-body-left">
         <?php for($int = 0; $int < 4 ; $int++){ ?>
         <form method="POST">
@@ -30,7 +32,7 @@
                 <br>
 
                     <label class="label-numberOfItem" for="numberOfItem">Anzahl:</label>
-                    <input class="input-numberOfItem" type="number" name="numberOfItem" id="numberOfItem" min="0" placeholder="6" required>
+                    <input class="input-numberOfItem" type="number" name="2" id="2" min="0" placeholder="6" required>
                 
                 </div>
                 <div class="cart-product-box-buttons">
@@ -41,9 +43,9 @@
         </form>
         <?php }?>
 
-
+<!-- 
         <h5>Lieferinformationen</h5>
-        <textarea name="" id="" maxlenght="255"></textarea>
+        <textarea name="" id="" maxlenght="255"></textarea> -->
     </div>
     <!-- <p class="total-number-of-products">Summe (3 Artiekl):<p class="sum-of-total-products"> 61.38€</p></p>
     

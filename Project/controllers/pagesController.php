@@ -16,4 +16,14 @@ class PagesController extends \dwp\core\Controller
 		
 	}
 
+	public function actionCheckout()
+	{
+		
+	}
+
+	public function actionCheckoutReview()
+	{
+		
+	}
+
 }
