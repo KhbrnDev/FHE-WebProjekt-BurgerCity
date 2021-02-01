@@ -26,6 +26,10 @@ html, body{
     padding: 0;
 
 }
+.page{
+    min-height: 100%;
+    position: relative;
+}
 /* 
 .push-content-under-nav{
     height: var(--header-height);

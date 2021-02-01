@@ -96,6 +96,7 @@ else
     <title>Burger City</title>
 </head>
 <body>
+<div class="page">
     <?php
 
         include FILESPATH.'header1.php';
@@ -116,5 +117,6 @@ else
     <?php
     include FILESPATH.'footer.php';
     ?>
+</div>
 </body>
 </html>

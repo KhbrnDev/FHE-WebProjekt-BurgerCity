@@ -3,9 +3,11 @@
 /* start.php */
 
 .start-content{
-    min-height: 100%;
     width: auto;
     text-align: center;
+    min-height: 100%;
+    position: relative;
+   
 }
 
 
@@ -38,6 +40,8 @@
     align-content: start;
 
     background-color: var(--background-color);
+    min-height: 100%;
+    position: relative;
 }
 
 .square{
@@ -113,6 +117,7 @@
     .cart-body{
         width: 100%;
         background-color: white;
+       
 
     }
 

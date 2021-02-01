@@ -219,18 +219,18 @@ nav span{
 
 footer{
     width: 100%;
-    
-
-    background-color: var(--accent-primary);
-    
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(36, 36, 36);
     display:flex;
     flex-wrap: wrap;
+    height: 2em;
 }
 
 footer a{
-    color: black;
+    color: var(--accent-primary);
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
     flex:auto;
 }

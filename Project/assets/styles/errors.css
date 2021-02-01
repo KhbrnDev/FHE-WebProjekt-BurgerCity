@@ -2,19 +2,21 @@
 
 .error-body{
     background-color:var(--background-color) ;
-    margin-top: auto;
-    margin-bottom: auto;
-    
+    min-height: 100%;
+    margin-bottom: 2rem;
+    position: relative;
 }
 
 .error-field{
+    position:relative;
     text-align: center;
     width: 50%;
-    height: fit-content;
+    min-height: 100%;
     background-color:white ;
     flex: 0 0 auto;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 2rem;
 }
 
 .error-field h1{
