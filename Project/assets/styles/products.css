@@ -5,6 +5,17 @@
 
 /* everything in products Folder */
 .products-body, .productItem-body{
+    position:relative;
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    background-color:white ;
+    flex: 0 0 auto;
+    padding-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* products.php */
@@ -69,7 +80,17 @@
 /* menue.php*/
 
 .menu-body{
+    position:relative;
     text-align: center;
+    width: 80%;
+    height: 100%;
+    background-color:white ;
+    flex: 0 0 auto;
+    padding-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
     
 }
 

@@ -3,6 +3,7 @@
 
 header{
     padding-bottom: 50px;
+    margin-bottom: 0;
 }
 
 nav{
@@ -16,6 +17,7 @@ nav{
     font-size: 1rem;
     position: fixed;
     width: 100%;
+    z-index: 99;
 
 }
 
@@ -225,6 +227,8 @@ footer{
     display:flex;
     flex-wrap: wrap;
     height: 2em;
+    margin-top:0;
+    z-index: 99;
 }
 
 footer a{
@@ -233,6 +237,7 @@ footer a{
     font-size: 1rem;
     text-align: center;
     flex:auto;
+    bottom: -10px;
 }
 
 footer a:hover{

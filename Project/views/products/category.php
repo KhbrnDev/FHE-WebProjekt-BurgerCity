@@ -4,14 +4,16 @@
         
 <div class="products-body">
 
-<h1>Burger</h1>
-<p>Wir haben so tolle Burger. Jeder Burger wird mit Liebe und 100% natürlichen Zutaten zubereitet.
-        Das Beef kommt von Bio-Kücken aus der Region. 
+<h1><?=$title?></h1>
+<p><?=$description?>
+<!-- <?=print_r($products)?> -->
 </p>
 
 <div class="productFilter">
     <label for="toggleProductFilter">Burger filtern</label>
     <input type="checkbox" id="toggleProductFilter">
+
+    
 
     <form action="burger.php" method="GET">
         <label for="patty">Patty</label>
@@ -41,27 +43,28 @@
 
 <div class="body-content">
     <?php
-        for($Index = 0; $Index < 12; $Index++)
+
+        for($index = 0; $index < count($products); $index++)
         {
         ?>
-            <div class="square">
-                <img class="square-picture" src="burger1.png" alt="">
-                
-                <div class="square-lower">
-                    <div class="square-lower-elements square-lower-elements-description">
-                        <p style="margin: 0;">Super Mega Vegan Beff-Bacon Burger</p>
-                    </div>
-                    <div class="square-lower-elemets">
-                        3,99€
-                    </div>
-                    <div class="square-lower-elemets">
-                        <button class="addToCard-Button">In den<br>Einkaufswagen</button>
-                    </div>
-                </div>
+        <div class = "square">
+            <imp class="square-picture" src="<?=$products[$index][0]->pictureURL?>" alt="<?=$products[$index]->altText?>">
 
+            <div class="square-lower">
+                <div class="square-lower-elements square-lower-elements-description">
+                        <p style="margin: 0;"><?=$products[$index][0]->description?></p>
+                </div>
+                <div class="square-lower-elemets">
+                            <?=$products[$index][0]->price?>
+                </div>
+                <div class="square-lower-elemets">
+                    <button class="addToCard-Button">In den<br>Einkaufswagen</button>
+                </div>
             </div>
-        <?php
+
+        </div> 
+        <?php 
         }
         ?>
 </div>
-</div>  
+    </div>

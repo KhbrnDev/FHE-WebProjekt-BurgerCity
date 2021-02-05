@@ -1,4 +1,4 @@
-<div class="error-body">
+<!--<div class="error-body">-->
         
         <div class="error-field">
             <h1>Error 404: </h1>
@@ -13,4 +13,4 @@
         </div>
 
     
-</div>
+<!--</div>-->

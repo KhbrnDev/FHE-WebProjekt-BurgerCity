@@ -349,7 +349,6 @@ class AccountController extends \dwp\core\Controller
         {
             echo "repeatOrder";
         }
-        
 
         // PRELOAD DATA
         // Preload User->Account

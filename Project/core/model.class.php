@@ -14,6 +14,7 @@ abstract class Model
     const TYPE_DATE     = 'date';
     const TYPE_JSON     = 'json';
     const TYPE_BOOLEAN  = 'boolean';
+    const TYPE_FLOAT    = 'float';
 
     protected $schema = [];
 
