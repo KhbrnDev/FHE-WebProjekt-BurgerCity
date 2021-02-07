@@ -42,13 +42,15 @@
 </div>
 
 <div class="body-content">
+
     <?php
 
         for($index = 0; $index < count($products); $index++)
         {
         ?>
         <div class = "square">
-            <imp class="square-picture" src="<?=$products[$index][0]->pictureURL?>" alt="<?=$products[$index]->altText?>">
+            
+            <img class="square-picture" src="<?=IMAGESPATH.$products[$index][0]->pictureURL?>" alt="<?=$products[$index]->altText?>">
 
             <div class="square-lower">
                 <div class="square-lower-elements square-lower-elements-description">
