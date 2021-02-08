@@ -57,8 +57,11 @@ class ProductsController extends \dwp\core\Controller
 		{
 			//insert error handling
 		}
-
-
+		/*$_SESSION['cart'] = [
+			'productId => $id,
+			'anzahl'   => $anzahl
+		]
+			*/
 
 		
 

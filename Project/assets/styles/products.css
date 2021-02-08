@@ -19,6 +19,11 @@
 }
 
 /* products.php */
+
+.products-header{
+    background-color: white;
+}
+
 .productItem-body h1{
     text-align: center;
     font-size: 5rem;
@@ -102,7 +107,7 @@
     align-items: auto;
     align-content: start;
 
-    background-color: var(--background-color);
+    background-color:white;
 }
 
 .body-content .speisekarte-arrow-p{
@@ -132,29 +137,33 @@
     flex: 0 0 auto;
     margin: 1.8rem;
     font-size: 1.6rem;
-    border-style: solid;
-    width: 16rem;
-    height: 23rem;
+    width: 18rem;
+    height: 21rem;
 
-    border-style: 2px;
-    border-color: black;
+    background-color: lightgray;
+}
+
+.square-headline{
+    margin-bottom: 0;
 }
 
 .square-picture{
 
+    
     padding: 0;
     margin: 0;
     top: 0;
     width: 100%;
     height: auto;
-    background-image: linear-gradient(lightgrey, var(--accent-primary));
+    background-image: white;
 
-
-    border-bottom: solid 1px black;
 }
 
 
+
 .square-lower{
+
+
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -174,6 +183,9 @@
     text-align: center;
     margin: auto;
     width: 100%;
+
+
+    font-size: 2rem;
 
 }
 
