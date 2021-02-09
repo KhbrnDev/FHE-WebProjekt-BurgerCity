@@ -86,7 +86,7 @@
             <div class="account-form-object">
                 <label for="currentPassword">Aktuelles Passwort</label>
                 <br>
-                <input type="password" id="currentPassword" name="currentPassword" placeholder="G3H31M" required>
+                <input type="password" id="currentPassword" name="currentPassword" placeholder="G3H31Mn1sS" required>
             </div>
 
             <div class="account-form-object">
@@ -219,6 +219,7 @@
                                 <p><?=htmlspecialchars($order['adress']->zipCode) . " " . htmlspecialchars($order['adress']->city)?></p>
                             </div>
                             <div class="account-order-subbox">
+                                <!-- TODO: bessere ausrichtung (CSS) -->
                                 <h4>Bestellte Produkte</h4>
                                 <table class="ordered-products-table">
                                     <thead>

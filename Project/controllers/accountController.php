@@ -347,9 +347,28 @@ class AccountController extends \dwp\core\Controller
         }
         elseif (isset($_POST['repeatOrder']))
         {
-            echo "repeatOrder";
-        }
+            
+            // GET DATA
+            $orderId = ($_POST['orderId']) ? $_POST['orderId'] : null;
 
+            if($orderId !== null)
+            {
+                $orderItems = \dwp\model\OrderItems::find("Orders_orderId = " . $orderId);
+
+                foreach ($orderItems as $item) 
+                {
+                    $_SESSION['cart'] [] = 
+                        [
+                            'productId' => $item->Products_productsId,
+                            'quantity' => $item->quantity      
+                        ];
+                 }
+                
+                 print_r($_SESSION['cart']);
+            
+                // header("Location: index.php?c=pages&a=cart");
+            }
+        }
         // PRELOAD DATA
         // Preload User->Account
         $user = \dwp\model\Account::findOne("`accountId` = " . $_SESSION['userID']);
