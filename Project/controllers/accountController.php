@@ -362,11 +362,10 @@ class AccountController extends \dwp\core\Controller
                             'productId' => $item->Products_productsId,
                             'quantity' => $item->quantity      
                         ];
-                 }
+                }
                 
-                 print_r($_SESSION['cart']);
             
-                // header("Location: index.php?c=pages&a=cart");
+                header("Location: index.php?c=pages&a=cart");
             }
         }
         // PRELOAD DATA

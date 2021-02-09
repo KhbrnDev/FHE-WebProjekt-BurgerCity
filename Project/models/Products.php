@@ -18,6 +18,7 @@ class Products extends \dwp\core\Model
         'altText' => [ 'type' => M::TYPE_STRING, 'max' => 255],
         'favourites' => [ 'type' => M::TYPE_BOOLEAN ],
         'price' => [ 'type' => M::TYPE_FLOAT ],
+        'category' => [ 'type' => M::TYPE_STRING, 'max' => 45]
 
     ];
 }
