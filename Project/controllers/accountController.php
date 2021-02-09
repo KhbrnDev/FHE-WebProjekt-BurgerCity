@@ -378,11 +378,38 @@ class AccountController extends \dwp\core\Controller
 
 
         // Preload User->Orders
-        /**
-          Do Stuff here
-          
-         */
+        
+        $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID']);
+        
+        foreach ($userOrders as $order) 
+        {   
+            $orderItems = \dwp\model\OrderItems::find("Orders_orderId = " . $order->orderId);
+            $products = [];
+            foreach ($orderItems as $item) 
+            {
+                $products [] = 
+                    [
+                        'products' => \dwp\model\Products::findOne("productsId = " . $item->Products_productsId),
+                        'quantity' => $item->quantity      
+                    ];
+            }
 
+            $totalPrice = 0;
+            foreach ($products  as $product) 
+            {
+                $totalPrice += $product['products']->price * $product['quantity'];
+            }
+            $preloadOrders [] = 
+                [
+                    'orderId'   => $order->orderId,
+                    'orderDate' => $order->orderDate,
+                    'adress'    => \dwp\model\Adress::findOne("adressId = " . $order->Adress_adressId),
+                    'orderItems'=> $products,
+                    'totalPrice'=> $totalPrice
+                ];
+
+        }
+        
 
         // PUSH TO VIEW
         $this->setParam('errors', $errors);

@@ -5,7 +5,7 @@
 namespace dwp\model;
 use \dwp\core\Model as M;
 
-class ordersItems extends \dwp\core\Model
+class OrderItems extends \dwp\core\Model
 {
     const TABLENAME = 'OrderItems';
 

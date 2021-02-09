@@ -199,86 +199,24 @@
 
 
     </div>
-    <!-- Für Tabelleneinträge große Kacheln programmieren, 1 pro Reihe anstatt 2 Pro Reihe bei Speisekarte -->
-    <!-- <h2>Bestellungen</h2>
-    <div class="account-orderlist-body">
-        <table class="orderlist-table">
-            <thead class="orderlist-thead">
-                <td>Bestellnummer</td>
-                <td>Bestelldatum</td>
-                <td>Lieferadresse</td>
-                <td>Produktinformationen</td>
-                <td>Gesamtpreis</td>
-                <td>Ernuet Wiederholen?</td>
-            </thead>
-            <tbody class="orderlist-tbody">
-            <?php
-            for($Index = 0; $Index < 4; $Index++)
-            {
-                ?>
-                    <tr class="orderlist-trow">
-                        <td>Nr: 7</td>
-                        <td>20.11.2020</td>
-                        <td>
-                            <table>
-                                <tr>Altonaerstrasese 23</tr>
-                                <br>
-                                <tr>99112 Erfurt</tr>
-                            </table>
-                        </td>
-                        <td>
-                            <table class="orderlist-products">
-                                <thead>
-                                    <td>Produkt</td>
-                                    <td>Anzahl</td>
-                                    <td>Preis</td>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Chilli Burger</td>
-                                        <td>2</td>
-                                        <td style="white-space: nowrap;">3.99 €</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ChilliCheese Nuggets</td>
-                                        <td>1</td>
-                                        <td>7.99 €</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Choco Shake</td>
-                                        <td>2</td>
-                                        <td>1.99 €</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>19.95 €</td>
-                        <td><button>Erneut Bestellen</button></td>
-                    </tr>
-                    <?php
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
-</div> -->
 
 
 <h2>Bestellungen</h2>
 
 <?php
-    for($Index = 0; $Index < 5; $Index++)
+    foreach ($preloadOrders as $order)
     {
         ?>
             <!-- BestellungStart -->
-                <div class="account-orderlist-body">
+                <form class="account-orderlist-body" method="post">
                     <div class="account-orderlist-order">
-                        Bestellnummer 7017 vom 03.10.2019
+                        <!-- TODO: schlechten Stil bei Datum (input) ändern -->
+                        Bestellnummer <?=htmlspecialchars($order['orderId'])?> vom <input style="border: none; font-family: sans-serif; font-size: 1rem;" type="date" value="<?=htmlspecialchars($order['orderDate'])?>" readonly> 
                         <div class="account-order-box">
                             <div class="account-order-subbox">
                                 <h4>Lieferadresse</h4>
-                                <p>Altonaerstrasse 34</p>
-                                <p>99122 Erfurt</p>
+                                <p><?=htmlspecialchars($order['adress']->street) . " " . htmlspecialchars($order['adress']->number)?></p>
+                                <p><?=htmlspecialchars($order['adress']->zipCode) . " " . htmlspecialchars($order['adress']->city)?></p>
                             </div>
                             <div class="account-order-subbox">
                                 <h4>Bestellte Produkte</h4>
@@ -289,33 +227,32 @@
                                         <td>Preis</td>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Chilli Burger</td>
-                                            <td>2</td>
-                                            <td style="white-space: nowrap;">3.99 €</td>
-                                        </tr>
-                                        <tr>
-                                            <td>ChilliCheese Nuggets</td>
-                                            <td>1</td>
-                                            <td>7.99 €</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Choco Shake</td>
-                                            <td>2</td>
-                                            <td>1.99 €</td>
-                                        </tr>
+                                        <?php
+                                            foreach ($order['orderItems'] as $product) 
+                                            {
+                                            //     print_r($product);
+                                            ?>
+                                                <tr>
+                                                    <td><?=htmlspecialchars($product['products']->description)?></td>
+                                                    <td><?=htmlspecialchars($product['quantity'])?></td>
+                                                    <td style="white-space: nowrap;"><?=htmlspecialchars($product['products']->price * $product['quantity'])?> €</td>
+                                                </tr>
+                                            <?php 
+                                            }
+                                            ?>
                                     </tbody>
                                 </table>
                             </div>
                             
                             <div class="account-order-subbox">
+                                <input style="display:none;" type="text" name="orderId" value="<?=htmlspecialchars($order['orderId'])?>" readonly required>
                                 <h4>Gesamtpreis</h4>
-                                <p>17.98 €</p>
+                                <p><?=$order['totalPrice']?> €</p>
                                 <input type="submit" name="repeatOrder" value="Erneut Bestellen">
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             <!-- BestellungEnde -->
         <?php
     }
