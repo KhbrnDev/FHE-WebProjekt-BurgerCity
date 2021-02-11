@@ -61,6 +61,18 @@
 
     }
 
+    .goToCart-Lieferhinweise{
+        width: calc(98.9vw - 1rem);
+        margin: 0 0.5rem 0 0.5rem;
+        border:0.5px solid var(--background-color);
+    }
+    
+    .goToCart-Label{
+        display: inline-block;
+        margin: 0.7rem 0.5rem 0 0.5rem;
+
+    }
+
     .cart-product-box{
         margin: 0.5rem 0.5rem;
         background-color: var(--background-color);
@@ -86,9 +98,10 @@
         width: 45%;
     }
 
-    .cart-product-box h4{
+    .cart-product-box h3{
         padding: 3% 0 0 0;
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 1rem 0;
+
 
     }
 
@@ -111,12 +124,19 @@
 
     
     .input-numberOfItem{
-        width: 5rem;
-        height: 2rem;
-        margin-top: 0.5rem;
-        border-radius: 5px;
+        margin-top: 0.3rem;
+        width: 35px;
+        height: 1rem;
         border: none;
         display: inline;
+        background-color: var(--background-color);
+        color: white;
+        font-size: 1rem;
+    }
+
+    .input-numberOfItem:focus{
+        background-color: white;
+        color: black;
     }
 
     .cart-product-box-buttons{
@@ -143,10 +163,12 @@
 
 @media only screen and (min-width: 801px){
     .cart-body{
+        height: calc(100vh - 50px);
         max-width: 1250px;
         background-color: white;
         margin: auto;
-        margin-top: 0;
+        margin-top: -20px;
+        padding-top: 20px;
         
     }
 
@@ -193,6 +215,22 @@
 
     }
 
+    
+    .goToCart-Label{
+        position: fixed;
+        display: inline-block;
+        margin-top: 114px;
+
+    }
+
+    .goToCart-Lieferhinweise{
+        position: fixed;
+        margin-top: calc(0.5rem + 114px);
+        width: calc(13rem - 1rem);
+        height: 8rem;
+        border:0.5px solid var(--background-color);
+    }
+
     .cart-product-box{
         margin: 0.5rem 0.5rem;
         background-color: var(--background-color);
@@ -216,9 +254,9 @@
         width: 40%;
     }
 
-    .cart-product-box h4{
+    .cart-product-box h3{
         padding: 1rem 0 0 0;
-        margin: 0;
+        margin: 0 0 1rem 0 ;
 
     }
 
@@ -240,11 +278,19 @@
 
     
     .input-numberOfItem{
-        width: 45.3%;
-        height: 2rem;
-        border-radius: 5px;
+        margin-top: 0.3rem;
+        width: 35px;
+        height: 1rem;
         border: none;
         display: inline;
+        background-color: var(--background-color);
+        color: white;
+        font-size: 1rem;
+    }
+
+    .input-numberOfItem:focus{
+        background-color: white;
+        color: black;
     }
 
     .cart-product-box-buttons{
