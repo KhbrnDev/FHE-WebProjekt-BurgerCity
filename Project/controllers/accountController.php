@@ -355,19 +355,22 @@ class AccountController extends \dwp\core\Controller
             {
                 $orderItems = \dwp\model\OrderItems::find("Orders_orderId = " . $orderId);
 
+                $_SESSION['cart'] = []; // for reapeatOrder the old 'Einkaufswagen' will be deleted
                 foreach ($orderItems as $item) 
                 {
                     $_SESSION['cart'] [] = 
                         [
-                            'productId' => $item->Products_productsId,
+                            'productsId' => $item->Products_productsId,
                             'quantity' => $item->quantity      
                         ];
                 }
-                
-            
+                            
                 header("Location: index.php?c=pages&a=cart");
             }
         }
+
+
+
         // PRELOAD DATA
         // Preload User->Account
         $user = \dwp\model\Account::findOne("`accountId` = " . $_SESSION['userID']);
