@@ -78,7 +78,7 @@ class PagesController extends \dwp\core\Controller
 		
 		if(isset($_SESSION['cart']))
 		{
-			foreach($_SESSION['cart'] as $orderItem) // foreach wird nur ausgeführt, wenn count($element > 0) :) -> kein if nötig
+			foreach($_SESSION['cart'] as $orderItem)
 			{
 				$product = \dwp\model\Products::findOne("productsId = " . $orderItem['productsId']);
 				$preloadOrders [] = 
