@@ -421,7 +421,7 @@
 
     .checkout-body h1{
         
-        margin: 1rem 0 2rem 1rem;
+        margin: 1rem 0 2rem 0.5rem;
     }
     .checkout-body-right{
         position:sticky;
@@ -443,8 +443,8 @@
     }
 
     .checkout-body-left{
-        margin: 0 0 0 1rem;
-        width: calc(100% - 15rem);
+        margin: 0 0 0 0.5rem;
+        width: calc(100% - 14rem);
     }
 
     .checkout-adress-box{
@@ -498,7 +498,7 @@
 
     .choose-payment div input{
         height: 1.2rem;
-
+        /* TODO Wegen IBAN die Breite der inputs einheitlich anpassen */
     }
 
 }

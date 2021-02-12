@@ -3,7 +3,7 @@
     <h1>Checkout</h1>
     
     <!-- Hier PHP fuer ErrorMessage inefuegen -->
-    <?php   if(isset($success) && $success['success'] === true)
+    <?php   if(isset($success['success']) && $success['success'] === true)
         {
             ?>
             <div class="logsing-success-message">
@@ -44,11 +44,11 @@
                 <h3>Lieferadresse auswählen</h3>
                 <a href="index.php?c=account&a=account" >Falls ihr gewünschte Lieferadresse nicht angezeigt wird legen Sie diese bitte in ihrem Account an.</a>
                 <div class="checkout-adress-box">
-                    <?php for($int = 0; $int < 4; $int++):?>
-                        <input type="radio" id="BYNAMISCH!" name="adress" value="ADRESSID__DASDASDASD" required>
-                        <label for="DYNAMISCH!" >Aachen 5 Strassenname 99945 Stack</label>
+                    <?php foreach($preloadAdresses as $adress):?>
+                        <input type="radio" id="adressId<?=$adress->adressId?>" name="adressId" value="<?=$adress->adressId?>" required>
+                        <label for="adressId<?=$adress->adressId?>" ><?=$adress->street . " " . $adress->number . " " . $adress->city . " " . $adress->zipCode?></label>
                         <br>
-                    <?php endfor;?>
+                    <?php endforeach;?>
             </div>
             
             </div>
@@ -59,10 +59,12 @@
                 <label class="card-label" for="card">EC-Karte</label>
                 <div class="payment-card">
                     <label class="card-name-label" for="accountHolder">Kontoinhaber</label>
-                    <input class="card-name-input" type="text" name="accountHolder" id="accountHoler">
+                    <input class="card-name-input" type="text" name="accountHolder" id="accountHolder">
 
                     <label class="card-iban-label" for="iban">IBAN:</label>
                     <input class="card-iban-input" type="text" name="iban" id="iban">
+                    <br>
+                    Format: AB12 1234 1234 1234 1234 oder AB123456789012345678
                 </div>
                 
                 <br>
@@ -71,13 +73,13 @@
                 <label class="paypal-label" for="paypal">PayPal</label>
                 <div class="payment-Paypal">
                     <label class="paypal-label" for="emailPaypal">EMail Adresse des PayPal Kontos</label>
-                    <input class="paypal-input" type="text" name="emailPaypal" id="emailPaypal">
+                    <input class="paypal-input" type="email" name="emailPaypal" id="emailPaypal">
                 </div>
 
                 <br>
 
                 <input class="cash-input" type="radio" name="payment" id="cash" value="cash" required readonly>
-                <label class="cash-label" for="cash">Cash</label>
+                <label class="cash-label" for="cash">Barzahlung bei Lieferung</label>
             </div>
         </div>
         

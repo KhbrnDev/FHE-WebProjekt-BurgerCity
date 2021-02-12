@@ -100,21 +100,128 @@ class PagesController extends \dwp\core\Controller
 
 	public function actionCheckout()
 	{
+		$errors = [];
+		$success = [];
+		$preloadAdresses = [];
+
 		if(!$this->loggedIn())
 		{
-			$_SESSION['nextPage'] = 'index.php?c=account&a=LogInSignIn';
+			$_SESSION['nextPage'] = 'index.php?c=pages&a=cart';
 			header("Location: index.php?c=account&a=LogInSignIn");
 		}
-	}
 
+		if(isset($_POST['nextStep']))
+		{
+			if(isset($_POST['adressId']) && isset($_POST['payment']))
+			{
+				$adressId = $_POST['adressId'];
+				$adress = \dwp\model\Adress::findOne("adressId = " . $adressId);
+				
+				if($adress !== null)
+				{
+					$_SESSION['cartHelper']['adress'] = $adress;
+					
+					$payment = $_POST['payment'];
+					switch ($payment) 
+					{
+						case 'card':
+							$accountHolder = !empty($_POST['accountHolder']) ? $_POST['accountHolder'] : null;
+							$iban = !empty($_POST['iban']) ? $_POST['iban'] : null;
+							
+							if($accountHolder !== null && $iban !== null)
+							{
+								$ibanRegEx = "/\b[A-Z]{2}[0-9]{2}(?:[ ]?[0-9]{4}){4}(?!(?:[ ]?[0-9]){3})(?:[ ]?[0-9]{1,2})?\b/";
+								if(preg_match($ibanRegEx, $iban))
+								{
+									$_SESSION['cartHelper']['payment'] = 
+										[
+											'accountHolder' => $accountHolder,
+											'iban' 			=> $iban
+										];
+								}
+								else
+								{
+									$success = false;
+									$errors['title'] = 'Das Format Ihrer IBAN entspricht nicht der vorgabe';
+								}
+							}
+							else
+							{
+								$success = false;
+								$errors['title'] = 'Bei Kartenzahlen bitte die Kartendetails eingeben';
+							}
+							break;
+						case 'paypal':
+							$emailPaypal = !empty($_POST['emailPaypal']) ? $_POST['emailPaypal'] : null;
+							
+							if($emailPaypal !== null)
+							{
+								if(\dwp\model\Account::validateEmail($emailPaypal))
+								{
+									$_SESSION['cartHelper']['payment'] = 
+										[
+											'emailPaypal' => $emailPaypal
+										];
+								}
+								else
+								{
+									$success = false;
+									$errors['title'] = 'Die eingegebene EMail ist ungültig';
+								}
+							}
+							else
+							{
+								$success = false;
+								$errors['title'] = 'Bei Paypalzahlung bitte die Paypayl-Email angeben';
+							}
+							break;
+						case 'cash':
+							$_SESSION['cartHelper']['payment'] = 'cash';
+							break;
+						default:
+							$success = false;
+							$errors [] = 'Prepare for the Wurscht.';
+							$errors['title'] = 'This sould never be reached!';
+							break;
+					}
+				}
+				else
+				{
+					// sould normally not be reached
+					$success = false;
+					$errors['title'] = 'Bitte nicht an der Lieferadresse rumspielen';
+				}
+			}
+			else
+			{
+				$success = false;
+				$errors['title'] = "Bitte Lieferadresse und Zahlungsmethode auswählen.";
+			}
+		}
+						
+		// PRELOAD DATA
+		// Preload Adresses
+		
+		$adressHelper = \dwp\model\AdressHelper::find("Account_accountId = " . $_SESSION['userID']);
+		foreach($adressHelper as $adress)
+		{
+			$preloadAdresses [] = \dwp\model\Adress::findOne("adressId = " . $adress->Adress_adressId);
+		}
+		
+		$this->setParam('preloadAdresses', $preloadAdresses);
+		$this->setParam('errors', $errors);
+		$this->setParam('success', $success);
+		
+	}
+	
 	public function actionCheckoutReview()
 	{
 		
 	}
-
+	
 	public function actionCheckoutSuccess()
 	{
 		
 	}
-
+	
 }

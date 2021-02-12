@@ -38,6 +38,11 @@ class Account extends \dwp\core\Model
             $errors[] = 'EMail nicht valide.';
         }
 
+        // added for pagesController.php -> checkout.php
+        if(count($errors) === 0 )
+        {
+            return true;
+        }
         
     }
 
