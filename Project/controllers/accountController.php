@@ -16,19 +16,22 @@ class AccountController extends \dwp\core\Controller
         // GENERAL PAGEMANAGEMANT
         if(!$this->loggedIn())
         {
+            $_SESSION['nextPage'] = 'index.php?c=account&a=account';
             header("Location: index.php?c=account&a=LogInSignIn");
         }
 
         if(isset($_POST['logout']))
         {   
+            array_splice($_SESSION, 0, count($_SESSION));
             $_SESSION['loggedIn'] = false;
             header("Location: index.php?c=account&a=LogInSignIn");
         }
 
-        if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true)
-        {   
-            header("Location: index.php?c=footercontent&a=administration");
-        }
+        // TODO: should not be needed with $_SESSION['nextPage']; 
+        // if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true)
+        // {   
+        //     header("Location: index.php?c=footercontent&a=administration");
+        // }
         
         // CHANGE ACCOUNT RELATED DATA
         if(isset($_POST['changeAccount'])) // DONE ?
@@ -563,17 +566,38 @@ class AccountController extends \dwp\core\Controller
                             $_SESSION['loggedIn'] = true;
                             $_SESSION['userMail'] = $Account->email;
                             $_SESSION['userID'] = $Account->accountId;
+                            $_SESSION['isAdmin'] = $Account->isAdmin == 1;
                             
-                            if($Account->isAdmin == 1)
-                            {
-                                $_SESSION['isAdmin'] = true;
-                                header("Location: index.php?c=footercontent&a=administration");
-                            }
-                            else
-                            {
-                                $_SESSION['isAdmin'] = false;
-                                header("Location: index.php?c=account&a=account");
-                            }
+                            switch($_SESSION['nextPage']):
+                                case 'index.php?c=account&a=account':
+                                    unset($_SESSION['nextPage']);
+                                    header("Location: index.php?c=account&a=account");
+                                    break;
+                                case 'index.php?c=footercontent&a=administration':
+                                    unset($_SESSION['nextPage']);
+                                    header("Location: index.php?" . ($_SESSION['isAdmin'] == 1 ? "c=account&a=account" : "c=footercontent&a=administration"));
+                                    break;
+                                case 'index.php?c=pages&a=checkout':
+                                    unset($_SESSION['nextPage']);
+                                    header("Location: index.php?c=pages&a=checkout");
+                                    break;
+                                default:
+                                    if(isset($_SESSION['nextPage'])) : ($_SESSION['nextPage']); endif;
+                                    header("Location: index.php?c=pages&a=cart");
+                                    break;
+                                endswitch;
+                                    
+                            // OBSOLTETE
+                            // if($Account->isAdmin == 1)
+                            // {
+                            //     $_SESSION['isAdmin'] = true;
+                            //     header("Location: index.php?c=footercontent&a=administration");
+                            // }
+                            // else
+                            // {
+                            //     $_SESSION['isAdmin'] = false;
+                            //     header("Location: index.php?c=account&a=account");
+                            // }
                         }
                         else
                         {

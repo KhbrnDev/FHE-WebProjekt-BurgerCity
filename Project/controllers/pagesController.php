@@ -26,9 +26,9 @@ class PagesController extends \dwp\core\Controller
 			if($lieferhinweise !== null)
 			{
 				$_SESSION['lieferhinweise'] = $lieferhinweise;
-				
-				header("Location: index.php?c=pages&a=checkout");
 			}
+
+			header("Location: index.php?c=pages&a=checkout");
 		}
 		if(isset($_POST['deleteItem'])) 
 		{
@@ -75,16 +75,20 @@ class PagesController extends \dwp\core\Controller
 				'gesamtSumme' => 0,
 				'gesamtAnzahl' => 0
 			];
-		foreach($_SESSION['cart'] as $orderItem) // foreach wird nur ausgeführt, wenn count($element > 0) :) -> kein if nötig
+		
+		if(isset($_SESSION['cart']))
 		{
-			$product = \dwp\model\Products::findOne("productsId = " . $orderItem['productsId']);
-			$preloadOrders [] = 
-				[
-					'product' => $product,
-					'quantity' => $orderItem['quantity']
-				];
-			$preloadGesamtSumme['gesamtSumme'] += $product->price * $orderItem['quantity'];
-			$preloadGesamtSumme['gesamtAnzahl'] += $orderItem['quantity'];
+			foreach($_SESSION['cart'] as $orderItem) // foreach wird nur ausgeführt, wenn count($element > 0) :) -> kein if nötig
+			{
+				$product = \dwp\model\Products::findOne("productsId = " . $orderItem['productsId']);
+				$preloadOrders [] = 
+					[
+						'product' => $product,
+						'quantity' => $orderItem['quantity']
+					];
+				$preloadGesamtSumme['gesamtSumme'] += $product->price * $orderItem['quantity'];
+				$preloadGesamtSumme['gesamtAnzahl'] += $orderItem['quantity'];
+			}
 		}
 		
 		
@@ -96,7 +100,11 @@ class PagesController extends \dwp\core\Controller
 
 	public function actionCheckout()
 	{
-		
+		if(!$this->loggedIn())
+		{
+			$_SESSION['nextPage'] = 'index.php?c=account&a=LogInSignIn';
+			header("Location: index.php?c=account&a=LogInSignIn");
+		}
 	}
 
 	public function actionCheckoutReview()

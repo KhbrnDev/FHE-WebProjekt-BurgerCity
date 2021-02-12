@@ -18,6 +18,7 @@ class footercontentController extends \dwp\core\Controller
         // GENERAL PAGEMANAGEMANT
         if(!$this->loggedIn())
         {
+            $_SESSION['nextPage'] = 'index.php?c=footercontent&a=administration';
             header("Location: index.php?c=account&a=LogInSignIn");
         }
 
