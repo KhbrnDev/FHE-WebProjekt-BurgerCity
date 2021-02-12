@@ -14,7 +14,7 @@ class Ingredients extends \dwp\core\Model
         'createdAt' => [ 'type' => M::TYPE_STRING],
         'updatedAt' => [ 'type' => M::TYPE_STRING],
         'description' => [ 'type' => M::TYPE_STRING, 'max' => 255 ],
-        'numberOfStock' => [ 'type' => M::TYPE_INTEGER ],
+        'foodtype' => [ 'type' => M::TYPE_STRING ],
         
     ];
 }
