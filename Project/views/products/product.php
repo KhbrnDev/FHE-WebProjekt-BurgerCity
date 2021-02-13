@@ -1,31 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-</head>
-<body>
-<?php
-    include '../../views/headfoot/header1.php'
-?>
- <div class="productItem-body">
+<div class="productItem-body">
 
-    <h1>Burgername</h1>
+    <h1><?=$product->description?></h1>
     <div class="product-flex">
         <div class="product-left">
-            <img class="product-picture" src="../../assets/images/burger1.png" alt="">
+            <img class="product-picture" src="<?=IMAGESPATH.$product->pictureURL?>" alt="<?=$product->altText?>">
 
         </div>
         <div class="product-right">
 
             <h3>Zutaten:</h3>
-            <span>Tomaten, BeffPatty, Majo und knusprige Brötchen</span>
+            <span>
+            <?php
+
+            //for($index = 0; $index < count($ingredients); $index++)
+            //{
+              //  echo($ingredients[$index]->description); 
+            //}
+            ?>
+
+            </span>
             <div class="product-preis">
                 <h3>Preis:</h3>
                 <h5>nur</h5>
-                <h2>6,99€</h2>
+                <h2><?=$product->price?></h2>
             </div>
             <form action="product.php" mehtod="GET">
                 <input style="display: none;" type="text" name="warenbork" value="true" >

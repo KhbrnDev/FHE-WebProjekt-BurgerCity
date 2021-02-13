@@ -147,6 +147,9 @@
     margin-bottom: 0;
 }
 
+.picture-square{
+    height: 60%;
+}
 .square-picture{
 
     
@@ -154,8 +157,9 @@
     margin: 0;
     top: 0;
     width: 100%;
-    height: auto;
+    max-height: fit-content;
     background-image: white;
+    object-fit: cover;
 
 }
 

@@ -239,7 +239,7 @@ INSERT INTO `BurgerCity`.`Adress` (`adressId`, `createdAt`, `updatedAt`, `zipCod
 INSERT INTO `BurgerCity`.`Adress` (`adressId`, `createdAt`, `updatedAt`, `zipCode`, `city`, `street`, `number`) VALUES (5, DEFAULT, NULL, '99084', 'Erfurt', 'Domstufen', '1');
 INSERT INTO `BurgerCity`.`Adress` (`adressId`, `createdAt`, `updatedAt`, `zipCode`, `city`, `street`, `number`) VALUES (6, DEFAULT, NULL, '99096', 'Erfurt', 'Jürgen-Fuchs-Straße', '1');
 INSERT INTO `BurgerCity`.`Adress` (`adressId`, `createdAt`, `updatedAt`, `zipCode`, `city`, `street`, `number`) VALUES (7, DEFAULT, NULL, '10117', 'Berlin', 'Niederkirchnerstraße', '5');
-INSERT INTO `BurgerCity`.`Adress` (`adressId`, `createdAt`, `updatedAt`, `zipCode`, `city`, `street`, `number`) VALUES (DEFAULT, DEFAULT, NULL, '99084', 'Erfurt', 'Erfurt Hauptbahnhof', '1');
+INSERT INTO `BurgerCity`.`Adress` (`adressId`, `createdAt`, `updatedAt`, `zipCode`, `city`, `street`, `number`) VALUES (8, DEFAULT, NULL, '99084', 'Erfurt', 'Erfurt Hauptbahnhof', '1');
 
 COMMIT;
 
@@ -288,11 +288,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `BurgerCity`;
-INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (DEFAULT, DEFAULT, NULL, 1, 1);
-INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (DEFAULT, DEFAULT, NULL, 1, 2);
-INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (DEFAULT, DEFAULT, NULL, 2, 2);
-INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (DEFAULT, DEFAULT, NULL, 2, 3);
-INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (DEFAULT, DEFAULT, NULL, 2, 4);
+INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (1, DEFAULT, NULL, 1, 1);
+INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (2, DEFAULT, NULL, 1, 2);
+INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (3, DEFAULT, NULL, 2, 2);
+INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (4, DEFAULT, NULL, 2, 3);
+INSERT INTO `BurgerCity`.`AdressHelper` (`adressHelperId`, `createdAt`, `updatedAt`, `Account_accountId`, `Adress_adressId`) VALUES (5, DEFAULT, NULL, 2, 4);
 
 COMMIT;
 
