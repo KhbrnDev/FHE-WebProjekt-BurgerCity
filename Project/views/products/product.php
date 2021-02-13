@@ -12,10 +12,13 @@
             <span>
             <?php
 
-            //for($index = 0; $index < count($ingredients); $index++)
-            //{
-              //  echo($ingredients[$index]->description); 
-            //}
+            for($index = 0; $index < count($ingredients); $index++)
+            {
+                echo($ingredients[$index]->description); 
+                if($index < count($ingredients)-1){
+                    echo(", ");
+                }
+            }
             ?>
 
             </span>

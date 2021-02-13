@@ -71,14 +71,12 @@ class ProductsController extends \dwp\core\Controller
 		$product = \dwp\model\Products::findOne("productsId = " . $GLOBALS['db']->quote($id));
 		$ingredientsIDs = \dwp\model\ProductHelper::find("Products_productsId = " . $GLOBALS['db']->quote($id));
 		$ingredients = array();
-		//foreach ($ingredientsIDs as $idValue) {
-		//	$ingredient = \dwp\model\Ingredients::find("ingredientsId = " . $GLOBALS['db']->quote($idValue->Ingedients_ingedientsId));
-		//	if(isset($ingredient)){
-		//		$ingredients[]= $ingredient->description;
-		//	}
-		//}
+		foreach ($ingredientsIDs as $idValue) {
+			$ingredient = \dwp\model\Ingredients::findOne("ingredientsId = " . $GLOBALS['db']->quote($idValue->Ingredients_ingredientsId));
+			$ingredients[]= $ingredient;
+		}
 		$this->setParam('product', $product);
-//$this->setParam('ingredients', $ingredients);
+		$this->setParam('ingredients', $ingredients);
 	}
 
 }
