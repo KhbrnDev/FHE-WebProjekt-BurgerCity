@@ -502,3 +502,135 @@
     }
 
 }
+
+/*
+* checkoutReview.php
+*
+*
+**/
+
+
+@media only screen and (max-width: 800px){
+
+    .checkoutReview-body{
+        width: 100%;
+        background-color: white;
+        margin-top: -20px;
+        /* margin-bottom: ?px; */
+    }
+
+    .checkoutReview-body h1{
+        
+        margin: 20px 0 1rem 0.5rem;
+        padding-top: 4px;
+    }
+
+    .checkoutReview-body h3{
+        margin: 1rem 0 0.5rem 0;
+    }
+    .checkoutReview-body-right{
+       
+    }
+
+    .goTo-CheckoutSuccess{
+        margin: 0.5rem 0.5rem;
+        width: calc(100vw - 1rem);
+        border-radius: 5px;
+        background-color: var(--accent-secondary);
+        color:white;
+        border: none;
+        
+    }
+
+    .checkoutReview-body-left{
+        margin: 0 0.5rem;
+    }
+    
+    .checkoutReview-body .cart-product-box{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .checkoutReview-body .cart-product-box img{
+        height: auto;
+        width: 40%;
+        flex: auto;
+    }
+
+    .checkoutReview-body .cart-product-box-right{
+        flex: auto;
+    }
+
+}
+
+
+
+@media only screen and (min-width: 801px){
+
+    .checkoutReview-body{
+        
+        height: calc(100vh - 50px);
+        max-width: 1250px;
+        background-color: white;
+        margin: auto;
+        margin-top: -20px;
+        padding-top: 20px;
+    }
+
+    .checkoutReview-body h1{
+        
+        margin: 20px 0 1rem 0.5rem;
+        padding-top: 4px;
+    }
+
+    .checkoutReview-body h3{
+        margin: 1rem 0 2rem 0.5rem;
+    }
+    .checkoutReview-body-right{
+       
+        position:sticky;
+        margin-top: -1rem;
+        float: right;
+        display: block;
+        width: 13rem;
+    }
+
+    .goTo-CheckoutSuccess{
+        margin-top: 1rem;
+        position: fixed;
+        border:none;
+        background-color: var(--accent-secondary);
+        color:white;
+        border-radius: 5px;
+        width: calc(13rem - 1rem);
+        
+    }
+
+    .checkoutReview-body-left{
+        margin: 0 0 0 0.5rem;
+        width: calc(100% - 14rem);
+    }
+    
+    .checkoutReview-body .cart-product-box{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .checkoutReview-body .cart-product-box img{
+        width: auto;
+        height: 10rem;
+    }
+
+    .checkoutReview-body .cart-product-box a{
+        height: auto;
+        width: 20%;
+        flex: auto;
+    }
+
+
+    .checkoutReview-body .cart-product-box-right{
+        padding-left: 15%;
+        flex: auto;
+    }
+    
+}

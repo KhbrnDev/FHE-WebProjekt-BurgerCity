@@ -197,6 +197,12 @@ class PagesController extends \dwp\core\Controller
 				$success = false;
 				$errors['title'] = "Bitte Lieferadresse und Zahlungsmethode auswählen.";
 			}
+
+			if(count($errors) === 0)
+			{
+				header("Location: index.php?c=pages&a=checkoutReview");
+			}
+
 		}
 						
 		// PRELOAD DATA
@@ -216,6 +222,50 @@ class PagesController extends \dwp\core\Controller
 	
 	public function actionCheckoutReview()
 	{
+		// PRELOAD DECLARATION
+		$preloadGesamtSumme = 0;
+		$preloadCartHelper = [];
+		$preloadOrders = [];
+		$errors = [];
+
+		if(!$this->loggedIn() || !isset($_SESSION['cart']) || empty($_SESSION['cart']) || !isset($_SESSION['cartHelper']) || empty($_SESSION['cartHelper']))
+		{
+			header("Location: index.php?c=pages&a=cart");
+		}
+		if(isset($_POST['nextStep']))
+		{
+
+		}
+
+
+
+		// PRELOAD DATA
+
+		$preloadGesamtSumme = 
+			[
+				'gesamtSumme' => 0,
+				'gesamtAnzahl' => 0
+			];
+		
+		if(isset($_SESSION['cart']))
+		{
+			foreach($_SESSION['cart'] as $orderItem)
+			{
+				$product = \dwp\model\Products::findOne("productsId = " . $orderItem['productsId']);
+				$preloadOrders [] = 
+					[
+						'product' => $product,
+						'quantity' => $orderItem['quantity']
+					];
+				$preloadGesamtSumme['gesamtSumme'] += $product->price * $orderItem['quantity'];
+				$preloadGesamtSumme['gesamtAnzahl'] += $orderItem['quantity'];
+			}
+		}
+		// push to view
+		$this->setParam('errors', $errors);
+		$this->setParam('preloadGesamtSumme', $preloadGesamtSumme);
+		$this->setParam('preloadCartHelper', $preloadCartHelper);
+		$this->setParam('preloadOrders', $preloadOrders);
 		
 	}
 	
