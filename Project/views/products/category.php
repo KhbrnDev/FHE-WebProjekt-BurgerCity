@@ -7,7 +7,7 @@
     <div class="products-header">
     <h1><?=$title?></h1>
     <p><?=$description?>
-    <!-- <?=print_r($products)?> -->
+    <!--<?=print_r($products)?>-->
     </p>
 
     <div class="productFilter">
@@ -52,14 +52,16 @@
         ?>
         <div class = "square">
         
-            <h3 class="square-headline"><?=$products[$index][0]->description?></h3>
+            <h3 class="square-headline"><?=$products[$index]->description?></h3>
 
-            <img class="square-picture" src="<?=IMAGESPATH.$products[$index][0]->pictureURL?>" alt="<?=$products[$index]->altText?>">
+            <div class = "picture-square">
+                <a href=<?="index.php?c=products&a=product&f=".$products[$index]->productsId?>><img class="square-picture"  src="<?=IMAGESPATH.$products[$index]->pictureURL?>" alt="<?=$products[$index]->altText?>"></a>
+            </div>
 
             <div class="square-lower">
                
                 <div class="square-lower-elemets">
-                            <?=$products[$index][0]->price?>
+                            <?=$products[$index]->price?>
                 </div>
                 <div class="square-lower-elemets">
                     <button class="addToCard-Button">In den<br>Einkaufswagen</button>

@@ -11,10 +11,10 @@
             <div class="dropdown">
                 <a href="index.php?c=products&a=menue">Speisekarte</a>
                 <div class="dropdown-content">
-                    <a href="index.php?c=products&a=category&f=Burger">Burger</a>
-                    <a href="index.php?c=products&a=category&f=Snacks">Snacks</a>
-                    <a href="index.php?c=products&a=category&f=Drinks">Getränke</a>
-                    <a href="index.php?c=products&a=category&f=Desserts">Desserts</a>
+                    <a href="index.php?c=products&a=category&f=burger">Burger</a>
+                    <a href="index.php?c=products&a=category&f=snacks">Snacks</a>
+                    <a href="index.php?c=products&a=category&f=drinks">Getränke</a>
+                    <a href="index.php?c=products&a=category&f=desserts">Desserts</a>
                 </div>
             </div>
             <a class="nav-shit-account" href="index.php?c=account&a=account">Account</a>
