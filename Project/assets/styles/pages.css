@@ -546,20 +546,31 @@
         margin: 0 0.5rem;
     }
     
-    .checkoutReview-body .cart-product-box{
+    /* ProductBox */
+    .checkoutReview-product-box{
+        background-color: var(--background-color);
+        width: calc(100vw - 1rem);
+        margin: 1rem 0 ;
+
+        color:white;
+
         display: flex;
         flex-wrap: wrap;
     }
-    
-    .checkoutReview-body .cart-product-box img{
-        height: auto;
-        width: 40%;
-        flex: auto;
+
+    .checkoutReview-product-picture-link{
+        width: 50%;
     }
 
-    .checkoutReview-body .cart-product-box-right{
-        flex: auto;
+    .checkoutReview-product-picture{
+        width: 100%;
+        height: auto;
     }
+
+    .checkoutReview-item-id{
+        display: none;
+    }
+
 
 }
 
@@ -577,7 +588,7 @@
         padding-top: 20px;
     }
 
-    .checkoutReview-body h1{
+    /* .checkoutReview-body h1{
         
         margin: 20px 0 1rem 0.5rem;
         padding-top: 4px;
@@ -593,9 +604,9 @@
         float: right;
         display: block;
         width: 13rem;
-    }
+    } */
 
-    .goTo-CheckoutSuccess{
+    /* .goTo-CheckoutSuccess{
         margin-top: 1rem;
         position: fixed;
         border:none;
@@ -614,9 +625,9 @@
     .checkoutReview-body .cart-product-box{
         display: flex;
         flex-wrap: wrap;
-    }
+    } */
     
-    .checkoutReview-body .cart-product-box img{
+    /* .checkoutReview-body .cart-product-box img{
         width: auto;
         height: 10rem;
     }
@@ -631,6 +642,11 @@
     .checkoutReview-body .cart-product-box-right{
         padding-left: 15%;
         flex: auto;
-    }
+    } */
+
+    /* TODO Muss das mit dem Sticky-footer so sein? */
+    /* .push-sticky-footer{
+        display: none;
+    } */
     
 }
