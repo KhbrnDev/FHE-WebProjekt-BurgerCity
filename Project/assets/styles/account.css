@@ -3,9 +3,14 @@
 /* account.php*/
 
 .account-body{
+    margin-top: 20px;
+    padding-top: 1px;
     margin: auto;
-    max-width: 1300px;
+    max-width: var(--body-width);
     background-color: white;
+
+    padding-bottom: 40px;
+    margin-bottom: -30px;
 }
 
 .account-body h2,h1{
@@ -14,6 +19,7 @@
 
 .h1-ausloggen h2{
     float: right;
+    margin-right: 1rem;
 }
 
 /* Account Informationen */
@@ -103,20 +109,35 @@
         width: 50%;
         
     }
-
-
+    
+    
 }
 
 @media only screen and (max-width: 800){
+   
     .login-box, .signin-box{
         width: 90%;
     }
 }
 
 .logsing-body{
-    width: 100%;
+    max-width: var(--body-width);
+    background-color: white;
+    margin: auto;
+    padding-bottom: 50px;
+    margin-bottom: -50px;
+    min-height: calc(100vh - var(--footer-height) - var(--header-height));
 }
 
+.logsing-body input{
+    margin-top: 0.3rem;
+}
+
+.logsing-body .submit{
+    border:none;
+    border-radius: 5px;
+    background-color: var(--accent-secondary);
+}
 .logsign-boxes{
     display: flex;
     flex-wrap: wrap;

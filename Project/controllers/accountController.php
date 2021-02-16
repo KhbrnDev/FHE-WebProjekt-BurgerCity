@@ -403,7 +403,7 @@ class AccountController extends \dwp\core\Controller
 
         // Preload User->Orders
         
-        $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID']);
+        $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC");
         
         foreach ($userOrders as $order) 
         {   

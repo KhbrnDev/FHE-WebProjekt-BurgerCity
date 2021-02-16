@@ -55,7 +55,7 @@
                     <input type="password" name="password" id="password" placeholder="Geheimes Passwort">
                     
                     <br>
-                    <input type="submit" name="login" value="LogIn">
+                    <input class="submit" type="submit" name="login" value="LogIn">
 
                 </form>
             </div> 
@@ -114,7 +114,7 @@
                     <input type="password" name="password" id="password">
                     <br>
                     
-                    <input type="submit" name="signin" value="SignIn" >
+                    <input class="submit" type="submit" name="signin" value="SignIn" >
 
                     <!-- PHP
                         if(isset($_POST['signin']))...doStuff -->
