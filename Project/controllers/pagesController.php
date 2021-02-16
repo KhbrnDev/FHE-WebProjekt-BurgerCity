@@ -119,7 +119,7 @@ class PagesController extends \dwp\core\Controller
 				
 				if($adress !== null)
 				{
-					$_SESSION['cartHelper']['adress'] = $adress;
+					$_SESSION['cartHelper']['adressId'] = $adressId;
 					
 					$payment = $_POST['payment'];
 					switch ($payment) 
@@ -135,6 +135,7 @@ class PagesController extends \dwp\core\Controller
 								{
 									$_SESSION['cartHelper']['payment'] = 
 										[
+											'method' 		=> 'Kartenzahlung',
 											'accountHolder' => $accountHolder,
 											'iban' 			=> $iban
 										];
@@ -160,6 +161,7 @@ class PagesController extends \dwp\core\Controller
 								{
 									$_SESSION['cartHelper']['payment'] = 
 										[
+											'method' => 'PayPal',
 											'emailPaypal' => $emailPaypal
 										];
 								}
@@ -176,7 +178,10 @@ class PagesController extends \dwp\core\Controller
 							}
 							break;
 						case 'cash':
-							$_SESSION['cartHelper']['payment'] = 'cash';
+							$_SESSION['cartHelper']['payment'] = 
+								[
+									'method' => 'Barzahlung'
+								];
 							break;
 						default:
 							$success = false;
@@ -211,7 +216,11 @@ class PagesController extends \dwp\core\Controller
 		$adressHelper = \dwp\model\AdressHelper::find("Account_accountId = " . $_SESSION['userID']);
 		foreach($adressHelper as $adress)
 		{
-			$preloadAdresses [] = \dwp\model\Adress::findOne("adressId = " . $adress->Adress_adressId);
+			$adress = \dwp\model\Adress::findOne("adressId = " . $adress->Adress_adressId);
+			if($adress !== null)
+			{
+				$preloadAdresses [] = $adress;
+			}
 		}
 		
 		$this->setParam('preloadAdresses', $preloadAdresses);
@@ -228,13 +237,57 @@ class PagesController extends \dwp\core\Controller
 		$preloadOrders = [];
 		$errors = [];
 
-		if(!$this->loggedIn() || !isset($_SESSION['cart']) || empty($_SESSION['cart']) || !isset($_SESSION['cartHelper']) || empty($_SESSION['cartHelper']))
+		if(!$this->loggedIn() || !isset($_SESSION['cart']) || empty($_SESSION['cart']) || !isset($_SESSION['cart']) || !isset($_SESSION['cartHelper']) ||
+			 !isset($_SESSION['cartHelper']) || empty($_SESSION['cartHelper']))
 		{
 			header("Location: index.php?c=pages&a=cart");
 		}
 		if(isset($_POST['nextStep']))
 		{
+			$date = getdate();
+			$orderDate = $date['year'] . '-' . $date['mon'] . '-' . $date['mday'];
+			$orderParams = 
+				[
+					'orderDate' 		=> $orderDate,
+					'Account_accountId' => $_SESSION['userID'],
+					'Adress_adressId'	=> $_SESSION['cartHelper']['adressId']
+				];
+			if(isset($_SESSION['lieferhinweise']) && !empty($_SESSION['lieferhinweise']))
+			{
+				$orderParams['deliveryInformation'] = $_SESSION['lieferhinweise'];
+			}
+			
+			$order = new \dwp\model\Orders($orderParams);
+			$order->insert($errors);
+			
+			if(count($errors) === 0)
+			{
 
+				$test;
+				foreach($_SESSION['cart'] as $orderItem)
+				{
+					$orderItemParams = 
+					[
+						'quantity' => $orderItem['quantity'],
+						'Orders_orderId' => $order->orderId,
+						'Products_productsId' => $orderItem['productsId']
+					];
+					$newOrderItem = new \dwp\model\OrderItems($orderItemParams);
+					$newOrderItem->insert($errors);
+
+					$test [] = $newOrderItem;
+				}
+			}
+
+			if(count($errors) === 0)
+			{
+				$_SESSION['lieferhinweise'] = null;
+				$_SESSION['cart'] = [];
+				$_SESSION['cartHelper'] = [];
+
+				header("Location: index.php?c=pages&a=checkoutSuccess");
+			}
+		
 		}
 
 
@@ -261,6 +314,10 @@ class PagesController extends \dwp\core\Controller
 				$preloadGesamtSumme['gesamtAnzahl'] += $orderItem['quantity'];
 			}
 		}
+
+		// Make this better
+		$preloadCartHelper['adress'] = \dwp\model\Adress::findOne("adressId = " . $_SESSION['cartHelper']['adressId']);
+		$preloadCartHelper['payment'] = $_SESSION['cartHelper']['payment'];
 		// push to view
 		$this->setParam('errors', $errors);
 		$this->setParam('preloadGesamtSumme', $preloadGesamtSumme);

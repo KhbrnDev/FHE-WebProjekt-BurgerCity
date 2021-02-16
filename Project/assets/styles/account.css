@@ -79,7 +79,7 @@
 .account-orderlist-order{
     margin-bottom: 1.5rem;
     margin: 0 1rem;
-    width: calc(100vw -2rem);
+    width: calc(100% - 2rem);
 }
 
 .account-order-box{
@@ -89,6 +89,7 @@
 }
 
 .account-order-subbox{
+    width: 33.3%;
     text-align: center;    
     flex: auto; 
 

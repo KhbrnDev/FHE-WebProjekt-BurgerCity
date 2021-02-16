@@ -31,15 +31,44 @@
         </div>
 
         <div class="checkoutReview-body-left">
+                <div class="cart-product-box">
+                <div class="lieferadresse">
+                    <h3>Lieferadresse</h3>
+                    <p><?=$preloadCartHelper['adress']->street . " " . $preloadCartHelper['adress']->number?></p>
+                    <p><?=$preloadCartHelper['adress']->zipCode . " " . $preloadCartHelper['adress']->city?></p>
+                </div>
 
-            <div class="lieferadresse">
-                <h3>Lieferadresse</h3>
-            </div>
-
-            <div class="choose-payment">
-                <!-- Hier Zahlunsinfo auf SESSION laden -->
-            </div>
-
+                <div class="choose-payment">
+                    <h3>Zahlungsmethode</h3>
+                    <?php
+                        if(isset($preloadCartHelper['payment']))
+                        {
+                        ?>
+                            <p class="checloutReview-payment-method"><?=$preloadCartHelper['payment']['method']?></p>
+                            <?php
+                            switch ($preloadCartHelper['payment']['method'])
+                            {
+                                case 'Barzahlung':
+                                    break;
+                                case 'Kartenzahlung':
+                                    ?>
+                                    <p>Karteninhaber: <?=$preloadCartHelper['payment']['accountHolder']?></p>
+                                    <p>IBAN: <?=$preloadCartHelper['payment']['iban']?></p>
+                                    <?php
+                                    break;
+                                case 'PayPal':
+                                    ?>
+                                    <p>PayPal-Email: <?=$preloadCartHelper['payment']['emailPaypal']?></p>
+                                    <?php
+                                    break;
+                                default:
+                                    break;
+                            }
+                        
+                        }
+                    ?>
+                </div>
+            </div>        
                 <?php
                     foreach($preloadOrders as $orderItem):
                 ?>

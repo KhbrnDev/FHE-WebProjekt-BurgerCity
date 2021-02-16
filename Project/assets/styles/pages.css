@@ -588,7 +588,7 @@
         padding-top: 20px;
     }
 
-    /* .checkoutReview-body h1{
+    .checkoutReview-body h1{
         
         margin: 20px 0 1rem 0.5rem;
         padding-top: 4px;
@@ -604,9 +604,9 @@
         float: right;
         display: block;
         width: 13rem;
-    } */
+    }
 
-    /* .goTo-CheckoutSuccess{
+     .goTo-CheckoutSuccess{
         margin-top: 1rem;
         position: fixed;
         border:none;
@@ -625,7 +625,7 @@
     .checkoutReview-body .cart-product-box{
         display: flex;
         flex-wrap: wrap;
-    } */
+    } 
     
     /* .checkoutReview-body .cart-product-box img{
         width: auto;

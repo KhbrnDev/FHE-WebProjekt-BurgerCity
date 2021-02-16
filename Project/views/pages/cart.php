@@ -56,7 +56,7 @@
             else:
         ?>  
 
-        Sie haben noch keine Artikel im Einkaufswagen. Sie können sich <a href="index.php?c=products&c=menu">hier</a> welche aussuchen
+        Sie haben noch keine Artikel im Einkaufswagen. Sie können sich <a href="index.php?c=products&a=menue">hier</a> welche aussuchen
 
 
         <?php 
