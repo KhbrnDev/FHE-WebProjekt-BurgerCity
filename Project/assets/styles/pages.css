@@ -30,7 +30,10 @@
     .cart-body{
         width: 100%;
         background-color: white;
-       
+        
+        min-height: calc(100vh - var(--header-height) - var(--footer-height));
+        padding-bottom: 50px;
+        margin-bottom: -50px;
 
     }
 
@@ -46,7 +49,7 @@
     }
 
     .sum-of-total-products{
-        color: red;
+        
         display: inline;
 
     }
@@ -319,13 +322,17 @@
 *
 **/
 
-
+.lieferadresse a{
+    color: black;
+}
 @media only screen and (max-width: 800px){
     .checkout-body{
         width: 100%;
         background-color: white;
         margin-top: -20px;
-        /* margin-bottom: ?px; */
+        min-height: calc(100vh - var(--header-height) - var(--footer-height));
+        margin-bottom: -50px;
+        padding-bottom: 50px;
     }
 
     .checkout-body h1{
@@ -461,7 +468,7 @@
 
     }
 
-    .checkout-body-left .lieferadresse{
+    .checkout-body-left .checkout-adress-box{
         background-color: var(--background-color);
         color:white;
     }
@@ -516,7 +523,9 @@
         width: 100%;
         background-color: white;
         margin-top: -20px;
-        /* margin-bottom: ?px; */
+        min-height: calc(100vh - var(--footer-height) - var(--header-height));
+        padding-bottom: 50px;
+        margin-bottom: -50px;
     }
 
     .checkoutReview-body h1{
@@ -531,7 +540,24 @@
     .checkoutReview-body-right{
        
     }
+    .checkoutReview-body .checkout-product-box{
+        background-color: var(--background-color);
+        color: white;
+    }
 
+    .checkoutReview-body .cart-product-box{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .checkoutReview-body .lieferadresse{
+        width: 50%;
+        margin: auto;
+    }
+
+    .checkoutReview-body .choose-payment{
+        margin: auto;
+        width: 50%;
+    }
     .goTo-CheckoutSuccess{
         margin: 0.5rem 0.5rem;
         width: calc(100vw - 1rem);
@@ -580,17 +606,20 @@
 
     .checkoutReview-body{
         
-        height: calc(100vh - 50px);
+        height: calc(100vh - var(--footer-height) - var(--header-height));
         max-width: 1250px;
         background-color: white;
         margin: auto;
         margin-top: -20px;
         padding-top: 20px;
+
+        padding-bottom: 50px;
+        margin-bottom: -50px;
     }
 
     .checkoutReview-body h1{
         
-        margin: 20px 0 1rem 0.5rem;
+        margin: 20px 0 1rem 1rem;
         padding-top: 4px;
     }
 
@@ -607,7 +636,7 @@
     }
 
      .goTo-CheckoutSuccess{
-        margin-top: 1rem;
+        margin-top: 2.5rem;
         position: fixed;
         border:none;
         background-color: var(--accent-secondary);
@@ -617,6 +646,13 @@
         
     }
 
+    .checkout-product-box{
+        display: flex;
+        flex-wrap: wrap;
+        background-color: var(--background-color);
+        color: white;
+        margin: 0 0.5rem;
+    }
     .checkoutReview-body-left{
         margin: 0 0 0 0.5rem;
         width: calc(100% - 14rem);
@@ -626,23 +662,30 @@
         display: flex;
         flex-wrap: wrap;
     } 
-    
-    /* .checkoutReview-body .cart-product-box img{
+    .lieferadresse{
+        padding-left: 1rem;
+        width: 48%;
+    }
+
+    .checkoutReview-body .cart-product-box img{
         width: auto;
         height: 10rem;
     }
 
     .checkoutReview-body .cart-product-box a{
         height: auto;
-        width: 20%;
+        width: 40%;
         flex: auto;
     }
 
 
     .checkoutReview-body .cart-product-box-right{
-        padding-left: 15%;
         flex: auto;
-    } */
+    }
+
+    .checkoutReview-body h3{
+        margin-left: 0;
+    }
 
     /* TODO Muss das mit dem Sticky-footer so sein? */
     /* .push-sticky-footer{

@@ -31,7 +31,7 @@
         </div>
 
         <div class="checkoutReview-body-left">
-                <div class="cart-product-box">
+            <div class="checkout-product-box">
                 <div class="lieferadresse">
                     <h3>Lieferadresse</h3>
                     <p><?=$preloadCartHelper['adress']->street . " " . $preloadCartHelper['adress']->number?></p>
@@ -44,7 +44,7 @@
                         if(isset($preloadCartHelper['payment']))
                         {
                         ?>
-                            <p class="checloutReview-payment-method"><?=$preloadCartHelper['payment']['method']?></p>
+                            <p class="checkoutReview-payment-method"><?=$preloadCartHelper['payment']['method']?></p>
                             <?php
                             switch ($preloadCartHelper['payment']['method'])
                             {
@@ -91,7 +91,7 @@
 
                             <br>
 
-                            <p>Anzahl: 7</p>
+                            <p>Anzahl: <?=htmlspecialchars($orderItem['quantity'])?></p>
 
                         </div>
                     </div>

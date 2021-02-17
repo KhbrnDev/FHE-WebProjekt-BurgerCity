@@ -180,7 +180,7 @@ class PagesController extends \dwp\core\Controller
 						case 'cash':
 							$_SESSION['cartHelper']['payment'] = 
 								[
-									'method' => 'Barzahlung'
+									'method' => 'Barzahlung bei Lieferung'
 								];
 							break;
 						default:
