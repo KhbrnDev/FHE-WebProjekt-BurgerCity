@@ -62,7 +62,16 @@ class ProductsController extends \dwp\core\Controller
 
 	public function actionMenue()
 	{
-		
+		$burger = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("burger"));
+		$snacks = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("snacks"));
+		$drinks = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("drinks"));
+		$desserts = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("desserts"));
+
+		$this->setParam('burger', $burger);
+		$this->setParam('snacks', $snacks);
+		$this->setParam('drinks', $drinks);
+		$this->setParam('desserts', $desserts);
+
 	}
 
 	public function actionProduct()

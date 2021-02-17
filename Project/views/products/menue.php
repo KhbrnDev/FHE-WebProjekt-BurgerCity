@@ -2,27 +2,28 @@
     
     <!--  -->
     <h1>Speisekarte</h1>
-    <p>Unsere Produkte sind Biologisch und Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellat provident dolorum sequi, ea veniam accusantium ratione, veritatis sint doloremque deserunt in corrupti magni eos distinctio id dolorem exercitationem recusandae.</p>
-    
+    <p>Entecke unsere neuartigen, innovativen Produkte. Hier ist für alle was dabei!</p>
+
     <h2>Burger</h2>
     <span>
-        <p>Unsere Burger sind... Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cupiditate quidem suscipit cum delectus dolorum illo totam rem exercitationem accusantium ut laudantium ipsa dolore, facere accusamus consequuntur odit commodi expedita.</p>
-        <a href="#">Mehr Burger</a>
+        <p>Wir haben so tolle Burger. Jeder Burger wird mit Liebe und 100% natürlichen Zutaten zubereitet.
+					Das Beef kommt von Bio-Kücken aus der Region.</p>
+        <a href="index.php?c=products&a=category&f=burger">Mehr Burger</a>
     </span>
     <div class="body-content">
         <?php
-            for($Index = 0; $Index < 3; $Index++)
+            for($index = 0; $index < 3; $index++)
             {
                 ?>
                 <div class="square">
-                    <img class="square-picture" src="<?=IMAGESPATH.'burger1.png'?>" alt="">
+                    <img class="square-picture" src="<?=IMAGESPATH.$burger[$index]->pictureURL?>" alt="<?=$burger[$index]->altText?>">
 
                     <div class="square-lower">
                         <div class="square-lower-elements square-lower-elements-description">
-                            <p style="margin: 0;">Super Mega Vegan Beff-Bacon Burger</p>
+                            <p style="margin: 0;"><?=$burger[$index]->description?></p>
                         </div>
                         <div class="square-lower-elemets">
-                            3,99 €
+                            <?=$burger[$index]->price?>
                         </div>
                         <div class="square-lower-elemets">
                             <button class="addToCard-Button">In den<br>Einkaufswagen</button>
@@ -37,7 +38,7 @@
                 <p class="speisekarte-arrow-p">Hier geht es zu weiteren leckeren Burgern</p>
                 Hier geht es zu weiteren leckeren Burgern
                 <br>
-                <button>Mehr Burger</button>
+                <button> Mehr Burger</button>
             </div>
     </div>
 
