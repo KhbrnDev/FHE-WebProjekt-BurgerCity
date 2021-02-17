@@ -43,6 +43,7 @@
 
 .administration-body td{
     width: 20%;
+    line-height: 2.5rem;
 }
 
 .administration-body .submit{
@@ -56,7 +57,9 @@
 
 .administration-header{
     margin-left: 1rem;
+    margin-bottom: 1rem;
 }
+
 
 .administration-header h1,h3{
     margin-left: 0 ;
@@ -64,10 +67,13 @@
 
 .administration-body h2{
     display: inline;
+    margin-bottom: 1rem;
 }
 
 .administration-admins, .make-admin, .edit-products{
     margin-left: 1rem;
+    
+    margin-bottom: 2rem;
 }
 
 

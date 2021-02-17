@@ -128,7 +128,7 @@
     <div class="edit-products">
         <h2><label for="edit-products">Produkte bearbeiten</label></h2>
         <input type="checkbox" class="make-admin-checkbox" id="edit-products">
-
+        
         <table>
             <thead>
                 <td>Kategory</td>
@@ -152,7 +152,7 @@
                         <td>
                             <form method="POST">
                                 
-                                <input class="admins-id" type="text" name="productsId" value="<?=$products->poductsId?>">
+                                <input class="admins-id" type="text" name="productsId" value="<?=$products->productsId?>">
                                 <input type="submit" name="changeFavorite" value="<?=($product->favorites == 0) ? 'Favorisieren' : 'ent Favorisieren' ?>">
                             </form>
                         </td>
