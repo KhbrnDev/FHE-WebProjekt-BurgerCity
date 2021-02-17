@@ -12,8 +12,10 @@ class footercontentController extends \dwp\core\Controller
 
         // INITIALIZE VIEW->PARAMS 
         $errors = [];
-        $preload = [];
+        $preloadAdmins = [];
+        $preloadProducts = [];
         $success['success'] = false;
+        $preloadCustomers = [];
 
         // GENERAL PAGEMANAGEMANT
         if(!$this->loggedIn())
@@ -24,7 +26,7 @@ class footercontentController extends \dwp\core\Controller
 
         if(isset($_POST['logout']))
         {   
-            $_SESSION['loggedIn'] = false;
+            $_SESSION = [];
             header("Location: index.php?c=account&a=LogInSignIn");
         }
 
@@ -36,12 +38,39 @@ class footercontentController extends \dwp\core\Controller
             }
         }
 
+        if(isset($_POST['deleteAdmin']))
+        {
+            
+        }
+        
+        if(isset($_POST['makeAdmin']))
+        {
+
+        }
+
+        if(isset($_POST['changeFavorite']))
+        {
+
+        }
+
         // DO STUFF HERe
-
-
-
+        $preloadAdmins = \dwp\model\Account::find("isAdmin = 1");
+        $preloadCustomers = \dwp\model\Account::find("isAdmin = 0 ORDER BY `account`.`email`");
+        $preloadProducts = \dwp\model\Products::find("1 ORDER BY  `products`.`category`");
+        
 
         // PRELOAD DATA
+
+
+        // push to view
+        $this->setParam('preloadAdmins', $preloadAdmins);
+        $this->setParam('preloadProducts', $preloadProducts);
+        $this->setParam('errros', $errors);
+        $this->setParam('success', $success);
+        $this->setParam('preloadCustomers', $preloadCustomers);
+
+        
+        
 
     }
 

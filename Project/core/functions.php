@@ -34,14 +34,13 @@ function cleanEinkaufswagen()
 
 
 
-function getgermandate($date){
-
+function getGermanDate($date){
+    strval($date);
     $german_date = explode( "-" ,$date);
 
     return sprintf("%02d.%02d.%04d",$german_date[2], $german_date[1], $german_date[0]);
 
 }
-
 
 
 

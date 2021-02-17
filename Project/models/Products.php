@@ -16,7 +16,7 @@ class Products extends \dwp\core\Model
         'description' => [ 'type' => M::TYPE_STRING, 'max' => 255],
         'pictureURL' => [ 'type' => M::TYPE_STRING, 'max' => 255],
         'altText' => [ 'type' => M::TYPE_STRING, 'max' => 255],
-        'favourites' => [ 'type' => M::TYPE_BOOLEAN ],
+        'favorites' => [ 'type' => M::TYPE_BOOLEAN ],
         'price' => [ 'type' => M::TYPE_FLOAT ],
         'category' => [ 'type' => M::TYPE_STRING, 'max' => 45]
 
