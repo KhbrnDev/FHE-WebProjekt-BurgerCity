@@ -16,6 +16,7 @@ function labelClicked($name){
  * should be called after every addition to 'Einkaufswagen'
  *  
  */
+// TODO make better, should clean the complete Einkaufswagen and merge double input
 function cleanEinkaufswagen()
 {
     for($int = 0; $int < count($_SESSION['cart']) -1 ; $int++)

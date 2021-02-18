@@ -1,29 +1,139 @@
 @import "color.css";
 
 
-
-
 /* everything in products Folder */
 .products-body, .productItem-body{
-    position:relative;
-    text-align: center;
-    width: 80%;
-    height: 100%;
-    background-color:white ;
-    flex: 0 0 auto;
-    padding-bottom: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
+    background-color: white;
+    margin: auto;
+
+    /* under this.. is new */
+    margin-top: -20px;
+    padding-top: 20px;
+    max-width: var(--body-width);
+    min-height: calc(100vh - var(--header-hight) - var(--footer-heigt));
+    margin-bottom: -50px;
+    padding-bottom: 50px;
 }
 
-/* products.php */
+/*
+* products.php
+*
+*
+** */
 
 .products-header{
     background-color: white;
+    margin: auto;
+    width: calc(100% - 2rem);
+}
+.products-subheader{
+    text-align: center;
+}
+/* Filter */
+
+/* new */
+.tabs {
+    margin-top: 10px;
+    max-width: 800px;
+    padding-top: 10px;
+    position: relative;
+    min-height:250px; /* This part sucks */
+    clear: both;
+  }
+  .tab {
+    float: left;
+  }
+  .tab #tab-1,#tab-2,#tab-3,#tab-4{
+      display: none;
+  }
+
+  .tab > label {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-left: -1px;
+    position: relative;
+    left: 1px;
+  }
+  .tab [type="radio"] {
+    opacity: 0;
+  }
+  .filter-content {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    margin: 15px 0.5rem 0.5rem 0.5rem;
+    border: 0.5px wheat solid;
+    border-radius: 5px;
+    bottom: 0;
+    padding: 20px;
+    overflow:scroll;
+    
+    height: auto;
+  }
+  .filter-content > * {
+    opacity: 0;
+  }
+  
+
+  .tabControl:checked ~ label {
+    background-color: var(--accent-primary);
+    border-bottom: 1px solid white;
+    z-index: 2;
+  }
+  [type="radio"]:checked ~ label ~ .filter-content {
+    z-index: 1;
+  }
+  [type="radio"]:checked ~ label ~ .filter-content > * {
+    opacity: 1;
+  }
+/* new end */
+/* new bonus */
+.filter-content > [type="radio"], [type="checkbox"]{
+    width: 1rem;
+    height: 1rem;
+}
+.product-filter [type="submit"]{
+    background-color: var(--accent-primary);
+    border: none;
+    border-radius: 5px;
+    color:white;
+}
+/* TODO sieht irgendwie scheiße aus */
+#tab-1 .filter-content [type="radio"]{
+    display: inline-block;
+    opacity: 1;
+    width: 1rem;
+    height: 1rem;
+    background-color: red;
+}
+/* newbonuis end */
+.toggleProductFilter{
+    padding: 3px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent-primary);
+}
+#toggleProductFilter{
+    display: none;
+}
+#toggleProductFilter:checked + .product-filter{
+    display: block;
 }
 
+#toggleProductFilter{
+    width: 1rem;
+    height: 1rem;
+}
+.product-filter{
+    margin: auto;
+    min-height:fit-content;
+    background-color: var(--background-color);
+    color: white;
+    display: none;
+}
+
+/* Filter end */
 .productItem-body h1{
     text-align: center;
     font-size: 5rem;
