@@ -2,4 +2,11 @@ Dokumentation Stichworte:
 	-in der navbar kann man mit 'Wurstfingern' im Mobile design den button drücken
 	- im Einkaufswagen wir bestellt ohne zu bezahlen (Barzahlung bei entgegennahme der Bestellung), man könnte in einer weiteren ausbaustufe eine Zahlung mittels PayPay/ Karte... einfügen
 	- im Checkout könnte die Zahlungsabwicklung genauer Simuliert werden, dies ist allerdings nicht Kern des PRojekts
+	- in einer Weiterentwickluing der Administration könnte man man das Hinzufügen udn entfernen von Produkten und Zutaten von Produckten hinzufügen
+	- Administration ist teilweise einklappbar, da es bei vielen Kunden keine übersichtlichkeit mehr gibt (mit checkboxen)
+	- 
+	
+Lessons Learned
+	- SASS/ SCSS wäre super gewesen um eienrfacher zu gestalten, da es großen Zeitaufwand sparen würden
+		-> ist aber gut, dass man die 'Nachteile' von CSS merkt
 	- 

@@ -22,3 +22,78 @@
 }
 
 /* Administration */
+
+.administration-body{
+    margin: auto;
+    max-width: var(--body-width);
+    background-color: white;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    margin-top: -20px;
+    
+    
+    padding-bottom: 40px;
+    margin-bottom: -30px;
+    
+}
+
+.administration-body table{
+    
+    width: calc(100% - 2rem);
+}
+
+.administration-body td{
+    width: 20%;
+    line-height: 2.5rem;
+}
+
+.administration-body .submit{
+    float: right;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent-secondary);
+    margin-right: 1rem;
+    margin-top: 2rem;
+}
+
+.administration-header{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.administration-header h1,h3{
+    margin-left: 0 ;
+}
+
+.administration-body h2{
+    display: inline;
+    margin-bottom: 1rem;
+}
+
+.administration-admins, .make-admin, .edit-products{
+    margin-left: 1rem;
+    
+    margin-bottom: 2rem;
+}
+
+
+
+.administration-body table{
+    display: none;
+}
+
+.make-admin-checkbox{
+    margin: 0;
+    padding: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.make-admin-checkbox:checked + table{
+    display:block;
+}
+
+
+.admins-id{
+    display: none;
+}

@@ -219,7 +219,7 @@
                                 <p><?=htmlspecialchars($order['adress']->zipCode) . " " . htmlspecialchars($order['adress']->city)?></p>
                             </div>
                             <div class="account-order-subbox">
-                                <!-- TODO: bessere ausrichtung (CSS) -->
+                                <!-- TODO: bessere ausrichtung (CSS) TODO nicht Tabelle, sondern Flexbox -->
                                 <h4>Bestellte Produkte</h4>
                                 <table class="ordered-products-table">
                                     <thead>

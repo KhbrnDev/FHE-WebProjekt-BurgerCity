@@ -21,9 +21,8 @@ class AccountController extends \dwp\core\Controller
         }
 
         if(isset($_POST['logout']))
-        {   
-            array_splice($_SESSION, 0, count($_SESSION));
-            $_SESSION['loggedIn'] = false;
+        {  
+            $_SESSION = [];
             header("Location: index.php?c=account&a=LogInSignIn");
         }
 
@@ -575,7 +574,7 @@ class AccountController extends \dwp\core\Controller
                                     break;
                                 case 'index.php?c=footercontent&a=administration':
                                     unset($_SESSION['nextPage']);
-                                    header("Location: index.php?" . ($_SESSION['isAdmin'] == 1 ? "c=account&a=account" : "c=footercontent&a=administration"));
+                                    header("Location: index.php?" . ($_SESSION['isAdmin'] == 1 ?  "c=footercontent&a=administration" : "c=account&a=account" ));
                                     break;
                                 case 'index.php?c=pages&a=checkout':
                                     unset($_SESSION['nextPage']);

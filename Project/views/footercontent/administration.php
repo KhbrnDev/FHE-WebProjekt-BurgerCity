@@ -1,17 +1,50 @@
 
 <div class="administration-body">
-    <h1>Administrations Panel</h1>
-    <h3>Diese Seite ist nicht für mobile Geräte ausgelegt. 
-        Bitte verwenden Sie einen Desktop Gerät.
-    </h3>
+        <form method="post">
+            <input class="submit" type="submit" name="logout" value="Logout">
+        </form>
+    <div class="administration-header">
+        <h1>Administrations Panel</h1>
+        <h3>Diese Seite ist nicht für mobile Geräte ausgelegt. 
+            <br>
+            Bitte verwenden Sie für die Administration immer ein Desktop Gerät.
+        </h3>
+    </div>
+    <!-- <div class="error"> -->
+            <!-- Hier PHP fuer ErrorMessage inefuegen -->
+            <?php   if($success['success'] === true)
+                    {
+                        ?>
+                        <div class="logsing-success-message">
+                            <?=$success['message']?>
+                        </div>
+                        <?php
+                    }
+                    elseif(isset($errors) && count($errors) > 0)
+                    {
+                        ?>
 
+                        <div class="logsing-error-message">
+                            <h4><?=$errors['title']?></h4>
+                        <ul>
+                        <?php
+                            for($Index = 0; $Index < count($errors)-1; $Index++)
+                            {
+                                ?>
+                                <li><?=$errors[$Index]?></li>
+                                <?php
+                            }   
+                        ?>
+                        </ul>
+                        </div>
+                        <?php
+                    }
+            ?>
+    <!-- </div> -->
     <div class="administration-admins">
-        <form method="post"><input type="submit" name="logout" value="Logout"></form>
-        <h2>Administratoren bearbeiten</h2>
-                <!-- Adminstrator bearbeiten
-                Administrator löschen
-            Administrator als Adminstrator entfernen -->
-
+        <h2><label for="remove-admin">Administratoren bearbeiten</label></h2>
+        
+        <input class="make-admin-checkbox" id="remove-admin" type="checkbox">
         <table>
             <thead>
                 <tr>
@@ -20,25 +53,25 @@
                     <td>EMail</td>
                     <td>Geburtsdatum</td>
                     <td>Telefonnummer</td>
-                    <td>Adresse</td>
                     <td>Administratives</td>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    for($Index = 0; $Index <4; $Index++)
+                    foreach($preloadAdmins as $admins)
                     {
                         ?>
                             <tr>
-                                <td>Rainer</td>
-                                <td>Zufall</td>
-                                <td>r.zufall@burger-city.de</td>
-                                <td>01.01.2020</td>
-                                <td>03455607080</td>
-                                <td>Sundhäuserstrasse 34 55122 Mainz</td>
+                                <td><?=htmlspecialchars($admins->firstName)?></td>
+                                <td><?=htmlspecialchars($admins->lastName)?></td>
+                                <td><?=htmlspecialchars($admins->email)?></td>
+                                <td><?=htmlspecialchars(getGermanDate($admins->birthday))?></td>
+                                <td><?=htmlspecialchars($admins->phoneNumber)?></td>
                                 <td>
-                                    <input type="submit" name="edit" value="Änderungen speichern">
-                                    <input type="submit" name="delete" value="Admin löschen">
+                                    <form method="POST">
+                                        <input class="admins-id" type="text" name="accountId" value="<?=$admins->accountId?>">
+                                        <input type="submit" name="deleteAdmin" value="Admin entfernen">
+                                    </form>
                                 </td>
                             </tr>
                         <?php
@@ -47,68 +80,88 @@
             </tbody>
         </table>
         
-        <div class="administration-new-admin">
-            <div class="new-admin-input-label">
+        
+            
+    </div>
 
-                <label for="firstname">Vorname</label>
-                <br>
-                <input type="text" name="firstname" id="firstname" placeholder="Vorname" requiered>
-            </div>
-            
-            <div class="new-admin-input-label">
+    <div class="make-admin">
+        <h2><label for="make-admin">Kunden zu Administratoren machen</label></h2>
+        <input class="make-admin-checkbox" id="make-admin" type="checkbox">
+        <table>
+            <thead>
+                <tr>
+                    <td>Vorname</td>
+                    <td>Nachname</td>
+                    <td>EMail</td>
+                    <td>Geburtsdatum</td>
+                    <td>Telefonnummer</td>
+                    <td>Administratives</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach($preloadCustomers as $admins)
+                    {
+                        ?>
+                            <tr>
+                                <td class="admins-id"><?=$admins->accountId?></td>
+                                <td><?=htmlspecialchars($admins->firstName)?></td>
+                                <td><?=htmlspecialchars($admins->lastName)?></td>
+                                <td><?=htmlspecialchars($admins->email)?></td>
+                                <td><?=htmlspecialchars(getGermanDate($admins->birthday))?></td>
+                                <td><?=htmlspecialchars($admins->phoneNumber)?></td>
+                                <td>
+                                    <form method="POST">
+                                        <input class="admins-id" type="text" name="accountId" value="<?=$admins->accountId?>">
+                                        <input type="submit" name="makeAdmin" value="zu Admin machen">
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php
+                    }
+                    ?> 
+            </tbody>
+        </table>
+    
+    </div>
 
-                <label for="lastname">Nachname</label>
-                <br>
-                <input type="text" name="lastname" id="lastname" placeholder="Nachname" requiered>
-            </div>
+    <div class="edit-products">
+        <h2><label for="edit-products">Produkte bearbeiten</label></h2>
+        <input type="checkbox" class="make-admin-checkbox" id="edit-products">
+        
+        <table>
+            <thead>
+                <td>Kategory</td>
+                <td>Produktname</td>
+                <td>Bild-URL</td>
+                <td>AlternativText</td>
+                <td>Preis</td>
+                <td>Administratives</td>
+            </thead>
             
-            <div class="new-admin-input-label">
-
-                <label for="email">EMail</label>
-                <br>
-                <input type="email" name="email" id="email" placeholder="EMail-Adresse" required>
-            </div>
-            
-            
-            <div class="new-admin-input-label">
-
-                <label for="birtday">Geburtsdatum</label>
-                <br>
-                <input type="date" name="birthday" id="birthday" placeholder="2020-01-01" required>
-            </div>
-
-            
-            <div class="new-admin-input-label">
-                <label for="phonenumber">Telefonnummer</label>
-                <br>
-                <input type="tel" name="phonenumber" id="phonenumber" placeholder="01522203050" required>
-            </div>  
-            
-            
-            <div class="new-admin-input-label">
-                    <!-- Strasse -->
-            </div>
-
-            
-            <div class="new-admin-input-label">
-                <!-- Hausnuzmmeer -->
-            </div>
-
-            
-            <div class="new-admin-input-label">
-                <!-- PLZ -->
-            </div>
-
-            
-            <div class="new-admin-input-label">
-                <!-- Stadt -->
-            </div>
-            
-            <div class="new-admin-input-label">
-                <!-- Passwort -->
-            </div>
-        </div>
-            
+            <tbody>
+                <?php
+                foreach($preloadProducts as $product):
+                ?>
+                    <tr>
+                        <td><?=htmlspecialchars($product->category)?></td>
+                        <td><?=htmlspecialchars($product->description)?></td>
+                        <td><?=htmlspecialchars($product->pictureURL)?></td>
+                        <td><?=htmlspecialchars($product->altText)?></td>
+                        <td><?=htmlspecialchars($product->price)?></td>
+                        <td>
+                            <form method="POST">
+                                
+                                <input class="admins-id" type="text" name="productsId" value="<?=$products->productsId?>">
+                                <input type="submit" name="changeFavorite" value="<?=($product->favorites == 0) ? 'Favorisieren' : 'ent Favorisieren' ?>">
+                            </form>
+                        </td>
+                    </tr>
+                <?php
+                endforeach;
+                ?>
+            </tbody>
+        </table>
     </div>
         
 </div>
