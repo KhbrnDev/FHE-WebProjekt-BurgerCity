@@ -76,6 +76,9 @@ class ProductsController extends \dwp\core\Controller
 
 	public function actionProduct()
 	{
+		if(isset($_POST['addToWarenkorb'])){
+			
+		}
 		$id = $_GET['f'];
 		$product = \dwp\model\Products::findOne("productsId = " . $GLOBALS['db']->quote($id));
 		$ingredientsIDs = \dwp\model\ProductHelper::find("Products_productsId = " . $GLOBALS['db']->quote($id));
