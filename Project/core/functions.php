@@ -63,3 +63,30 @@ function getprice($price){
 
 
 
+function getCategoryInformation(&$title, &$description, $category)
+{
+    switch($category)
+    {
+        case "burger":
+            $title = "Burger";
+            $description = "Wir haben so tolle Burger. Jeder Burger wird mit Liebe und 100% natürlichen Zutaten zubereitet.
+            Das Beef kommt von Bio-Kücken aus der Region.";
+            break;
+        case "snacks":
+            $title = "Snacks";
+            $description = "Snacks sind lecker, weil man sie so gut snacken kann. Bestelle auch du dir jetzt deine snackbaren Snacks.";
+            break;
+        case "drinks":
+            $title = "Drinks";
+            $description = "Der Mensch braucht Wasser. Am besten mit viel Zucker und Farbstoffen drin. Und damit es auch nach was schmeckt, haben wir unseren Getränken exklusive Geschmackstoffe zugesetzt. Natürlich 100% vegan, weil 100% synthetisch. Das Getränk von Morgen erwartet dich.";
+            break;
+        case "desserts":
+            $title = "Desserts";
+            $description = "Sei kein Wüstenschiff. Kaufe unsere süßen, leckeren Bio-Desserts. Honig statt Zucker und natürlich alles Vollkorn.";
+            break;
+        default:
+            $title = "Produkte";
+            $description = "Wir haben super Produkte. Kaufe jetzt Produkte und du bekommst Produkte.";
+            break;
+    }
+}

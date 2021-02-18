@@ -64,92 +64,151 @@ class ProductsController extends \dwp\core\Controller
 		// Get Title and Description -> could be moved to functions.php (might be needed in menue.php and start.php [no dublicated content])
 		$title = null; 
 		$description = null;
-		$category = $_GET['f'];
-		switch($category)
+		$category = isset($_GET['f']) ? $_GET['f'] : null ;
+
+		if($category !== null)
 		{
-			case "burger":
-				$title = "Burger";
-				$description = "Wir haben so tolle Burger. Jeder Burger wird mit Liebe und 100% natürlichen Zutaten zubereitet.
-				Das Beef kommt von Bio-Kücken aus der Region.";
-				break;
-			case "snacks":
-				$title = "Snacks";
-				$description = "Snacks sind lecker, weil man sie so gut snacken kann. Bestelle auch du dir jetzt deine snackbaren Snacks.";
-				break;
-			case "drinks":
-				$title = "Drinks";
-				$description = "Der Mensch braucht Wasser. Am besten mit viel Zucker und Farbstoffen drin. Und damit es auch nach was schmeckt, haben wir unseren Getränken exklusive Geschmackstoffe zugesetzt. Natürlich 100% vegan, weil 100% synthetisch. Das Getränk von Morgen erwartet dich.";
-				break;
-			case "desserts":
-				$title = "Desserts";
-				$description = "Sei kein Wüstenschiff. Kaufe unsere süßen, leckeren Bio-Desserts. Honig statt Zucker und natürlich alles Vollkorn.";
-				break;
-			default:
-				$title = "Produkte";
-				$description = "Wir haben super Produkte. Kaufe jetzt Produkte und du bekommst Produkte.";
-				break;
+			getCategoryInformation($title, $description, $category);
 		}
-		$category = $_GET['f'];
 		// FILTERS
 		// we always filter
-		$sql = "SELECT DISTINCT p.productsId, p.description, p.pictureURL, p.altText, p.favorites, p.price, p.category
-				FROM `ingredients` i
-		 		join `producthelper` ph on i.ingredientsId = ph.Ingredients_ingredientsId
-				right join `products` p on p.productsId = ph.Products_productsId where ";
-		$whereClause = "";
 
-		if(isset($_GET['foodType']))
+		$preloadProducts = \dwp\model\Products::find();
+
+		if(isset($_GET['f']))
 		{
-			// TODO schöne SQL abfragen machen oder Objekt erstellen
-			switch($_GET['foodType'])
-			{
-				case 'vegan':
-				case 'veggie':
-				case 'omni':
-					$whereClause .= "foodType = " . $db->quote($_GET['foodType']) . " and ";
-					break;
-				default:
-					// !?!?!!1
-					break;
-			}
-		}
-		// muss als letztes stehen, da abschließende Klausel wegen dem 'and'
-		if(isset($_GET['category']))
-		{
-			switch($_GET['category'])
+			
+			switch($_GET['f'])
 			{
 				case 'burger':
 				case 'snacks':
 				case 'drinks':
 				case 'desserts':
-					$whereClause .= "  category = " . $db->quote($_GET['f']) . "and ";
+					$products = [];
+					for($int = 0; $int < count($preloadProducts); $int++)
+					{
+						if($preloadProducts[$int]->category === $_GET['f'])
+						{
+							$products [] = $preloadProducts[$int];
+						}
+					}
+					$preloadProducts = $products;
+					$preloadFilter['category'] = $_GET['f'];
 					break;
 				default;
 					break;
 			}
 		}
-		else
+		
+		if(isset($_GET['foodType']))
 		{
-			$whereClause .= " 1 and ";
-		}
+					$productsHelper = \dwp\model\ProductHelper::find();
+					$ingredients = \dwp\model\Ingredients::find();
+					$products = [];
+					if($_GET['foodType'] == 'vegan')
+					{
+						for($int = 0; $int < count($preloadProducts); $int++)
+						{
+							$isVegan = true;
+							foreach($productsHelper as $helper)
+							{
+								if($helper->Products_productsId == $preloadProducts[$int]->productsId)
+								{
+									foreach($ingredients as $ingredient)
+									{
+										if($ingredient->ingredientsId == $helper->Ingredients_ingredientsId
+										&& $helper->Products_productsId == $preloadProducts[$int]->productsId
+										&& $ingredient->foodtype != 'vegan')
+										{
+											echo $ingredient->foodtype ."<br>";
+											$isVegan = false;
+										}
+									}
+									
+								}
+							}
+							if($isVegan)
+									{
+										echo $preloadProducts[$int]->description;
+										$products [] = $preloadProducts[$int];
+									}
+						}
+						
+					}
+					$preloadProducts = $products;
 
-		if(!empty($whereClause))
-		{
-			$whereClause = trim($whereClause, 'and ');
+
+
+
+					/*
+					foreach($productsHelper as $helper)
+					{
+						foreach($ingredients as $ingredient)
+						{
+							if($helper->Ingredients_ingedientsId == $ingredient->ingedientsid)
+							{
+								switch($_GET['foodType'])
+								{
+									case 'vegan':
+										if($ingredient->foodtype == 'veggie' || $ingredient->foodtype == 'omnivore')
+										{
+											//echo "food";
+											$products = $preloadProducts;
+											for($int = 0; $int < count($preloadProducts); $int++)
+											{
+												if($preloadProducts[$int]->productsId == $helper->Products_productsId)
+												{
+													echo "<pre>";
+													print_r( $products[$int]);
+													echo "</pre>";
+													echo $preloadProducts[$int]->productsId;
+													echo 
+													array_splice($products,$int,1);
+												}
+											}
+											$preloadProducts = $products;
+										}
+										break;
+									case 'veggie':
+										if($ingredient->foodtype == 'omnivore')
+										{
+											//echo "food";
+											$products = $preloadProducts;
+											for($int = 0; $int < count($preloadProducts); $int++)
+											{
+												if($preloadProducts[$int]->productsId == $helper->Products_productsId)
+												{
+													array_splice($products,$int,1);
+												}
+											}
+											$preloadProducts = $products;
+										}
+										break;
+									case 'omni':
+										break;
+								}
+							}
+						}
+					}
+					*/
+					
+
 		}
-		else
-		{
-			$sql = trim($sql, 'where ');
-		}
 		
-		$sql .= $whereClause;
-		echo $sql;
-		$preloadProducts = $db->query($sql)->fetchAll();
+
+
 		
 		
-		
-		$preloadFilter['category'] = $category;
 		// PRELOAD DATA
+		// preload $preloadFilter
+		$preloadFilter['maxPrice'] = isset($preloadProducts[0]) ? $preloadProducts[0]->price : ""; 
+		foreach($preloadProducts as $product)
+		{
+			if($preloadFilter['maxPrice'] < $product->price)
+			{
+				$preloadFilter['maxPrice'] = $product->price;
+			}
+		}
 		
 		$this->setParam('preloadFilter', $preloadFilter);
 		$this->setParam('title', $title);

@@ -19,7 +19,6 @@
             <form method="GET">
                 <input type="hidden" name="c" value="products">
                 <input type="hidden" name="a" value="category">
-                <input type="hidden" name="f" value="<?=$preloadFilter['category']?>">
 
                 <div class="tabs">
                     <div class="tab">
@@ -45,17 +44,21 @@
 
                         <div class="filter-content">
 
-                            <input type="checkbox" name="category" id="burger" value="burger">
+                            <input type="radio" name="f" id="burger" value="burger"
+                                <?=isset($preloadFilter['category']) && $preloadFilter['category']==="burger"  ? 'checked' : ""?>>
                             <label for="burger">Burger</label>
 
-                            <input type="checkbox" name="category" id="snacks" value="snacks">
+                            <input type="radio" name="f" id="snacks" value="snacks"
+                                <?=isset($preloadFilter['category']) && $preloadFilter['category']==="snacks"  ? 'checked' : ""?>>
                             <label for="snacks">Snacks</label>
 
-                            <input type="checkbox" name="category" id="drinks" value="drinks">
+                            <input type="radio" name="f" id="drinks" value="drinks"
+                                <?=isset($preloadFilter['category']) && $preloadFilter['category']==="drinks"  ? 'checked' : ""?>>
                             <label for="drinks">Getränke</label>
 
-                            <input type="checkbox" name="category" id="dessert" value="dessert">
-                            <label for="dessert">Desserts</label>
+                            <input type="radio" name="f" id="desserts" value="desserts"
+                                <?=isset($preloadFilter['category']) && $preloadFilter['category']==="desserts"  ? 'checked' : ""?>>
+                            <label for="desserts">Desserts</label>
 
                         </div>
                     </div>
@@ -76,7 +79,16 @@
 
 
                         <div class="filter-content">
-                            <input type="range">
+                            
+                            <label for="">Minimalpreis</label>
+                            <br>
+                            <input type="range" value="2" min="0" max="<?=isset($preloadFilter['maxPrice']) ? $preloadFilter['maxPrice'] + 1 : ""?>" oninput="this.nextElementSibling.value = this.value">
+                            <output>2</output><label for="">€</label>
+                            <br>
+                            <label for="">Maximalpreis</label>
+                            <br>
+                            <input type="range" value="4" min="0" max="<?=isset($preloadFilter['maxPrice']) ? $preloadFilter['maxPrice'] + 1 : ""?>" oninput="this.nextElementSibling.value = this.value">
+                            <output>4</output><label for="">€</label>
                         </div>
                     </div>
                     
@@ -99,20 +111,20 @@
         ?>
         <div class = "square">
         
-            <h3 class="square-headline"><?=$preloadProducts[$index]['description']?></h3>
+            <h3 class="square-headline"><?=$preloadProducts[$index]->description?></h3>
 
             <div class = "picture-square">
-                <a href=<?="index.php?c=products&a=product&f=".$preloadProducts[$index]['productsId']?>><img class="square-picture"  src="<?=IMAGESPATH.$preloadProducts[$index]['pictureURL']?>" alt="<?=$preloadProducts[$index]['altText']?>"></a>
+                <a href=<?="index.php?c=products&a=product&f=".$preloadProducts[$index]->productsId?>><img class="square-picture"  src="<?=IMAGESPATH.$preloadProducts[$index]->pictureURL?>" alt="<?=$preloadProducts[$index]->altText?>"></a>
             </div>
 
             <div class="square-lower">
                
                 <div class="square-lower-elemets">
-                            <?=$preloadProducts[$index]['price']?>
+                            <?=$preloadProducts[$index]->price?>
                 </div>
                 <div class="square-lower-elemets">
                     <form method="POST">
-                        <input style="display:none;" type="text" name="productsId" value="<?=$preloadProducts[$index]['productsId']?>">
+                        <input style="display:none;" type="text" name="productsId" value="<?=$preloadProducts[$index]->productsId?>">
                         <button class="addToCard-Button" type="submit" name="addToCart" value="addToCart">In den<br>Einkaufswagen</button>
                     </form>
                 </div>
