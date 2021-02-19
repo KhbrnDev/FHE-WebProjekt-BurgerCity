@@ -27,9 +27,9 @@
                 <h5>nur</h5>
                 <h2><?=$product->price?></h2>
             </div>
-            <form action="product.php" mehtod="GET">
-                <input style="display: none;" type="text" name="warenbork" value="true" >
-                <input class="addToWarenkorb" type="submit" value="In den Waarenkorb">
+            <form mehtod="POST">
+                <input style="display:none;" type="text" name="productsId" value="<?=$product->productsId?>">
+                <input class="addToCard-Button" type="submit" value="In den Warenkorb">
             </form>
         </div>
         

@@ -15,12 +15,12 @@
             {
                 ?>
                 <div class="square">
+
+                    <h3 class="square-headline"><?=$burger[$index]->description?></h3>
+
                     <img class="square-picture" src="<?=IMAGESPATH.$burger[$index]->pictureURL?>" alt="<?=$burger[$index]->altText?>">
 
                     <div class="square-lower">
-                        <div class="square-lower-elements square-lower-elements-description">
-                            <p><?=$burger[$index]->description?></p>
-                        </div>
                         <div class="square-lower-elemets">
                             <?=$burger[$index]->price?>
                         </div>
@@ -53,7 +53,6 @@
     <h2>Snacks</h2>
     <span>
         <p class="category-description">Snacks sind lecker, weil man sie so gut snacken kann. Bestelle auch du dir jetzt deine snackbaren Snacks.</p>
-        <a href="index.php?c=products&a=category&f=snacks">Mehr Snacks</a>
     </span>
     <div class="body-content">
         <?php
@@ -61,12 +60,12 @@
             {
                 ?>
                 <div class="square">
+
+                    <h3 class="square-headline"><?=$snacks[$index]->description?></h3>
+
                     <img class="square-picture" src="<?=IMAGESPATH.$snacks[$index]->pictureURL?>" alt="<?=$snacks[$index]->altText?>">
 
                     <div class="square-lower">
-                        <div class="square-lower-elements square-lower-elements-description">
-                            <p><?=$snacks[$index]->description?></p>
-                        </div>
                         <div class="square-lower-elemets">
                             <?=$burger[$index]->price?> 
                         </div>
@@ -102,12 +101,11 @@
             {
                 ?>
                 <div class="square">
+                    <h3 class="square-headline"><?=$drinks[$index]->description?></h3>
+
                     <img class="square-picture" src="<?=IMAGESPATH.$drinks[$index]->pictureURL?>" alt="<?=$drinks[$index]->altText?>">
 
                     <div class="square-lower">
-                        <div class="square-lower-elements square-lower-elements-description">
-                            <p><?=$drinks[$index]->description?></p>
-                        </div>
                         <div class="square-lower-elemets">
                             <?=$burger[$index]->price?> 
                         </div>
@@ -143,12 +141,13 @@
                 if($desserts[$index] != null){
                     ?>
                     <div class="square">
+
+                        <h3 class="square-headline"><?=$desserts[$index]->description?></h3>
+
                         <img class="square-picture" src="<?=IMAGESPATH.$desserts[$index]->pictureURL?>" alt="<?=$desserts[$index]->altText?>">
 
                         <div class="square-lower">
-                            <div class="square-lower-elements square-lower-elements-description">
-                                <p><?=$desserts[$index]->description?></p>
-                            </div>
+                    
                             <div class="square-lower-elemets">
                                 <?=$desserts[$index]->price?> 
                             </div>
