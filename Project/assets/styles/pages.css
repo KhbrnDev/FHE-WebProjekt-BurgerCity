@@ -166,13 +166,14 @@
 
 @media only screen and (min-width: 801px){
     .cart-body{
-        height: calc(100vh - 50px);
-        max-width: 1250px;
-        background-color: white;
+        width: var(--body-width);
+        padding-top: 10px;
         margin: auto;
+        background-color: white;
         margin-top: -20px;
-        padding-top: 20px;
-        
+        min-height: calc(100vh - var(--footer-height) - var(--header-height));
+        padding-bottom: 50px;
+        margin-bottom: -50px;
     }
 
     .cart-body h1{
@@ -605,14 +606,12 @@
 @media only screen and (min-width: 801px){
 
     .checkoutReview-body{
-        
-        height: calc(100vh - var(--footer-height) - var(--header-height));
-        max-width: 1250px;
-        background-color: white;
+        width: var(--body-width);
+        padding-top: 10px;
         margin: auto;
+        background-color: white;
         margin-top: -20px;
-        padding-top: 20px;
-
+        min-height: calc(100vh - var(--footer-height) - var(--header-height));
         padding-bottom: 50px;
         margin-bottom: -50px;
     }
