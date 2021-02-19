@@ -202,11 +202,24 @@
     background-color:white ;
     flex: 0 0 auto;
     padding-bottom: 2rem;
+    padding-top: 2rem;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
     margin-bottom: 0;
     
+}
+
+.menu-body h1{
+    margin-top: 0; 
+    margin-bottom: auto;
+    margin-left: 0; 
+}
+
+.category-description{
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .body-content{
@@ -297,12 +310,16 @@
 
 .square-lower-elements-description{
     text-align: center;
-    margin: auto;
+    margin-top: 0;
     width: 100%;
 
 
     font-size: 2rem;
 
+}
+
+.square-lower-elements-description p{
+    margin-top: 0; 
 }
 
 .addToCard-Button{
@@ -312,8 +329,31 @@
     border-radius: 1.0rem;
     font-size: 1rem;
     background-color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
     
     /* border-color: var(--color-grey); */
+}
+
+.addToCard-Button:hover{
+    background-color: lightgrey;
+    border: 2px solid var(--accent-primary);
+}
+
+.more-Button{
+    padding: 0.1rem 0.7rem;
+    /* border-style: solid ; */
+    border-width: 0.0rem;
+    border-radius: 1.0rem;
+    font-size: 1rem;
+    background-color: lightgrey;
+    border: 2px solid lightgray;
+    margin-top: 0.5rem; 
+    margin-bottom: 2rem; 
+}
+
+.more-Button:hover{
+    background-color: white;
+    border: 2px solid lightgray;
 }
 
 

@@ -6,9 +6,8 @@
 
     <h2>Burger</h2>
     <span>
-        <p>Wir haben so tolle Burger. Jeder Burger wird mit Liebe und 100% natürlichen Zutaten zubereitet.
+        <p class="category-description">Wir haben so tolle Burger. Jeder Burger wird mit Liebe und 100% natürlichen Zutaten zubereitet.
 					Das Beef kommt von Bio-Kücken aus der Region.</p>
-        <a href="index.php?c=products&a=category&f=burger">Mehr Burger</a>
     </span>
     <div class="body-content">
         <?php
@@ -20,7 +19,7 @@
 
                     <div class="square-lower">
                         <div class="square-lower-elements square-lower-elements-description">
-                            <p style="margin: 0;"><?=$burger[$index]->description?></p>
+                            <p><?=$burger[$index]->description?></p>
                         </div>
                         <div class="square-lower-elemets">
                             <?=$burger[$index]->price?>
@@ -33,21 +32,27 @@
                 <?php  
             }
             ?>
-            <div class="square">
-                <!-- <img class="speisekarte-arrow" src="../assets/images/speisekarte-arrow.svg" alt=""> -->
+            <!--<div class="square">
+                <img class="speisekarte-arrow" src="../assets/images/speisekarte-arrow.svg" alt="">
                 <p class="speisekarte-arrow-p">Hier geht es zu weiteren leckeren Burgern</p>
                 Hier geht es zu weiteren leckeren Burgern
                 <br>
                 <a href="index.php?c=products&a=category&f=burger"> <button type="submit">Mehr Burger</button> </a>
 
                 
-            </div>
+            </div> -->
     </div>
 
+    <form method="POST">
+        <input style="display:none;" type="text" name="category" value="burger">
+        <button class="more-Button" type="submit" name="more" value="more">Alle Burger</button>
+    </form>
+
+    <br>
 
     <h2>Snacks</h2>
     <span>
-        <p>Snacks sind lecker, weil man sie so gut snacken kann. Bestelle auch du dir jetzt deine snackbaren Snacks.</p>
+        <p class="category-description">Snacks sind lecker, weil man sie so gut snacken kann. Bestelle auch du dir jetzt deine snackbaren Snacks.</p>
         <a href="index.php?c=products&a=category&f=snacks">Mehr Snacks</a>
     </span>
     <div class="body-content">
@@ -60,7 +65,7 @@
 
                     <div class="square-lower">
                         <div class="square-lower-elements square-lower-elements-description">
-                            <p style="margin: 0;"><?=$snacks[$index]->description?></p>
+                            <p><?=$snacks[$index]->description?></p>
                         </div>
                         <div class="square-lower-elemets">
                             <?=$burger[$index]->price?> 
@@ -73,15 +78,23 @@
                 <?php  
             }
             ?>
-            <div class="square">
+            <!--<div class="square">
                 <img class="speisekarte-arrow" src="../assets/images/speisekarte-arrow.svg" alt="">
                 <p class="speisekarte-arrow-p" href="index.php?c=products&a=category&f=snacks">Hier geht es zu weiteren leckeren Snacks</p>
-            </div>
+            </div>-->
     </div>
 
+    <form method="POST">
+        <input style="display:none;" type="text" name="category" value="snacks">
+        <button class="more-Button" type="submit" name="more" value="more">Alle Snacks</button>
+    </form>
+
+    <br>
+
+    <h2>Getränke</h2>
     <span>
-        <p>"Der Mensch braucht Wasser. Am besten mit viel Zucker und Farbstoffen drin. Und damit es auch nach was schmeckt, haben wir unseren Getränken exklusive Geschmackstoffe zugesetzt. Natürlich 100% vegan, weil 100% synthetisch. Das Getränk von Morgen erwartet dich."</p>
-        <a href="index.php?c=products&a=category&f=drinks">Mehr Getränke</a>
+        <p class="category-description">"Der Mensch braucht Wasser. Am besten mit viel Zucker und Farbstoffen drin. Und damit es auch nach was schmeckt, haben wir unseren Getränken exklusive Geschmackstoffe zugesetzt. Natürlich 100% vegan, weil 100% synthetisch. Das Getränk von Morgen erwartet dich."</p>
+        
     </span>
     <div class="body-content">
         <?php
@@ -93,7 +106,7 @@
 
                     <div class="square-lower">
                         <div class="square-lower-elements square-lower-elements-description">
-                            <p style="margin: 0;"><?=$drinks[$index]->description?></p>
+                            <p><?=$drinks[$index]->description?></p>
                         </div>
                         <div class="square-lower-elemets">
                             <?=$burger[$index]->price?> 
@@ -107,10 +120,19 @@
                 <?php  
             }
             ?>
+            
     </div>
+
+    <form method="POST">
+        <input style="display:none;" type="text" name="category" value="drinks">
+        <button class="more-Button" type="submit" name="more" value="more">Alle Getränke</button>
+    </form>
+
+    <br>
+
+    <h2>Desserts</h2>
     <span>
-        <p>"Sei kein Wüstenschiff. Kaufe unsere süßen, leckeren Bio-Desserts. Honig statt Zucker und natürlich alles Vollkorn."</p>
-        <a href="index.php?c=products&a=category&f=desserts">Mehr Desserts</a>
+        <p class="category-description">"Sei kein Wüstenschiff. Kaufe unsere süßen, leckeren Bio-Desserts. Honig statt Zucker und natürlich alles Vollkorn."</p>
     </span>
     
     
@@ -125,7 +147,7 @@
 
                         <div class="square-lower">
                             <div class="square-lower-elements square-lower-elements-description">
-                                <p style="margin: 0;"><?=$desserts[$index]->description?></p>
+                                <p><?=$desserts[$index]->description?></p>
                             </div>
                             <div class="square-lower-elemets">
                                 <?=$desserts[$index]->price?> 
@@ -142,6 +164,12 @@
             }
             ?>
     </div>
+
+    <form method="POST">
+        <input style="display:none;" type="text" name="category" value="desserts">
+        <button class="more-Button" type="submit" name="more" value="more">Alle Desserts</button>
+    </form>
+    <br>
 </div>
 </body>
 </html>

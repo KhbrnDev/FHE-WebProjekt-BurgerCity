@@ -60,6 +60,14 @@ function getprice($price){
     return $price;
 }
 
+function addToCart($product){
+    $_SESSION['cart'] [] = 
+                        [
+                            'productsId' => $item->Products_productsId,
+                            'quantity' => $item->quantity      
+                        ];
+}
+
 
 
 

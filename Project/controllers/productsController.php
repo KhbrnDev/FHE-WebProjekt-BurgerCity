@@ -14,6 +14,8 @@ class ProductsController extends \dwp\core\Controller
 		$preloadFilter = [];
 		$preloadProducts = [];
 
+		
+
 		// ADD TO CART
 		// TODO ? eine Anzahl über Einkaufswagen in den Header machen, die dynmisch erhöht wird?
 		if(isset($_POST['addToCart']))
@@ -160,6 +162,16 @@ class ProductsController extends \dwp\core\Controller
 
 	public function actionMenue()
 	{
+
+		if(isset($_POST['more']))
+		{
+			$category = isset($_POST['category']) ? $_POST['category'] : null; 
+			if($category !== null)
+			{
+				header("index.php?c=products&a=category&f=".$category);
+			}
+		}
+
 		$burger = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("burger"));
 		$snacks = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("snacks"));
 		$drinks = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("drinks"));
