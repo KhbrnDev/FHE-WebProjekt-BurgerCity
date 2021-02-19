@@ -6,8 +6,8 @@
 
     <div class="products-header">
         <div class="products-subheader">
-            <h1><?=$title?></h1>
-            <p><?=$description?>
+            <h1><?=$preloadHeader['title']?></h1>
+            <p><?=$preloadHeader['description']?>
             <!--<?=print_r($products)?>-->
             </p>
         </div>
@@ -26,14 +26,17 @@
                         <label for="tab-1">Foot Type</label>
 
                         <div class="filter-content">
-                            <input type="radio" name="foodType" id="vegan" value="vegan">
+                            <input type="radio" name="foodtype" id="vegan" value="vegan"
+                                <?=isset($preloadFilter['foodtype']) && $preloadFilter['foodtype']==="vegan"  ? 'checked' : ""?>>
                             <label for="vegan">Vegan</label>
                             <br>
-                            <input type="radio" name="foodType" id="veggie" value="veggie">
+                            <input type="radio" name="foodtype" id="veggie" value="veggie"
+                                <?=isset($preloadFilter['foodtype']) && $preloadFilter['foodtype']==="veggie"  ? 'checked' : ""?>>
                             <label for="veggie">Vegetarisch</label>
                             <br>
-                            <input type="radio" name="foodType" id="omni" value="omni">
-                            <label for="omni">omnivore</label>
+                            <input type="radio" name="foodtype" id="omni" value="omni"
+                                <?=!isset($preloadFilter['foodtype']) ? 'checked' : ""?>>
+                            <label for="omni">Omnivore</label>
 
                         </div>
                     </div>
@@ -69,7 +72,26 @@
 
 
                         <div class="filter-content">
-                            
+                            <?php
+                            foreach($preloadFilter['ingredients'] as $ingredients):
+                            ?>
+                                <input type="checkbox" name="ingredients[]" value="<?=$ingredients->ingredientsId?>" id="<?=htmlspecialchars($ingredients->description)?>"
+                                    <?php
+                                    if(isset($preloadFilter['ingredientsChecked']) && !empty($preloadFilter['ingredientsChecked'])):
+                                        foreach($preloadFilter['ingredientsChecked'] as $checkedItem):
+                                    ?>    
+                                            <?=$checkedItem == $ingredients->ingredientsId ? "checked" : ""?>
+                                    <?php
+                                        endforeach;
+                                    endif;
+                                    ?>
+                                
+                                >
+                                <label for="<?=htmlspecialchars($ingredients->description)?>"><?=htmlspecialchars($ingredients->description)?></label>
+                                <br>
+                            <?php
+                            endforeach;
+                            ?>
                         </div>
                     </div>
 
@@ -82,13 +104,13 @@
                             
                             <label for="">Minimalpreis</label>
                             <br>
-                            <input type="range" value="2" min="0" max="<?=isset($preloadFilter['maxPrice']) ? $preloadFilter['maxPrice'] + 1 : ""?>" oninput="this.nextElementSibling.value = this.value">
-                            <output>2</output><label for="">€</label>
+                            <input type="range" step="1" name="minPrice" value="<?=isset($preloadFilter['minPrice']) ? $preloadFilter['minPrice'] : "0"?>" min="0" max="20" oninput="this.nextElementSibling.value = this.value">
+                            <output><?=isset($preloadFilter['minPrice']) ? $preloadFilter['minPrice'] : "0"?></output><label for="">€</label>
                             <br>
                             <label for="">Maximalpreis</label>
                             <br>
-                            <input type="range" value="4" min="0" max="<?=isset($preloadFilter['maxPrice']) ? $preloadFilter['maxPrice'] + 1 : ""?>" oninput="this.nextElementSibling.value = this.value">
-                            <output>4</output><label for="">€</label>
+                            <input type="range" step="1" name="maxPrice" value="<?=isset($preloadFilter['maxPrice']) ? $preloadFilter['minPrice'] : "0"?>" min="0" max="20" oninput="this.nextElementSibling.value = this.value">
+                            <output><?=isset($preloadFilter['maxPrice']) ? $preloadFilter['maxPrice'] : "20"?></output><label for="">€</label>
                         </div>
                     </div>
                     

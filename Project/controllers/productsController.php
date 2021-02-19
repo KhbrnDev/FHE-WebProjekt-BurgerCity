@@ -13,6 +13,8 @@ class ProductsController extends \dwp\core\Controller
 		$errors = [];
 		$preloadFilter = [];
 		$preloadProducts = [];
+		$preloadHeader = [];
+		
 
 		// ADD TO CART
 		// TODO ? eine Anzahl über Einkaufswagen in den Header machen, die dynmisch erhöht wird?
@@ -61,23 +63,18 @@ class ProductsController extends \dwp\core\Controller
 
 			cleanEinkaufswagen();
 		}
-		// Get Title and Description -> could be moved to functions.php (might be needed in menue.php and start.php [no dublicated content])
-		$title = null; 
-		$description = null;
-		$category = isset($_GET['f']) ? $_GET['f'] : null ;
-
-		if($category !== null)
-		{
-			getCategoryInformation($title, $description, $category);
-		}
+		
 		// FILTERS
 		// we always filter
 
 		$preloadProducts = \dwp\model\Products::find();
-
-		if(isset($_GET['f']))
+		if(isset($_GET['resetAllFilter']))
 		{
-			
+			header("Location: index.php?c=products&a=category");
+		}
+
+		if(isset($_GET['f'])) // DONE
+		{
 			switch($_GET['f'])
 			{
 				case 'burger':
@@ -100,119 +97,132 @@ class ProductsController extends \dwp\core\Controller
 			}
 		}
 		
-		if(isset($_GET['foodType']))
+		if(isset($_GET['foodtype'])) // DONE
 		{
-					$productsHelper = \dwp\model\ProductHelper::find();
-					$ingredients = \dwp\model\Ingredients::find();
+			$productsHelper = \dwp\model\ProductHelper::find();
+			$ingredients = \dwp\model\Ingredients::find();
+			
+			switch($_GET['foodtype'])
+			{
+				case 'veggie':
+				case 'vegan':
+					$preloadFilter['foodtype'] = $_GET['foodtype'];
 					$products = [];
-					if($_GET['foodType'] == 'vegan')
+					for($int = 0; $int < count($preloadProducts); $int++)
 					{
-						for($int = 0; $int < count($preloadProducts); $int++)
+						$isVegan = true;
+						foreach($productsHelper as $helper)
 						{
-							$isVegan = true;
-							foreach($productsHelper as $helper)
+							if($helper->Products_productsId == $preloadProducts[$int]->productsId)
 							{
-								if($helper->Products_productsId == $preloadProducts[$int]->productsId)
+								foreach($ingredients as $ingredient)
 								{
-									foreach($ingredients as $ingredient)
+									if($ingredient->ingredientsId == $helper->Ingredients_ingredientsId
+									&& $helper->Products_productsId == $preloadProducts[$int]->productsId
+									&& $ingredient->foodtype != 'vegan')
 									{
-										if($ingredient->ingredientsId == $helper->Ingredients_ingredientsId
-										&& $helper->Products_productsId == $preloadProducts[$int]->productsId
-										&& $ingredient->foodtype != 'vegan')
+										if($_GET['foodtype'] == 'vegan')
 										{
-											echo $ingredient->foodtype ."<br>";
+											$isVegan = false;
+										}
+										elseif($_GET['foodtype'] == 'veggie' && $ingredient->foodtype == 'omnivore')
+										{
 											$isVegan = false;
 										}
 									}
-									
 								}
+								
 							}
-							if($isVegan)
-									{
-										echo $preloadProducts[$int]->description;
-										$products [] = $preloadProducts[$int];
-									}
 						}
-						
+						if($isVegan)
+						{
+							$products [] = $preloadProducts[$int];
+						}
 					}
 					$preloadProducts = $products;
+					break;
+				default:
+					break;
+			}
+		}
 
+		if(isset($_GET['minPrice'])) // DONE
+		{
+			if(!empty($_GET['minPrice']))
+			{
+				
+				$preloadFilter['minPrice'] = $_GET['minPrice'];
+				$products = [];
+				for($int = 0; $int < count($preloadProducts); $int++)
+				{
+					if($preloadProducts[$int]->price > $_GET['minPrice'])
+					{
+						$products [] = $preloadProducts[$int];
+					}
+				}
+				$preloadProducts = $products;
+			}
+		}
 
+		if(isset($_GET['maxPrice'])) // DONE
+		{
+			if(!empty($_GET['maxPrice']))
+			{
+				$preloadFilter['maxPrice'] = $_GET['maxPrice'];
+				$products = [];
+				for($int = 0; $int < count($preloadProducts); $int++)
+				{
+					if($preloadProducts[$int]->price < $_GET['maxPrice'])
+					{
+						$products [] = $preloadProducts[$int];
+					}
+				}
+				$preloadProducts = $products;
+			}
+		}
 
-
-					/*
+		if(isset($_GET['ingredients'])) // DONE
+		{
+			if(!empty($_GET['ingredients']))
+			{
+				$products = [];
+				$productsHelper = \dwp\model\ProductHelper::find();
+				foreach($preloadProducts as $product)
+				{
+					$isItem = 0;
 					foreach($productsHelper as $helper)
 					{
-						foreach($ingredients as $ingredient)
+						if($helper->Products_productsId == $product->productsId)
 						{
-							if($helper->Ingredients_ingedientsId == $ingredient->ingedientsid)
+							foreach($_GET['ingredients'] as $ingredientId)
 							{
-								switch($_GET['foodType'])
+								if($ingredientId == $helper->Ingredients_ingredientsId)
 								{
-									case 'vegan':
-										if($ingredient->foodtype == 'veggie' || $ingredient->foodtype == 'omnivore')
-										{
-											//echo "food";
-											$products = $preloadProducts;
-											for($int = 0; $int < count($preloadProducts); $int++)
-											{
-												if($preloadProducts[$int]->productsId == $helper->Products_productsId)
-												{
-													echo "<pre>";
-													print_r( $products[$int]);
-													echo "</pre>";
-													echo $preloadProducts[$int]->productsId;
-													echo 
-													array_splice($products,$int,1);
-												}
-											}
-											$preloadProducts = $products;
-										}
-										break;
-									case 'veggie':
-										if($ingredient->foodtype == 'omnivore')
-										{
-											//echo "food";
-											$products = $preloadProducts;
-											for($int = 0; $int < count($preloadProducts); $int++)
-											{
-												if($preloadProducts[$int]->productsId == $helper->Products_productsId)
-												{
-													array_splice($products,$int,1);
-												}
-											}
-											$preloadProducts = $products;
-										}
-										break;
-									case 'omni':
-										break;
+									$isItem += 1;
 								}
 							}
 						}
+					}	
+					if($isItem == count($_GET['ingredients']))
+					{
+						$products [] = $product;
 					}
-					*/
-					
-
-		}
-		
-
-
-		
-		
-		// PRELOAD DATA
-		// preload $preloadFilter
-		$preloadFilter['maxPrice'] = isset($preloadProducts[0]) ? $preloadProducts[0]->price : ""; 
-		foreach($preloadProducts as $product)
-		{
-			if($preloadFilter['maxPrice'] < $product->price)
-			{
-				$preloadFilter['maxPrice'] = $product->price;
+				}
+				$preloadProducts = $products;
 			}
 		}
-		
+
+		// PRELOAD DATA
+		// preload page header
+		$category = isset($_GET['f']) ? $_GET['f'] : null;
+		getCategoryInformation($preloadHeader['title'], $preloadHeader['description'], $category);
+		//preload Ingredients
+		$preloadFilter['ingredients'] = \dwp\model\Ingredients::find();
+		$preloadFilter['ingredientsChecked'] = isset($_GET['ingredients']) ? $_GET['ingredients'] : "";
+
+		// push to view
 		$this->setParam('preloadFilter', $preloadFilter);
-		$this->setParam('title', $title);
-		$this->setParam('description', $description);
+		$this->setParam('preloadHeader', $preloadHeader);
 		$this->setParam('preloadProducts', $preloadProducts);
 	
 	}
