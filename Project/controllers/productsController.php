@@ -79,7 +79,7 @@ class ProductsController extends \dwp\core\Controller
 		{
 			$products = [];
 
-			$categoryArray = $_GET['f'];
+			$categoryArray = is_array($_GET['f']) ? $_GET['f'] : [$_GET['f']];
 			foreach($categoryArray as $category)
 			{
 				switch($category)
@@ -222,7 +222,7 @@ class ProductsController extends \dwp\core\Controller
 
 		// PRELOAD DATA
 		// preload page header
-		$category = (isset($_GET['f']) && count($_GET['f']) === 1) ? $_GET['f'][0] : null;
+		$category = (isset($_GET['f']) && is_array($_GET['f']) && count($_GET['f']) === 1) ? $_GET['f'][0] : null;
 		getCategoryInformation($preloadHeader['title'], $preloadHeader['description'], $category);
 
 		//preload Ingredients

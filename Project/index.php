@@ -97,6 +97,8 @@ else
         <div class="push-content-under-nav"></div>
     
         <!-- <div class="content-wrapper"> -->
+            <!-- TODO hier Section hinzufügen um -->
+            <!-- um einheitlich für alle Seiten die breite und höhe zu bestimmen -->
     <?php
         // this method will render the view of the called action
         // for this the the file in the views directory will be included

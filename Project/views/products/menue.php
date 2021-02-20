@@ -1,6 +1,6 @@
 <div class="menu-body">
     
-    <!--  -->
+    <!-- TODO anzeige der 4 Kategorien könnte glaube mit 1 Array und 1 Schleife deutlich verkürzt werden.. (doppelter Code) -->
     <h1>Speisekarte</h1>
     <p>Entecke unsere neuartigen, innovativen Produkte. Hier ist für alle was dabei!</p>
 

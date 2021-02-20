@@ -75,7 +75,7 @@
                             <?php
                             foreach($preloadFilter['ingredients'] as $ingredients):
                             ?>
-                                <input type="checkbox" name="ingredients[]" value="<?=$ingredients->ingredientsId?>" id="<?=htmlspecialchars($ingredients->description)?>"
+                                <input type="checkbox" name="ingredients[]" value="<?=htmlspecialchars($ingredients->ingredientsId)?>" id="<?=htmlspecialchars($ingredients->description)?>"
                                     <?php
                                     if(isset($preloadFilter['ingredientsChecked']) && !empty($preloadFilter['ingredientsChecked'])):
                                         foreach($preloadFilter['ingredientsChecked'] as $checkedItem):
@@ -133,20 +133,20 @@
         ?>
         <div class = "square">
         
-            <h3 class="square-headline"><?=$preloadProducts[$index]->description?></h3>
+            <h3 class="square-headline"><?=htmlspecialchars($preloadProducts[$index]->description)?></h3>
 
             <div class = "picture-square">
-                <a href=<?="index.php?c=products&a=product&f=".$preloadProducts[$index]->productsId?>><img class="square-picture"  src="<?=IMAGESPATH.$preloadProducts[$index]->pictureURL?>" alt="<?=$preloadProducts[$index]->altText?>"></a>
+                <a href=<?=htmlspecialchars("index.php?c=products&a=product&f=".$preloadProducts[$index]->productsId)?>><img class="square-picture"  src="<?=IMAGESPATH.$preloadProducts[$index]->pictureURL?>" alt="<?=htmlspecialchars($preloadProducts[$index]->altText)?>"></a>
             </div>
 
             <div class="square-lower">
                
                 <div class="square-lower-elemets">
-                            <?=$preloadProducts[$index]->price?>
+                            <?=htmlspecialchars($preloadProducts[$index]->price)?>
                 </div>
                 <div class="square-lower-elemets">
                     <form method="POST">
-                        <input style="display:none;" type="text" name="productsId" value="<?=$preloadProducts[$index]->productsId?>">
+                        <input style="display:none;" type="text" name="productsId" value="<?=htmlspecialchars($preloadProducts[$index]->productsId)?>">
                         <button class="addToCard-Button" type="submit" name="addToCart" value="addToCart">In den<br>Einkaufswagen</button>
                     </form>
                 </div>
