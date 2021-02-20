@@ -47,20 +47,20 @@
 
                         <div class="filter-content">
 
-                            <input type="radio" name="f" id="burger" value="burger"
-                                <?=isset($preloadFilter['category']) && $preloadFilter['category']==="burger"  ? 'checked' : ""?>>
+                            <input type="checkbox" name="f[]" id="burger" value="burger"
+                                <?=isset($preloadFilter['category']) && in_array("burger", $preloadFilter['category']) ? 'checked' : ""?>>
                             <label for="burger">Burger</label>
 
-                            <input type="radio" name="f" id="snacks" value="snacks"
-                                <?=isset($preloadFilter['category']) && $preloadFilter['category']==="snacks"  ? 'checked' : ""?>>
+                            <input type="checkbox" name="f[]" id="snacks" value="snacks"
+                                <?=isset($preloadFilter['category']) && in_array("snacks", $preloadFilter['category'])  ? 'checked' : ""?>>
                             <label for="snacks">Snacks</label>
 
-                            <input type="radio" name="f" id="drinks" value="drinks"
-                                <?=isset($preloadFilter['category']) && $preloadFilter['category']==="drinks"  ? 'checked' : ""?>>
+                            <input type="checkbox" name="f[]" id="drinks" value="drinks"
+                                <?=isset($preloadFilter['category']) && in_array("drinks", $preloadFilter['category'])  ? 'checked' : ""?>>
                             <label for="drinks">Getränke</label>
 
-                            <input type="radio" name="f" id="desserts" value="desserts"
-                                <?=isset($preloadFilter['category']) && $preloadFilter['category']==="desserts"  ? 'checked' : ""?>>
+                            <input type="checkbox" name="f[]" id="desserts" value="desserts"
+                                <?=isset($preloadFilter['category']) && in_array("desserts", $preloadFilter['category'])  ? 'checked' : ""?>>
                             <label for="desserts">Desserts</label>
 
                         </div>
