@@ -2,3 +2,9 @@
 /* Print Vorlage soll im Projekt eingebunden werden
     -> Änderung des Styles wenn man die Seite ausdruckt
     z.B Hintergrund von Grau auf Weiß Weiß und Text von Weiß auf Schwatz um Tinte zu sparen */
+
+    @media print{
+        .products-body{
+            color: red;
+        }
+    }

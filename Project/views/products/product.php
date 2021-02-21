@@ -14,9 +14,10 @@
 
             for($index = 0; $index < count($ingredients); $index++)
             {
-                echo($ingredients[$index]->description); 
+                
+                echo(htmlspecialchars($ingredients[$index]->description)); 
                 if($index < count($ingredients)-1){
-                    echo(", ");
+                    echo(", "); 
                 }
             }
             ?>
@@ -25,10 +26,10 @@
             <div class="product-preis">
                 <h3>Preis:</h3>
                 <h5>nur</h5>
-                <h2><?=$product->price?></h2>
+                <h2><?=htmlspecialchars($product->price)?></h2>
             </div>
             <form mehtod="POST">
-                <input style="display:none;" type="text" name="productsId" value="<?=$product->productsId?>">
+                <input style="display:none;" type="text" name="productsId" value="<?=htmlspecialchars($product->productsId)?>">
                 <input class="addToCard-Button" type="submit" value="In den Warenkorb">
             </form>
         </div>

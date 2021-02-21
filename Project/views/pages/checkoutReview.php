@@ -34,8 +34,8 @@
             <div class="checkout-product-box">
                 <div class="lieferadresse">
                     <h3>Lieferadresse</h3>
-                    <p><?=$preloadCartHelper['adress']->street . " " . $preloadCartHelper['adress']->number?></p>
-                    <p><?=$preloadCartHelper['adress']->zipCode . " " . $preloadCartHelper['adress']->city?></p>
+                    <p><?=htmlspecialchars($preloadCartHelper['adress']->street) . " " . htmlspecialchars($preloadCartHelper['adress']->number)?></p>
+                    <p><?=htmlspecialchars($preloadCartHelper['adress']->zipCode) . " " . htmlspecialchars($preloadCartHelper['adress']->city)?></p>
                 </div>
 
                 <div class="choose-payment">
@@ -52,13 +52,13 @@
                                     break;
                                 case 'Kartenzahlung':
                                     ?>
-                                    <p>Karteninhaber: <?=$preloadCartHelper['payment']['accountHolder']?></p>
-                                    <p>IBAN: <?=$preloadCartHelper['payment']['iban']?></p>
+                                    <p>Karteninhaber: <?=htmlspecialchars($preloadCartHelper['payment']['accountHolder'])?></p>
+                                    <p>IBAN: <?=htmlspecialchars($preloadCartHelper['payment']['iban'])?></p>
                                     <?php
                                     break;
                                 case 'PayPal':
                                     ?>
-                                    <p>PayPal-Email: <?=$preloadCartHelper['payment']['emailPaypal']?></p>
+                                    <p>PayPal-Email: <?=htmlspecialchars($preloadCartHelper['payment']['emailPaypal'])?></p>
                                     <?php
                                     break;
                                 default:
@@ -74,7 +74,7 @@
                 ?>
                     <div class="cart-product-box">
                         <a class="cart-product-picture-link" href="">
-                            <img class="cart-product-picture"src="<?=IMAGESPATH.$orderItem['product']->pictureURL?>" alt="">
+                            <img class="cart-product-picture"src="<?=IMAGESPATH.$orderItem['product']->pictureURL?>" alt="<?=htmlspecialchars($orderItem['product']->altText)?>">
                         </a>
 
                         <div class="cart-product-box-right">

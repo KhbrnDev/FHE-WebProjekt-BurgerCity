@@ -77,26 +77,32 @@ class ProductsController extends \dwp\core\Controller
 
 		if(isset($_GET['f'])) // DONE
 		{
-			switch($_GET['f'])
+			$products = [];
+
+			$categoryArray = is_array($_GET['f']) ? $_GET['f'] : [$_GET['f']];
+			foreach($categoryArray as $category)
 			{
-				case 'burger':
-				case 'snacks':
-				case 'drinks':
-				case 'desserts':
-					$products = [];
-					for($int = 0; $int < count($preloadProducts); $int++)
-					{
-						if($preloadProducts[$int]->category === $_GET['f'])
+				switch($category)
+				{
+					case 'burger':
+					case 'snacks':
+					case 'drinks':
+					case 'desserts':
+						for($int = 0; $int < count($preloadProducts); $int++)
 						{
-							$products [] = $preloadProducts[$int];
+							if($preloadProducts[$int]->category === $category)
+							{
+								$products [] = $preloadProducts[$int];
+							}
 						}
-					}
-					$preloadProducts = $products;
-					$preloadFilter['category'] = $_GET['f'];
-					break;
-				default;
-					break;
+						$preloadFilter['category'] [] = $category;
+						break;
+					default;
+						break;
+				}
 			}
+			$preloadProducts = $products;
+				
 		}
 		
 		if(isset($_GET['foodtype'])) // DONE
@@ -216,8 +222,9 @@ class ProductsController extends \dwp\core\Controller
 
 		// PRELOAD DATA
 		// preload page header
-		$category = isset($_GET['f']) ? $_GET['f'] : null;
+		$category = (isset($_GET['f']) && is_array($_GET['f']) && count($_GET['f']) === 1) ? $_GET['f'][0] : null;
 		getCategoryInformation($preloadHeader['title'], $preloadHeader['description'], $category);
+
 		//preload Ingredients
 		$preloadFilter['ingredients'] = \dwp\model\Ingredients::find();
 		$preloadFilter['ingredientsChecked'] = isset($_GET['ingredients']) ? $_GET['ingredients'] : "";
