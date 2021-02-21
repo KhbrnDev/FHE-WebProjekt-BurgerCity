@@ -243,7 +243,7 @@ class ProductsController extends \dwp\core\Controller
 			$category = isset($_POST['category']) ? $_POST['category'] : null; 
 			if($category !== null)
 			{
-				header("index.php?c=products&a=category&f=".$category);
+				header("Location: index.php?c=products&a=category&f=".$category);
 			}
 		}
 

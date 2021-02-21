@@ -1,0 +1,110 @@
+Modul(e): Grundlagen der Webprogrammierung / Dynamische Webprogrammierung
+Autor(en): M.Sc. Kristof Friess, Prof. Rolf Kruse
+Stand: 10.01.2019
+1
+Die Checkliste zum Erfolg
+Anbei finden Sie eine Checkliste mit den Anforderungen an das Projekt. Prüfen Sie genau, ob Sie alle Anforderungen zum
+Projekt so erfüllen.
+Allgemein für beide Kurse GWP/DWP
+[ ] mind. 6 Seiten
+Zum Beispiel: Startseite, Über Uns, Shop, Kontakt, Impressum, Kontoverwaltung
+[ ] mind. 3 Unterseiten
+Zum Beispiel unterteilt sich der Punkt Shop, in einem Untermenü, in Männer, Frauen, Kinder.
+[ ] Einheitliche Navigation über alle Seiten
+Sorgen Sie dafür, dass der Nutzer sich wohl fühlt, die Navigation sollte einheitlich gestaltet sein und sich nicht ständig ändern.
+[ ] Navigation mit Untermenü (2. Ebene)
+Zeigen Sie, dass Sie wissen, wie man ein Untermenü auf der Seite einbindet und darstellt.
+[ ] mind. 3 Formulare (Login, Registrierung, Kontakt)
+Zeigen Sie, dass Sie den Umgang mit Formularen verstanden haben. Formulare gibt es viele, wie zum Anlegen von Produkten,
+für die Registrierung, beim Login oder auch im Kontakt.
+[ ] Vermeidung von doppelten Code (Wiederverwendung)
+Schreiben Sie Code nicht zweimal, lagern Sie diesen geschickt aus und nutzen Sie ihn wieder.
+[ ] Codestyle und Code-Dokumentation
+Sorgen Sie dafür, dass Sie einen verständlichen Codestyle verwenden und dokumentieren Sie ausreichend den Code, um die
+Wartbarkeit zu gewährleisten.
+[ ] Keine Verwendung von Frameworks
+Die Verwendung von Frameworks wie jQuery oder Bootstrap ist nur nach Absprache möglich.
+[ ] Projektdokumentation
+Die ausführliche Projektdokumentation ist als strukturierte HMTL-Seite im Impressum verlinkt. Sie enthält auch Informationen
+zum Aufwand und der Arbeitsteilung im Team. Details finden Sie in den Folien zur Projektaufgabe.
+[ ] Installationshinweise
+Hinweise zur Installation und Kennwörter sind als Textdokument oder PDF beigelegt.
+[ ] Datenbank-Export
+Die Datenbank ist einschl. Beispielinhalten als SQL-Export gut auffindbar in der Abgabe enthalten. Idealerweise beschreiben
+Sie den Import in der Installationsanleitung und wo die Datei(en) zufinden sind.
+Modul(e): Grundlagen der Webprogrammierung / Dynamische Webprogrammierung
+Autor(en): M.Sc. Kristof Friess, Prof. Rolf Kruse
+Stand: 10.01.2019
+2
+[ ] Test
+Das Projekt wurde mit den Abgabedaten auf einem anderen Rechner installiert und mit verschiedenen Bildschirmauflösungen
+getestet.
+Allgemein für GWP
+[ ] Passende, abwechslungsreiche Gestaltung
+Die inhaltliche und grafische Gestaltung mit Texten, Bildern, Grafiken und Tabellen sollte zum gewählten Thema passen und
+abwechslungsreich sein. Fließtext und sich wiederholende Elemente können als Blindtext, Dummy-Grafiken u.ä. ausgeführt
+sein, solange die prinzipielle Intention erkennbar ist.
+[ ] Interaktivität schaffen mit CSS/JavaScript
+Schaffen Sie Nutzerfeedbacks, Interaktivität. Zum Beispiel mit einem Submenu gesteuert durch CSS und Hover-Effekte oder
+durch Animationen mit JavaScript.
+[ ] Quelltext Optimierung durch Metas,Alt,Title,Noscript
+Schaffen Sie eine Barrierefreiheit für Bots und Hilfstools.
+[ ] Sinnvolle Verwendung von HTML5 (div,nav,header,article,section ...)
+Nutzen Sie HTML5 Elemente und strukturieren Sie Ihren Code entsprechend.
+[ ] Einbindung von Bildern
+Zeigen Sie den Umgang mit Bildern.
+[ ] Responsive Webdesign (Verwendung von Gridlayouts, float, ...)
+Sorgen Sie dafür, das Ihre Webseite auch auf mobilen Engeräten funktioniert. Denken Sie an wichtige Meta-Informationen, die
+Sie benötigen für korrekte Darstellung auf mobilen Endgeräten.
+[ ] Animation (optional)
+Verwenden Sie Animationen und Überblendungen (Transitions) für eine angenehme, interessante User Experience.
+[ ] Stilangabe für Druckausgabe (optional)
+Erstellen Sie für mind. eine geeignete Seite (z.B. Produktübersicht oder -detail) gesonderte Stile für die Ausgabe auf dem
+Drucker.
+Allgemein für DWP
+[ ] Formulare werden mittels PHP/JavaScript behandelt und Fehler angezeigt
+Prüfen Sie ob alle Felder ausgefüllt sind bzw. ob alle Felder gesetzt sind und geben Sie entsprechende Fehlermeldungen aus.
+Blenden Sie ggf. mit JavaScript Formular-Felder ein und aus. Aktivieren Sie den Absenden-Button erst dann, wenn alle Felder
+befüll sind. Vermeiden Sie Fehlermeldung in PHP durch Zugriff auf Schlüssel in einem Array, die nicht vorhanden sind.
+[] Nutzeranmeldung
+Es ist möglich, sich mit einem Account anzumelden, es gibt einen Login dafür.
+Modul(e): Grundlagen der Webprogrammierung / Dynamische Webprogrammierung
+Autor(en): M.Sc. Kristof Friess, Prof. Rolf Kruse
+Stand: 10.01.2019
+3
+[ ] Nutzerregistrierung (Vorname, Nachname, E-Mail, Passwort, Telefonnummer, ...)
+Es ist möglich, sich ein Account für den Login anzulegen.
+Modul(e): Grundlagen der Webprogrammierung / Dynamische Webprogrammierung
+Autor(en): M.Sc. Kristof Friess, Prof. Rolf Kruse
+Stand: 10.01.2019
+4
+[ ] Validierung der Formulare mit JavaScript
+Arbeiten Sie mit unaufdringlichem (siehe Folien) JavaScript um eine clientseitige Validierung von Formularen zu gewährleisten.
+Zeigen Sie, dass Sie den Umgang mit JavaScript verstehen.
+[ ] Validierung der Formulare serverseitig mit PHP
+Validieren Sie immer die Daten, die der Nutzer an den Server sendet.
+[ ] Funktionsbereitstellung mit und ohne JavaScript
+Stellen Sie sicher, dass Sie JavaScript als Optimierung sehen und dass die Seite auch ohne JavaScript ausreichend
+funktioniert, so dass alle Inhalte und Funktionen erreicht werden.
+[ ] Absenden von Formulare mit AJAX (außer LOGIN) ermöglichen
+Sorgen Sie dafür, dass wenig Traffic auf der Seite entstehen, in dem Sie Formulare mittels JavaScript absenden. Denken Sie
+aber immer daran, der Nutzer kann falsche Daten übermitteln, validieren Sie daher auf PHP-Seite und übermitteln Sie
+Fehlermeldungen. Zeigen Sie, dass Sie wissen wie Ajax funktioniert an Mindesten einem Beispielformular (Registrierung).
+[ ] Seiten bauen sich dynamisch anhand von Daten aus der Datenbank aus (mind. eine
+Liste von Daten)
+Laden Sie Inhalte aus einer Datenbank, zeigen Sie dies an mind. einer Liste. Zeigen Sie dabei den Umgang mit SQL
+Produktansichten o.ä. können nach mind. 3 Parametern (z.B. Größe, Preis, Datum, Autor,...) gefiltert und sortiert werden.
+Filterparameter müssen logisch entweder mit UND oder ODER verknüpft werden können.
+[ ] Seiten können Inhalte dynamisch über JavaScript nachladen
+Laden Sie Seiteninhalte dynamisch über JavaScript nach, zum Beispiel könnten Sie durch den Klick auf einen “Load-More”
+Button in einer Liste, die nächsten Inhalte dafür Laden und Darstellen. Anders könnten Sie den Warenkorb eines Shops in
+einem Popover anzeigen und den Inhalt mittels Ajax laden. Sie können auch Filter hinzufügen und entfernen, oder zeigen Sie
+Suchergebnisse, Vorschläge an.
+[ ] Fehlerbehandlung auch für nicht bekannte Seiten (404 Error)
+Fangen Sie Fehler ab, vor allem wenn versucht wird auf Seiten zu navigieren die nicht vorhanden sind.
+[ ] Es ist eine Datenbank angebunden
+Binden Sie eine Datenbank an Ihr PHP-Script an, ideal über PDO oder mysqli. Die Datenbank sollte ausreichend komplex sein.
+[ ] Daten aus der Datenbank werden gelesen
+Laden Sie Inhalte wie Nutzer, Login-Daten oder Produkte aus der Datenbank.
+[ ] Daten aus der Datenbank werden geschrieben
+Schreiben Sie Inhalte wie Nutzer, Login-Daten oder Produkte in eine Datenbank.
