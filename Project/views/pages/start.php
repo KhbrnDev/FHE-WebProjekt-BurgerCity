@@ -1,21 +1,112 @@
-
 <div class="start-content">
     
     <h1>Burger City</h1>
+    <br>
+    <br>
     <h3>Dein Burgerrestaurant</h3>
-    <br>
-    <br>
-    <h4>Empfehlung des Hauses</h4>
+    
+    <p>Bei BurgerCity servieren wir dir Burger wie sie sein sollen: <br>
+    frisch, saftig und cheesy mit handgemachten Zutaten in einem fluffigen Bun,<br>
+     ohne viel TamTam! Unsere Motivation ist bis heute eine große Leidenschaft für qualitativ hochwertiges, schnelles Essen, serviert in einer warmen, gemütlichen Atmosphäre.<br>
+      Diese Liebe und Überzeugung zu unseren Produkten lässt sie uns mit einem großen Lächeln servieren.&#9786;<br><br></p>
 
-    <div class="favorites-box">
-        <div class="picture-box">
-            <img src="<?=IMAGESPATH.'burger1.png'?>" alt="Bilder eines leckeren Burgers">
-        </div>
-        <div class="description-box">
-            <h6>BurgerName XYZ</h6>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore rem similique nihil ducimus ipsam enim?
-                Beatae necessitatibus modi aliquam neque, explicabo at enim officiis quia fuga, quibusdam autem asperiores maiores.
-            </p>
-        </div>
+
+
+
+
+
+      <div class="burgertext">
+        
+        <p class="info"><br><br>Jeder Burger wird im leckeren Weizen- oder Vollkornbrötchen,<br>
+     mit knackigem Salat, frischen Zwiebeln, sonnengereiften Tomaten <br>
+     und unserer hausgemachten Hamburgersauce zubereitet.<br><br><br>
+    </p>
+        
+
+<img class="startpicture" src="<?=IMAGESPATH.'burger_start.png'?>" alt="burgerstart.png">
+ </div>
+
+
+<div>
+    <br><br><br><br>
+<h4>Empfehlung des Hauses</h4>
+    <h3>Die beliebtesten Burger dieser Woche</h3>
+    <div class="body-content" class="burgertext">
+        <?php
+            for($index = 0; $index < 3; $index++)
+            {
+                ?>
+                <div class="square">
+
+                    <h3 class="square-headline"><?=$burger[$index]->description?></h3>
+
+                    <img class="square-picture" src="<?=IMAGESPATH.$burger[$index]->pictureURL?>" alt="<?=$burger[$index]->altText?>">
+
+                    <div class="square-lower">
+                        <div class="square-lower-elemets">
+                            </div>
+                        <div class="square-lower-elemets">
+                            
+                        </div>
+                    </div>
+                </div>
+                <?php  
+            }
+            ?>
+            
     </div>
+        </div>
+
+
+    	<div>
+    <h2>Hier sind wir für dich da</h2>
+            <div class="container">
+            <img class="startpicture" src="<?=IMAGESPATH.'restaurant_start.png'?>" alt="burgershop.png">
+    <div class="centered">
+        <br>     
+    <table class="tableopenings">
+                <tr>
+                    <td>Montag:<br><br></td>
+                    <td>Ruhetag<br><br>         
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dienstag:<br><br></td>
+                    <td>12.00-22.00 Uhr<br><br></td>
+                </tr>
+                <tr>
+                    <td>Mittwoch:<br><br></td>
+                    <td>12.00-22.00 Uhr<br><br></td>
+                </tr>
+                <tr>
+                    <td>Donnerstag:<br><br></td>
+                    <td>12.00-22.00 Uhr<br><br></td>
+                </tr>
+                <tr>
+                    <td>Freitag:<br><br></td>
+                    <td>13.00-2.00 Uhr<br><br></td>
+                </tr>
+                <tr>
+                     <td>Samstag:<br><br></td>
+                    <td>10.00-2.00 Uhr<br><br></td>
+                </tr>
+                <tr>
+                    <td>Sonntag:<br><br></td>
+                    <td>12.00-22.00 Uhr<br><br></td>
+                </tr>
+                <tr>
+                <td><b></b>
+                </td></tr>
+            </table>
+            <p><b>*Aufgrund der aktuellen Lage sind nur Bestellungen möglich</b></p>
+        </div>
+        </div>
+
+           
+           
+                
+        </div>
+               
+            
+   
 </div>

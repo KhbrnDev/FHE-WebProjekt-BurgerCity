@@ -17,6 +17,66 @@
    
 }
 
+.burgertext{
+
+    background-color: rgb(36, 36, 36);
+    color: rgb(255, 255, 255);
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;}
+
+
+.centered {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: rgb(36, 36, 36);
+      }
+
+
+
+.startpicture{
+    width: 100%;
+height: auto;
+object-fit: cover;
+max-width: 100%;
+background-color: rgb(36, 36, 36);
+
+
+    
+}
+
+
+
+
+.tableopenings{
+    
+    
+    
+    font-size: 18pt;
+    border: 10px solid white;
+    border-radius: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30pt;
+    justify-content: center;
+    background-color: rgb(36, 36, 36);
+}
+
+
+
+.info{
+    color: white;
+    background-color: rgb(36, 36, 36);;
+    text-align: center;
+    width: 100%;
+
+}
+
 
 /* 
 * cart.php

@@ -8,6 +8,8 @@ class PagesController extends \dwp\core\Controller
 {
 	public function actionStart()
 	{
+		$burger = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("burger"));
+		$this->setParam('burger', $burger);
 		
 	}
 
