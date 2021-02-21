@@ -248,6 +248,7 @@
 .login-box, .signin-box{
     flex: none;
     width: 90%;
+    max-width: 18rem;
 }
 
     
