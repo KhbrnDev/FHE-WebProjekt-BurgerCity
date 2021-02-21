@@ -1,26 +1,17 @@
 @import "color.css";
 
 
-.error-body{
-    background-color:var(--background-color) ;
-    min-height: 100%;
-    position: relative;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .error-field{
-    position:relative;
-    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    margin: auto;
+    max-width: var(--body-width);
+    background-color: white;
     width: 80%;
     height: 100%;
-    background-color:white ;
-    flex: 0 0 auto;
-    padding-bottom: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
+    padding-bottom: 40px;
+    margin-bottom: -30px;
+    text-align: center;
 }
 
 .error-field h1{
@@ -45,13 +36,13 @@
 
 
 .to-main{
-    flex: 0 0 auto;
     margin-left: auto;
     margin-right: auto;
+    margin-top: auto; 
+    margin-bottom: auto; 
     font-size: 1.6rem;
     width: 16rem;
     height: auto;
-    position: fixed;
 
     border-style: 2px;
     border-color: black;
@@ -65,7 +56,7 @@
     top: 0;
     width: 14rem;
     height: auto;
-    position:fixed;
+    position: relative; 
     
 }
 
