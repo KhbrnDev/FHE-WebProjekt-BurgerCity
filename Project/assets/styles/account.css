@@ -156,5 +156,78 @@
     }
 }
 
+/* LogInSignIn.php */
+
+@media only screen and (min-width: 800){
+
+    .login-box, .signin-box{
+        width: 50%;
+        
+    }
+
+    
+    
+}
+
+@media only screen and (max-width: 800){
+   
+    .login-box, .signin-box{
+        width: 90%;
+    }
+}
+
+.logsing-body{
+    max-width: var(--body-width);
+    background-color: white;
+    margin: auto;
+    padding-bottom: 50px;
+    margin-bottom: -50px;
+    min-height: calc(100vh - var(--footer-height) - var(--header-height));
+}
+
+.logsing-body input{
+    margin-top: 0.3rem;
+}
+
+
+.logsing-body .submit{
+    border:none;
+    border-radius: 5px;
+    background-color: var(--accent-secondary);
+}
+.logsign-boxes{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.login-box, .signin-box{
+    flex: auto;
+
+    margin: auto;
+}
+
+.logsign-boxes input{
+    width: 18rem;
+}
+
+.logsign-boxes label{
+    text-align: left;
+}
+
+
+.logsing-success-message{
+    margin: 5px 5% 0 5%;
+    padding: 2%;
+    border: 1px solid green;
+}
+
+.logsing-error-message{
+    margin: 5px 5% 0 5%;
+    width: auto;
+    padding: 2%;
+    border: 1px solid red;
+}
+
 
 
