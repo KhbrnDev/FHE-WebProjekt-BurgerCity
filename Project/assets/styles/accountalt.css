@@ -1,0 +1,190 @@
+@import "color.css";
+
+/* account.php*/
+
+.account-body{
+    margin-top: 20px;
+    padding-top: 1px;
+    margin: auto;
+    max-width: var(--body-width);
+    background-color: red;
+
+    padding-bottom: 40px;
+    margin-bottom: -30px;
+}
+
+.account-body h2,h1{
+    margin-left: 1rem;
+}
+
+.h1-ausloggen h2{
+    float: right;
+    margin-right: 1rem;
+}
+
+/* Account Informationen */
+
+.account-properties{
+
+    margin: 0 1rem;
+    background-color: lightgray;
+    box-shadow: grey;
+
+}
+
+.account-form form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-form .account-form-object{
+    flex: auto;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.account-properties label,input{
+    width: 10rem;
+    height: 2rem;
+}
+
+/* Adressen */
+
+.account-adresses{
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 1rem;
+}
+.account-adress-form{
+    flex:auto;
+
+    padding:1rem;
+    background-color: lightgray;
+    margin-bottom: 1rem;
+
+    text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-adress-form-object{
+    flex: auto;
+}
+
+ /* Bestellungen 2.0 */
+
+ 
+.account-orderlist-body{
+    width: 100%;
+
+
+}
+
+.account-orderlist-order{
+    margin-bottom: 1.5rem;
+    margin: 0 1rem;
+    width: calc(100% - 2rem);
+}
+
+.account-order-box{
+    background-color: lightskyblue;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.account-order-subbox{
+    width: 33.3%;
+    text-align: center;    
+    flex: auto; 
+
+}
+
+@media only screen and (max-width: 800){
+
+    .h1-ausloggen h2, h1{
+        float: none;
+        margin-right: none;
+        text-align: center;
+        
+    }
+   
+    .account-adress-form-object{
+        min-width: 80%;
+        background-color: chartreuse;
+    }
+}
+
+/* LogInSignIn.php */
+
+@media only screen and (min-width: 800){
+
+    .login-box, .signin-box{
+        width: 50%;
+        
+    }
+
+    
+    
+}
+
+@media only screen and (max-width: 800){
+   
+    .login-box, .signin-box{
+        width: 90%;
+    }
+}
+
+.logsing-body{
+    max-width: var(--body-width);
+    background-color: white;
+    margin: auto;
+    padding-bottom: 50px;
+    margin-bottom: -50px;
+    min-height: calc(100vh - var(--footer-height) - var(--header-height));
+}
+
+.logsing-body input{
+    margin-top: 0.3rem;
+}
+
+
+.logsing-body .submit{
+    border:none;
+    border-radius: 5px;
+    background-color: var(--accent-secondary);
+}
+.logsign-boxes{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.login-box, .signin-box{
+    flex: auto;
+
+    margin: auto;
+}
+
+.logsign-boxes input{
+    width: 18rem;
+}
+
+.logsign-boxes label{
+    text-align: left;
+}
+
+
+.logsing-success-message{
+    margin: 5px 5% 0 5%;
+    padding: 2%;
+    border: 1px solid green;
+}
+
+.logsing-error-message{
+    margin: 5px 5% 0 5%;
+    width: auto;
+    padding: 2%;
+    border: 1px solid red;
+}

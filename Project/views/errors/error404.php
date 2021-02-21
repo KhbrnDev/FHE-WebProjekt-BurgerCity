@@ -10,6 +10,7 @@
                
                 <a  href="index.php?c=pages&a=start"> <img class="link-picture" src="<?=IMAGESPATH.'BBQ_Burger.png'?>" alt=""> </a>
             </div>
+            <p>Das ist ein Text</p>
         </div>
 
     

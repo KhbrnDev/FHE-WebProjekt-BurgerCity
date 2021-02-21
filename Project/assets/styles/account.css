@@ -1,25 +1,35 @@
 @import "color.css";
 
-/* account.php*/
 
 .account-body{
     margin-top: 20px;
-    padding-top: 1px;
+    padding-top: 20px;
     margin: auto;
     max-width: var(--body-width);
     background-color: white;
+    width: 80%;
+    height: 100%;
 
     padding-bottom: 40px;
     margin-bottom: -30px;
-}
+};
 
-.account-body h2,h1{
+.h1-ausloggen h1{
+    float:left;
+}
+.h1-ausloggen form{
+    float: right;
+    padding-top: 0;
+    margin-right: 1rem;
     margin-left: 1rem;
 }
 
-.h1-ausloggen h2{
-    float: right;
-    margin-right: 1rem;
+.account-body h1{
+    margin-left: 1rem;
+}
+
+.account-body h2{
+    margin-left: 1rem; 
 }
 
 /* Account Informationen */
@@ -41,11 +51,13 @@
     flex: auto;
     text-align: center;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .account-properties label,input{
     width: 10rem;
     height: 2rem;
+    
 }
 
 /* Adressen */
@@ -94,81 +106,55 @@
     flex-wrap: wrap;
 }
 
+
+
+@media only screen and (max-width: 800px){
+.account-properties label, input{
+    width: 90%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0; 
+}
+
 .account-order-subbox{
+    width: 90%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem; 
+    margin-right: 1rem; 
+}
+
+.left{
+    padding-right: 5px;
+    float: left; 
+    position: relative;
+}
+
+.right{
+    float: right;  
+    position: relative;
+}
+
+.account-order-subbox label, input{
+    padding-left: 0; 
+    padding-right: 0;
+    margin-top: 1rem; 
+    margin-bottom: 0; 
+    margin-left: 0;
+    margin-right: 0;
+    width: 90%;
+    
+}
+}
+
+@media only screen and (min-width: 801px){
+    .account-order-subbox{
     width: 33.3%;
     text-align: center;    
     flex: auto; 
 
-}
-
-/* LogInSignIn.php */
-
-@media only screen and (min-width: 800){
-
-    .login-box, .signin-box{
-        width: 50%;
-        
-    }
-
-    
-    
-}
-
-@media only screen and (max-width: 800){
-   
-    .login-box, .signin-box{
-        width: 90%;
     }
 }
 
-.logsing-body{
-    max-width: var(--body-width);
-    background-color: white;
-    margin: auto;
-    padding-bottom: 50px;
-    margin-bottom: -50px;
-    min-height: calc(100vh - var(--footer-height) - var(--header-height));
-}
-
-.logsing-body input{
-    margin-top: 0.3rem;
-}
-
-.logsing-body .submit{
-    border:none;
-    border-radius: 5px;
-    background-color: var(--accent-secondary);
-}
-.logsign-boxes{
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-.login-box, .signin-box{
-    flex: auto;
-
-    margin: auto;
-}
-
-.logsign-boxes input{
-    width: 18rem;
-}
-
-.logsign-boxes label{
-    text-align: left;
-}
 
 
-.logsing-success-message{
-    margin: 5px 5% 0 5%;
-    padding: 2%;
-    border: 1px solid green;
-}
-
-.logsing-error-message{
-    margin: 5px 5% 0 5%;
-    width: auto;
-    padding: 2%;
-    border: 1px solid red;
-}

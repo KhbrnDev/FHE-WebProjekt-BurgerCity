@@ -1,10 +1,11 @@
 
 <div class="account-body">
     <div class="h1-ausloggen">
-        <h2><form method="post">
+        <form method="post">
             <input type="submit" name="logout" value="Logout">
-        </form></h2>
-        <h1>Willkommen <br><?=$preloadUser['firstname'] . " " . $preloadUser['lastname']?></h1>
+        </form>
+        <h1>Willkommen,<br><?=$preloadUser['firstname'] . " " . $preloadUser['lastname']?></h1>
+        
     </div>
     <!-- <div class="error"> -->
             <!-- Hier PHP fuer ErrorMessage inefuegen -->
@@ -214,41 +215,32 @@
                         Bestellnummer <?=htmlspecialchars($order['orderId'])?> vom <input style="border: none; font-family: sans-serif; font-size: 1rem;" type="date" value="<?=htmlspecialchars($order['orderDate'])?>" readonly> 
                         <div class="account-order-box">
                             <div class="account-order-subbox">
-                                <h4>Lieferadresse</h4>
-                                <p><?=htmlspecialchars($order['adress']->street) . " " . htmlspecialchars($order['adress']->number)?></p>
-                                <p><?=htmlspecialchars($order['adress']->zipCode) . " " . htmlspecialchars($order['adress']->city)?></p>
+                                <p>Lieferadresse: <p>
+                                <p class = "text"><?=htmlspecialchars($order['adress']->street) . " " . htmlspecialchars($order['adress']->number)?></p>
+                                <p class = "text"><?=htmlspecialchars($order['adress']->zipCode) . " " . htmlspecialchars($order['adress']->city)?></p>
                             </div>
                             <div class="account-order-subbox">
                                 <!-- TODO: bessere ausrichtung (CSS) TODO nicht Tabelle, sondern Flexbox -->
                                 <h4>Bestellte Produkte</h4>
-                                <table class="ordered-products-table">
-                                    <thead>
-                                        <td>Produkt</td>
-                                        <td>Anzahl</td>
-                                        <td>Preis</td>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            foreach ($order['orderItems'] as $product) 
-                                            {
-                                            //     print_r($product);
-                                            ?>
-                                                <tr>
-                                                    <td><?=htmlspecialchars($product['products']->description)?></td>
-                                                    <td><?=htmlspecialchars($product['quantity'])?></td>
-                                                    <td style="white-space: nowrap;"><?=htmlspecialchars($product['products']->price * $product['quantity'])?> €</td>
-                                                </tr>
-                                            <?php 
-                                            }
-                                            ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <?php
+                                foreach ($order['orderItems'] as $product) 
+                                {
+                                ?>
+                                <div class = "order-element">
+                                    <a class = "left"><?=htmlspecialchars($product['quantity'])?>  <?=htmlspecialchars($product['products']->description)?></a>
+                                    <a class = "right"><?=htmlspecialchars($product['products']->price * $product['quantity'])?> €</a>
+                                </div>
+                                <?php 
+                                 }
+                                ?>
+                        </div>
                             
                             <div class="account-order-subbox">
                                 <input style="display:none;" type="text" name="orderId" value="<?=htmlspecialchars($order['orderId'])?>" readonly required>
-                                <h4>Gesamtpreis</h4>
-                                <p><?=$order['totalPrice']?> €</p>
+                                <br>
+                                <a class = "left">Gesamtpreis</a>
+                                <a class= "right"><?=$order['totalPrice']?> €</a>
+                                <br>
                                 <input type="submit" name="repeatOrder" value="Erneut Bestellen">
                             </div>
                         </div>

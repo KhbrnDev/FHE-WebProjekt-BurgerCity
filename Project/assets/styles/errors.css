@@ -50,12 +50,13 @@
     margin-right: auto;
     font-size: 1.6rem;
     width: 16rem;
-    height: fit-content;
+    height: auto;
     position: fixed;
 
     border-style: 2px;
     border-color: black;
     padding-bottom: 40px;
+    text-align: center;
 }
 
 .link-picture{
@@ -64,6 +65,8 @@
     top: 0;
     width: 14rem;
     height: auto;
+    position:fixed;
+    
 }
 
 .to-main:hover img{
