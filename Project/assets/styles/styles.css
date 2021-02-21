@@ -42,6 +42,7 @@ html, body{
 .push-sticky-footer{
     height: var(--footer-height);
     margin-top: 0; 
+    padding-top: 0;
 }
 
 h1{

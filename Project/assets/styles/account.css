@@ -183,6 +183,8 @@
     padding-bottom: 50px;
     margin-bottom: -50px;
     min-height: calc(100vh - var(--footer-height) - var(--header-height));
+    width: 80%;
+    max-width: var(--body-width) ;
 }
 
 .logsing-body input{
