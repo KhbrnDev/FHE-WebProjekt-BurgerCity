@@ -212,7 +212,7 @@
 }
 
 .logsign-boxes input{
-    max-width: 18rem;
+    width: 18rem;
 }
 
 .logsign-boxes label{
@@ -244,6 +244,11 @@
     margin-right: 0;
     width: 90%;
 }
+
+.login-box, .signin-box{
+    flex: none;
+}
+
     
 }
 
