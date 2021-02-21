@@ -238,7 +238,6 @@ class ProductsController extends \dwp\core\Controller
 
 	public function actionMenue()
 	{
-
 		if(isset($_POST['more']))
 		{
 			$category = isset($_POST['category']) ? $_POST['category'] : null; 

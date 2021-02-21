@@ -11,6 +11,5 @@
                 <a  href="index.php?c=pages&a=start"> <img class="link-picture" src="<?=IMAGESPATH.'BBQ_Burger.png'?>" alt=""> </a>
             </div>
         </div>
-
     
 </div>
