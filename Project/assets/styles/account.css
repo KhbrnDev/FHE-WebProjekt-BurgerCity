@@ -242,11 +242,12 @@
     margin-bottom: 0; 
     margin-left: 0;
     margin-right: 0;
-    width: 90%;
+    width: 100%;
 }
 
 .login-box, .signin-box{
     flex: none;
+    width: 90%;
 }
 
     
