@@ -99,7 +99,7 @@ background-color: rgb(36, 36, 36);
     }
 
     .goToCartReview{
-        width: calc(100vw - 1rem);
+        width: calc(99% - 1rem);
         background-color: var(--accent-secondary);
         color: white;
         margin: 0 0.5rem;
@@ -115,6 +115,7 @@ background-color: rgb(36, 36, 36);
     }
     
     .goToCart-Label{
+        width: calc(99% - 1rem);
         display: inline-block;
         margin: 0.7rem 0.5rem 0 0.5rem;
 
