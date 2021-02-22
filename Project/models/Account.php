@@ -33,7 +33,7 @@ class Account extends \dwp\core\Model
             $errors[] = 'Email fehlt.';
         }
 
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+        if(!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',$email))
         {
             $errors[] = 'EMail nicht valide.';
         }
@@ -66,9 +66,9 @@ class Account extends \dwp\core\Model
                 $errors[] = 'Telefonnummer fehlt.';
             }
 
-            if(!preg_match("/^[0-9]*$/", $phonenumber))
+            if(!preg_match("/^[0-9]{6,}/", $phonenumber))
             {
-                $errors[] = 'Telefonnummer bitte nur mit Zahlen angeben';
+                $errors[] = 'Telefonnummer muss mindestens 6 Zahlen und keine Buchstaben haben';
             }
     }
 
@@ -113,6 +113,11 @@ class Account extends \dwp\core\Model
         {
             $errors [] = 'Geburtsdatum fehlt.';
         }
+        
+        if(!preg_match("/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/", $birthday))
+        {
+            $errors[] = "Bitte geben Sie ein gültiges Geburtsdatum an.";
+        }
     }
 
     // unsed? => rightclick -> peek references
@@ -122,6 +127,5 @@ class Account extends \dwp\core\Model
         $date = date_format($date, 'Y-m-d');
 
     }
-
     
 }

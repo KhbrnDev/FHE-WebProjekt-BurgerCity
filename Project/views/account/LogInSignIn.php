@@ -37,25 +37,17 @@
                 <h2>LogIn</h2>
                 <form method="POST">
 
-                    <label for="email">E-Mail</label>
+                    <label for="login-email">E-Mail</label>
                     <br>
-                    <input type="email" name="email" id="email" placeholder="meine@email.de"
-                        <?php if(isset($preload['logEmail']))
-                        {
-                            ?>
-                            value="<?=htmlspecialchars($preload['logEmail'])?>"
-                            <?php
-                        }
-                        ?>
-                    >
+                    <input type="email" name="email" id="login-email" placeholder="meine@email.de" value="<?=isset($preload['logEmail']) ? htmlspecialchars($preload['logEmail']) : ""?>">
                    
                     <br>
-                    <label for="password">Passwort</label>
+                    <label for="login-password">Passwort</label>
                     <br>
-                    <input type="password" name="password" id="password" placeholder="Geheimes Passwort">
+                    <input type="password" name="password" id="login-password" placeholder="Geheimes Passwort">
                     
                     <br>
-                    <input class="submit" type="submit" name="login" value="LogIn">
+                    <input class="submit" type="submit" id="login" name="login" value="LogIn">
 
                 </form>
             </div> 
@@ -64,61 +56,47 @@
                 <h2>SignIn</h2>
                 <form method="POST">
                     
+                    <p style="display:none" id="wrongFirstName"></p>
                     <label for="firstname">Vorname</label>
                     <br>
-                    <input type="text" name="firstname" id="firstname" placeholder="Rainer"
-                        <?php if(isset($preload['firstname'])): ?>
-                            value="<?=htmlspecialchars($preload['firstname'])?>"
-                        <?php endif; ?>
-                    >
+                    <input type="text" name="firstname" id="firstname" placeholder="Rainer" value="<?=isset($preload['firstname']) ? htmlspecialchars($preload['firstname']) : "" ?>">
                     <br>
 
+                    <p style="display:none"  id="wrongLastName"></p>
                     <label for="lastname">Nachname</label>
                     <br>
-                    <input type="text" name="lastname" id="lastname" placeholder="Zufall"
-                        <?php if(isset($preload['lastname'])): ?>
-                            value="<?=htmlspecialchars($preload['lastname'])?>"
-                        <?php endif; ?>
-                    >
+                    <input type="text" name="lastname" id="lastname" placeholder="Zufall" value="<?=isset($preload['lastname']) ? htmlspecialchars($preload['lastname']) : "" ?>">
                     <br>
 
+                    <p style="display:none"  id="wrongBirthday"></p>
                     <label for="birthday">Geburtsdatum</label>
                     <br>
-                    <input type="date" name="birthday" id="birthday" 
-                        <?php if(isset($preload['birthday'])): ?>
-                            value="<?=htmlspecialchars($preload['birthday'])?>"
-                        <?php endif; ?>
-                    >
+                    <input type="date" name="birthday" id="birthday"  value="<?=isset($preload['birthday']) ? htmlspecialchars($preload['birthday']) : "" ?>">
                     <br>
 
+                    <p style="display:none"  id="wrongPhoneNumber"></p>
                     <label for="phonenumber">Telefon</label>
                     <br>
-                    <input type="tel" name="phonenumber" id="phonenumber"
-                        <?php if(isset($preload['phoneNumber'])): ?>
-                            value="<?=htmlspecialchars($preload['phoneNumber'])?>"
-                        <?php endif; ?>
-                    >
+                    <input type="tel" name="phonenumber" id="phonenumber" value="<?=isset($preload['phoneNumber']) ? htmlspecialchars($preload['phoneNumber']) : "" ?>">
                     <br>
 
+                    <p style="display:none"  id="wrongEMail"></p>
                     <label for="email">E-Mail</label>
                     <br>
-                    <input type="email" name="email" id="email" placeholder="r.zufall@mail.de"
-                        <?php if(isset($preload['email'])): ?>
-                            value="<?=htmlspecialchars($preload['email'])?>"
-                        <?php endif; ?>
-                    >
+                    <input type="email" name="email" id="email" placeholder="r.zufall@mail.de" value="<?=isset($preload['email']) ? htmlspecialchars($preload['email']) : "" ?>">
                     <br>
 
+                    <p  style="display:none" id="wrongPassword"></p>
                     <label for="password">Passwort</label>
                     <br>
                     <input type="password" name="password" id="password">
                     <br>
                     
-                    <input class="submit" type="submit" name="signin" value="SignIn" >
+                    <input class="submit" type="submit" name="signin" id="signin" value="SignIn" >
 
-                    <!-- PHP
-                        if(isset($_POST['signin']))...doStuff -->
+
                 </form>
             </div>
         </div>
     </div>
+<script src="<?=JAVASCRIPTPATH."signin.js"?>"></script>
