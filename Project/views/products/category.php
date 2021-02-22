@@ -6,9 +6,8 @@
 
     <div class="products-header">
         <div class="products-subheader">
-            <h1><?=$preloadHeader['title']?></h1>
-            <p><?=$preloadHeader['description']?>
-            <!--<?=print_r($products)?>-->
+            <h1><?=htmlspecialchars($preloadHeader['title'])?></h1>
+            <p><?=htmlspecialchars($preloadHeader['description'])?>
             </p>
         </div>
 
@@ -104,13 +103,13 @@
                             
                             <label for="">Minimalpreis</label>
                             <br>
-                            <input type="range" step="1" name="minPrice" value="<?=isset($preloadFilter['minPrice']) ? $preloadFilter['minPrice'] : "0"?>" min="0" max="20" oninput="this.nextElementSibling.value = this.value">
-                            <output><?=isset($preloadFilter['minPrice']) ? $preloadFilter['minPrice'] : "0"?></output><label for="">€</label>
+                            <input type="range" step="1" name="minPrice" value="<?=isset($preloadFilter['minPrice']) ? htmlspecialchars($preloadFilter['minPrice']) : "0"?>" min="0" max="20" oninput="this.nextElementSibling.value = this.value">
+                            <output><?=isset($preloadFilter['minPrice']) ? htmlspecialchars($preloadFilter['minPrice']) : "0"?></output><label for="">€</label>
                             <br>
                             <label for="">Maximalpreis</label>
                             <br>
-                            <input type="range" step="1" name="maxPrice" value="<?=isset($preloadFilter['maxPrice']) ? $preloadFilter['minPrice'] : "0"?>" min="0" max="20" oninput="this.nextElementSibling.value = this.value">
-                            <output><?=isset($preloadFilter['maxPrice']) ? $preloadFilter['maxPrice'] : "20"?></output><label for="">€</label>
+                            <input type="range" step="1" name="maxPrice" value="<?=isset($preloadFilter['maxPrice']) ? htmlspecialchars($preloadFilter['minPrice']) : "0"?>" min="0" max="20" oninput="this.nextElementSibling.value = this.value">
+                            <output><?=isset($preloadFilter['maxPrice']) ? htmlspecialchars($preloadFilter['maxPrice']) : "20"?></output><label for="">€</label>
                         </div>
                     </div>
                     

@@ -1,6 +1,6 @@
 
 <div class="checkoutSuccess-body">
-    <h1>Vielen Dank für ihre Bestellung</h1>
+    <h1>Vielen Dank für Ihre Bestellung</h1>
 
-    <h4>TODO: mach mich hübsch</h4>
+    <img src="<?=IMAGESPATH."restaurant_start.png"?>" alt="Panprama Bild eines Inneren eines Restaurants mit blauen Stühlen, alter Stil " class="checkout-success-img">
 </div>

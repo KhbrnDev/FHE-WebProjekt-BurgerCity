@@ -13,7 +13,7 @@
             <input class ="goToCartReview" type="submit" name="goToCartReview" id="goToCardReview" value="Zur Kasse gehen">
             <label class="goToCart-Label" for="lieferhinweise">Lieferhinweise</label>
             <br>
-            <textarea class="goToCart-Lieferhinweise"  name="lieferhinweise" id="lieferhinweise" cols="10" rows="4"></textarea>
+            <textarea class="goToCart-Lieferhinweise"  name="lieferhinweise" id="lieferhinweise" cols="10" rows="4"><?=isset($preloadLieferHinweise) ? htmlspecialchars($preloadLieferHinweise) : ""?></textarea>
         </form>
     </div>
 
@@ -23,7 +23,7 @@
         <form method="POST">
             <div class="cart-product-box">
                 <a class="cart-product-picture-link" href="">
-                    <img class="cart-product-picture"src="<?=IMAGESPATH.$orderItem['product']->pictureURL?>" alt="">
+                    <img class="cart-product-picture"src="<?=IMAGESPATH.$orderItem['product']->pictureURL?>" alt="<?=htmlspecialchars($orderItem['product']->altText)?>">
                 </a>
 
                 <div class="cart-product-box-right">
@@ -63,15 +63,7 @@
             endif;
         ?>
 
-<!-- 
-        <h5>Lieferinformationen</h5>
-        <textarea name="" id="" maxlenght="255"></textarea> -->
     </div>
-    <!-- <p class="total-number-of-products">Summe (3 Artiekl):<p class="sum-of-total-products"> 61.38€</p></p>
-    
-    <form method="POST">
-        <input class ="goToCartReview" type="submit" name="goToCartReview" id="goToCardReview" value="Zur Kasse gehen">
-    </form> -->
 
 
 </div>

@@ -93,9 +93,11 @@ class PagesController extends \dwp\core\Controller
 			}
 		}
 		
+		$preloadLieferHinweise = isset($_SESSION['lieferhinweise']) ? $_SESSION['lieferhinweise'] : "";
 		
 		$this->setParam('preloadOrders', $preloadOrders);
 		$this->setParam('preloadGesamtSumme', $preloadGesamtSumme);
+		$this->setParam('preloadLieferHinweise', $preloadLieferHinweise);
 		
 
 	}
@@ -317,10 +319,14 @@ class PagesController extends \dwp\core\Controller
 			}
 		}
 
-		// Make this better
 		$preloadCartHelper['adress'] = \dwp\model\Adress::findOne("adressId = " . $_SESSION['cartHelper']['adressId']);
 		$preloadCartHelper['payment'] = $_SESSION['cartHelper']['payment'];
+		
+		$preloadLieferHinweise = isset($_SESSION['lieferhinweise']) ? $_SESSION['lieferhinweise'] : "";
+		
+		
 		// push to view
+		$this->setParam('preloadLieferHinweise', $preloadLieferHinweise);
 		$this->setParam('errors', $errors);
 		$this->setParam('preloadGesamtSumme', $preloadGesamtSumme);
 		$this->setParam('preloadCartHelper', $preloadCartHelper);

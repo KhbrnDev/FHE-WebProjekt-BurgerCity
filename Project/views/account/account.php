@@ -4,40 +4,31 @@
         <form method="post">
             <input type="submit" name="logout" value="Logout">
         </form>
-        <h1>Willkommen,<br><?=$preloadUser['firstname'] . " " . $preloadUser['lastname']?></h1>
+        <h1>Willkommen,<br><?=(isset($preloadUser['firstname']) ? $preloadUser['firstname'] : "")  . " " . (isset($preloadUser['lastname']) ? $preloadUser['lastname'] : "")?></h1>
         
     </div>
-    <!-- <div class="error"> -->
-            <!-- Hier PHP fuer ErrorMessage inefuegen -->
-            <?php   if($success['success'] === true)
-                    {
-                        ?>
-                        <div class="logsing-success-message">
-                            <?=$success['message']?>
-                        </div>
-                        <?php
-                    }
-                    elseif(isset($errors) && count($errors) > 0)
-                    {
-                        ?>
 
-                        <div class="logsing-error-message">
-                            <h4><?=$errors['title']?></h4>
-                        <ul>
-                        <?php
-                            for($Index = 0; $Index < count($errors)-1; $Index++)
-                            {
-                                ?>
-                                <li><?=$errors[$Index]?></li>
-                                <?php
-                            }   
+    <?php   if($success['success'] === true): ?>
+                <div class="logsing-success-message">
+                    <?=$success['message']?>
+                </div>
+    <?php   elseif(isset($errors) && count($errors) > 0): ?>
+
+                <div class="logsing-error-message">
+                    <h4><?=$errors['title']?></h4>
+                <ul>
+                <?php
+                    for($Index = 0; $Index < count($errors)-1; $Index++)
+                    {
                         ?>
-                        </ul>
-                        </div>
+                        <li><?=$errors[$Index]?></li>
                         <?php
-                    }
-            ?>
-    <!-- </div> -->
+                    }   
+                ?>
+                </ul>
+                </div>
+    <?php   endif; ?>
+
     <h2>Accountinformationen</h2>
     <div class="account-properties">
         <div class="account-form">
@@ -117,7 +108,7 @@
                             <div  class="account-adress-form-object" style="display: none;">
                                 <label for="adressId">adressId:</label>
                                 <br>
-                                <input type="number" name="adressId" id="adressId" value="<?=$preloadAdress[$Index]->adressId?>" required>
+                                <input type="number" name="adressId" id="adressId" value="<?=htmlspecialchars($preloadAdress[$Index]->adressId)?>" required>
                             </div>
 
                             <div  class="account-adress-form-object">
@@ -204,51 +195,46 @@
 
 <h2>Bestellungen</h2>
 
-<?php
-    foreach ($preloadOrders as $order)
-    {
-        ?>
-            <!-- BestellungStart -->
-                <form class="account-orderlist-body" method="post">
-                    <div class="account-orderlist-order">
-                        <!-- TODO: schlechten Stil bei Datum (input) ändern -->
-                        Bestellnummer <?=htmlspecialchars($order['orderId'])?> vom <input style="border: none; font-family: sans-serif; font-size: 1rem;" type="date" value="<?=htmlspecialchars($order['orderDate'])?>" readonly> 
-                        <div class="account-order-box">
-                            <div class="account-order-subbox">
-                                <p>Lieferadresse: <p>
-                                <p class = "text"><?=htmlspecialchars($order['adress']->street) . " " . htmlspecialchars($order['adress']->number)?></p>
-                                <p class = "text"><?=htmlspecialchars($order['adress']->zipCode) . " " . htmlspecialchars($order['adress']->city)?></p>
-                            </div>
-                            <div class="account-order-subbox">
-                                <!-- TODO: bessere ausrichtung (CSS) TODO nicht Tabelle, sondern Flexbox -->
-                                <h4>Bestellte Produkte</h4>
-                                <?php
-                                foreach ($order['orderItems'] as $product) 
-                                {
-                                ?>
-                                <div class = "order-element">
-                                    <a class = "left"><?=htmlspecialchars($product['quantity'])?>  <?=htmlspecialchars($product['products']->description)?></a>
-                                    <a class = "right"><?=htmlspecialchars($product['products']->price * $product['quantity'])?> €</a>
-                                </div>
-                                <?php 
-                                 }
-                                ?>
+    <!-- BestellungStart -->
+    <?php foreach ($preloadOrders as $order): ?>
+            <form class="account-orderlist-body" method="post">
+                <div class="account-orderlist-order">
+                    <!-- TODO: schlechten Stil bei Datum (input) ändern -->
+                    Bestellnummer <?=htmlspecialchars($order['orderId'])?> vom <input style="border: none; font-family: sans-serif; font-size: 1rem;" type="date" value="<?=htmlspecialchars($order['orderDate'])?>" readonly> 
+                    <div class="account-order-box">
+                        <div class="account-order-subbox">
+                            <p>Lieferadresse: <p>
+                            <p class = "text"><?=htmlspecialchars($order['adress']->street) . " " . htmlspecialchars($order['adress']->number)?></p>
+                            <p class = "text"><?=htmlspecialchars($order['adress']->zipCode) . " " . htmlspecialchars($order['adress']->city)?></p>
                         </div>
-                            
-                            <div class="account-order-subbox">
-                                <input style="display:none;" type="text" name="orderId" value="<?=htmlspecialchars($order['orderId'])?>" readonly required>
-                                <br>
-                                <a class = "left">Gesamtpreis</a>
-                                <a class= "right"><?=$order['totalPrice']?> €</a>
-                                <br>
-                                <input type="submit" name="repeatOrder" value="Erneut Bestellen">
+                        <div class="account-order-subbox">
+                            <!-- TODO: bessere ausrichtung (CSS) TODO nicht Tabelle, sondern Flexbox -->
+                            <h4>Bestellte Produkte</h4>
+                            <?php
+                            foreach ($order['orderItems'] as $product) 
+                            {
+                            ?>
+                            <div class = "order-element">
+                                <a class = "left"><?=htmlspecialchars($product['quantity'])?>  <?=htmlspecialchars($product['products']->description)?></a>
+                                <a class = "right"><?=htmlspecialchars($product['products']->price * $product['quantity'])?> €</a>
                             </div>
+                            <?php 
+                                }
+                            ?>
+                    </div>
+                        
+                        <div class="account-order-subbox">
+                            <input style="display:none;" type="text" name="orderId" value="<?=htmlspecialchars($order['orderId'])?>" readonly required>
+                            <br>
+                            <a class = "left">Gesamtpreis</a>
+                            <a class= "right"><?=$order['totalPrice']?> €</a>
+                            <br>
+                            <input type="submit" name="repeatOrder" value="Erneut Bestellen">
                         </div>
                     </div>
-                </form>
-            <!-- BestellungEnde -->
-        <?php
-    }
-?>
+                </div>
+            </form>
+    <!-- BestellungEnde -->
+    <?php endforeach; ?>
 
 </div> 

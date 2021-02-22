@@ -4,9 +4,9 @@
     <p>Entecke unsere neuartigen, innovativen Produkte. Hier ist für alle was dabei!</p>
 
     <?php foreach($preloadProducts as $key => $products):?>
-    <h2><?=$preloadProductsHelper[$key]['title']?></h2>
+    <h2><?=htmlspecialchars($preloadProductsHelper[$key]['title'])?></h2>
         <span>
-            <p class="category-description"><?=$preloadProductsHelper[$key]['description']?></p>
+            <p class="category-description"><?=htmlspecialchars($preloadProductsHelper[$key]['description'])?></p>
         </span>
 
 
@@ -17,13 +17,13 @@
                     ?>
                     <div class="square">
 
-                        <h3 class="square-headline"><?=$products[$index]->description?></h3>
+                        <h3 class="square-headline"><?=htmlspecialchars($products[$index]->description)?></h3>
 
-                        <img class="square-picture" src="<?=IMAGESPATH.$products[$index]->pictureURL?>" alt="<?=$products[$index]->altText?>">
+                        <img class="square-picture" src="<?=IMAGESPATH.$products[$index]->pictureURL?>" alt="<?=htmlspecialchars($products[$index]->altText)?>">
 
                         <div class="square-lower">
                             <div class="square-lower-elemets">
-                                <?=$products[$index]->price?>
+                                <?=htmlspecialchars($products[$index]->price)?>
                             </div>
                             <div class="square-lower-elemets">
                                 <form method="POST">

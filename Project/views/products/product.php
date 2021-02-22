@@ -3,7 +3,7 @@
     <h1><?=$product->description?></h1>
     <div class="product-flex">
         <div class="product-left">
-            <img class="product-picture" src="<?=IMAGESPATH.$product->pictureURL?>" alt="<?=$product->altText?>">
+            <img class="product-picture" src="<?=IMAGESPATH.$product->pictureURL?>" alt="<?=htmlspecialchars($product->altText)?>">
 
         </div>
         <div class="product-right">

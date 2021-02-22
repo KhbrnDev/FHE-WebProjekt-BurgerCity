@@ -12,17 +12,11 @@
     </div>
     <!-- <div class="error"> -->
             <!-- Hier PHP fuer ErrorMessage inefuegen -->
-            <?php   if($success['success'] === true)
-                    {
-                        ?>
+            <?php   if($success['success'] === true): ?>
                         <div class="logsing-success-message">
                             <?=$success['message']?>
                         </div>
-                        <?php
-                    }
-                    elseif(isset($errors) && count($errors) > 0)
-                    {
-                        ?>
+            <?php elseif(isset($errors) && count($errors) > 0): ?>
 
                         <div class="logsing-error-message">
                             <h4><?=$errors['title']?></h4>
@@ -37,10 +31,8 @@
                         ?>
                         </ul>
                         </div>
-                        <?php
-                    }
-            ?>
-    <!-- </div> -->
+            <?php endif; ?>
+
     <div class="administration-admins">
         <h2><label for="remove-admin">Administratoren bearbeiten</label></h2>
         

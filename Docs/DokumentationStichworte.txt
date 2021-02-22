@@ -10,3 +10,9 @@ Lessons Learned
 	- SASS/ SCSS wäre super gewesen um eienrfacher zu gestalten, da es großen Zeitaufwand sparen würden
 		-> ist aber gut, dass man die 'Nachteile' von CSS merkt
 	- 
+	
+JS
+	SignIn wird mit Javascript validiert
+	SignIn Submit Button wird erst aktiviert wenn die Inputs valide sind, dies könnte auch auf weitere Forlmulare ausgeweitet werden
+	
+	 
