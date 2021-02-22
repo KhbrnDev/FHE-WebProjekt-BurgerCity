@@ -60,13 +60,6 @@ function getprice($price){
     return $price;
 }
 
-function addToCart($product){
-    $_SESSION['cart'] [] = 
-                        [
-                            'productsId' => $item->Products_productsId,
-                            'quantity' => $item->quantity      
-                        ];
-}
 
 
 
@@ -97,4 +90,52 @@ function getCategoryInformation(&$title, &$description, $category)
             $description = "Wir haben super Produkte. Kaufe jetzt Produkte und du bekommst Produkte.";
             break;
     }
+}
+
+function addToCart($productsId, &$errors = [])
+{
+    if($productsId !== null)
+    {   
+        $product = \dwp\model\Products::findOne("productsId = " . $productsId);
+        if($product !== null)
+        {
+        
+            if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
+            {
+                $itemExists = false;
+                for($int = 0; $int < count($_SESSION['cart']); $int++)
+                {
+                    if($_SESSION['cart'][$int]['productsId'] === $productsId)
+                    {
+                        $_SESSION['cart'][$int]['quantity'] += 1;
+                        break;
+                    }
+                }
+
+                if(!$itemExists)
+                {
+                    $_SESSION['cart'] [] = 
+                        [
+                            'productsId' => $productsId,
+                            'quantity'   => 1
+                        ];
+                }
+            }
+            else
+            {
+                $_SESSION['cart'] = [];
+
+                $_SESSION['cart'] [] = 
+                [
+                    'productsId' => $productsId,
+                    'quantity'   => 1    
+                ];
+            }
+        }
+    }	
+
+
+    cleanEinkaufswagen();
+
+    return true;
 }

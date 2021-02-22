@@ -23,47 +23,7 @@ class ProductsController extends \dwp\core\Controller
 		if(isset($_POST['addToCart']))
 		{
 			$productsId = isset($_POST['productsId']) ? $_POST['productsId'] : null;
-
-			if($productsId !== null)
-			{
-				if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
-				{
-					$itemExists = false;
-					for($int = 0; $int < count($_SESSION['cart']); $int++)
-					{
-						if($_SESSION['cart'][$int]['productsId'] === $productsId)
-						{
-							$_SESSION['cart'][$int]['quantity'] += 1;
-							$itemExists = true;
-						}
-					}
-
-					if(!$itemExists)
-					{
-						$_SESSION['cart'] [] = 
-							[
-								'productsId' => $productsId,
-								'quantity'   => 1
-							];
-					}
-				}
-				else
-				{
-					$_SESSION['cart'] = [];
-
-					$_SESSION['cart'] [] = 
-					[
-						'productsId' => $productsId,
-						'quantity'   => 1    
-					];
-				}
-			}	
-			else
-			{
-				$errors ['title'] = "Bitte nicht an den ID's herumspielen";
-			}
-
-			cleanEinkaufswagen();
+			addToCart($productsId);
 		}
 		
 		// FILTERS
@@ -238,24 +198,44 @@ class ProductsController extends \dwp\core\Controller
 
 	public function actionMenue()
 	{
+		$preloadProducts = [];
 		if(isset($_POST['more']))
 		{
 			$category = isset($_POST['category']) ? $_POST['category'] : null; 
 			if($category !== null)
 			{
-				header("Location: index.php?c=products&a=category&f=".$category);
+				header("Location: index.php?c=products&a=category&f%5B%5D=".$category);
 			}
 		}
 
-		$burger = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("burger"));
-		$snacks = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("snacks"));
-		$drinks = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("drinks"));
-		$desserts = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("desserts"));
+		if(isset($_POST['addToCart']))
+		{
+			$productsId = isset($_POST['productsId']) ? $_POST['productsId'] : null;
+			addToCart($productsId);
+		}
+		
+		$preloadProducts = [];
+		$preloadProductsHelper = [];
+		$categories = ['burger', 'snacks', 'drinks', 'desserts'];
+		foreach($categories as $category)
+		{
+			$preloadProducts[$category]   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote($category));
+			getCategoryInformation($preloadProductsHelper[$category]  ['title'], $preloadProductsHelper[$category]  ['description'], $category);
+		}
+		/**
+		$preloadProducts['burger']   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("burger"));
+		$preloadProducts['snacks']   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("snacks"));
+		$preloadProducts['drinks']   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("drinks"));
+		$preloadProducts['desserts'] = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("desserts"));
+		
+		getCategoryInformation($preloadProductsHelper['burger']  ['title'], $preloadProductsHelper['burger']  ['description'], 'burger');
+		getCategoryInformation($preloadProductsHelper['snacks']  ['title'], $preloadProductsHelper['snacks']  ['description'], 'snacks');
+		getCategoryInformation($preloadProductsHelper['drinks']  ['title'], $preloadProductsHelper['drinks']  ['description'], 'drinks');
+		getCategoryInformation($preloadProductsHelper['desserts']['title'], $preloadProductsHelper['desserts']['description'], 'desserts');
+ 		*/
+		$this->setParam('preloadProducts', $preloadProducts);
+		$this->setParam('preloadProductsHelper', $preloadProductsHelper);
 
-		$this->setParam('burger', $burger);
-		$this->setParam('snacks', $snacks);
-		$this->setParam('drinks', $drinks);
-		$this->setParam('desserts', $desserts);
 
 	}
 
