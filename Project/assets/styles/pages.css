@@ -3,18 +3,7 @@
 /* start.php */
 
 .start-content{
-    position:relative;
-    text-align: center;
-    width: 80%;
-    height: 100%;
-    background-color:white ;
-    flex: 0 0 auto;
-    padding-bottom: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
-   
+    text-align: center; 
 }
 
 .burgertext{
@@ -88,12 +77,7 @@ background-color: rgb(36, 36, 36);
 @media only screen and (max-width: 800px){
     
     .cart-body{
-        width: 100%;
-        background-color: white;
-        
-        min-height: calc(100vh - var(--header-height) - var(--footer-height));
-        padding-bottom: 50px;
-        margin-bottom: -50px;
+
 
     }
 
@@ -226,14 +210,7 @@ background-color: rgb(36, 36, 36);
 
 @media only screen and (min-width: 801px){
     .cart-body{
-        width: var(--body-width);
-        padding-top: 10px;
-        margin: auto;
-        background-color: white;
-        margin-top: -20px;
-        min-height: calc(100vh - var(--footer-height) - var(--header-height));
-        padding-bottom: 50px;
-        margin-bottom: -50px;
+
     }
 
     .cart-body h1{
@@ -388,12 +365,7 @@ background-color: rgb(36, 36, 36);
 }
 @media only screen and (max-width: 800px){
     .checkout-body{
-        width: 100%;
-        background-color: white;
-        margin-top: -20px;
-        min-height: calc(100vh - var(--header-height) - var(--footer-height));
-        margin-bottom: -50px;
-        padding-bottom: 50px;
+
     }
 
     .checkout-body h1{
@@ -479,12 +451,7 @@ background-color: rgb(36, 36, 36);
 @media only screen and (min-width: 801px){
     
     .checkout-body{
-        height: calc(100vh - 50px);
-        max-width: 1250px;
-        background-color: white;
-        margin: auto;
-        margin-top: -20px;
-        padding-top: 20px;
+
     }
 
     .checkout-body h1{
@@ -581,12 +548,7 @@ background-color: rgb(36, 36, 36);
 @media only screen and (max-width: 800px){
 
     .checkoutReview-body{
-        width: 100%;
-        background-color: white;
-        margin-top: -20px;
-        min-height: calc(100vh - var(--footer-height) - var(--header-height));
-        padding-bottom: 50px;
-        margin-bottom: -50px;
+
     }
 
     .checkoutReview-body h1{
@@ -666,14 +628,7 @@ background-color: rgb(36, 36, 36);
 @media only screen and (min-width: 801px){
 
     .checkoutReview-body{
-        width: var(--body-width);
-        padding-top: 10px;
-        margin: auto;
-        background-color: white;
-        margin-top: -20px;
-        min-height: calc(100vh - var(--footer-height) - var(--header-height));
-        padding-bottom: 50px;
-        margin-bottom: -50px;
+
     }
 
     .checkoutReview-body h1{

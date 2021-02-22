@@ -227,7 +227,7 @@ footer{
     background-color: rgb(36, 36, 36);
     display:flex;
     flex-wrap: wrap;
-    height: 2em;
+    height: var(--footer-height);
     padding-top: 0;
     z-index: 99;
 }

@@ -2,19 +2,11 @@
 
 
 /* everything in products Folder */
-.products-body, .productItem-body{
-    background-color: white;
-    margin: auto;
+.products-body{
 
-    /* under this.. is new */
-    margin-top: -20px;
-    padding-top: 20px;
-    max-width: var(--body-width);
-    min-height: calc(100vh - var(--header-hight) - var(--footer-heigt));
-    width: 80%;
-    height: 100%;
-    margin-bottom: -50px;
-    padding-bottom: 50px;
+}
+ .productItem-body{
+    text-align: center;
 }
 
 /*
@@ -201,19 +193,7 @@
 /* menue.php*/
 
 .menu-body{
-    position:relative;
     text-align: center;
-    width: 80%;
-    height: 100%;
-    background-color:white ;
-    flex: 0 0 auto;
-    padding-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: -50px;
-    padding-bottom: 50px;
-    min-height: calc(100vh - var(--header-hight) - var(--footer-heigt));
     
 }
 

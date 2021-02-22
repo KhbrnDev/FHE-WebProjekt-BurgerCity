@@ -2,16 +2,7 @@
 
 
 .account-body{
-    margin-top: 20px;
-    padding-top: 20px;
-    margin: auto;
-    max-width: var(--body-width);
-    background-color: white;
-    width: 80%;
-    height: 100%;
 
-    padding-bottom: 40px;
-    margin-bottom: -30px;
 };
 
 .h1-ausloggen h1{
@@ -177,14 +168,7 @@
 }
 
 .logsing-body{
-    max-width: var(--body-width);
-    background-color: white;
-    margin: auto;
-    padding-bottom: 50px;
-    margin-bottom: -50px;
-    min-height: calc(100vh - var(--footer-height) - var(--header-height));
-    width: 80%;
-    max-width: var(--body-width) ;
+
 }
 
 .logsing-body input{

@@ -96,15 +96,16 @@ else
         <!-- Additional div added for Sticky Footer -->
         <div class="push-content-under-nav"></div>
     
-        <!-- <div class="content-wrapper"> -->
-            <!-- TODO hier Section hinzufügen um -->
-            <!-- um einheitlich für alle Seiten die breite und höhe zu bestimmen -->
+        
+        <!-- Section to have same Page Structure on all views -->
+        <section class="page-layout">
     <?php
         // this method will render the view of the called action
         // for this the the file in the views directory will be included
         $controller->render();
     ?>
-        <!-- </div> -->
+    
+        </section>
         <div class="push-sticky-footer"></div>
 
     <?php
