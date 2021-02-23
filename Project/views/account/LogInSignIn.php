@@ -89,3 +89,4 @@
     </div>
 </div>
 <script src="<?=JAVASCRIPTPATH."signin.js"?>"></script>
+<script src="<?=JAVASCRIPTPATH."login.js"?>"></script>
