@@ -13,7 +13,7 @@ class ErrorsController extends \dwp\core\Controller
         {
             switch($_GET['error'])
             {
-                //TODO adjust error messages
+                
                 case 'nocontroller':
                     $errorMessage = 'Der Gewählte Controller konnte nicht gefunden werden.';
                     break;

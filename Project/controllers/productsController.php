@@ -16,10 +16,6 @@ class ProductsController extends \dwp\core\Controller
 		$preloadHeader = [];
 		
 
-		
-
-		// ADD TO CART
-		// TODO ? eine Anzahl über Einkaufswagen in den Header machen, die dynmisch erhöht wird?
 		if(isset($_POST['addToCart']))
 		{
 			$productsId = isset($_POST['productsId']) ? $_POST['productsId'] : null;
@@ -28,7 +24,6 @@ class ProductsController extends \dwp\core\Controller
 		
 		// FILTERS
 		// we always filter
-
 		$preloadProducts = \dwp\model\Products::find();
 		if(isset($_GET['resetAllFilter']))
 		{

@@ -6,10 +6,6 @@ class footercontentController extends \dwp\core\Controller
 {
     public function actionAdministration()
 	{
-        //TODO check if admin is logged in and has right to access administration
-        // else do... nothing? Error page?
-
-
         // INITIALIZE VIEW->PARAMS 
         $errors = [];
         $preloadAdmins = [];

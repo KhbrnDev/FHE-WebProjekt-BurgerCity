@@ -208,7 +208,6 @@
                             <p class = "text"><?=htmlspecialchars($order['adress']->zipCode) . " " . htmlspecialchars($order['adress']->city)?></p>
                         </div>
                         <div class="account-order-subbox">
-                            <!-- TODO: bessere ausrichtung (CSS) TODO nicht Tabelle, sondern Flexbox -->
                             <h4>Bestellte Produkte</h4>
                             <?php
                             foreach ($order['orderItems'] as $product) 

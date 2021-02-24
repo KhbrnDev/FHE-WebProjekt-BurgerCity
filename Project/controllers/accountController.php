@@ -156,7 +156,7 @@ class AccountController extends \dwp\core\Controller
             $zipCode = ($_POST['zipCode']) ? $_POST['zipCode']: null;
             $city = ($_POST['city']) ? $_POST['city']: null;
 
-            // VALIDATE DATA
+            // VALIDATE DATA -> currently not working, does nothing
             \dwp\model\Adress::validateStreet($street, $errors);
             \dwp\model\Adress::validateNumber($number, $errors);
             \dwp\model\Adress::validateZipCode($zipCode, $errors);
@@ -386,9 +386,6 @@ class AccountController extends \dwp\core\Controller
             foreach ($userAdressHelper as$value) 
             {
                 $sqlWhere .= ' adressId = ' .$value->Adress_adressId . ' OR';
-                // TODO could be displayed in order
-                // \dwp\model\Adress::find ---  "ORDER BY city desc, street desc, number desc"
-                //$preloadAdress [] = \dwp\model\Adress::findOne("adressId = " . $value->Adress_adressId);
             }
             $lastSpacePosition = strrpos($sqlWhere, ' ');
             $sqlWhere = substr($sqlWhere, 0, $lastSpacePosition);

@@ -9,6 +9,7 @@ class Account extends \dwp\core\Model
 {
     const TABLENAME = 'Account';
 
+    // TODO validation begrenzungen in den models fehlen
     protected $schema = [
         'accountId' => [ 'type' => M::TYPE_INTEGER ],
         'createdAt' => [ 'type' => M::TYPE_STRING],

@@ -22,22 +22,22 @@ class Adress extends \dwp\core\Model
 
     public static function validateStreet($street, &$errors = [])
     {
-
+        // to be added later
     }
 
     public static function validateNumber($number, &$errors = [])
     {
-
+        // to be added later
     }
 
     public static function validateZipCode($zipCode, &$errors = [])
     {
-
+        // to be added later
     }
 
     public static function validateCity($city, &$errors = [])
     {
-
+        // to be added later
     }
 
     public static function findAdress($adressData)

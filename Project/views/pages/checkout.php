@@ -54,8 +54,7 @@
             </div>
             <h3>Zahlungsmethode wählen</h3>
             <div class="choose-payment">
-                    <!-- TODO:  make radio buttons for adresse required -->
-                <input class="card-input" type="radio" name="payment" id="card" value="card" required readonly>
+                <input class="card-input" type="radio" name="payment" id="card" value="card" required>
                 <label class="card-label" for="card">EC-Karte</label>
                 <div class="payment-card">
                     <label class="card-name-label" for="accountHolder">Kontoinhaber</label>

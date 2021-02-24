@@ -100,7 +100,6 @@ abstract class Model
 
     public function __set($key, $value)
     {
-        //TODO catch exception directly in class.?
         if(isset($this->schema[$key]))
         {
             $this->values[$key] = $value;
@@ -114,8 +113,6 @@ abstract class Model
 
     public function __get($key)
     {
-        // TODO: Check is the key in the schema?
-        //       If so return the value in values if not exists return default value from schema or null
         if(isset($this->schema[$key]))
         {
             return $this->values[$key];
@@ -128,7 +125,6 @@ abstract class Model
 
     public function __destruct()
     {
-        // TODO: Free memory here
         try
         {
             foreach($this->schema as $key => $value)
@@ -165,21 +161,7 @@ abstract class Model
 
     public function insert(&$errors = [])
     {
-        // // TODO: Implement insert
          $db = $GLOBALS['db'];
-        // $tableName = self::tablename();
-        // $sqlStr = "INSERT INTO `${tableName}` (";
-        // $valuesStr = "(";
-        // foreach($this->schema as $key => $value)
-        // {
-        //     $sqlStr.=$key.',';
-        //     $valuesStr.=':'.$key.',';
-        // }
-
-        // $sqlStr = rtrim($sqlStr, ',');
-        // $valuesStr = rtrim($valuesStr, ',');
-
-        // $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
 
         $sqlStr = 'INSERT INTO ' . self::tablename() . ' (';
             $valueString = ' VALUES (';
