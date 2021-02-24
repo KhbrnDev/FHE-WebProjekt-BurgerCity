@@ -56,6 +56,106 @@
             <li>3. Oder auch: weniger ist mehr.</li> 
         </p> 
 
+        <h2>Seitenlayout</h2>
+        <p>Wir haben uns für einen relativ schlichten Seitenaufbau entschieden, der in der mobilen ähnlich wie in der Desktopansicht aussieht.</p>
+        <img src="img/Wireframe_Desktop.PNG" alt="Wireframe für die Desktop-Ansicht" width="500" height=auto>
+        <p>In der Desktop-Ansicht verfügt die Seite über zwei Navigationsleisten, den Header und den Footer. Diese sind auf jeder Unterseite in gleicher Form eingeblendet und dienen der Navigation über die Seite.
+        Die für die Kund*innen relevanten Navigationselemente "Speisekarte", "Account" und "Warenkorb" sind hierbei direkt sichtbar im Header platziert, über das Logo kommt man, wie auch bei vielen anderen Websiten üblich, zurück auf die Startseite.
+        Über den Footer erreicht man die für das Kerngeschäft, das Burgerbestellen, weniger relevanten Unterseiten: das Kontaktformular, das Impressum sowie die Administrationsseite für Admins der Seite.
+        Zwischen Header und Footer wird der Kontent geladen, der von Seite zu Seite variiert, einheitlich ist dieser jedoch auf eine Maximalbreite beschränkt, wordurch bei breiteren Bildschirmen der Inhalt nicht über die komplette Breite gestreckt wird, sondern rechts und links ein Hintergrundbild eingeblendet wird. </p>
+        <img src="img/Wireframe_Mobil.PNG" alt="Beispiel 3" width="500" height=auto>
+        <p>In der mobilen Ansicht sind aus Platzgründen die Navigationselemente des Headers nicht dauerhaft eingeblendet, sondern über ein Dropdown-Menü erreichbar. Berührt man dieses, so legen sich die Elemente, die auch in der Desktop-Ansicht über den Header erreichbar sind, untereinander über den Bildschirm.
+        Des weiteren existiert in der mobilen Ansicht kein Hindergrundsbild, der Content nutzt in jedem Fall die komplette Breite des Bildschirms.
+        Im Footer ist der Link zur Administrationsseite ausgeblendet, da diese nur die Desktop-Ansicht unterstützt. 
+        </p>
 
+        <h2>Navigationsstruktur</h2>
+        <img src="img/Sitemap.PNG" alt="Beispiel 3" width="500" height=auto>
+        <p>Wie bereits im Seitenlayout angedeutet, besteht unsere Seite neben der Startseite aus sechs Bereichen: Der Speisekarte, der Accountverwaltung, dem Warenkorb, der Administration, dem Impressum und der Kontaktseite.
+            Der Speisekarten-Button im Header verfügt neben der Verlinkung zur Übersichtsseite mit je drei Produkten aus jeder Kategorie auch über ein Drop-Down-Menü, aus dem man die Kategorien direkt auswählen kann (Burger, Snacks, Getränke, Desserts) und so direkt auf die Seite kommt, auf der alle Produkte der Kategorie angezeigt werden.
+            Über die Kategorieseiten kommt man per Klick auf die einzelnen Produkte zudem auf die jeweilige Produktseite, wo Details zu dem Produkt in Form einer Zutatenliste angezeigt werden.
+        </p>
+        <p>Navigiert man zu Account, wird man, sofern man noch nicht angemeldet ist, auf die Seite zum Login und SignIn weitergeleitet. Ist man bereits angemeldet, kommt man direkt zur Accountsverwaltungsseite.</p>
+        <p>Mit Klick auf Warenkorb bekommt man in jedem Fall zunächst den Inhalt des Warenkorbs angezeigt. Geht man von dort aus zur Kasse, und ist noch nicht eingeloggt, wird man zur Seite zum Login und Signin weitergeleitet, wo man sich einloggen kann, und kommt dann erst auf die Seite, auf der man Lieferadresse und Zahlungsmethode wählen kann. Ist man bereits angemeldet, kommt man direkt auf diese Seite. Mit klick auf weiter werden die Bestelldetails zur Überprüfung nochmal angezeigt, klickt man auf "Jetzt bestellen" wird die Bestellung abgesendet, in die Datenbank geschrieben, und eine Bestellbestätigung wird angezeigt.</p>
+        <p>Klickt man auf "Administration" im Footer und ist nicht eingeloggt, kommt man auch hier auf die Login/Singin-Seite. Ist man eingeloggt, jedoch nicht Admin der Seite, kommt man auf die Seite zur Accountverwaltung. Nur wenn man auch wirklich Admin der Seite ist, kommt man in den Administrationsbereich der Seite.</p>
+        <p>Unter Kontakt bekommt man ein Kontaktformular angezeigt, wenn man dieses ausfüllt bekommt man eine Sendebestätigung angezeigt.</p>
+
+        <h2>Design</h2>
+        <p>Bei der Auswahl der Farben haben wir uns an dem orientiert, was wir aus der Analyse der Beispielseiten gelernt haben, und uns auf wenige Farben beschränkt. So arbeiten wir mit einigen wenigen Grautönen und als Akzentfarben genau ein Blauton und ein Orange. Mit dem Header und Footer in dunklem grau und zudem im Desktop-Design einem dunklen Hintergrund tritt dieser Rahmen eher in den Hintergrund und lenkt die Aufmerksamkeit auf die Inhalte, die eher in einem helleren Ton gehalten sind.</p>
+        <p> Wir haben uns für die Schrift Roboto entschieden, da sie eine Browserschriftart ist, die mit ihrem schlichten, modernen Erscheinungsbild das Image unterstützt, das wir haben wollen. </p>
+
+        <h2>Funktionalitäten der Seiten</h2>
+
+        HIER KOMMEN BESCHRIFTETE SCREENSHOTS MIT ERKLÄRUNGEN HIN!
+
+        <h2>Datenbank</h2>
+        <p>Das Entity-Relationship-Modell unserer Datenbank ist hier abgebildet:</p>
+        <img src="img/Datenbank_ER.PNG" alt="ER-Modell Datenbank" width="500" height=auto>
+        <p>Daraus ergibt sich das relationale Datenbankmodell, welches auch so im Projekt umgesetzt wurde:</p>
+        <img src="img/Datenbank_relational.png" alt="Relationales Datenbankmodell" width="500" height=auto>
+
+        <p>In der Ingredients-Tabelle sind die Zutaten gespeichert, die für die verschiedenen Produkte verwendet werden, die in der Products Tabelle gespeichert sind. Zum Auflösen der n-zu-n-Beziehung wurde die Tabelle ProductHelper dazwischen geschaltet.</p>
+        <p>In der Orders Tabelle werden die Bestellungen gespeichert. Diese bestehen aus einem oder mehreren Produkten. Da ein Produkt natürlich auch Teil mehrerer Bestellungen sein kann, wurde auch hier eine Tabelle eingeführt, um diese n-zu-n Beziehung aufzulösen.</p>
+        <p>In der Tabelle Account werden alle Daten zu einem Account gespeichert, in der Tabelle Adressen einzelne Adressen. Da ein Account mehrere Adressen haben kann, eine Adresse aber auch zu mehreren Accounts gehören kann, haben wir hier ebenfalls eine Helfer-Tabelle zum Auflösen dieser Beziehung eingeführt.
+        </p>
+
+        <h2>Rollenmodell</h2>
+        <p>Auf unserer Website kann in drei Berechtigungsstufen/Rollen genutzt werden: Als unangemeldete Person kann man sich nur Startseite und Speisekarte sowie Impressum und Kontaktformular und den Inhalt des Warenkorbs anzeigen lassen. Als angemeldeter Standard-Account lassen sich darüber hinaus Bestellungen aufgeben und Account-Daten anzeigen und bearbeiten. Hat der Account darüber hinaus eine Admin-Berechtigung, kann er auf die Administrationsseite zugreifen, wo beispielsweise Accounts zu Admins ernannt werden und Produkte favorisiert werden können. </p>
+
+        <h2>Flussbild für Dateneingabe</h2>
+        <p>Für die Aufgabe einer Dateneingabe über ein mehrseitiges Formular mit Validierung haben wir uns für den Bestellvorgang entschieden. Dort werden zunächst die Artikel im Warenkorb angezeigt und die Möglichkeit gegeben, Artikel zu entfernen, die Anzahl eines Artikels zu ändern und Lieferinformationen hinzuzufügen. Auf der darauf folgenden Seite müssen Lieferadresse sowie Zahlungsart gewählt werden. Auf einer dritten Seite werden alle Informationen nochmal zum prüfen angezeigt, mit Klick auf "jetzt bestellen" wird die Bestellung abgesendet, das heißt in die Datenbank geschrieben, und auf einer letzten Seite erscheint eine Bestätigung.
+        </p>
+        <img src="img/Flussdiagramm.jpg" alt="Flussdiagramm Dateneingabe" width="1000" height=auto>
+
+        <h2>Bewältigte Herausforderungen</h2>
+        <p>Im Laufe der Projektarbeit standen wir vor einigen Herausforderungen, die es zu meistern galt.</p>
+        <p>Vor allem mit CSS hatten wir alle zu kämpfen, da es sich uns nicht immer direkt erschloss, warum das Ergebnis so aussah, wie es aussah. Verstärkt wurde dieses Problem dadurch, dass alle Gruppenmitglieder das Problem hatten, dass im Browser trotz geöffneten Developer-Menüs Änderungen nicht immer direkt übernommen wurden. Lösen konnten wir diese Herausforderung nur durch viel Geduld, häufige System-Reboots und Abgabe einer Aufgabe an das nächste Gruppenmitglied, das mit frischem Geist an die Aufgabe herangehen konnte.</p>
+        <p>Eine weitere Herausforderung stellte die zeitliche Einteilung dar. Da wir das für die Projektarbeit erforderliche Wissen erst im Laufe des Semesters vermittelt bekamen, konnten wir erst recht spät tatsächlich in die Entwicklungsarbeit starten, zu einem Zeitpunkt, an dem Prüfungen und andere Projektabgaben ebenfalls vor der Tür standen. Hinzu kam, dass wir den Umfang des Projektes etwas unterschätzt hatten. Allein vier, für uns alle komplett neue, Sprachen zu erlernen, nahm einiges an Zeit in Anspruch. Auch die Tatsache, dass Visual Studio Code nicht, wie beispielsweise von IntelliJ gewohnt, auf potentielle Tippfehler hinweist, führte zu unnötig langen Fehlersuchen.</p>
+        <p>Alles in Allem konnten wir diese Herausforderungen jedoch alle gemeinsam gut lösen, indem zum Beispiel auch mal vier Augen über ein Problem schauen konnten. </p>
+
+        <h2>Hinweise und Besonderheiten für die Bewertung</h2>
+        <h3>Bekannte Fehler und zukünftige Verbesserungsmöglichkeiten</h3>
+        <p>Am Ende des Projektes wurde die Zeit doch etwas knapp, weshalb wir dem Projekt nicht den kompletten Feinschliff verpassen konnten.</p>
+        <p>Geht man von der Account Seite bei einer Bestellung auf "erneut bestellen" und dann auf zurück, so fehlen die bereits mit JavaScript geladenen Bestellungen. Dieses Problem fiel uns erst sehr spät im Entwicklungsprozess auf, weshalb wir es leider nicht mehr lösen konnten.</p>
+        <p>Ursprünglich hatten wir angedacht, und auch in der Datenbank so implementiert, dass Produkte als Favoriten markiert werden können, um diese dann auf der Startseite und auf der Speisekarte-Hauptseite anzeigen zu können. Hier sind wir in der Implementierung jedoch auf die jeweils ersten drei Produkte in der Datenbank ausgewichen.</p>
+        <p>Auf den einzelnen Produktseiten werden die Zutaten der Produkte angezeigt. Da in der Datenbank bisher jedoch nur Zutaten für die Burger hinterlegt sind, werden bei den Produkten anderer Kategorien momentan keine Zutaten ausgegeben.</p>
+        <p>Weitere Verbesserungsmöglichkeiten für eine Weiterentwicklung der Website wären:
+            <li>Die Verwendung von Skip-Tags zur Verbesserung der Barrierefreiheit.</li>
+            <li>Das Nutzen von mehr Transitions, um das Nutzen der Seite ansprechender zu gestalten.</li>
+            <li>Die Administration könnte um Möglichkeiten wie dem Hinzufügen von Produkten und Zutaten erweitert werden.</li>
+            <li>Es könnte die Möglichkeit gegeben werden, Produkte zu sortieren, beispielsweise aufsteigend nach dem Preis.</li>
+            <li>Generell könnten wir mehr Code auslagern und mehrfach verwenden.</li>
+        </p>
+        <h3>Besondere Features</h3>
+        <p>Vieles am Projekt ist uns auch sehr gut gelungen, weshalb wir die Besonderheiten hier nochmal hervorheben möchten:
+            <li>Wir verwenden keine Lore-Ipsums. Über die komplette Seite haben wir eigene kreative Texte geschrieben.</li>
+            <li>Wir bieten die Möglichkeit, mehrere Adressen pro Account zu speichern, um beispielsweise auch die Lieferung zur Hochschule oder zu Freund*innen zu ermöglichen.</li>
+            <li>Unsere Produkte sind nach Zutaten, Kategorie, Preis und Typ filterbar. Egal auf welcher Kategorie-Seite man sich befindet (beispielsweise Burger) kann man auch nach jeder anderen Kategorie filtern und auch mehrere Kategorien anzeigen lassen (beispielsweise Getränke und Snacks). Unser Filter bietet also absolute Flexibilität.</li>
+            <li>Unser Registrierungsformular wird mit JavaScript validiert.</li>
+            <li>Im Account können Bestellungen mit Hilfe von JavaScript dynamisch nachgeladen werden.</li>
+            <li>Wir haben ein klares Farbschema: im Produktbereich arbeiten wir mit blauen Akzenten, im Warenkorb-Bereich mit organgenen Akzenten. Dies schafft Übersichtlichkeit.</li>
+            <li>Im CSS Code haben wir auf möglichst viele Variablen zurückgegriffen, beispielsweise für die Farben.</li>
+        </p>
+
+        <h2>Arbeitsteilung und Kommunikation im Team</h2>
+        <p>Die Kommunikation im Team lief gut und kontinuierlich, wir hatten mindestens ein Meeting pro Woche, in dem wir die anstehenden Aufgaben unter uns aufteilten und uns bei Problemen unterstützten. Darüber hinaus standen wir im dauerhaften Kontakt über einen Discord-Gruppenchat. Die grobe Einteilung der Arbeitsbereiche sei im folgenden nach Gruppenmitgliedern aufgelistet. Hierbei ist zu erwähnen, dass wir zusammen mit einer Action in einem Controller auch immer gleich die entsprechende .php Datei und die zugehörige .css Datei mit entwickelten.</p>
+        <p>Martin Kühlborn:
+            <li>Federführend JavaScript</li>
+            <li>AccountController komplett</li>
+            <li>Action Administration im FooterContentController</li>
+            <li>Actions Cart, Checkout, CheckoutReview im PagesController </li>
+            <li>Gemeinsam mit Daniel Michel die Action Category im productsController</li>
+        </p>
+        <p>Felix Polte:
+            <li>Die komplette Datenbank</li>
+            <li>Actions Start und CheckoutSuccess im PagesController</li>
+        </p>
+        <p>Daniel Michel:
+            <li>ErrorsController komplett</li>
+            <li>Action Contact im FooterContentController</li>
+            <li>Actions Menue und Product im productsController</li>
+            <li>Gemeinsam mit Martin Kühlborn die Action Category im productsController</li>
+            <li>Dokumentation</li>
+        </p>
     </body>
 </html>
