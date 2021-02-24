@@ -6,8 +6,8 @@
                         </div>
                         <?php elseif(isset($errors) && count($errors) > 0): ?>
 
-                        <div class="logsing-error-message">
-                            <h4><?=$errors['title']?></h4>
+                        <div id="errors" class="logsing-error-message">
+                            <h4 id="errorTitle"><?=$errors['title']?></h4>
                             <ul>
                                 <?php
                                     for($Index = 0; $Index < count($errors)-1; $Index++)
@@ -21,6 +21,22 @@
                         </div>
                         <?php endif; ?>
 
+    <!-- Needed for JS -->
+    <div style="display:none;" class="logsing-success-message">
+        <h4 id="logsing-success-message-head">
+        
+        </h4>
+    </div>
+    <div style="display:none;" class="logsing-error-message">
+        <h4 id="logsing-error-message-head">
+            
+        </h4>
+        <ul>
+        
+        </ul>
+    </div>    
+
+    <!-- End Needed for JS -->
     <div class="logsign-boxes">
         <div class="login-box">
             <h2>LogIn</h2>
@@ -43,7 +59,7 @@
 
         <div class="signin-box">
             <h2>SignIn</h2>
-            <form method="POST">
+            <form method="POST" id="signinForm">
                 
                 <p style="display:none" id="wrongFirstName"></p>
                 <label for="firstname">Vorname</label>
@@ -90,3 +106,4 @@
 </div>
 <script src="<?=JAVASCRIPTPATH."signin.js"?>"></script>
 <script src="<?=JAVASCRIPTPATH."login.js"?>"></script>
+<script src="<?=JAVASCRIPTPATH."register.js"?>"></script>

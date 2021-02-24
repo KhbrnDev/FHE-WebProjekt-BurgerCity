@@ -451,21 +451,23 @@ class AccountController extends \dwp\core\Controller
 
         if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
         {
-            if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] !== true)
-            {
+            // if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] !== true)
+            // {
                 header("Location: index.php?c=account&a=account");
-            }
-            elseif(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true)
-            {
-                header("Location: index.php?c=footercontent&a=administration");
-            }
+            // }
+            // elseif(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true)
+            // {
+            //     header("Location: index.php?c=footercontent&a=administration");
+            // }
         }
         else
         {
-            
  
-            if(isset($_POST['signin']))
+            if(isset($_POST['signin']) || (isset($_GET['ajax']) && $_GET['ajax'] == 1))
             {
+
+                
+
                 // GET ALL INPUT
                 $firstname = ($_POST['firstname']) ? $_POST['firstname']: null;
                 $lastname = ($_POST['lastname']) ? $_POST['lastname']: null;
@@ -543,6 +545,30 @@ class AccountController extends \dwp\core\Controller
 
                 }
             
+                if(isset($_GET['ajax']))
+                {  
+                    if(isset($errors['title']))
+                    {
+                        echo json_encode(
+                            [
+                                'errors' => $errors,
+                                'preload'=> $preload
+                            ], 
+                            JSON_UNESCAPED_UNICODE 
+                        );
+                    }
+                    else
+                    {
+                        echo json_encode(
+                            [
+                                'success' => $success,
+                                'preload' => $preload
+                            ], 
+                            JSON_UNESCAPED_UNICODE
+                        );
+                    }
+                    exit(0);
+                }
 
             }
             elseif (isset($_POST['login'])) 
