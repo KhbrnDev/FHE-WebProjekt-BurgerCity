@@ -401,8 +401,20 @@ class AccountController extends \dwp\core\Controller
 
 
         // Preload User->Orders
-        
-        $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC");
+        $preloadOffset = 3;
+        if(isset($_POST['loadMore']))
+        {
+            $offset = isset($_POST['offset']) ? $_POST['offset'] : null;
+            if($offset !== null)
+            {
+                $preloadOffset = $preloadOffset + $offset;
+                $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC LIMIT " . $preloadOffset);
+            }
+        }
+        else
+        {
+            $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC LIMIT " . $preloadOffset);
+        }
         
         foreach ($userOrders as $order) 
         {   
@@ -439,6 +451,7 @@ class AccountController extends \dwp\core\Controller
         $this->setParam('preloadUser', $preloadUser);
         $this->setParam('preloadAdress', $preloadAdress);
         $this->setParam('preloadOrders', $preloadOrders);
+        $this->setParam('preloadOffset', $preloadOffset);
         $this->setParam('success', $success);
 
     }
