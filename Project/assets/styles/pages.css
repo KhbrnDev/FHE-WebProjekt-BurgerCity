@@ -12,20 +12,28 @@
     color: rgb(255, 255, 255);
 }
 
+
+
+
+@media screen and (min-width: 930px){
+
 .container {
+    color: white;
     position: relative;
     text-align: center;
-    color: white;}
+    }
 
 
 .centered {
+
+   height: fit-content; 
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
    background-color: rgb(36, 36, 36);
       }
-
+    }
 
 
 .startpicture{
@@ -39,13 +47,25 @@ background-color: rgb(36, 36, 36);
     
 }
 
+@media screen and (max-width: 929px){
+     
+    .tableopenings{
+        width: 100%;
+
+    }
+
+
+
+
+}
+
 
 
 
 .tableopenings{
     
     
-    
+    color: white;
     font-size: 18pt;
     border: 10px solid white;
     border-radius: 5%;
@@ -54,6 +74,7 @@ background-color: rgb(36, 36, 36);
     padding: 30pt;
     justify-content: center;
     background-color: rgb(36, 36, 36);
+    
 }
 
 
