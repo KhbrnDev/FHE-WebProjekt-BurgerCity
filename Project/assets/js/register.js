@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         if(jsonResponse !== null)
                         {
-                            console.log(jsonResponse);
                             if(jsonResponse['success'] == undefined && jsonResponse['errors'] !== undefined) // error
                             {
                                 var errorsDiv = document.getElementById('js-errors');
