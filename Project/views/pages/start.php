@@ -5,7 +5,7 @@
 
     
     <div class="burgercitycontainer">
-        <img class="startpicture" src="<?=IMAGESPATH.'title_picture.png'?>", alt="title_picture.png">
+        <img class="startpicture" src="<?=IMAGESPATH.'title_picture.png'?>", alt="Dunkler hintergrung mit gewürzen und anderen kochuntensilien , die wie aufkleber an den Seiten wirken">
         <div class="burgercitycentered">
             <h1 class="burgertitle">Burger City</h1>        
             <h3>Dein Burgerrestaurant</h3>
@@ -31,7 +31,7 @@
     </p>
         
 
-<img class="startpicture" src="<?=IMAGESPATH.'burger_start.png'?>" alt="burgerstart.png">
+<img class="startpicture" src="<?=IMAGESPATH.'burger_start.png'?>" alt="Burger mit gegrillten Paprika, Spief in der mitte und Bacon an der Seite">
  </div>
 
 
@@ -71,7 +71,7 @@
     	<div>
     <h2>Hier sind wir für dich da</h2>
             <div class="container">
-            <img class="startpicture" src="<?=IMAGESPATH.'restaurant_start.png'?>" alt="burgershop.png">
+            <img class="startpicture" src="<?=IMAGESPATH.'restaurant_start.png'?>" alt="Burgerladen mit blauen Stühlen und altem Ambiente">
     <div class="centered">
         <br>     
     <table class="tableopenings">

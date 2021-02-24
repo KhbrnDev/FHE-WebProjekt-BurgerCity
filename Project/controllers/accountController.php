@@ -700,13 +700,13 @@ class AccountController extends \dwp\core\Controller
                                     unset($_SESSION['nextPage']);
                                     header("Location: index.php?" . ($_SESSION['isAdmin'] == 1 ?  "c=footercontent&a=administration" : "c=account&a=account" ));
                                     break;
-                                case 'index.php?c=pages&a=checkout':
+                                case 'index.php?c=pages&a=checkout': 
                                     unset($_SESSION['nextPage']);
                                     header("Location: index.php?c=pages&a=checkout");
                                     break;
                                 default:
                                     if(isset($_SESSION['nextPage'])) : ($_SESSION['nextPage']); endif;
-                                    header("Location: index.php?c=pages&a=cart");
+                                    header("Location: index.php?c=account&a=account");
                                     break;
                                 endswitch;
                                     
