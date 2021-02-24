@@ -36,17 +36,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             if(jsonResponse['success'] == undefined && jsonResponse['errors'] !== undefined) // error
                             {
-                                var errorsDiv = document.getElementById('errors');
-                                var errorTitle = document.getElementById('errorTitle');
-                                errorTitle.innerHTML = "test";       
-                                for (var index = 0; index < Object.keys(jsonResponse['erros']).length - 1; index++) 
+                                var errorsDiv = document.getElementById('js-errors');
+                                var errorTitle = document.getElementById('js-errors-head');
+                                var errorsUL = document.getElementById('js-errors-ul');
+                                
+                                errorsDiv.style.display = "block";
+                                errorTitle.innerHTML = jsonResponse['errors']['title'];       
+
+                                for (var index = 0; index < Object.keys(jsonResponse['errors']).length - 1; index++) 
                                 {
+                                    console.log(jsonResponse['errors'][0]);
+                                    errorsUL.innerHTML = "<li>" + jsonResponse['errors'][index] + "</li>"
                                 }
-                                console.log(Object.keys(jsonResponse['preload']).length);
-                                console.log(jsonResponse['preload']);
+                                
                             }
                             else // success
                             {
+                                var successDiv = document.getElementById('js-success');
+                                var successTitle = document.getElementById('js-success-head');
+                                var loginEmail = document.getElementById('login-email');
+
+                                successDiv.style.display = "block";
+                                successTitle.innerHTML = jsonResponse['success']['message'];
+                                loginEmail.value = jsonResponse['preload']['logEmail'];
+                                
+                                // deleting input values from singin form
+                                var firstName = document.getElementById('firstname');
+                                var lastName = document.getElementById('lastname');
+                                var birthday = document.getElementById('birthday');
+                                var phonenumber = document.getElementById('phonenumber');
+                                var email = document.getElementById('email');
+                                var password = document.getElementById('password');
+
+                                firstName.value   = "";
+                                lastName.value    = "";
+                                birthday.value    = "";
+                                phonenumber.value = "";
+                                email.value       = "";
+                                password.value    = "";
+                                
 
                             }
                         }

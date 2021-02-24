@@ -551,8 +551,7 @@ class AccountController extends \dwp\core\Controller
                     {
                         echo json_encode(
                             [
-                                'errors' => $errors,
-                                'preload'=> $preload
+                                'errors' => $errors
                             ], 
                             JSON_UNESCAPED_UNICODE 
                         );

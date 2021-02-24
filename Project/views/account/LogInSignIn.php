@@ -22,17 +22,17 @@
                         <?php endif; ?>
 
     <!-- Needed for JS -->
-    <div style="display:none;" class="logsing-success-message">
-        <h4 id="logsing-success-message-head">
+    <div style="display:none;" class="logsing-success-message" id="js-success">
+        <h4 id="js-success-head">
         
         </h4>
     </div>
-    <div style="display:none;" class="logsing-error-message">
-        <h4 id="logsing-error-message-head">
+    <div style="display:none;" class="logsing-error-message" id="js-errors">
+        <h4 id="js-errors-head">
             
         </h4>
-        <ul>
-        
+        <ul id="js-errors-ul">
+            
         </ul>
     </div>    
 
