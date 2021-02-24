@@ -1,9 +1,17 @@
 <div class="start-content">
+
+
+
+
     
-    <h1>Burger City</h1>
-    <br>
-    <br>
-    <h3>Dein Burgerrestaurant</h3>
+    <div class="burgercitycontainer">
+        <img class="startpicture" src="<?=IMAGESPATH.'title_picture.png'?>", alt="title_picture.png">
+        <div class="burgercitycentered">
+            <h1 class="burgertitle">Burger City</h1>        
+            <h3>Dein Burgerrestaurant</h3>
+         </div>
+    </div>
+    <br><br>
     
     <p>Bei BurgerCity servieren wir dir Burger wie sie sein sollen: <br>
     frisch, saftig und cheesy mit handgemachten Zutaten in einem fluffigen Bun,<br>

@@ -6,86 +6,119 @@
     text-align: center; 
 }
 
-.burgertext{
-
-    background-color: rgb(36, 36, 36);
-    color: rgb(255, 255, 255);
-}
-
-
-
-
-@media screen and (min-width: 930px){
-
-.container {
-    color: white;
-    position: relative;
-    text-align: center;
+@media screen and (min-width: 500px){
+    .burgertitle{
+        font-size: 50px;
     }
-
-
-.centered {
-
-   height: fit-content; 
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   background-color: rgb(36, 36, 36);
-      }
     }
-
-
-.startpicture{
-    width: 100%;
-height: auto;
-object-fit: cover;
-max-width: 100%;
-background-color: rgb(36, 36, 36);
-
-
     
-}
-
-@media screen and (max-width: 929px){
-     
-    .tableopenings{
+    .start-content{
+        text-align: center; 
+    }
+    
+    
+    .burgercitycontainer{
+        position: relative;
+        text-align: center;
+        margin-top: -30px;
+    
+    }
+    
+    .burgercitycentered{
+        color: white;
+        height: fit-content; 
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       /*background-color: rgb(36, 36, 36);*/
+    
+    
+    }
+    
+    
+    
+    
+    .burgertext{
+    
+        background-color: rgb(36, 36, 36);
+        color: rgb(255, 255, 255);
+    }
+    
+    
+    
+    
+    @media screen and (min-width: 930px){
+    
+    .container {
+        color: white;
+        position: relative;
+        text-align: center;
+        }
+    
+    
+    .centered {
+    
+       height: fit-content; 
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       background-color: rgb(36, 36, 36);
+          }
+        }
+    
+    
+    .startpicture{
         width: 100%;
-
-    }
-
-
-
-
-}
-
-
-
-
-.tableopenings{
-    
-    
-    color: white;
-    font-size: 18px;
-    border: 10px solid white;
-    border-radius: 5%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 30pt;
-    justify-content: center;
+    height: auto;
+    object-fit: cover;
+    max-width: 100%;
     background-color: rgb(36, 36, 36);
     
-}
-
-
-
-.info{
-    color: white;
-    background-color: rgb(36, 36, 36);;
-    text-align: center;
-    width: 100%;
-
-}
+    
+        
+    }
+    
+    @media screen and (max-width: 929px){
+         
+        .tableopenings{
+            width: 100%;
+    
+        }
+    
+    
+    
+    
+    }
+    
+    
+    
+    
+    .tableopenings{
+        
+        
+        color: white;
+        font-size: 18px;
+        border: 10px solid white;
+        border-radius: 5%;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 30pt;
+        justify-content: center;
+        background-color: rgb(36, 36, 36);
+        
+    }
+    
+    
+    
+    .info{
+        color: white;
+        background-color: rgb(36, 36, 36);;
+        text-align: center;
+        width: 100%;
+    
+    }
 
 
 /* 
