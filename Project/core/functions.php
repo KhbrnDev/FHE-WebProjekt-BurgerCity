@@ -116,6 +116,7 @@ function addToCart($productsId, &$errors = [])
                     if($_SESSION['cart'][$int]['productsId'] === $productsId)
                     {
                         $_SESSION['cart'][$int]['quantity'] += 1;
+                        $itemExists = true;
                         break;
                     }
                 }

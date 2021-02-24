@@ -140,7 +140,7 @@
                         <td><?=htmlspecialchars($product->description)?></td>
                         <td><?=htmlspecialchars($product->pictureURL)?></td>
                         <td><?=htmlspecialchars($product->altText)?></td>
-                        <td><?=htmlspecialchars($product->price)?></td>
+                        <td><?=htmlspecialchars(getGermanNumber($product->price))?></td>
                         <td>
                             <form method="POST">
                                 

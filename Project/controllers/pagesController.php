@@ -30,6 +30,12 @@ class PagesController extends \dwp\core\Controller
 				$_SESSION['lieferhinweise'] = $lieferhinweise;
 			}
 
+			if(!$this->loggedIn())
+			{
+				$_SESSION['nextPage'] = 'index.php?c=pages&a=cart';
+				header("Location: index.php?c=account&a=LogInSignIn");
+			}
+
 			header("Location: index.php?c=pages&a=checkout");
 		}
 		if(isset($_POST['deleteItem'])) 

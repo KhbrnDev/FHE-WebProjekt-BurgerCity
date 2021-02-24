@@ -26,11 +26,7 @@ class AccountController extends \dwp\core\Controller
             header("Location: index.php?c=account&a=LogInSignIn");
         }
 
-        // TODO: should not be needed with $_SESSION['nextPage']; 
-        // if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true)
-        // {   
-        //     header("Location: index.php?c=footercontent&a=administration");
-        // }
+
         
         // CHANGE ACCOUNT RELATED DATA
         if(isset($_POST['changeAccount'])) // DONE ?

@@ -141,7 +141,7 @@
             <div class="square-lower">
                
                 <div class="square-lower-elemets">
-                            <?=htmlspecialchars($preloadProducts[$index]->price)?>
+                            <?=htmlspecialchars( getGermanNumber($preloadProducts[$index]->price))?>
                 </div>
                 <div class="square-lower-elemets">
                     <form method="POST">

@@ -26,11 +26,12 @@
             <div class="product-preis">
                 <h3>Preis:</h3>
                 <h5>nur</h5>
-                <h2><?=htmlspecialchars($product->price)?></h2>
+                <h2><?=htmlspecialchars( getGermanNumber($product->price))?></h2>
             </div>
-            <form mehtod="POST">
+            
+            <form method="POST">
                 <input style="display:none;" type="text" name="productsId" value="<?=htmlspecialchars($product->productsId)?>">
-                <input class="addToCard-Button" type="submit" value="In den Warenkorb">
+                <button class="addToCard-Button" type="submit" name="addToCart" value="addToCart">In den<br>Einkaufswagen</button>
             </form>
         </div>
         

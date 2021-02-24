@@ -231,17 +231,34 @@ class ProductsController extends \dwp\core\Controller
 
 	public function actionProduct()
 	{
-		if(isset($_POST['addToWarenkorb'])){
-			// TODO funktionierend machen
+		if(isset($_POST['addToCart']))
+		{
+			$productsId = isset($_POST['productsId']) ? $_POST['productsId'] : null;
+
+			if($productsId !== null)
+			{
+				addToCart($productsId);
+				header("Location: index.php?c=pages&a=cart");
+			}
 		}
+
 		$id = $_GET['f'];
 		$product = \dwp\model\Products::findOne("productsId = " . $GLOBALS['db']->quote($id));
+		
+		if($product === null)
+		{
+			header("Location: index.php?c=products&a=menue");
+		}
+
 		$ingredientsIDs = \dwp\model\ProductHelper::find("Products_productsId = " . $GLOBALS['db']->quote($id));
-		$ingredients = array();
-		foreach ($ingredientsIDs as $idValue) {
+		
+		$ingredients = [];
+		foreach ($ingredientsIDs as $idValue) 
+		{
 			$ingredient = \dwp\model\Ingredients::findOne("ingredientsId = " . $GLOBALS['db']->quote($idValue->Ingredients_ingredientsId));
 			$ingredients[]= $ingredient;
 		}
+
 		$this->setParam('product', $product);
 		$this->setParam('ingredients', $ingredients);
 	}

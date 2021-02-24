@@ -25,7 +25,7 @@
 
                         <div class="square-lower">
                             <div class="square-lower-elemets">
-                                <?=htmlspecialchars($products[$index]->price)?>
+                                <?=htmlspecialchars(getGermanNumber($products[$index]->price))?>
                             </div>
                             <div class="square-lower-elemets">
                                 <form method="POST">
