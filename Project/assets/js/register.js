@@ -1,6 +1,5 @@
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
 
     var submit = document.getElementById('signin');
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
         if(window.XMLHttpRequest)
         {
-            submit.value = "!1";
             event.preventDefault();
             event.stopPropagation();
 
@@ -33,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         if(jsonResponse !== null)
                         {
-
+                            console.log(jsonResponse);
                             if(jsonResponse['success'] == undefined && jsonResponse['errors'] !== undefined) // error
                             {
                                 var errorsDiv = document.getElementById('js-errors');
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 for (var index = 0; index < Object.keys(jsonResponse['errors']).length - 1; index++) 
                                 {
                                     console.log(jsonResponse['errors'][0]);
-                                    errorsUL.innerHTML = "<li>" + jsonResponse['errors'][index] + "</li>"
+                                    errorsUL.innerHTML += "<li>" + jsonResponse['errors'][index] + "</li>"
                                 }
                                 
                             }

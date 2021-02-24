@@ -411,6 +411,15 @@ class AccountController extends \dwp\core\Controller
                 $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC LIMIT " . $preloadOffset);
             }
         }
+        elseif(isset($_GET['ajax']) && $_GET['ajax'] == 1) // get from ajax
+        {
+            $offest = isset($_POST['offest']) ? $_POST['offset'] : null;
+
+            if($offset !== null)
+            {
+                $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC LIMIT 3 " . " OFFSET " . $offset);
+            }
+        }
         else
         {
             $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC LIMIT " . $preloadOffset);
@@ -445,6 +454,39 @@ class AccountController extends \dwp\core\Controller
 
         }
         
+        // send to AJAX
+        if(isset($_GET['ajax']) && $_GET['ajax'] == 1)
+        {
+            
+            echo json_encode(["test","1234"],JSON_UNESCAPED_UNICODE);
+            //http_response_code(404);
+
+            exit(0);
+
+
+
+            // $preloadOffset = $preloadOffset + $offset;
+            // if(count($preloadOrders) !== 0)
+            // {
+            //     echo json_encode(
+            //         [
+            //             'preloadOrders' => $preloadOrders,
+            //             'offset'        => $preloadOffset
+            //         ], 
+            //         JSON_UNESCAPED_UNICODE 
+            //     );
+            // }
+            // else
+            // {
+            //     http_response_code(404);
+                
+            // }
+            //exit(0);
+        
+
+
+            
+        }
 
         // PUSH TO VIEW
         $this->setParam('errors', $errors);
@@ -560,25 +602,43 @@ class AccountController extends \dwp\core\Controller
             
                 if(isset($_GET['ajax']))
                 {  
-                    if(isset($errors['title']))
-                    {
-                        echo json_encode(
-                            [
-                                'errors' => $errors
-                            ], 
-                            JSON_UNESCAPED_UNICODE 
+                    echo json_encode(
+                        [
+                            "test", "12345"
+                        ]
                         );
-                    }
-                    else
-                    {
-                        echo json_encode(
-                            [
-                                'success' => $success,
-                                'preload' => $preload
-                            ], 
-                            JSON_UNESCAPED_UNICODE
-                        );
-                    }
+
+                    //http_response_code(404);
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    // if(isset($errors['title']))
+                    // {
+                    //     echo json_encode(
+                    //         [
+                    //             'errors' => $errors
+                    //         ], 
+                    //         JSON_UNESCAPED_UNICODE 
+                    //     );
+                    // }
+                    // else
+                    // {
+                    //     echo json_encode(
+                    //         [
+                    //             'success' => $success,
+                    //             'preload' => $preload
+                    //         ], 
+                    //         JSON_UNESCAPED_UNICODE
+                    //     );
+                    // }
                     exit(0);
                 }
 

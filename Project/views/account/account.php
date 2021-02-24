@@ -239,7 +239,8 @@
 
     <form method="POST" id="js-loadMore">
         <input style="display:none;" type="text" name="offset" id="js-offset" value="<?=isset($preloadOffset) ? $preloadOffset : "" ?>">
-        <input type="submit" value="Mehr Bestellungen anzeigen" name="loadMore">
+        <input type="submit" value="Mehr Bestellungen anzeigen" name="loadMore" id="loadMore">
     </form>
 
 </div> 
+<script src="<?=JAVASCRIPTPATH."loadMoreOrders.js"?>"></script>
