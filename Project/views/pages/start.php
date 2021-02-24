@@ -1,9 +1,17 @@
 <div class="start-content">
+
+
+
+
     
-    <h1>Burger City</h1>
-    <br>
-    <br>
-    <h3>Dein Burgerrestaurant</h3>
+    <div class="burgercitycontainer">
+        <img class="startpicture" src="<?=IMAGESPATH.'title_picture.png'?>", alt="title_picture.png">
+        <div class="burgercitycentered">
+            <h1 class="burgertitle">Burger City</h1>        
+            <h3>Dein Burgerrestaurant</h3>
+         </div>
+    </div>
+    <br><br>
     
     <p>Bei BurgerCity servieren wir dir Burger wie sie sein sollen: <br>
     frisch, saftig und cheesy mit handgemachten Zutaten in einem fluffigen Bun,<br>
@@ -29,8 +37,8 @@
 
 <div>
     <br><br><br><br>
-<h4>Empfehlung des Hauses</h4>
-    <h3>Die beliebtesten Burger dieser Woche</h3>
+<h2>Empfehlung des Hauses</h2>
+    <h4>Die beliebtesten Burger dieser Woche</h4>
     <div class="body-content" class="burgertext">
         <?php
             for($index = 0; $index < 3; $index++)
@@ -40,7 +48,9 @@
 
                     <h3 class="square-headline"><?=$burger[$index]->description?></h3>
 
-                    <img class="square-picture" src="<?=IMAGESPATH.$burger[$index]->pictureURL?>" alt="<?=$burger[$index]->altText?>">
+                    <div class = "picture-square">
+                            <a href=<?=htmlspecialchars("index.php?c=products&a=product&f=".$burger[$index]->productsId)?>><img class="square-picture"  src="<?=IMAGESPATH.$burger[$index]->pictureURL?>" alt="<?=htmlspecialchars($burger[$index]->altText)?>"></a>
+                        </div>
 
                     <div class="square-lower">
                         <div class="square-lower-elemets">

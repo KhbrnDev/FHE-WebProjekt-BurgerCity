@@ -401,6 +401,7 @@ class AccountController extends \dwp\core\Controller
 
 
         // Preload User->Orders
+        $userOrders = [];
         $preloadOffset = 3;
         if(isset($_POST['loadMore']))
         {
@@ -413,7 +414,7 @@ class AccountController extends \dwp\core\Controller
         }
         elseif(isset($_GET['ajax']) && $_GET['ajax'] == 1) // get from ajax
         {
-            $offest = isset($_POST['offest']) ? $_POST['offset'] : null;
+            $offset = isset($_POST['offset']) ? $_POST['offset'] : null;
 
             if($offset !== null)
             {
@@ -424,26 +425,76 @@ class AccountController extends \dwp\core\Controller
         {
             $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC LIMIT " . $preloadOffset);
         }
-        
+
+        // fill $preloadOrders
         foreach ($userOrders as $order) 
         {   
             $orderItems = \dwp\model\OrderItems::find("Orders_orderId = " . $order->orderId);
             $products = [];
             foreach ($orderItems as $item) 
             {
-                $products [] = 
+                if(isset($_GET['ajax']))
+                {
+                    $productAjax = \dwp\model\Products::findOne("productsId = " . $item->Products_productsId);
+                    $products [] = 
+                        [
+                            'product' =>
+                                [
+                                    'description' => $productAjax->description,
+                                    'price'       => $productAjax->price
+                                ],
+                            'quantity' => $item->quantity
+                        ];
+
+
+                }
+                else
+                {
+                    $products [] = 
                     [
                         'products' => \dwp\model\Products::findOne("productsId = " . $item->Products_productsId),
                         'quantity' => $item->quantity      
                     ];
             }
+                }
+
+                
 
             $totalPrice = 0;
             foreach ($products  as $product) 
             {
-                $totalPrice += $product['products']->price * $product['quantity'];
+                if(isset($_GET['ajax']))
+                {
+                    $totalPrice += $product['product']['price'] * $product['quantity'];
+                }
+                else
+                {
+                    $totalPrice += $product['products']->price * $product['quantity'];
+                }
             }
-            $preloadOrders [] = 
+
+            if(isset($_GET['ajax']))
+            {
+                $adress = \dwp\model\Adress::findOne("adressId = " . $order->Adress_adressId);
+                $preloadOrders [] = 
+                [
+                    'orderId'   => $order->orderId,
+                    'orderDate' => $order->orderDate,
+                    'adress'    => 
+                        [
+                            'city' => $adress->city,
+                            'zipCode' => $adress->zipCode,
+                            'street' => $adress->street,
+                            'number' => $adress->number
+                        ],
+                    'orderItems'=> $products,
+                    'totalPrice'=> $totalPrice
+                ];
+            }
+            else
+            {
+
+                $preloadOrders [] = 
                 [
                     'orderId'   => $order->orderId,
                     'orderDate' => $order->orderDate,
@@ -451,39 +502,35 @@ class AccountController extends \dwp\core\Controller
                     'orderItems'=> $products,
                     'totalPrice'=> $totalPrice
                 ];
-
+            }
+                
         }
         
         // send to AJAX
         if(isset($_GET['ajax']) && $_GET['ajax'] == 1)
         {
             
-            echo json_encode(["test","1234"],JSON_UNESCAPED_UNICODE);
-            //http_response_code(404);
-
-            exit(0);
-
-
-
-            // $preloadOffset = $preloadOffset + $offset;
-            // if(count($preloadOrders) !== 0)
-            // {
-            //     echo json_encode(
-            //         [
-            //             'preloadOrders' => $preloadOrders,
-            //             'offset'        => $preloadOffset
-            //         ], 
-            //         JSON_UNESCAPED_UNICODE 
-            //     );
-            // }
-            // else
-            // {
-            //     http_response_code(404);
+            $preloadOffset = $preloadOffset + $offset;
+            if(1)
+            {
+                echo json_encode(
+                    [
+                        'preloadOrders' => $preloadOrders,
+                        'offset'        => $preloadOffset,
+                        'inputOffset' => $offset
+                    ], 
+                    JSON_UNESCAPED_UNICODE 
+                );
+            }
+            else
+            {
+                http_response_code(404);
                 
-            // }
+            }
             //exit(0);
-        
-
+            
+            
+            exit(0);
 
             
         }
@@ -602,43 +649,26 @@ class AccountController extends \dwp\core\Controller
             
                 if(isset($_GET['ajax']))
                 {  
-                    echo json_encode(
-                        [
-                            "test", "12345"
-                        ]
-                        );
 
-                    //http_response_code(404);
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    // if(isset($errors['title']))
-                    // {
-                    //     echo json_encode(
-                    //         [
-                    //             'errors' => $errors
-                    //         ], 
-                    //         JSON_UNESCAPED_UNICODE 
-                    //     );
-                    // }
-                    // else
-                    // {
-                    //     echo json_encode(
-                    //         [
-                    //             'success' => $success,
-                    //             'preload' => $preload
-                    //         ], 
-                    //         JSON_UNESCAPED_UNICODE
-                    //     );
-                    // }
+                    if(isset($errors['title']))
+                    {
+                        echo json_encode(
+                            [
+                                'errors' => $errors
+                            ], 
+                            JSON_UNESCAPED_UNICODE 
+                        );
+                    }
+                    else
+                    {
+                        echo json_encode(
+                            [
+                                'success' => $success,
+                                'preload' => $preload
+                            ], 
+                            JSON_UNESCAPED_UNICODE
+                        );
+                    }
                     exit(0);
                 }
 

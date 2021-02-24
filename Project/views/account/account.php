@@ -194,9 +194,9 @@
 
 
 <h2>Bestellungen</h2>
-
-    <!-- BestellungStart -->
-    <?php foreach ($preloadOrders as $order): ?>
+    <div class="account-orders" id="account-orders">
+        <!-- BestellungStart -->
+        <?php foreach ($preloadOrders as $order): ?>
             <form class="account-orderlist-body" method="post">
                 <div class="account-orderlist-order">
                     <!-- TODO: schlechten Stil bei Datum (input) ändern -->
@@ -234,8 +234,10 @@
                     </div>
                 </div>
             </form>
-    <!-- BestellungEnde -->
-    <?php endforeach; ?>
+        
+        <!-- BestellungEnde -->
+        <?php endforeach; ?>
+    </div>  
 
     <form method="POST" id="js-loadMore">
         <input style="display:none;" type="text" name="offset" id="js-offset" value="<?=isset($preloadOffset) ? $preloadOffset : "" ?>">
