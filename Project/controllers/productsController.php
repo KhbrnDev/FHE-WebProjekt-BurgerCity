@@ -222,17 +222,7 @@ class ProductsController extends \dwp\core\Controller
 			$preloadProducts[$category]   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote($category));
 			getCategoryInformation($preloadProductsHelper[$category]  ['title'], $preloadProductsHelper[$category]  ['description'], $category);
 		}
-		/**
-		$preloadProducts['burger']   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("burger"));
-		$preloadProducts['snacks']   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("snacks"));
-		$preloadProducts['drinks']   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("drinks"));
-		$preloadProducts['desserts'] = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote("desserts"));
-		
-		getCategoryInformation($preloadProductsHelper['burger']  ['title'], $preloadProductsHelper['burger']  ['description'], 'burger');
-		getCategoryInformation($preloadProductsHelper['snacks']  ['title'], $preloadProductsHelper['snacks']  ['description'], 'snacks');
-		getCategoryInformation($preloadProductsHelper['drinks']  ['title'], $preloadProductsHelper['drinks']  ['description'], 'drinks');
-		getCategoryInformation($preloadProductsHelper['desserts']['title'], $preloadProductsHelper['desserts']['description'], 'desserts');
- 		*/
+
 		$this->setParam('preloadProducts', $preloadProducts);
 		$this->setParam('preloadProductsHelper', $preloadProductsHelper);
 
@@ -242,7 +232,7 @@ class ProductsController extends \dwp\core\Controller
 	public function actionProduct()
 	{
 		if(isset($_POST['addToWarenkorb'])){
-			
+			// TODO funktionierend machen
 		}
 		$id = $_GET['f'];
 		$product = \dwp\model\Products::findOne("productsId = " . $GLOBALS['db']->quote($id));

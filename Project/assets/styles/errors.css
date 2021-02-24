@@ -19,7 +19,7 @@
 }
 
 .error-message{
-    background-color: rgb(36,36,36) ;
+    background-color: var(--header-color) ;
     text-align: center;
     height: fit-content;
     flex: 0 0 auto; 

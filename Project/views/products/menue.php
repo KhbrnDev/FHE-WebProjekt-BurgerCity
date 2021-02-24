@@ -19,7 +19,9 @@
 
                         <h3 class="square-headline"><?=htmlspecialchars($products[$index]->description)?></h3>
 
-                        <img class="square-picture" src="<?=IMAGESPATH.$products[$index]->pictureURL?>" alt="<?=htmlspecialchars($products[$index]->altText)?>">
+                        <div class = "picture-square">
+                            <a href=<?=htmlspecialchars("index.php?c=products&a=product&f=".$products[$index]->productsId)?>><img class="square-picture"  src="<?=IMAGESPATH.$products[$index]->pictureURL?>" alt="<?=htmlspecialchars($products[$index]->altText)?>"></a>
+                        </div>
 
                         <div class="square-lower">
                             <div class="square-lower-elemets">
