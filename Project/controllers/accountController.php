@@ -433,27 +433,30 @@ class AccountController extends \dwp\core\Controller
             $products = [];
             foreach ($orderItems as $item) 
             {
+                $helperProduct = \dwp\model\Products::findOne("productsId = " . $item->Products_productsId);
+                    
                 if(isset($_GET['ajax']))
-                {
-                    $productAjax = \dwp\model\Products::findOne("productsId = " . $item->Products_productsId);
-                    $products [] = 
+                {$products [] = 
                         [
                             'product' =>
                                 [
-                                    'description' => $productAjax->description,
-                                    'price'       => $productAjax->price
+                                    'description' => $helperProduct->description,
+                                    'price'       => $helperProduct->price
                                 ],
-                            'quantity' => $item->quantity
+                            'quantity' => $item->quantity,
+                            'productsPrice' => getGermanNumber($item->quantity * $helperProduct->price)
                         ];
 
 
                 }
                 else
                 {
+                    $helperProduct = \dwp\model\Products::findOne("productsId = " . $item->Products_productsId);
                     $products [] = 
                     [
-                        'products' => \dwp\model\Products::findOne("productsId = " . $item->Products_productsId),
-                        'quantity' => $item->quantity      
+                        'products' => $helperProduct,
+                        'quantity' => $item->quantity,
+                        'productsPrice' => getGermanNumber($item->quantity * $helperProduct->price)
                     ];
             }
                 }
@@ -479,7 +482,7 @@ class AccountController extends \dwp\core\Controller
                 $preloadOrders [] = 
                 [
                     'orderId'   => $order->orderId,
-                    'orderDate' => $order->orderDate,
+                    'orderDate' => getGermanDate($order->orderDate),
                     'adress'    => 
                         [
                             'city' => $adress->city,
@@ -488,7 +491,7 @@ class AccountController extends \dwp\core\Controller
                             'number' => $adress->number
                         ],
                     'orderItems'=> $products,
-                    'totalPrice'=> $totalPrice
+                    'totalPrice'=> getGermanNumber($totalPrice)
                 ];
             }
             else
@@ -497,10 +500,10 @@ class AccountController extends \dwp\core\Controller
                 $preloadOrders [] = 
                 [
                     'orderId'   => $order->orderId,
-                    'orderDate' => $order->orderDate,
+                    'orderDate' => getGermanDate($order->orderDate),
                     'adress'    => \dwp\model\Adress::findOne("adressId = " . $order->Adress_adressId),
                     'orderItems'=> $products,
-                    'totalPrice'=> $totalPrice
+                    'totalPrice'=> getGermanNumber($totalPrice)
                 ];
             }
                 

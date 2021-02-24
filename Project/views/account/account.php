@@ -200,7 +200,7 @@
             <form class="account-orderlist-body" method="post">
                 <div class="account-orderlist-order">
                     <!-- TODO: schlechten Stil bei Datum (input) ändern -->
-                    Bestellnummer <?=htmlspecialchars($order['orderId'])?> vom <input style="border: none; font-family: sans-serif; font-size: 1rem;" type="date" value="<?=htmlspecialchars($order['orderDate'])?>" readonly> 
+                    Bestellnummer <?=htmlspecialchars($order['orderId'])?> vom <?=htmlspecialchars($order['orderDate'])?>
                     <div class="account-order-box">
                         <div class="account-order-subbox">
                             <p>Lieferadresse: <p>
@@ -216,7 +216,7 @@
                             ?>
                             <div class = "order-element">
                                 <a class = "left"><?=htmlspecialchars($product['quantity'])?>  <?=htmlspecialchars($product['products']->description)?></a>
-                                <a class = "right"><?=htmlspecialchars($product['products']->price * $product['quantity'])?> €</a>
+                                <a class = "right"><?=$product['productsPrice']?></a>
                             </div>
                             <?php 
                                 }
@@ -227,7 +227,7 @@
                             <input style="display:none;" type="text" name="orderId" value="<?=htmlspecialchars($order['orderId'])?>" readonly required>
                             <br>
                             <a class = "left">Gesamtpreis</a>
-                            <a class= "right"><?=$order['totalPrice']?> €</a>
+                            <a class= "right"><?=$order['totalPrice']?></a>
                             <br>
                             <input type="submit" name="repeatOrder" value="Erneut Bestellen">
                         </div>

@@ -39,11 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                 productsArray = "";
                                 element['orderItems'].forEach(item => 
                                 {
-                                    productsPrice = item['product']['price'] * item['quantity'];
                                     productsArray +=  
                                     "<div class = \"order-element\">"+
                                         "<a class = \"left\">"+ item['quantity'] + " " + item['product']['description'] + "</a>"+
-                                        "<a class = \"right\">"+ productsPrice + " €</a>"+
+                                        "<a class = \"right\">"+ "  " + item['productsPrice'] +  "</a>"+
                                     "</div>"
                                 });
                                 // maybe bad stye, but it works -> DO NOT TOUCH IT
@@ -64,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                             "<div class=\"account-order-subbox\">" +
                                                 "<input style=\"display:none;\" type=\"text\" name=\"orderId\" value=\""+ element['orderId']+ "\" readonly required>" +
                                                 "<br>"+
-                                                "<a class = \"left\">Gesamtpreis</a>"+
-                                                "<a class= \"right\">"+ element['totalPrice'] +" €</a>" +
+                                                "<a class = \"left\">Gesamtpreis </a>"+
+                                                "<a class= \"right\">"+ element['totalPrice'] +"</a>" +
                                                 "<br>" +
                                                 "<input type=\"submit\" name=\"repeatOrder\" value=\"Erneut Bestellen\"></input> "+
                                             "</div>"+

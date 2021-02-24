@@ -1,15 +1,14 @@
 <?php
 
-function labelClicked($name){
+// depricadet
+function labelClicked($name)
+{
     echo('Ich bin der Anfang der Funktion');
     header('Location: index.php?c=pages&a='.$name);
     echo('Ich stehe nach der Umleitung');
 
     exit(0);
 }
-
-
-// TODO: Add useful helper functions here
 
 /**
  * Used to clean and tidy up 'Einkaufswagen', merge double inputs
@@ -48,10 +47,19 @@ function getGermanDate($date){
 
 
 
+function getGermanNumber($price)
+{
+    //if acivated International Extention
+    //$fmt = numfmt_create( 'de_DE', NumberFormatter::CURRENCY );
+    //return numfmt_format_currency($fmt, $price, "EUR"); 
+    
+    //if not activated 
+    return number_format($price,2,',',' ')." €";
+}
 
-
-
-function getprice($price){
+// depricadet
+function getprice($price)
+{
     strval($price);
     $price = str_replace(".", ",", $price);
     $price .= "€";
