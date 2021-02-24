@@ -426,25 +426,75 @@ class AccountController extends \dwp\core\Controller
             $userOrders = \dwp\model\Orders::find("Account_accountId = " . $_SESSION['userID'] . " ORDER BY `orders`.`orderDate` DESC LIMIT " . $preloadOffset);
         }
 
+        // fill $preloadOrders
         foreach ($userOrders as $order) 
         {   
             $orderItems = \dwp\model\OrderItems::find("Orders_orderId = " . $order->orderId);
             $products = [];
             foreach ($orderItems as $item) 
             {
-                $products [] = 
+                if(isset($_GET['ajax']))
+                {
+                    $productAjax = \dwp\model\Products::findOne("productsId = " . $item->Products_productsId);
+                    $products [] = 
+                        [
+                            'product' =>
+                                [
+                                    'description' => $productAjax->description,
+                                    'price'       => $productAjax->price
+                                ],
+                            'quantity' => $item->quantity
+                        ];
+
+
+                }
+                else
+                {
+                    $products [] = 
                     [
                         'products' => \dwp\model\Products::findOne("productsId = " . $item->Products_productsId),
                         'quantity' => $item->quantity      
                     ];
             }
+                }
+
+                
 
             $totalPrice = 0;
             foreach ($products  as $product) 
             {
-                $totalPrice += $product['products']->price * $product['quantity'];
+                if(isset($_GET['ajax']))
+                {
+                    $totalPrice += $product['product']['price'] * $product['quantity'];
+                }
+                else
+                {
+                    $totalPrice += $product['products']->price * $product['quantity'];
+                }
             }
-            $preloadOrders [] = 
+
+            if(isset($_GET['ajax']))
+            {
+                $adress = \dwp\model\Adress::findOne("adressId = " . $order->Adress_adressId);
+                $preloadOrders [] = 
+                [
+                    'orderId'   => $order->orderId,
+                    'orderDate' => $order->orderDate,
+                    'adress'    => 
+                        [
+                            'city' => $adress->city,
+                            'zipCode' => $adress->zipCode,
+                            'street' => $adress->street,
+                            'number' => $adress->number
+                        ],
+                    'orderItems'=> $products,
+                    'totalPrice'=> $totalPrice
+                ];
+            }
+            else
+            {
+
+                $preloadOrders [] = 
                 [
                     'orderId'   => $order->orderId,
                     'orderDate' => $order->orderDate,
@@ -452,7 +502,8 @@ class AccountController extends \dwp\core\Controller
                     'orderItems'=> $products,
                     'totalPrice'=> $totalPrice
                 ];
-
+            }
+                
         }
         
         // send to AJAX
