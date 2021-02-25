@@ -37,9 +37,6 @@
     
     }
     
-    
-    
-    
     .burgertext{
     
         background-color: var(--header-color);
@@ -88,21 +85,11 @@
          
         .tableopenings{
             width: 100%;
-
             border-radius: 15px;
-    
         }
-    
-    
-    
-    
     }
     
-    
-    
-    
     .tableopenings{
-        
         
         color: white;
         font-size: 18px;
@@ -115,7 +102,6 @@
         background-color: var(--header-color);
         
     }
-    
     
     
     .info{
@@ -135,9 +121,8 @@
 
 .cart-picture{
     width: 40%;
-    margin-left: 25%;
-    
-
+    margin-top: 2rem;
+    margin-left: 28%;
 
 }
  
@@ -159,7 +144,6 @@
     }
 
     .sum-of-total-products{
-        
         display: inline;
 
     }
@@ -266,9 +250,6 @@
         display: inline;
         flex: none;
     }
-
-
-
 
 }
 
@@ -496,13 +477,6 @@
 #link a:active {
     color: white;
 }
-
-
-
-
-
-
-
 
 
 .lieferadresse a{
