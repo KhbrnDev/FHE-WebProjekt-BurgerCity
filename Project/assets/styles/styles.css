@@ -14,8 +14,12 @@
 
 
 html, body{
-    font-family: Roboto;
-    
+
+    /* font-family: 'OpenSans'; */
+    font-family: 'Roboto';
+    /* font-family: sans-serif; */
+
+
     /* BackgroundStart */
     background: url("../images/static/background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
