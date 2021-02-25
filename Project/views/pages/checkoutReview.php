@@ -1,7 +1,7 @@
 
 <div class="checkoutReview-body">
 
-    <h1>CheckoutReview </h1> <!-- TODO Namen für alle überschriften, buttons etc. anpassen anpassen--->
+    <h1>Checkoutreview </h1>
     <?php
         if(isset($errors) && count($errors) > 0):
             ?>
@@ -101,7 +101,5 @@
                 ?>
         </div>
     </form>
-
-
 
 </div>

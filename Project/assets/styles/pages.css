@@ -818,9 +818,4 @@
     .checkoutReview-body-left .lieferadresse, .checkoutReview-body-left .choose-payment{
         width: 48%;
     }
-
-    /* TODO Muss das mit dem Sticky-footer so sein? */
-    /* .push-sticky-footer{
-        display: none;
-    } */
 }

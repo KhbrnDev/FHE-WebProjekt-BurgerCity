@@ -1,4 +1,5 @@
 
+// use ajax to send signin form
 
 document.addEventListener('DOMContentLoaded', function () {
 

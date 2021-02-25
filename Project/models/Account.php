@@ -121,7 +121,7 @@ class Account extends \dwp\core\Model
         }
     }
 
-    // unsed? => rightclick -> peek references
+    // depricated, but might be usefull later
     public static function makeDateForDB(&$date)
     {
         $date = date_create($date);

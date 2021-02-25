@@ -15,7 +15,7 @@ function labelClicked($name)
  * should be called after every addition to 'Einkaufswagen'
  *  
  */
-// TODO make better, should clean the complete Einkaufswagen and merge double input
+// possible improvement: make better, should clean the complete Einkaufswagen and merge double input
 function cleanEinkaufswagen()
 {
     for($int = 0; $int < count($_SESSION['cart']) -1 ; $int++)
@@ -31,9 +31,6 @@ function cleanEinkaufswagen()
     
 }
 
-
-
-
 function getGermanDate($date){
     strval($date);
     $german_date = explode( "-" ,$date);
@@ -42,11 +39,7 @@ function getGermanDate($date){
 
 }
 
-
-
-
-
-
+// change Dateformat from DB to German
 function getGermanNumber($price)
 {
     //if acivated International Extention
@@ -68,10 +61,7 @@ function getprice($price)
     return $price;
 }
 
-
-
-
-
+// retrive category information for menue.php and category.php
 function getCategoryInformation(&$title, &$description, $category)
 {
     switch($category)
@@ -100,6 +90,7 @@ function getCategoryInformation(&$title, &$description, $category)
     }
 }
 
+// adding an item to cart 
 function addToCart($productsId, &$errors = [])
 {
     if($productsId !== null)

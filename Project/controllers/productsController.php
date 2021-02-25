@@ -194,6 +194,7 @@ class ProductsController extends \dwp\core\Controller
 	public function actionMenue()
 	{
 		$preloadProducts = [];
+
 		if(isset($_POST['more']))
 		{
 			$category = isset($_POST['category']) ? $_POST['category'] : null; 
@@ -209,15 +210,18 @@ class ProductsController extends \dwp\core\Controller
 			addToCart($productsId);
 		}
 		
+		// preload Data
 		$preloadProducts = [];
 		$preloadProductsHelper = [];
 		$categories = ['burger', 'snacks', 'drinks', 'desserts'];
+
 		foreach($categories as $category)
 		{
 			$preloadProducts[$category]   = \dwp\model\Products::find("category = " . $GLOBALS['db']->quote($category));
 			getCategoryInformation($preloadProductsHelper[$category]  ['title'], $preloadProductsHelper[$category]  ['description'], $category);
 		}
 
+		// push to view
 		$this->setParam('preloadProducts', $preloadProducts);
 		$this->setParam('preloadProductsHelper', $preloadProductsHelper);
 
@@ -226,6 +230,10 @@ class ProductsController extends \dwp\core\Controller
 
 	public function actionProduct()
 	{
+		// initialize params
+		$product = [];
+		$ingredients = [];
+
 		if(isset($_POST['addToCart']))
 		{
 			$productsId = isset($_POST['productsId']) ? $_POST['productsId'] : null;
@@ -245,6 +253,7 @@ class ProductsController extends \dwp\core\Controller
 			header("Location: index.php?c=products&a=menue");
 		}
 
+		// Preload Data
 		$ingredientsIDs = \dwp\model\ProductHelper::find("Products_productsId = " . $GLOBALS['db']->quote($id));
 		
 		$ingredients = [];
@@ -254,6 +263,7 @@ class ProductsController extends \dwp\core\Controller
 			$ingredients[]= $ingredient;
 		}
 
+		// push to view
 		$this->setParam('product', $product);
 		$this->setParam('ingredients', $ingredients);
 	}

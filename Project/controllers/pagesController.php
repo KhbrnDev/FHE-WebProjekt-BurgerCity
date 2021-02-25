@@ -21,6 +21,7 @@ class PagesController extends \dwp\core\Controller
 		$preloadGesamtSumme = 0;
         $success['success'] = false;
 
+		// button handling
 		if(isset($_POST['goToCartReview']))
 		{
 			$lieferhinweise = $_POST['lieferhinweise'] ? $_POST['lieferhinweise'] : null;
@@ -101,6 +102,7 @@ class PagesController extends \dwp\core\Controller
 		
 		$preloadLieferHinweise = isset($_SESSION['lieferhinweise']) ? $_SESSION['lieferhinweise'] : "";
 		
+		// push to view
 		$this->setParam('preloadOrders', $preloadOrders);
 		$this->setParam('preloadGesamtSumme', $preloadGesamtSumme);
 		$this->setParam('preloadLieferHinweise', $preloadLieferHinweise);
@@ -110,16 +112,19 @@ class PagesController extends \dwp\core\Controller
 
 	public function actionCheckout()
 	{
+		// initialize params
 		$errors = [];
 		$success = [];
 		$preloadAdresses = [];
 
+		// general Page management
 		if(!$this->loggedIn())
 		{
 			$_SESSION['nextPage'] = 'index.php?c=pages&a=cart';
 			header("Location: index.php?c=account&a=LogInSignIn");
 		}
 
+		// button handling
 		if(isset($_POST['nextStep']))
 		{
 			if(isset($_POST['adressId']) && isset($_POST['payment']))
@@ -247,11 +252,14 @@ class PagesController extends \dwp\core\Controller
 		$preloadOrders = [];
 		$errors = [];
 
+		// general page management
 		if(!$this->loggedIn() || !isset($_SESSION['cart']) || empty($_SESSION['cart']) || !isset($_SESSION['cart']) || !isset($_SESSION['cartHelper']) ||
 			 !isset($_SESSION['cartHelper']) || empty($_SESSION['cartHelper']))
 		{
 			header("Location: index.php?c=pages&a=cart");
 		}
+
+		// button handling
 		if(isset($_POST['nextStep']))
 		{
 			$date = getdate();

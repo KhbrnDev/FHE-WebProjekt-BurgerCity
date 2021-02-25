@@ -34,6 +34,7 @@ class footercontentController extends \dwp\core\Controller
             }
         }
 
+        // button handling
         if(isset($_POST['deleteAdmin']))
         {
             $accountId = isset($_POST['accountId']) ? $_POST['accountId'] : null;
@@ -97,6 +98,7 @@ class footercontentController extends \dwp\core\Controller
             }
         }
 
+        // not fully implemented yet
         if(isset($_POST['changeFavorite']))
         {
             $productsId = isset($_POST['productsId']) ? $_POST['productsId'] : null;
@@ -128,7 +130,7 @@ class footercontentController extends \dwp\core\Controller
         // DO STUFF HERe
         $preloadAdmins = \dwp\model\Account::find("isAdmin = 1");
         $preloadCustomers = \dwp\model\Account::find("isAdmin = 0 ORDER BY `account`.`email`");
-        $preloadProducts = \dwp\model\Products::find("1 ORDER BY  `products`.`category`");
+        $preloadProducts = \dwp\model\Products::find("1 ORDER BY  `products`.`category`"); // not needed beacuase not fully implemented but still loaded
         
 
         // PRELOAD DATA

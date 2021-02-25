@@ -1,5 +1,7 @@
 
-
+/**
+ * Load more past orders 
+ * */ 
 document.addEventListener('DOMContentLoaded', function () {
 
     var submit = document.getElementById('loadMore');
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         {
                             // increase Button value
                             document.getElementById('js-offset').value = jsonResponse['offset'];
-                            // load Data
+                            // load Data + write html in div
                             var ordersDiv = document.getElementById('account-orders');
                             jsonResponse['preloadOrders'].forEach(element => 
                             {
@@ -77,8 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             
                         }
                         
-                        console.log(jsonResponse['preloadOrders'][0]);
-
                     }
                     else
                     {
