@@ -132,6 +132,14 @@
 *
 *
 * */
+
+.cart-picture{
+    width: 40%;
+    margin-left: 25%;
+    
+
+
+}
  
 @media only screen and (max-width: 800px){
     

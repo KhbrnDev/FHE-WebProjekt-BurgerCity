@@ -57,6 +57,8 @@
         ?>  
 
         Sie haben noch keine Artikel im Einkaufswagen. Sie können sich <a href="index.php?c=products&a=menue">hier</a> welche aussuchen
+        <br>
+        <img class="cart-picture" src="<?=IMAGESPATH.'einkaufswagen.png'?>" alt="schöner schlichter Einkaufswagen">
 
 
         <?php 
