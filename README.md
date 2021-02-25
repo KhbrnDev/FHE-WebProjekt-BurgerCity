@@ -12,4 +12,4 @@ Projekt für Grundlagen und Dynamische Webprogrammierung
     | :------------- | :----------: | -----------: |
     | Administrator|admin@burgercity.de|Admin1234|
     |Kunde|max.mag@online.de|Passwort1234|
-- 
+- Passwortbeispiel für Registrierung: 123ABCabc
