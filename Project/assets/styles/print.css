@@ -4,7 +4,29 @@
     z.B Hintergrund von Grau auf Weiß Weiß und Text von Weiß auf Schwatz um Tinte zu sparen */
 
     @media print{
-        .products-body{
-            color: red;
+        
+        section{
+            color: black;
         }
+        .account-order-subbox{
+            width: 32%;
+        }
+
+        .account-orderlist-order{
+            margin-top: 1rem;
+        }
+
+        
+        .menu-body{
+            width: 100%;
+        }
+        section{
+            width: 100%;
+        }
+
+        .cart-body img{
+            width: 30%;
+            height: auto;
+        }
+        
     }
