@@ -27,6 +27,32 @@
 .contact-form label{
 }
 
+/* Mail&Send */
+
+.mailSend-content{
+    text-align: center;
+    
+}
+
+.mailsendpicture{
+    width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.mailsendtext{
+    font-size: 17px;
+    background-color: var(--header-color);
+    color: white;
+    border-width: 10px;
+    border-color: darkgreen;
+    border-style: solid;
+    border-radius: 15px;
+}
+
 /* Administration */
 
 .administration-body{
