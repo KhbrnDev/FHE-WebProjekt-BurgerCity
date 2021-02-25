@@ -115,7 +115,7 @@
         <img src=<?=IMAGESPATH."img/Account_Oben_Desktop.PNG"?> alt="Accountseite in Desktop-Ansicht" width="70%" height=auto>
         <img src=<?=IMAGESPATH."img/Account_Accountinformationen_Mobil.PNG"?> alt="Accountseite in Mobil-Ansicht" width="20%" height=auto>
 
-        <p>Zunächst werden nur die letzten Bestellungen angezeigt, mit Javascript lassen sich weitere Bestellungen, sofern vorhanden, dynamisch nachladen. Dies erfolgt über den "Mehr Bestellungen anzeigen"-Button. Vergangene Bestellungen lassen sich über den Button "Erneut Bestellen" wieder in den Warenkorb hinzufügen.</p>
+        <p>Zunächst werden nur die letzten Bestellungen angezeigt, mit Javascript lassen sich weitere Bestellungen, sofern vorhanden, dynamisch nachladen. Mit PHP können ebenfalls Bestellungen nachgeladen werden, dann ist jedoch ein Neuladen der Seite erforderlich. Dies erfolgt über den "Mehr Bestellungen anzeigen"-Button. Vergangene Bestellungen lassen sich über den Button "Erneut Bestellen" wieder in den Warenkorb hinzufügen.</p>
         <img src=<?=IMAGESPATH."img/Account_Unten_Desktop.PNG"?> alt="Accountseite in Desktop-Ansicht" width="70%" height=auto>
         <img src=<?=IMAGESPATH."img/Account_Bestellungen_Mobil.PNG"?> alt="Accountseite in Mobil-Ansicht" width="20%" height=auto>
         
