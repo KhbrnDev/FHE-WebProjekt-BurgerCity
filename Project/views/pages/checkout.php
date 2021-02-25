@@ -52,8 +52,8 @@
             </div>
             
             </div>
+        <div class="choose-payment">
             <h3>Zahlungsmethode wählen</h3>
-            <div class="choose-payment">
                 <input class="card-input" type="radio" name="payment" id="card" value="card" required>
                 <label class="card-label" for="card">EC-Karte</label>
                 <div class="payment-card">

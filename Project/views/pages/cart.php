@@ -22,7 +22,7 @@
         <?php foreach($preloadOrders as $orderItem){ ?>
         <form method="POST">
             <div class="cart-product-box">
-                <a class="cart-product-picture-link" href="">
+                <a class="cart-product-picture-link" href="index.php?c=products&a=product&f=<?=$orderItem['product']->productsId?>">
                     <img class="cart-product-picture"src="<?=IMAGESPATH.$orderItem['product']->pictureURL?>" alt="<?=htmlspecialchars($orderItem['product']->altText)?>">
                 </a>
 

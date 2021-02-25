@@ -2,7 +2,7 @@
 <div class="account-body">
     <div class="h1-ausloggen">
         <form method="post">
-            <input type="submit" name="logout" value="Logout">
+            <input class="logout" id="logout" type="submit" name="logout" value="Logout">
         </form>
         <h1>Willkommen,<br><?=(isset($preloadUser['firstname']) ? $preloadUser['firstname'] : "")  . " " . (isset($preloadUser['lastname']) ? $preloadUser['lastname'] : "")?></h1>
         
@@ -228,7 +228,8 @@
                             <a class = "left">Gesamtpreis</a>
                             <a class= "right"><?=$order['totalPrice']?></a>
                             <br>
-                            <input type="submit" name="repeatOrder" value="Erneut Bestellen">
+                            <br>
+                            <input type="submit" id="repreatOrder" name="repeatOrder" value="Erneut Bestellen">
                         </div>
                     </div>
                 </div>
@@ -240,7 +241,7 @@
 
     <form method="POST" id="js-loadMore">
         <input style="display:none;" type="text" name="offset" id="js-offset" value="<?=isset($preloadOffset) ? $preloadOffset : "" ?>">
-        <input type="submit" value="Mehr Bestellungen anzeigen" name="loadMore" id="loadMore">
+        <input type="submit" class="loadMore-Button" value="Mehr Bestellungen anzeigen" name="loadMore" id="loadMore">
     </form>
 
 </div> 

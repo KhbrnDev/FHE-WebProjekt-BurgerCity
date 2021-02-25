@@ -22,7 +22,7 @@
                 <div class="tabs">
                     <div class="tab">
                         <input class="tabControl" type="radio" id="tab-1" name="tab-group-1" checked>
-                        <label for="tab-1">Foot Type</label>
+                        <label for="tab-1">Food Type</label>
 
                         <div class="filter-content">
                             <input type="radio" name="foodtype" id="vegan" value="vegan"
@@ -114,9 +114,10 @@
                     </div>
                     
                 </div>
-
-                <input type="submit" name="resetAllFilter"  value="Alle Filter zurücksetzen">
-                <input type="submit" name="setFilter"       value="Filter anwenden">
+                <div class="filter-buttons">
+                    <input type="submit" name="resetAllFilter"  value="Alle Filter zurücksetzen">
+                    <input type="submit" name="setFilter"       value="Filter anwenden">
+                </div>
             </form>
 
           

@@ -117,7 +117,8 @@
     
     </div>
 
-    <div class="edit-products">
+    <!-- Verschoben auf nächsten Release -->
+    <div style="display:none;"  class="edit-products">
         <h2><label for="edit-products">Produkte bearbeiten</label></h2>
         <input type="checkbox" class="make-admin-checkbox" id="edit-products">
         

@@ -131,8 +131,7 @@
 * cart.php
 *
 *
-*
- */
+* */
  
 @media only screen and (max-width: 800px){
     
@@ -169,7 +168,7 @@
     }
 
     .goToCart-Lieferhinweise{
-        width: calc(98.9vw - 1rem);
+        width: calc(98% - 1rem);
         margin: 0 0.5rem 0 0.5rem;
         border:0.5px solid var(--background-color);
     }
@@ -430,7 +429,7 @@
     }
 
     .checkout-body h1{
-        margin: 20px 0 1rem 0.5rem;
+        margin: 0px 0 1rem 0.5rem;
         padding-top: 4px;
     }
 
@@ -450,12 +449,14 @@
         border: none;
         
     }
-
+    
     .checkout-body-left{
         margin: 0 0.5rem;
     }
-
+    
+    /* Adressen */
     .checkout-adress-box{
+        margin-top: 0.5rem;
         width: calc(100vw - 1.4rem);
         padding: 0.2rem;
         background-color: var(--background-color);
@@ -469,14 +470,13 @@
     }
 
     .checkout-adress-box label{
-        display: inline-block;
+        line-height: 1.5rem;
+        display: inline;
         padding: 0.3rem 0;
     }
 
-    /* Adressen */
-    
+    /* PAyment */
     .choose-payment{
-
     }
 
     .choose-payment > input{
@@ -505,7 +505,7 @@
 
     .choose-payment div input{
         height: 1.2rem;
-        width: 50%;
+        width: calc(100% - 0.5rem);
     }
 }
 
@@ -517,7 +517,7 @@
 
     .checkout-body h1{
         
-        margin: 1rem 0 2rem 0.5rem;
+        margin: 1rem 0 2rem 1.5rem;
     }
     .checkout-body-right{
         position:sticky;
@@ -548,6 +548,11 @@
 
     }
 
+    .checkout-body .lieferadresse{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
     .checkout-adress-box input{
         width: 1rem;
         height: 1rem;
@@ -557,16 +562,15 @@
 
     }
 
+    /* Adressen */
     .checkout-body-left .checkout-adress-box{
         background-color: var(--background-color);
         color:white;
     }
 
     
-     /* Adressen */
-    
      .choose-payment{
-
+        margin-left: 1rem;
     }
 
     .choose-payment > input{
@@ -594,7 +598,10 @@
 
     .choose-payment div input{
         height: 1.2rem;
-        /* TODO Wegen IBAN die Breite der inputs einheitlich anpassen */
+    }
+
+    .payment-card, .payment-Paypal{
+        width: 93.5%;
     }
 
 }
@@ -614,7 +621,7 @@
 
     .checkoutReview-body h1{
         
-        margin: 20px 0 1rem 0.5rem;
+        margin: 0px 0 1rem 0.5rem;
         padding-top: 4px;
     }
 
@@ -633,18 +640,11 @@
         margin-left: 0;
         margin-right: 0;
     }
-    .checkoutReview-body .lieferadresse{
-        width: 50%;
-        margin: auto;
-    }
 
-    .checkoutReview-body .choose-payment{
-        margin: auto;
-        width: 50%;
-    }
+
     .goTo-CheckoutSuccess{
         margin: 0.5rem 0.5rem;
-        width: calc(100vw - 1rem);
+        width: calc(100% - 1rem);
         border-radius: 5px;
         background-color: var(--accent-secondary);
         color:white;
@@ -659,13 +659,16 @@
     /* ProductBox */
     .checkoutReview-product-box{
         background-color: var(--background-color);
-        width: calc(100vw - 1rem);
+        width: calc(100% - 1rem);
         margin: 1rem 0 ;
 
         color:white;
 
         display: flex;
         flex-wrap: wrap;
+    }
+    .checkoutReview-body-left .lieferadresse, .checkoutReview-body-left .choose-payment{
+        text-align: center;
     }
 
     .checkoutReview-product-picture-link{
@@ -720,51 +723,24 @@
         width: calc(13rem - 1rem);
         
     }
-
-    .checkout-product-box{
-        display: flex;
-        flex-wrap: wrap;
-        background-color: var(--background-color);
-        color: white;
-        margin: 0 0.5rem;
-    }
-    .checkoutReview-body-left{
-        margin: 0 0 0 0.5rem;
+    /* left side*/
+    .checkoutReview-body-left .cart-product-box{
         width: calc(100% - 14rem);
     }
-    
-    .checkoutReview-body .cart-product-box{
+    .checkoutReview-body-left .checkout-product-box{
+        background-color: var(--background-color);
+        margin-left: 0.5rem;
+        width: calc(100% - 14rem - 2rem);
+        color: white;
+        padding: 1rem;
+        
         display: flex;
         flex-wrap: wrap;
-    } 
-    .lieferadresse{
-        padding-left: 1rem;
+    }
+
+    .checkoutReview-body-left .lieferadresse, .checkoutReview-body-left .choose-payment{
         width: 48%;
     }
 
-    .checkoutReview-body .cart-product-box img{
-        width: auto;
-        height: 10rem;
-    }
-
-    .checkoutReview-body .cart-product-box a{
-        height: auto;
-        width: 40%;
-        flex: auto;
-    }
-
-
-    .checkoutReview-body .cart-product-box-right{
-        flex: auto;
-    }
-
-    .checkoutReview-body h3{
-        margin-left: 0;
-    }
-
-    /* TODO Muss das mit dem Sticky-footer so sein? */
-    /* .push-sticky-footer{
-        display: none;
-    } */
     
 }

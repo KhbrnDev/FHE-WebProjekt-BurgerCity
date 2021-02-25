@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         {
                             // increase Button value
                             document.getElementById('js-offset').value = jsonResponse['offset'];
+                            // load Data
                             var ordersDiv = document.getElementById('account-orders');
                             jsonResponse['preloadOrders'].forEach(element => 
                             {
@@ -65,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                 "<br>"+
                                                 "<a class = \"left\">Gesamtpreis </a>"+
                                                 "<a class= \"right\">"+ element['totalPrice'] +"</a>" +
+                                                "<br>" +
                                                 "<br>" +
                                                 "<input type=\"submit\" name=\"repeatOrder\" value=\"Erneut Bestellen\"></input> "+
                                             "</div>"+

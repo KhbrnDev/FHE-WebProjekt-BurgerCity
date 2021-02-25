@@ -1,5 +1,9 @@
 @import "color.css";
 
+/*
+* Account
+* 
+**/
 
 .account-body{
 
@@ -23,12 +27,13 @@
     margin-left: 1rem; 
 }
 
+
 /* Account Informationen */
 
 .account-properties{
 
     margin: 0 1rem;
-    background-color: lightgray;
+    background-color: var(--background-color-secondary);
     box-shadow: grey;
 
 }
@@ -63,7 +68,7 @@
     flex:auto;
 
     padding:1rem;
-    background-color: lightgray;
+    background-color: var(--background-color-secondary);
     margin-bottom: 1rem;
 
     text-align: center;
@@ -97,22 +102,65 @@
     flex-wrap: wrap;
 }
 
+.loadMore-Button{
+    background-color: var(--accent-secondary);
+    border-radius: 5px;
+    border: none;
+    width: 15rem;
+    margin: 1rem auto 0 auto;
+
+}
+
+#js-loadMore{
+    text-align: center;
+}
+
+#logout {
+    border:none;
+    border-radius: 5px;
+    background-color: var(--background-color-secondary);
+}
+
+.account-body input[type=submit]{
+    background-color: var(--accent-secondary);
+    border:none;
+    border-radius: 5px;
+    
+}
 
 
 @media only screen and (max-width: 800px){
-.account-properties label, input{
+.account-properties label{
     width: 90%;
     padding-left: 0;
     padding-right: 0;
     margin-right: 0; 
 }
 
+
+.account-body input{
+    width: 17rem;
+}
+.account-body input[type=submit]{
+    border: none;
+    background-color: var(--accent-secondary);
+    border-radius: 5px;
+
+}
+#logout{
+    width: 5rem;
+    background-color: var(--background-color-secondary);
+}
 .account-order-subbox{
-    width: 90%;
+    width: calc(100% - 2rem);
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 1rem; 
     margin-right: 1rem; 
+}
+.account-order-box{
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 .left{
@@ -147,7 +195,10 @@
     }
 }
 
-/* LogInSignIn.php */
+/*
+*
+* LogInSignIn.php 
+**/
 
 @media only screen and (min-width: 800){
 

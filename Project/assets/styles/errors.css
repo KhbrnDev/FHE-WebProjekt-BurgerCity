@@ -25,7 +25,7 @@
     flex: 0 0 auto; 
     margin-top: 20px;
     margin-bottom: 20px;
-    color: lightgrey;
+    color: var(--background-color-secondary);
 }
 
 .error-message p{

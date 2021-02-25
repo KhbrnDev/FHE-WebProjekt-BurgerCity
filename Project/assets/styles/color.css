@@ -2,9 +2,12 @@
     /* COLORS */
     
     --background-color: rgb(80,80,80);
+    --background-color-secondary: rgb(211, 211, 211);
     --accent-primary: rgb(98,196,294);
     --accent-secondary: rgb(255, 166, 0);
     --header-color: rgb(36,36,36);
+
+
     /* OTHERS */
     --header-height: 70px;
     --footer-height: 2em;
