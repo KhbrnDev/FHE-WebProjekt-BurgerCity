@@ -10,8 +10,9 @@
                 <p>Wir werden ihre Bestellung so schnell wie möglich bearbeiten und wünschen Ihnen einen Guten Appetit</p>
                 <br>
                 <div class="link-startseite">
-                    <div id="link">
-                <a href=<?=htmlspecialchars("index.php?c=pages&a=start")?>>zurück zur Startseite</a>
+                    <form action="index.php?c=pages&a=start">
+                        <input type="submit" value="Zurück zur Startseite">
+                    </form>
                 </div>
                 </div>
                 <br><br> 

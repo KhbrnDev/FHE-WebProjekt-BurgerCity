@@ -48,7 +48,7 @@
     background-color: var(--header-color);
     color: white;
     border-width: 10px;
-    border-color: darkgreen;
+    border-color: var(--accent-primary);
     border-style: solid;
     border-radius: 15px;
 }
