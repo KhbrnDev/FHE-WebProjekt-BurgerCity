@@ -64,7 +64,7 @@
         </p>
 
         <h2>Navigationsstruktur</h2>
-        <img src=<?=IMAGESPATH."img/Sitemap.PNG"?> alt="Beispiel 3" width="80%" height=auto>
+        <p><img src=<?=IMAGESPATH."img/Sitemap.PNG"?> alt="Beispiel 3" width="80%" height=auto></p>
         <p>Wie bereits im Seitenlayout angedeutet, besteht unsere Seite neben der Startseite aus sechs Bereichen: Der Speisekarte, der Accountverwaltung, dem Warenkorb, der Administration, dem Impressum und der Kontaktseite.
             Der Speisekarten-Button im Header verfügt neben der Verlinkung zur Übersichtsseite mit je drei Produkten aus jeder Kategorie auch über ein Drop-Down-Menü, aus dem man die Kategorien direkt auswählen kann (Burger, Snacks, Getränke, Desserts) und so direkt auf die Seite kommt, auf der alle Produkte der Kategorie angezeigt werden.
             Über die Kategorieseiten kommt man per Klick auf die einzelnen Produkte zudem auf die jeweilige Produktseite, wo Details zu dem Produkt in Form einer Zutatenliste angezeigt werden.
@@ -147,8 +147,10 @@
         <img src=<?=IMAGESPATH."img/Kontaktformular_Desktop.PNG"?> alt="Kontaktformular in Desktop-Ansicht" width="70%" height=auto>
         <img src=<?=IMAGESPATH."img/Kontaktformular_Mobil.PNG"?> alt="Kontaktformular in Mobil-Ansicht" width="20%" height=auto>
         <p>Nach Versenden wird eine Bestätigungsmeldung angezeigt.</p>
+        <p>
         <img src=<?=IMAGESPATH."img/Nachricht_Bestätigung_Desktop.PNG"?> alt="Kontakt-Bestätigung in Desktop-Ansicht" width="70%" height=auto>
         <img src=<?=IMAGESPATH."img/Nachricht_Bestätigung_Mobil.PNG"?> alt="Kontakt-Bestätigung in Mobil-Ansicht" width="20%" height=auto>
+        </p>
         
 
         <h2>Datenbank</h2>
@@ -221,6 +223,8 @@
             <li>Gemeinsam mit Martin Kühlborn die Action Category im productsController</li>
             <li>Dokumentation</li>
         </p>
+
+        <p>Zu Beginn des Projekts haben wir zudem pro Person ein SketchUp programmiert, um uns auszuprobieren und eine Design-Diskussionsgrundlage zu haben. Die Sketchups sind auch im Repository zu finden.</p>
 
         <h2>Verwendete Technologien</h2>
             <li>Optimiert für Chrome</li>
