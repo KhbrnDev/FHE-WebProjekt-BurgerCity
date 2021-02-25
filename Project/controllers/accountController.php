@@ -394,6 +394,7 @@ class AccountController extends \dwp\core\Controller
 
 
         // Preload User->Orders
+        // with and without ajax activated
         $userOrders = [];
         $preloadOffset = 3;
         if(isset($_POST['loadMore']))
@@ -523,12 +524,9 @@ class AccountController extends \dwp\core\Controller
                 http_response_code(404);
                 
             }
-            //exit(0);
-            
-            
+
             exit(0);
 
-            
         }
 
         // PUSH TO VIEW
@@ -543,20 +541,14 @@ class AccountController extends \dwp\core\Controller
     
     public function actionLogInSignIn()
     {
+        // initialize params
         $preload = [];
         $errors = [];
         $success['success'] = false;
 
         if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
         {
-            // if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] !== true)
-            // {
-                header("Location: index.php?c=account&a=account");
-            // }
-            // elseif(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true)
-            // {
-            //     header("Location: index.php?c=footercontent&a=administration");
-            // }
+            header("Location: index.php?c=account&a=account");
         }
         else
         {
@@ -710,17 +702,7 @@ class AccountController extends \dwp\core\Controller
                                     break;
                                 endswitch;
                                     
-                            // OBSOLTETE
-                            // if($Account->isAdmin == 1)
-                            // {
-                            //     $_SESSION['isAdmin'] = true;
-                            //     header("Location: index.php?c=footercontent&a=administration");
-                            // }
-                            // else
-                            // {
-                            //     $_SESSION['isAdmin'] = false;
-                            //     header("Location: index.php?c=account&a=account");
-                            // }
+                           
                         }
                         else
                         {

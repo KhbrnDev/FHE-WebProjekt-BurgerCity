@@ -199,7 +199,6 @@
         <?php foreach ($preloadOrders as $order): ?>
             <form class="account-orderlist-body" method="post">
                 <div class="account-orderlist-order">
-                    <!-- TODO: schlechten Stil bei Datum (input) ändern -->
                     Bestellnummer <?=htmlspecialchars($order['orderId'])?> vom <?=htmlspecialchars($order['orderDate'])?>
                     <div class="account-order-box">
                         <div class="account-order-subbox">

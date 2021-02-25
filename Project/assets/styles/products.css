@@ -104,6 +104,7 @@
     margin: 1rem;
 }
 .toggleProductFilter{
+    cursor: pointer;
     margin-left: calc(50% - 44px);
     padding: 3px;
     border: none;

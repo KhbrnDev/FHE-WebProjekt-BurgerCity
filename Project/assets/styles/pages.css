@@ -145,7 +145,6 @@
     
     .cart-body{
 
-
     }
 
     .cart-body h1{
@@ -278,7 +277,6 @@
 
 @media only screen and (min-width: 801px){
     .cart-body{
-
     }
 
     .cart-body h1{
@@ -472,14 +470,16 @@
 }
 
 .link-startseite{
-    border-width: 5px;
-    border-color: white;
-    border-style: solid;
-    border-radius: 8px;
     width: 40%;
     margin: auto;   
-       
+    padding: 2rem;
 
+}
+
+.link-startseite input{
+    background-color: var(--accent-secondary);
+    border: none;
+    border-radius: 5px;
 }
 #link a:visited {
     color: white;
@@ -826,6 +826,4 @@
     .checkoutReview-body-left .lieferadresse, .checkoutReview-body-left .choose-payment{
         width: 48%;
     }
-
-    
 }
