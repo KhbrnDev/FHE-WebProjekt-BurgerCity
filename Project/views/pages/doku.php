@@ -215,6 +215,8 @@
         <p>Felix Polte:
             <li>Die komplette Datenbank</li>
             <li>Actions Start und CheckoutSuccess im PagesController</li>
+            <li>Bestätigung Kontakt Desing</li>
+            <li>Checkout-Success Design</li>
         </p>
         <p>Daniel Michel:
             <li>ErrorsController komplett</li>
