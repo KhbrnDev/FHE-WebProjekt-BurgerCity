@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Projektdokumentation</title>
-    </head>
+
     <body>
         <h1>Projektdokumentation Burgercity</h1>
 
@@ -238,4 +233,3 @@
             <li>MySQL Workbench</li>
             <li>PHP, JS</li>
     </body>
-</html>

@@ -28,7 +28,7 @@
         <div class="checkoutReview-body-right">
             <p class="total-number-of-products">Summe (<?=htmlspecialchars($preloadGesamtSumme['gesamtAnzahl'])?> Artiekl):<p class="sum-of-total-products"> <?=htmlspecialchars(getGermanNumber($preloadGesamtSumme['gesamtSumme']))?></p></p>
             <input class="goTo-CheckoutSuccess" type="submit" name="nextStep" value="Jetzt Bestellen">
-            <textarea class="goToCart-Lieferhinweise"  name="lieferhinweise" id="lieferhinweise" cols="10" rows="4"><?=isset($preloadLieferHinweise) ? htmlspecialchars($preloadLieferHinweise) : ""?></textarea>
+            <textarea readonly class="goToCart-Lieferhinweise"  name="lieferhinweise" id="lieferhinweise" cols="10" rows="4"><?=isset($preloadLieferHinweise) ? htmlspecialchars($preloadLieferHinweise) : ""?></textarea>
         </div>
 
         <div class="checkoutReview-body-left">

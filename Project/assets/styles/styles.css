@@ -54,6 +54,12 @@ h1{
     margin-bottom: auto;
 }
 
+/* similar button design*/
+input[type=submit], button{
+    cursor: pointer;
+}
+
+/* smae layout on all pages */
 .page-layout{
     background-color: white;
     max-width: 1250px;
