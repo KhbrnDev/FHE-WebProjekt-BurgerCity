@@ -19,7 +19,6 @@ class PagesController extends \dwp\core\Controller
         $errors = [];
         $preloadOrders = [];
 		$preloadGesamtSumme = 0;
-        $success['success'] = false;
 
 		// button handling
 		if(isset($_POST['goToCartReview']))

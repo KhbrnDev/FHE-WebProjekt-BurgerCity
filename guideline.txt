@@ -1,0 +1,24 @@
+- Acconut -> Konto
+- weiße schrift auf grau oder graue schrift auf grau
+- kein text der springt (im nav)
+- grau auf weiß stellen
+- im untermenü schwarz und dann unter speisekarte auch schwarz als ein Element
+- schrift im nav vielleicht 2 bis 4 grad kleiner machen (die buttons darunter können größer sein)
+- SCHIFT EINBINDEN!! (bei großen schriften besonders, sonst besonders lesbar)
+
+Speisekarte
+- 3 Teillung bei den Anzeigen (3 Spalten)
+- maximalbreite festlegen
+- textbreite and bildbreite anlegen
+- hintergrundbild bei der überschrift und evtl. hintergrundbild auf der Seite
+- Mitte die Seite machen, am Rand das hintergrundbild
+- Logo mehr als Logo machen :D andeutung von einem Logo (Burgercity als burger (name als patty und oben und unten das brot)) (flaticons)
+- 
+- 
+
+
+Farben:
+	- wenige Lininen und Rahmen !!1!
+	- Burger hintergrundbild mit weiß als schatten (mit Tischoptik)
+	- Buttons dürfen runde ecken haben (leichte ecken oder halbkreis machen), nicht so wie es ist!
+	- 
